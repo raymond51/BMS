@@ -29,34 +29,75 @@ void init_GPIO(void);
 void init_AFE(void);
 void statemachine(void);
 
+void __interrupt() my_isr(void) { // High priority interrupt
+
+    static uint8_t count = 0;
+    static bool toggleColor = false;
+    PIR1bits.TMR1IF = 0;
+
+    count++;
+
+    // Blink every second
+    if (count == 65) {
+        count = 0;
+        if (toggleColor) {
+            toggleColor = !toggleColor;
+            RGB_color(RGB_RED);
+        } else {
+            toggleColor = !toggleColor;
+            RGB_color(RGB_GREEN);
+        }
+    }
+
+}
+
 void main(void) {
-    
+
     //Peripherals
     initClock(); //initialise and set internal high frequency clock
     init_GPIO(); //configuring PPS
     init_I2C(); //configure i2c to 100kHz
     EUSART_Initialize(19200);
     init_RGB(); //set initially RGB all off
-    RGB_color(RGB_RED);//set the RGB led red to initially to signal no communication with AFE chip
+    RGB_color(RGB_RED); //set the RGB led red to initially to signal no communication with AFE chip
     //BMS boot/initialisation
-    init_AFE(); 
-    
-    while(1){
-    
-      statemachine();
-    
+    init_AFE();
+
+
+
+    // prescale = 1
+    T1CONbits.T1CKPS = 0b00;
+    // Set TMR1 to 0
+    TMR1 = 0;
+
+    // enable timer1
+    T1CONbits.TMR1ON = 1;
+
+    // enable timer1 interrupt
+    PIE1bits.TMR1IE = 1;
+
+    // enable peripheral interrupt
+    INTCONbits.PEIE = 1;
+    // enable global interrupts
+    ei();
+
+
+    while (1) {
+
+        statemachine();
+
     }
-    
+
     return;
 }
 
-void statemachine(void){
-        
-    
-    
+void statemachine(void) {
+
+
+
 }
 
-void init_AFE(void){
+void init_AFE(void) {
     //begin communication
     //set temperature limit
     //set shunt resistor value
@@ -65,7 +106,7 @@ void init_AFE(void){
     //set overcurrent discharge protection
     //set cell under voltage protection
     //set cell overvoltage protection
-    
+
     //set balancing threshold
     //set idle current threshold
     //enable auto cell balancing
@@ -96,18 +137,18 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-    
+
     /////////////////////
     // Setup interrupt pin for ALERT
     ////////////////////
-    
+
     /////////////////////
     // Setup RGB LED pins
     ////////////////////
-    TRISAbits.TRISA4 = 0;//set as output for RED led
-    TRISAbits.TRISA5 = 0;//set as output for GREEN led
-    TRISEbits.TRISE0 = 0;//set as output for BLUE led
-    
+    TRISAbits.TRISA4 = 0; //set as output for RED led
+    TRISAbits.TRISA5 = 0; //set as output for GREEN led
+    TRISEbits.TRISE0 = 0; //set as output for BLUE led
+
     /////////////////////
     // Define peripheral pin select
     ////////////////////
@@ -122,7 +163,7 @@ void init_GPIO() {
     SSPDATPPSbits.SSPDATPPS = 0x0014; //RC4->MSSP:SDA;
     SSPCLKPPSbits.SSPCLKPPS = 0x0015; //RC5->MSSP:SCL;
     RC5PPSbits.RC5PPS = 0x0010; //RC5->MSSP:SCL;
-    
+
     //Configure the UART pins
     RB2PPSbits.RB2PPS = 0x14; //RB2->EUSART:TX;
     RXPPSbits.RXPPS = 0x0B; //RB3->EUSART:RX;

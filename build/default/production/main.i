@@ -10398,6 +10398,28 @@ void init_GPIO(void);
 void init_AFE(void);
 void statemachine(void);
 
+void __attribute__((picinterrupt(("")))) my_isr(void) {
+
+    static uint8_t count = 0;
+    static _Bool toggleColor = 0;
+    PIR1bits.TMR1IF = 0;
+
+    count++;
+
+
+    if (count == 65) {
+        count = 0;
+        if (toggleColor) {
+            toggleColor = !toggleColor;
+            RGB_color(0);
+        } else {
+            toggleColor = !toggleColor;
+            RGB_color(1);
+        }
+    }
+
+}
+
 void main(void) {
 
 
@@ -10410,23 +10432,42 @@ void main(void) {
 
     init_AFE();
 
-    while(1){
 
-      statemachine();
+
+
+    T1CONbits.T1CKPS = 0b00;
+
+    TMR1 = 0;
+
+
+    T1CONbits.TMR1ON = 1;
+
+
+    PIE1bits.TMR1IE = 1;
+
+
+    INTCONbits.PEIE = 1;
+
+    (INTCONbits.GIE = 1);
+
+
+    while (1) {
+
+        statemachine();
 
     }
 
     return;
 }
 
-void statemachine(void){
+void statemachine(void) {
 
 
 
 }
 
-void init_AFE(void){
-# 73 "main.c"
+void init_AFE(void) {
+# 114 "main.c"
 }
 
 void initClock() {
@@ -10453,7 +10494,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 107 "main.c"
+# 148 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;
