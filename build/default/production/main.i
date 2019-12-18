@@ -10390,6 +10390,7 @@ void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_AFE(void);
+void statemachine(void);
 
 void main(void) {
 
@@ -10404,15 +10405,21 @@ void main(void) {
 
     while(1){
 
+      statemachine();
 
     }
 
     return;
 }
 
+void statemachine(void){
+
+
+
+}
 
 void init_AFE(void){
-# 64 "main.c"
+# 71 "main.c"
 }
 
 void initClock() {
@@ -10439,12 +10446,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-
-
-
-
-
-
+# 111 "main.c"
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x00;

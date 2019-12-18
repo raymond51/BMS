@@ -26,6 +26,7 @@ void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_AFE(void);
+void statemachine(void);
 
 void main(void) {
     
@@ -34,18 +35,24 @@ void main(void) {
     init_GPIO(); //configuring PPS
     init_I2C(); //configure i2c to 100kHz
     EUSART_Initialize(19200);
-    
+    //set the RGB led red to signal 
     //BMS boot/initialisation
-    init_AFE();
+    init_AFE(); 
     
     while(1){
     
+      statemachine();
     
     }
     
     return;
 }
 
+void statemachine(void){
+        
+    
+    
+}
 
 void init_AFE(void){
     //begin communication
@@ -87,7 +94,15 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-
+    
+    /////////////////////
+    // Setup interrupt pin for ALERT
+    ////////////////////
+    
+    /////////////////////
+    // Setup RGB LED pins
+    ////////////////////
+    
 
     /////////////////////
     // Define peripheral pin select
