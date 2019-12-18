@@ -110,3 +110,27 @@ void retrieve_data_ATmega328(void) {
     send_I2C_stopBit();
 
 }
+
+/*
+ @brief: Send the data to address register of slave
+ */
+void I2C_writeRegister(int slaveAddress,int regAddress, int data){
+    send_I2C_startBit();
+    send_I2C_controlByte(slaveAddress, WRITE);
+    send_I2C_data(regAddress); //write to the reg address of slave 
+    send_I2C_data(data);
+    send_I2C_stopBit();
+}
+
+/*
+ @brief: Retrieve a single byte of data from the slave
+ */
+
+/*
+void readRegister(int regAddress, int data){
+    send_I2C_startBit();
+    send_I2C_controlByte(regAddress, WRITE);
+    send_I2C_data(data)
+    send_I2C_stopBit();
+}
+ */

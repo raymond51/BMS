@@ -10327,6 +10327,8 @@ void send_I2C_ACK(void);
 void send_I2C_NACK(void);
 
 void retrieve_data_ATmega328(void);
+
+void I2C_writeRegister(int slaveAddress,int regAddress, int data);
 # 2 "I2C.c" 2
 
 
@@ -10420,4 +10422,15 @@ void retrieve_data_ATmega328(void) {
 # 110 "I2C.c"
     send_I2C_stopBit();
 
+}
+
+
+
+
+void I2C_writeRegister(int slaveAddress,int regAddress, int data){
+    send_I2C_startBit();
+    send_I2C_controlByte(slaveAddress, 0);
+    send_I2C_data(regAddress);
+    send_I2C_data(data);
+    send_I2C_stopBit();
 }

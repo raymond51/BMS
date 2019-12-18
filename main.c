@@ -15,10 +15,12 @@
 #include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "pic16f1719_internals.h"
 #include "I2C.h"
 #include "EUSART.h"
 #include "RGB.h"
+#include "BQ76920.h"
 
 /**************************************************************
  * Defines 
@@ -47,30 +49,35 @@ void statemachine(void);
  * Globals
  **************************************************************/
 uint8_t currState = AWAIT_AFE_CONN;
+volatile uint8_t tmr1_flag = 0; //flag cleared when tmr1 overflows
 
-void __interrupt() my_isr(void) { // High priority interrupt
+/**************************************************************
+ * Interrupts
+ **************************************************************/
+void __interrupt() myIsr(void) { // High priority interrupt
 
     static uint8_t count = 0;
     static bool toggleColor = false;
 
-    if(PIR1bits.TMR1IF && PIE1bits.TMR1IE){//checking for overflow flag and if timer interrupt enabled
-    PIR1bits.TMR1IF = 0; //clear interrupt flag for timer 1
+    if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {//checking for overflow flag and if timer interrupt enabled
+        PIR1bits.TMR1IF = 0; //clear interrupt flag for timer 1
+        count++;
 
-    count++;
-
-    // Blink every second
-    if (count == countSecond) {
-        count = 0;
-        if (toggleColor) {
-            toggleColor = !toggleColor;
-            RGB_color(RGB_RED);
-        } else {
-            toggleColor = !toggleColor;
-            RGB_color(RGB_GREEN);
+        // Blink every second
+        if (count == countSecond) {
+            tmr1_flag = 1;
+            count = 0;
+            if (toggleColor) {
+                toggleColor = !toggleColor;
+                RGB_color(RGB_RED);
+            } else {
+                toggleColor = !toggleColor;
+                RGB_color(RGB_GREEN);
+            }
         }
+
     }
-    }
-    
+
 }
 
 void main(void) {
@@ -79,18 +86,15 @@ void main(void) {
     initClock(); //initialise and set internal high frequency clock
     init_GPIO(); //configuring PPS
     init_I2C(); //configure i2c to 100kHz
-    EUSART_Initialize(19200);
+    EUSART_Initialize(9600);//begin UART communication at 9600baud
     init_TMR1(); //Enable timer 1 to repeatedly communicate with the AFE until boot
     init_RGB(); //set initially RGB all off
-    RGB_color(RGB_RED); //set the RGB led red to initially to signal no communication with AFE chip
-    //BMS boot/initialisation
-    init_AFE();
-
 
     while (1) {
 
         statemachine();
 
+        __delay_ms(10);
     }
 
     return;
@@ -100,14 +104,32 @@ void statemachine(void) {
 
     switch (currState) {
         case AWAIT_AFE_CONN:
-            //create a flag
-            //check if flag set
-            //send i2c command to request for communication
-            //reset the flag
-            //move to next state
+
+            if (tmr1_flag) {
+                tmr1_flag = 0; //clear flag
+
+                uint8_t success = beginAFEcommunication(); //send i2c command to request for communication
+
+                if (success) {
+                   
+#ifdef BQ76920_DEBUG
+                      __delay_ms(5); //allow time for i2c communication to end
+                    //print to terminal if success check if debug is enabled;
+#endif
+                    //move to next state if communication was successful check the return value
+                }
+
+
+            }
+
             break;
         case AFE_INIT:
             //init AFE
+            init_AFE();
+
+            //if success disable timer 1 and set the rgb led to solid green
+            //clear tmr1 flag 
+            //move to next state if communication was successful check the return value
             break;
         case READ_AFE_DATA:
 

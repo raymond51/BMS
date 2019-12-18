@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "BQ76920.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 15 "main.c"
+# 1 "BQ76920.c" 2
+# 1 "./BQ76920.h" 1
+# 12 "./BQ76920.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9554,7 +9555,237 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 15 "main.c" 2
+# 12 "./BQ76920.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 135 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 150 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 166 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 196 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 217 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 237 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
+# 13 "./BQ76920.h" 2
+
+# 1 "./BQ76920_registers.h" 1
+# 114 "./BQ76920_registers.h"
+const int SCD_delay_setting [4] =
+  { 70, 100, 200, 400 };
+const int SCD_threshold_setting [8] =
+  { 44, 67, 89, 111, 133, 155, 178, 200 };
+
+const int OCD_delay_setting [8] =
+  { 8, 20, 40, 80, 160, 320, 640, 1280 };
+const int OCD_threshold_setting [16] =
+  { 17, 22, 28, 33, 39, 44, 50, 56, 61, 67, 72, 78, 83, 89, 94, 100 };
+
+const int UV_delay_setting [4] = { 1, 4, 8, 16 };
+const int OV_delay_setting [4] = { 1, 2, 4, 8 };
+
+typedef union regSYS_STAT {
+  struct
+  {
+    uint8_t OCD :1;
+    uint8_t SCD :1;
+    uint8_t OV :1;
+    uint8_t UV :1;
+    uint8_t OVRD_ALERT :1;
+    uint8_t DEVICE_XREADY :1;
+    uint8_t WAKE :1;
+    uint8_t CC_READY :1;
+  } bits;
+  uint8_t regByte;
+} regSYS_STAT_t;
+
+typedef union regSYS_CTRL1 {
+  struct
+  {
+    uint8_t SHUT_B :1;
+    uint8_t SHUT_A :1;
+    uint8_t RSVD1 :1;
+    uint8_t TEMP_SEL :1;
+    uint8_t ADC_EN :1;
+    uint8_t RSVD2 :2;
+    uint8_t LOAD_PRESENT :1;
+  } bits;
+  uint8_t regByte;
+} regSYS_CTRL1_t;
+
+typedef union regSYS_CTRL2 {
+  struct
+  {
+    uint8_t CHG_ON :1;
+    uint8_t DSG_ON :1;
+    uint8_t WAKE_T :2;
+    uint8_t WAKE_EN :1;
+    uint8_t CC_ONESHOT :1;
+    uint8_t CC_EN :1;
+    uint8_t DELAY_DIS :1;
+  } bits;
+  uint8_t regByte;
+} regSYS_CTRL2_t;
+
+typedef union regPROTECT1 {
+  struct
+  {
+      uint8_t SCD_THRESH :3;
+      uint8_t SCD_DELAY :2;
+      uint8_t RSVD :2;
+      uint8_t RSNS :1;
+  } bits;
+  uint8_t regByte;
+} regPROTECT1_t;
+
+typedef union regPROTECT2 {
+  struct
+  {
+    uint8_t OCD_THRESH :4;
+    uint8_t OCD_DELAY :3;
+    uint8_t RSVD :1;
+  } bits;
+  uint8_t regByte;
+} regPROTECT2_t;
+
+typedef union regPROTECT3 {
+  struct
+  {
+    uint8_t RSVD :4;
+    uint8_t OV_DELAY :2;
+    uint8_t UV_DELAY :2;
+  } bits;
+  uint8_t regByte;
+} regPROTECT3_t;
+
+typedef union regCELLBAL
+{
+  struct
+  {
+      uint8_t RSVD :3;
+      uint8_t CB5 :1;
+      uint8_t CB4 :1;
+      uint8_t CB3 :1;
+      uint8_t CB2 :1;
+      uint8_t CB1 :1;
+  } bits;
+  uint8_t regByte;
+} regCELLBAL_t;
+
+typedef union regVCELL
+{
+    struct
+    {
+        uint8_t VC_HI;
+        uint8_t VC_LO;
+    } bytes;
+    uint16_t regWord;
+} regVCELL_t;
+# 14 "./BQ76920.h" 2
+
+# 1 "./I2C.h" 1
+# 22 "./I2C.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+
+
+
+
+
+
+
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 3
@@ -9692,116 +9923,11 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 16 "main.c" 2
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 135 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uintptr_t;
-# 150 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long intptr_t;
-# 166 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef signed char int8_t;
+# 39 "./pic16f1719_internals.h" 2
 
 
 
 
-typedef short int16_t;
-# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int32_t;
-
-
-
-
-
-typedef long long int64_t;
-# 196 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-# 217 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 237 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
-
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/stdint.h" 1 3
-typedef int32_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint32_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
-# 18 "main.c" 2
-
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-# 43 "./pic16f1719_internals.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdbool.h" 1 3
 # 43 "./pic16f1719_internals.h" 2
 
@@ -10298,31 +10424,6 @@ void internal_32(void);
 void internal_16(void);
 void internal_8(void);
 void internal_4(void);
-# 19 "main.c" 2
-
-# 1 "./I2C.h" 1
-# 22 "./I2C.h"
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
 # 22 "./I2C.h" 2
 
 
@@ -10345,166 +10446,7 @@ void send_I2C_NACK(void);
 void retrieve_data_ATmega328(void);
 
 void I2C_writeRegister(int slaveAddress,int regAddress, int data);
-# 20 "main.c" 2
-
-# 1 "./EUSART.h" 1
-# 13 "./EUSART.h"
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-# 13 "./EUSART.h" 2
-
-
-
-
-
-
-char EUSART_Initialize(const long int baudrate);
-uint8_t EUSART_Read(void);
-void EUSART_Write(uint8_t txData);
-void EUSART_Write_Text(char *text);
-void EUSART_Read_Text(char *Output, unsigned int length);
-# 21 "main.c" 2
-
-# 1 "./RGB.h" 1
-# 22 "./RGB.h"
-void init_RGB();
-void RGB_color(int color);
-# 22 "main.c" 2
-
-# 1 "./BQ76920.h" 1
-# 14 "./BQ76920.h"
-# 1 "./BQ76920_registers.h" 1
-# 114 "./BQ76920_registers.h"
-const int SCD_delay_setting [4] =
-  { 70, 100, 200, 400 };
-const int SCD_threshold_setting [8] =
-  { 44, 67, 89, 111, 133, 155, 178, 200 };
-
-const int OCD_delay_setting [8] =
-  { 8, 20, 40, 80, 160, 320, 640, 1280 };
-const int OCD_threshold_setting [16] =
-  { 17, 22, 28, 33, 39, 44, 50, 56, 61, 67, 72, 78, 83, 89, 94, 100 };
-
-const int UV_delay_setting [4] = { 1, 4, 8, 16 };
-const int OV_delay_setting [4] = { 1, 2, 4, 8 };
-
-typedef union regSYS_STAT {
-  struct
-  {
-    uint8_t OCD :1;
-    uint8_t SCD :1;
-    uint8_t OV :1;
-    uint8_t UV :1;
-    uint8_t OVRD_ALERT :1;
-    uint8_t DEVICE_XREADY :1;
-    uint8_t WAKE :1;
-    uint8_t CC_READY :1;
-  } bits;
-  uint8_t regByte;
-} regSYS_STAT_t;
-
-typedef union regSYS_CTRL1 {
-  struct
-  {
-    uint8_t SHUT_B :1;
-    uint8_t SHUT_A :1;
-    uint8_t RSVD1 :1;
-    uint8_t TEMP_SEL :1;
-    uint8_t ADC_EN :1;
-    uint8_t RSVD2 :2;
-    uint8_t LOAD_PRESENT :1;
-  } bits;
-  uint8_t regByte;
-} regSYS_CTRL1_t;
-
-typedef union regSYS_CTRL2 {
-  struct
-  {
-    uint8_t CHG_ON :1;
-    uint8_t DSG_ON :1;
-    uint8_t WAKE_T :2;
-    uint8_t WAKE_EN :1;
-    uint8_t CC_ONESHOT :1;
-    uint8_t CC_EN :1;
-    uint8_t DELAY_DIS :1;
-  } bits;
-  uint8_t regByte;
-} regSYS_CTRL2_t;
-
-typedef union regPROTECT1 {
-  struct
-  {
-      uint8_t SCD_THRESH :3;
-      uint8_t SCD_DELAY :2;
-      uint8_t RSVD :2;
-      uint8_t RSNS :1;
-  } bits;
-  uint8_t regByte;
-} regPROTECT1_t;
-
-typedef union regPROTECT2 {
-  struct
-  {
-    uint8_t OCD_THRESH :4;
-    uint8_t OCD_DELAY :3;
-    uint8_t RSVD :1;
-  } bits;
-  uint8_t regByte;
-} regPROTECT2_t;
-
-typedef union regPROTECT3 {
-  struct
-  {
-    uint8_t RSVD :4;
-    uint8_t OV_DELAY :2;
-    uint8_t UV_DELAY :2;
-  } bits;
-  uint8_t regByte;
-} regPROTECT3_t;
-
-typedef union regCELLBAL
-{
-  struct
-  {
-      uint8_t RSVD :3;
-      uint8_t CB5 :1;
-      uint8_t CB4 :1;
-      uint8_t CB3 :1;
-      uint8_t CB2 :1;
-      uint8_t CB1 :1;
-  } bits;
-  uint8_t regByte;
-} regCELLBAL_t;
-
-typedef union regVCELL
-{
-    struct
-    {
-        uint8_t VC_HI;
-        uint8_t VC_LO;
-    } bytes;
-    uint16_t regWord;
-} regVCELL_t;
-# 14 "./BQ76920.h" 2
+# 15 "./BQ76920.h" 2
 # 24 "./BQ76920.h"
 int cellVoltages[5];
 
@@ -10515,181 +10457,25 @@ int cellVoltages[5];
 
 
 uint8_t beginAFEcommunication(void);
-# 23 "main.c" 2
-# 41 "main.c"
-void initClock(void);
-void init_EUSART(void);
-void init_GPIO(void);
-void init_AFE(void);
-void init_TMR1(void);
-void statemachine(void);
+# 1 "BQ76920.c" 2
 
 
 
 
-uint8_t currState = 0;
-volatile uint8_t tmr1_flag = 0;
 
 
+uint8_t beginAFEcommunication(void){
 
+   uint8_t errCode = 0;
 
-void __attribute__((picinterrupt(("")))) myIsr(void) {
 
-    static uint8_t count = 0;
-    static _Bool toggleColor = 0;
+  for (int i = 0; i < 4; i++) {
+    cellVoltages[i] = 0;
+  }
 
-    if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
-        PIR1bits.TMR1IF = 0;
-        count++;
 
+   I2C_writeRegister(0x18,0x0B,0x19);
 
-        if (count == 61) {
-            tmr1_flag = 1;
-            count = 0;
-            if (toggleColor) {
-                toggleColor = !toggleColor;
-                RGB_color(0);
-            } else {
-                toggleColor = !toggleColor;
-                RGB_color(1);
-            }
-        }
-
-    }
-
-}
-
-void main(void) {
-
-
-    initClock();
-    init_GPIO();
-    init_I2C();
-    EUSART_Initialize(9600);
-    init_TMR1();
-    init_RGB();
-
-    while (1) {
-
-        statemachine();
-
-        _delay((unsigned long)((10)*(16000000/4000.0)));
-    }
-
-    return;
-}
-
-void statemachine(void) {
-
-    switch (currState) {
-        case 0:
-
-            if (tmr1_flag) {
-                tmr1_flag = 0;
-
-                uint8_t success = beginAFEcommunication();
-
-                if (success) {
-
-
-                      _delay((unsigned long)((5)*(16000000/4000.0)));
-
-
-
-                }
-
-
-            }
-
-            break;
-        case 1:
-
-            init_AFE();
-
-
-
-
-            break;
-        case 2:
-
-            break;
-    }
-}
-
-void init_AFE(void) {
-# 154 "main.c"
-}
-
-void initClock() {
-
-    internal_16();
-
-}
-
-
-
-
-void init_TMR1(void) {
-
-
-    T1CONbits.T1CKPS = 0b00;
-
-    TMR1 = 0;
-
-    T1CONbits.TMR1ON = 1;
-
-    PIE1bits.TMR1IE = 1;
-
-    INTCONbits.PEIE = 1;
-
-    (INTCONbits.GIE = 1);
-
-}
-
-void init_GPIO() {
-
-
-
-
-
-    TRISBbits.TRISB2 = 0;
-    ANSELBbits.ANSB2 = 0;
-    TRISBbits.TRISB3 = 1;
-    ANSELBbits.ANSB3 = 0;
-
-
-
-
-    ANSELCbits.ANSC4 = 0;
-    ANSELCbits.ANSC5 = 0;
-    TRISCbits.TRISC4 = 1;
-    TRISCbits.TRISC5 = 1;
-# 208 "main.c"
-    TRISAbits.TRISA4 = 0;
-    TRISAbits.TRISA5 = 0;
-    TRISEbits.TRISE0 = 0;
-
-
-
-
-
-    PPSLOCK = 0x55;
-    PPSLOCK = 0xAA;
-    PPSLOCKbits.PPSLOCKED = 0x00;
-
-
-
-    RC4PPSbits.RC4PPS = 0x0011;
-    SSPDATPPSbits.SSPDATPPS = 0x0014;
-    SSPCLKPPSbits.SSPCLKPPS = 0x0015;
-    RC5PPSbits.RC5PPS = 0x0010;
-
-
-    RB2PPSbits.RB2PPS = 0x14;
-    RXPPSbits.RXPPS = 0x0B;
-
-    PPSLOCK = 0x55;
-    PPSLOCK = 0xAA;
-    PPSLOCKbits.PPSLOCKED = 0x01;
+  return errCode;
 
 }

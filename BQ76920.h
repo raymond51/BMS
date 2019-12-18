@@ -10,18 +10,26 @@
 #define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include <stdint.h>
+#include "BQ76920_registers.h"
+#include "I2C.h"
 
 #define MAX_NUMBER_OF_CELLS 5
 #define MAX_NUMBER_OF_THERMISTORS 1
 // IC type/size
 #define bq76920 1
-#define BMS_I2C_ADDRESS 0x18
+#define AFE_BQ76920_I2C_ADDRESS 0x18
+
+//cell data
+int cellVoltages[MAX_NUMBER_OF_CELLS]; // mV
 
 
+// output information to serial console for debugging, comment out to remove
+#define BQ76920_DEBUG
 
-// output information to serial console for debugging
-#define BQ769X0_DEBUG 1
 
+//main function prototypes -----------------------------------------------------
+uint8_t beginAFEcommunication(void);
 
 
 #endif	/* XC_HEADER_TEMPLATE_H */

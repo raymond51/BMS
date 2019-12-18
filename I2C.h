@@ -39,5 +39,7 @@ void send_I2C_NACK(void);
 //sub I2C function prototypes ----------------------------------------------------------
 void retrieve_data_ATmega328(void);
 
+void I2C_writeRegister(int slaveAddress,int regAddress, int data);
+
 #endif	/* I2C_H */
 

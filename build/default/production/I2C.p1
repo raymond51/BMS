@@ -1231,3 +1231,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;I2C.c: 112: }
 [e :UE 813 ]
 }
+"117
+[; ;I2C.c: 117: void I2C_writeRegister(int slaveAddress,int regAddress, int data){
+[v _I2C_writeRegister `(v ~T0 @X0 1 ef3`i`i`i ]
+{
+[e :U _I2C_writeRegister ]
+[v _slaveAddress `i ~T0 @X0 1 r1 ]
+[v _regAddress `i ~T0 @X0 1 r2 ]
+[v _data `i ~T0 @X0 1 r3 ]
+[f ]
+"118
+[; ;I2C.c: 118:     send_I2C_startBit();
+[e ( _send_I2C_startBit ..  ]
+"119
+[; ;I2C.c: 119:     send_I2C_controlByte(slaveAddress, 0);
+[e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 0 `i `ui ]
+"120
+[; ;I2C.c: 120:     send_I2C_data(regAddress);
+[e ( _send_I2C_data (1 -> _regAddress `ui ]
+"121
+[; ;I2C.c: 121:     send_I2C_data(data);
+[e ( _send_I2C_data (1 -> _data `ui ]
+"122
+[; ;I2C.c: 122:     send_I2C_stopBit();
+[e ( _send_I2C_stopBit ..  ]
+"123
+[; ;I2C.c: 123: }
+[e :UE 814 ]
+}

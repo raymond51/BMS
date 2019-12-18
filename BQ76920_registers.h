@@ -26,8 +26,8 @@
 */
 
 
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+#ifndef BQ76920_registers_H
+#define	BQ76920_registers_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -223,5 +223,5 @@ typedef union regVCELL
 } regVCELL_t;
 
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif
 
