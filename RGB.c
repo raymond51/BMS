@@ -36,3 +36,18 @@ void RGB_color(int color) {
     }
 
 }
+
+/*
+ @brief: RGB color to indicate AFE connection status, called by interrupt to toggle
+ */
+void RGB_AWAIT_AFE_CONN() {
+
+    if (toggleColor) {
+        toggleColor = !toggleColor;
+        RGB_color(RGB_RED);
+    } else {
+        toggleColor = !toggleColor;
+        RGB_color(RGB_GREEN);
+    }
+
+}

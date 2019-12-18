@@ -9780,6 +9780,9 @@ typedef uint32_t uint_fast32_t;
 # 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
 # 18 "main.c" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdbool.h" 1 3
+# 19 "main.c" 2
+
 # 1 "./pic16f1719_internals.h" 1
 # 13 "./pic16f1719_internals.h"
 #pragma config FOSC = INTOSC
@@ -9801,10 +9804,7 @@ typedef uint32_t uint_fast32_t;
 #pragma config BORV = LO
 #pragma config LPBOR = OFF
 #pragma config LVP = OFF
-# 43 "./pic16f1719_internals.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdbool.h" 1 3
-# 43 "./pic16f1719_internals.h" 2
-
+# 44 "./pic16f1719_internals.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 1 3
 # 19 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10298,7 +10298,7 @@ void internal_32(void);
 void internal_16(void);
 void internal_8(void);
 void internal_4(void);
-# 19 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./I2C.h" 1
 # 22 "./I2C.h"
@@ -10345,7 +10345,7 @@ void send_I2C_NACK(void);
 void retrieve_data_ATmega328(void);
 
 void I2C_writeRegister(int slaveAddress,int regAddress, int data);
-# 20 "main.c" 2
+# 21 "main.c" 2
 
 # 1 "./EUSART.h" 1
 # 13 "./EUSART.h"
@@ -10382,13 +10382,19 @@ uint8_t EUSART_Read(void);
 void EUSART_Write(uint8_t txData);
 void EUSART_Write_Text(char *text);
 void EUSART_Read_Text(char *Output, unsigned int length);
-# 21 "main.c" 2
+# 22 "main.c" 2
 
 # 1 "./RGB.h" 1
-# 22 "./RGB.h"
+# 24 "./RGB.h"
+_Bool toggleColor = 0;
+
+
+
 void init_RGB();
 void RGB_color(int color);
-# 22 "main.c" 2
+
+void RGB_AWAIT_AFE_CONN();
+# 23 "main.c" 2
 
 # 1 "./BQ76920.h" 1
 # 14 "./BQ76920.h"
@@ -10515,8 +10521,8 @@ int cellVoltages[5];
 
 
 uint8_t beginAFEcommunication(void);
-# 23 "main.c" 2
-# 41 "main.c"
+# 24 "main.c" 2
+# 42 "main.c"
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
@@ -10536,7 +10542,6 @@ volatile uint8_t tmr1_flag = 0;
 void __attribute__((picinterrupt(("")))) myIsr(void) {
 
     static uint8_t count = 0;
-    static _Bool toggleColor = 0;
 
     if (PIR1bits.TMR1IF && PIE1bits.TMR1IE) {
         PIR1bits.TMR1IF = 0;
@@ -10546,13 +10551,6 @@ void __attribute__((picinterrupt(("")))) myIsr(void) {
         if (count == 61) {
             tmr1_flag = 1;
             count = 0;
-            if (toggleColor) {
-                toggleColor = !toggleColor;
-                RGB_color(0);
-            } else {
-                toggleColor = !toggleColor;
-                RGB_color(1);
-            }
         }
 
     }
@@ -10586,13 +10584,17 @@ void statemachine(void) {
 
             if (tmr1_flag) {
                 tmr1_flag = 0;
-
+                RGB_AWAIT_AFE_CONN();
                 uint8_t success = beginAFEcommunication();
 
                 if (success) {
+                    T1CONbits.TMR1ON = 0;
+                    PIE1bits.TMR1IE = 0;
+                    RGB_color(0);
+                    tmr1_flag = 0;
 
 
-                      _delay((unsigned long)((5)*(16000000/4000.0)));
+                    _delay((unsigned long)((5)*(16000000/4000.0)));
 
 
 
@@ -10617,7 +10619,7 @@ void statemachine(void) {
 }
 
 void init_AFE(void) {
-# 154 "main.c"
+# 151 "main.c"
 }
 
 void initClock() {
@@ -10664,7 +10666,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 208 "main.c"
+# 205 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

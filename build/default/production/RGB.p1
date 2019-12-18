@@ -951,6 +951,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16144
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 16144: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
+"24 ./RGB.h
+[; ;./RGB.h: 24: _Bool toggleColor = 0;
+[v _toggleColor `a ~T0 @X0 1 e ]
+[i _toggleColor
+-> -> 0 `i `a
+]
 "6 RGB.c
 [; ;RGB.c: 6: void init_RGB() {
 [v _init_RGB `(v ~T0 @X0 1 ef ]
@@ -1039,4 +1045,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 "38
 [; ;RGB.c: 38: }
 [e :UE 783 ]
+}
+"43
+[; ;RGB.c: 43: void RGB_AWAIT_AFE_CONN() {
+[v _RGB_AWAIT_AFE_CONN `(v ~T0 @X0 1 ef ]
+{
+[e :U _RGB_AWAIT_AFE_CONN ]
+[f ]
+"45
+[; ;RGB.c: 45:     if (toggleColor) {
+[e $ ! != -> _toggleColor `i -> 0 `i 790  ]
+{
+"46
+[; ;RGB.c: 46:         toggleColor = !toggleColor;
+[e = _toggleColor -> -> ! != -> _toggleColor `i -> 0 `i `i `a ]
+"47
+[; ;RGB.c: 47:         RGB_color(0);
+[e ( _RGB_color (1 -> 0 `i ]
+"48
+[; ;RGB.c: 48:     } else {
+}
+[e $U 791  ]
+[e :U 790 ]
+{
+"49
+[; ;RGB.c: 49:         toggleColor = !toggleColor;
+[e = _toggleColor -> -> ! != -> _toggleColor `i -> 0 `i `i `a ]
+"50
+[; ;RGB.c: 50:         RGB_color(1);
+[e ( _RGB_color (1 -> 1 `i ]
+"51
+[; ;RGB.c: 51:     }
+}
+[e :U 791 ]
+"53
+[; ;RGB.c: 53: }
+[e :UE 789 ]
 }

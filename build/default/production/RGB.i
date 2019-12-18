@@ -9558,14 +9558,24 @@ extern __bank0 __bit __timeout;
 # 14 "./RGB.h" 2
 
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdbool.h" 1 3
+# 16 "./RGB.h" 2
 
 
 
+
+
+
+
+
+_Bool toggleColor = 0;
 
 
 
 void init_RGB();
 void RGB_color(int color);
+
+void RGB_AWAIT_AFE_CONN();
 # 1 "RGB.c" 2
 
 
@@ -9602,6 +9612,21 @@ void RGB_color(int color) {
             LATEbits.LATE0 = 0;
             break;
 
+    }
+
+}
+
+
+
+
+void RGB_AWAIT_AFE_CONN() {
+
+    if (toggleColor) {
+        toggleColor = !toggleColor;
+        RGB_color(0);
+    } else {
+        toggleColor = !toggleColor;
+        RGB_color(1);
     }
 
 }
