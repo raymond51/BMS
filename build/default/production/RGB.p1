@@ -1,178 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"26 main.c
-[; ;main.c: 26: void initClock(void);
-[v _initClock `(v ~T0 @X0 0 ef ]
-"28
-[; ;main.c: 28: void init_GPIO(void);
-[v _init_GPIO `(v ~T0 @X0 0 ef ]
-"31 ./I2C.h
-[; ;./I2C.h: 31: void init_I2C(void);
-[v _init_I2C `(v ~T0 @X0 0 ef ]
-"19 ./EUSART.h
-[; ;./EUSART.h: 19: char EUSART_Initialize(const long int baudrate);
-[v _EUSART_Initialize `(uc ~T0 @X0 0 ef1`Cl ]
-"22 ./RGB.h
-[; ;./RGB.h: 22: void init_RGB();
-[v _init_RGB `(v ~T0 @X0 0 e? ]
-"23
-[; ;./RGB.h: 23: void RGB_color(int color);
-[v _RGB_color `(v ~T0 @X0 0 ef1`i ]
-"29 main.c
-[; ;main.c: 29: void init_AFE(void);
-[v _init_AFE `(v ~T0 @X0 0 ef ]
-"30
-[; ;main.c: 30: void statemachine(void);
-[v _statemachine `(v ~T0 @X0 0 ef ]
-"53 ./pic16f1719_internals.h
-[; ;./pic16f1719_internals.h: 53: void internal_16(void);
-[v _internal_16 `(v ~T0 @X0 0 ef ]
-"1278 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1278:     struct {
-[s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1277
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1277: typedef union {
-[u S70 `S71 1 ]
-[n S70 . . ]
-"1289
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1289: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x08D)));
-[v _TRISBbits `VS70 ~T0 @X0 0 e@141 ]
-"3860
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 3860:     struct {
-[s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S178 . ANSB0 ANSB1 ANSB2 ANSB3 ANSB4 ANSB5 ]
-"3859
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 3859: typedef union {
-[u S177 `S178 1 ]
-[n S177 . . ]
-"3869
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 3869: extern volatile ANSELBbits_t ANSELBbits __attribute__((address(0x18D)));
-[v _ANSELBbits `VS177 ~T0 @X0 0 e@397 ]
-"3910
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 3910:     struct {
-[s S180 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S180 . . ANSC2 ANSC3 ANSC4 ANSC5 ANSC6 ANSC7 ]
-"3909
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 3909: typedef union {
-[u S179 `S180 1 ]
-[n S179 . . ]
-"3920
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 3920: extern volatile ANSELCbits_t ANSELCbits __attribute__((address(0x18E)));
-[v _ANSELCbits `VS179 ~T0 @X0 0 e@398 ]
-"1340
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1340:     struct {
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1339
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1339: typedef union {
-[u S72 `S73 1 ]
-[n S72 . . ]
-"1351
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1351: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x08E)));
-[v _TRISCbits `VS72 ~T0 @X0 0 e@142 ]
-"1216
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1216:     struct {
-[s S69 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S69 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"1215
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1215: typedef union {
-[u S68 `S69 1 ]
-[n S68 . . ]
-"1227
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1227: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x08C)));
-[v _TRISAbits `VS68 ~T0 @X0 0 e@140 ]
-"1464
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1464:     struct {
-[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S77 . TRISE0 TRISE1 TRISE2 TRISE3 ]
-"1463
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1463: typedef union {
-[u S76 `S77 1 ]
-[n S76 . . ]
-"1471
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 1471: extern volatile TRISEbits_t TRISEbits __attribute__((address(0x090)));
-[v _TRISEbits `VS76 ~T0 @X0 0 e@144 ]
-"10778
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10778: extern volatile unsigned char PPSLOCK __attribute__((address(0xE0F)));
-[v _PPSLOCK `Vuc ~T0 @X0 0 e@3599 ]
-"10784
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10784:     struct {
-[s S494 :1 `uc 1 ]
-[n S494 . PPSLOCKED ]
-"10783
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10783: typedef union {
-[u S493 `S494 1 ]
-[n S493 . . ]
-"10788
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10788: extern volatile PPSLOCKbits_t PPSLOCKbits __attribute__((address(0xE0F)));
-[v _PPSLOCKbits `VS493 ~T0 @X0 0 e@3599 ]
-"11524
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11524:     struct {
-[s S568 :5 `uc 1 ]
-[n S568 . RC4PPS ]
-"11523
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11523: typedef union {
-[u S567 `S568 1 ]
-[n S567 . . ]
-"11528
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11528: extern volatile RC4PPSbits_t RC4PPSbits __attribute__((address(0xEA4)));
-[v _RC4PPSbits `VS567 ~T0 @X0 0 e@3748 ]
-"10964
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10964:     struct {
-[s S512 :5 `uc 1 ]
-[n S512 . SSPDATPPS ]
-"10963
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10963: typedef union {
-[u S511 `S512 1 ]
-[n S511 . . ]
-"10968
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10968: extern volatile SSPDATPPSbits_t SSPDATPPSbits __attribute__((address(0xE21)));
-[v _SSPDATPPSbits `VS511 ~T0 @X0 0 e@3617 ]
-"10944
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10944:     struct {
-[s S510 :5 `uc 1 ]
-[n S510 . SSPCLKPPS ]
-"10943
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10943: typedef union {
-[u S509 `S510 1 ]
-[n S509 . . ]
-"10948
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 10948: extern volatile SSPCLKPPSbits_t SSPCLKPPSbits __attribute__((address(0xE20)));
-[v _SSPCLKPPSbits `VS509 ~T0 @X0 0 e@3616 ]
-"11544
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11544:     struct {
-[s S570 :5 `uc 1 ]
-[n S570 . RC5PPS ]
-"11543
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11543: typedef union {
-[u S569 `S570 1 ]
-[n S569 . . ]
-"11548
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11548: extern volatile RC5PPSbits_t RC5PPSbits __attribute__((address(0xEA5)));
-[v _RC5PPSbits `VS569 ~T0 @X0 0 e@3749 ]
-"11324
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11324:     struct {
-[s S548 :5 `uc 1 ]
-[n S548 . RB2PPS ]
-"11323
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11323: typedef union {
-[u S547 `S548 1 ]
-[n S547 . . ]
-"11328
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11328: extern volatile RB2PPSbits_t RB2PPSbits __attribute__((address(0xE9A)));
-[v _RB2PPSbits `VS547 ~T0 @X0 0 e@3738 ]
-"11004
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11004:     struct {
-[s S516 :5 `uc 1 ]
-[n S516 . RXPPS ]
-"11003
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11003: typedef union {
-[u S515 `S516 1 ]
-[n S515 . . ]
-"11008
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 11008: extern volatile RXPPSbits_t RXPPSbits __attribute__((address(0xE24)));
-[v _RXPPSbits `VS515 ~T0 @X0 0 e@3620 ]
+"2296 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2296:     struct {
+[s S115 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S115 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"2295
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2295: typedef union {
+[u S114 `S115 1 ]
+[n S114 . . ]
+"2307
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2307: extern volatile LATAbits_t LATAbits __attribute__((address(0x10C)));
+[v _LATAbits `VS114 ~T0 @X0 0 e@268 ]
+"2544
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2544:     struct {
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . LATE0 LATE1 LATE2 ]
+"2543
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2543: typedef union {
+[u S122 `S123 1 ]
+[n S122 . . ]
+"2550
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2550: extern volatile LATEbits_t LATEbits __attribute__((address(0x110)));
+[v _LATEbits `VS122 ~T0 @X0 0 e@272 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1103,271 +951,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16144
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 16144: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"13 ./pic16f1719_internals.h
-[p x FOSC = INTOSC ]
-"14
-[p x WDTE = OFF ]
-"15
-[p x PWRTE = OFF ]
-"16
-[p x MCLRE = OFF ]
-"17
-[p x CP = OFF ]
-"18
-[p x BOREN = OFF ]
-"19
-[p x CLKOUTEN = OFF ]
-"20
-[p x IESO = ON ]
-"21
-[p x FCMEN = OFF ]
-"24
-[p x WRT = OFF ]
-"25
-[p x PPS1WAY = ON ]
-"26
-[p x ZCDDIS = ON ]
-"27
-[p x PLLEN = OFF ]
-"28
-[p x STVREN = ON ]
-"29
-[p x BORV = LO ]
-"30
-[p x LPBOR = OFF ]
-"31
-[p x LVP = OFF ]
-"13
-[p x FOSC = INTOSC ]
-"14
-[p x WDTE = OFF ]
-"15
-[p x PWRTE = OFF ]
-"16
-[p x MCLRE = OFF ]
-"17
-[p x CP = OFF ]
-"18
-[p x BOREN = OFF ]
-"19
-[p x CLKOUTEN = OFF ]
-"20
-[p x IESO = ON ]
-"21
-[p x FCMEN = OFF ]
-"24
-[p x WRT = OFF ]
-"25
-[p x PPS1WAY = ON ]
-"26
-[p x ZCDDIS = ON ]
-"27
-[p x PLLEN = OFF ]
-"28
-[p x STVREN = ON ]
-"29
-[p x BORV = LO ]
-"30
-[p x LPBOR = OFF ]
-"31
-[p x LVP = OFF ]
-"28 ./I2C.h
-[; ;./I2C.h: 28: const int ATmega328_address = 0x02;
-[v _ATmega328_address `Ci ~T0 @X0 1 e ]
-[i _ATmega328_address
--> 2 `i
-]
-"13 ./pic16f1719_internals.h
-[p x FOSC = INTOSC ]
-"14
-[p x WDTE = OFF ]
-"15
-[p x PWRTE = OFF ]
-"16
-[p x MCLRE = OFF ]
-"17
-[p x CP = OFF ]
-"18
-[p x BOREN = OFF ]
-"19
-[p x CLKOUTEN = OFF ]
-"20
-[p x IESO = ON ]
-"21
-[p x FCMEN = OFF ]
-"24
-[p x WRT = OFF ]
-"25
-[p x PPS1WAY = ON ]
-"26
-[p x ZCDDIS = ON ]
-"27
-[p x PLLEN = OFF ]
-"28
-[p x STVREN = ON ]
-"29
-[p x BORV = LO ]
-"30
-[p x LPBOR = OFF ]
-"31
-[p x LVP = OFF ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"32 main.c
-[; ;main.c: 32: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"6 RGB.c
+[; ;RGB.c: 6: void init_RGB() {
+[v _init_RGB `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _init_RGB ]
 [f ]
-"35
-[; ;main.c: 35:     initClock();
-[e ( _initClock ..  ]
-"36
-[; ;main.c: 36:     init_GPIO();
-[e ( _init_GPIO ..  ]
-"37
-[; ;main.c: 37:     init_I2C();
-[e ( _init_I2C ..  ]
-"38
-[; ;main.c: 38:     EUSART_Initialize(19200);
-[e ( _EUSART_Initialize (1 -> -> 19200 `i `l ]
-"39
-[; ;main.c: 39:     init_RGB();
-[e ( _init_RGB ..  ]
-"40
-[; ;main.c: 40:     RGB_color(0);
-[e ( _RGB_color (1 -> 0 `i ]
-"42
-[; ;main.c: 42:     init_AFE();
-[e ( _init_AFE ..  ]
-"44
-[; ;main.c: 44:     while(1){
+"8
+[; ;RGB.c: 8:     LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"9
+[; ;RGB.c: 9:     LATAbits.LATA5 = 1;
+[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+"10
+[; ;RGB.c: 10:     LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+"12
+[; ;RGB.c: 12: }
+[e :UE 782 ]
+}
+"17
+[; ;RGB.c: 17: void RGB_color(int color) {
+[v _RGB_color `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _RGB_color ]
+[v _color `i ~T0 @X0 1 r1 ]
+[f ]
+"19
+[; ;RGB.c: 19:     switch (color) {
+[e $U 785  ]
+{
+"20
+[; ;RGB.c: 20:         case 0:
 [e :U 786 ]
-{
-"46
-[; ;main.c: 46:       statemachine();
-[e ( _statemachine ..  ]
-"48
-[; ;main.c: 48:     }
-}
-[e :U 785 ]
-[e $U 786  ]
+"21
+[; ;RGB.c: 21:             LATAbits.LATA4 = 0;
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+"22
+[; ;RGB.c: 22:             LATAbits.LATA5 = 1;
+[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+"23
+[; ;RGB.c: 23:             LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+"24
+[; ;RGB.c: 24:             break;
+[e $U 784  ]
+"25
+[; ;RGB.c: 25:         case 1:
 [e :U 787 ]
-"50
-[; ;main.c: 50:     return;
-[e $UE 784  ]
-"51
-[; ;main.c: 51: }
-[e :UE 784 ]
+"26
+[; ;RGB.c: 26:             LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"27
+[; ;RGB.c: 27:             LATAbits.LATA5 = 0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+"28
+[; ;RGB.c: 28:             LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+"29
+[; ;RGB.c: 29:             break;
+[e $U 784  ]
+"30
+[; ;RGB.c: 30:         case 2:
+[e :U 788 ]
+"31
+[; ;RGB.c: 31:             LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"32
+[; ;RGB.c: 32:             LATAbits.LATA5 = 1;
+[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+"33
+[; ;RGB.c: 33:             LATEbits.LATE0 = 0;
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+"34
+[; ;RGB.c: 34:             break;
+[e $U 784  ]
+"36
+[; ;RGB.c: 36:     }
 }
-"53
-[; ;main.c: 53: void statemachine(void){
-[v _statemachine `(v ~T0 @X0 1 ef ]
-{
-[e :U _statemachine ]
-[f ]
-"57
-[; ;main.c: 57: }
-[e :UE 788 ]
-}
-"59
-[; ;main.c: 59: void init_AFE(void){
-[v _init_AFE `(v ~T0 @X0 1 ef ]
-{
-[e :U _init_AFE ]
-[f ]
-"73
-[; ;main.c: 73: }
-[e :UE 789 ]
-}
-"75
-[; ;main.c: 75: void initClock() {
-[v _initClock `(v ~T0 @X0 1 ef ]
-{
-[e :U _initClock ]
-[f ]
-"77
-[; ;main.c: 77:     internal_16();
-[e ( _internal_16 ..  ]
-"79
-[; ;main.c: 79: }
-[e :UE 790 ]
-}
-"81
-[; ;main.c: 81: void init_GPIO() {
-[v _init_GPIO `(v ~T0 @X0 1 ef ]
-{
-[e :U _init_GPIO ]
-[f ]
-"87
-[; ;main.c: 87:     TRISBbits.TRISB2 = 0;
-[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-"88
-[; ;main.c: 88:     ANSELBbits.ANSB2 = 0;
-[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-"89
-[; ;main.c: 89:     TRISBbits.TRISB3 = 1;
-[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
-"90
-[; ;main.c: 90:     ANSELBbits.ANSB3 = 0;
-[e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
-"95
-[; ;main.c: 95:     ANSELCbits.ANSC4 = 0;
-[e = . . _ANSELCbits 0 3 -> -> 0 `i `uc ]
-"96
-[; ;main.c: 96:     ANSELCbits.ANSC5 = 0;
-[e = . . _ANSELCbits 0 4 -> -> 0 `i `uc ]
-"97
-[; ;main.c: 97:     TRISCbits.TRISC4 = 1;
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-"98
-[; ;main.c: 98:     TRISCbits.TRISC5 = 1;
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-"107
-[; ;main.c: 107:     TRISAbits.TRISA4 = 0;
-[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:     TRISAbits.TRISA5 = 0;
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:     TRISEbits.TRISE0 = 0;
-[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
-"115
-[; ;main.c: 115:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
-"116
-[; ;main.c: 116:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"117
-[; ;main.c: 117:     PPSLOCKbits.PPSLOCKED = 0x00;
-[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"121
-[; ;main.c: 121:     RC4PPSbits.RC4PPS = 0x0011;
-[e = . . _RC4PPSbits 0 0 -> -> 17 `i `uc ]
-"122
-[; ;main.c: 122:     SSPDATPPSbits.SSPDATPPS = 0x0014;
-[e = . . _SSPDATPPSbits 0 0 -> -> 20 `i `uc ]
-"123
-[; ;main.c: 123:     SSPCLKPPSbits.SSPCLKPPS = 0x0015;
-[e = . . _SSPCLKPPSbits 0 0 -> -> 21 `i `uc ]
-"124
-[; ;main.c: 124:     RC5PPSbits.RC5PPS = 0x0010;
-[e = . . _RC5PPSbits 0 0 -> -> 16 `i `uc ]
-"127
-[; ;main.c: 127:     RB2PPSbits.RB2PPS = 0x14;
-[e = . . _RB2PPSbits 0 0 -> -> 20 `i `uc ]
-"128
-[; ;main.c: 128:     RXPPSbits.RXPPS = 0x0B;
-[e = . . _RXPPSbits 0 0 -> -> 11 `i `uc ]
-"130
-[; ;main.c: 130:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
-"131
-[; ;main.c: 131:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"132
-[; ;main.c: 132:     PPSLOCKbits.PPSLOCKED = 0x01;
-[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"134
-[; ;main.c: 134: }
-[e :UE 791 ]
+[e $U 784  ]
+[e :U 785 ]
+[e [\ _color , $ -> 0 `i 786
+ , $ -> 1 `i 787
+ , $ -> 2 `i 788
+ 784 ]
+[e :U 784 ]
+"38
+[; ;RGB.c: 38: }
+[e :UE 783 ]
 }

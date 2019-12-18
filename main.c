@@ -18,6 +18,7 @@
 #include "pic16f1719_internals.h"
 #include "I2C.h"
 #include "EUSART.h"
+#include "RGB.h"
 
 /**************************************************************
  * Function 
@@ -35,7 +36,8 @@ void main(void) {
     init_GPIO(); //configuring PPS
     init_I2C(); //configure i2c to 100kHz
     EUSART_Initialize(19200);
-    //set the RGB led red to signal 
+    init_RGB(); //set initially RGB all off
+    RGB_color(RGB_RED);//set the RGB led red to initially to signal no communication with AFE chip
     //BMS boot/initialisation
     init_AFE(); 
     
@@ -102,8 +104,10 @@ void init_GPIO() {
     /////////////////////
     // Setup RGB LED pins
     ////////////////////
+    TRISAbits.TRISA4 = 0;//set as output for RED led
+    TRISAbits.TRISA5 = 0;//set as output for GREEN led
+    TRISEbits.TRISE0 = 0;//set as output for BLUE led
     
-
     /////////////////////
     // Define peripheral pin select
     ////////////////////

@@ -23,19 +23,23 @@
 [v _send_I2C_startBit send_I2C_startBit `(v  1 e 1 0 ]
 "70
 [v _send_I2C_stopBit send_I2C_stopBit `(v  1 e 1 0 ]
-"31 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+"32 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"51
+"53
 [v _statemachine statemachine `(v  1 e 1 0 ]
-"57
+"59
 [v _init_AFE init_AFE `(v  1 e 1 0 ]
-"73
+"75
 [v _initClock initClock `(v  1 e 1 0 ]
-"79
+"81
 [v _init_GPIO init_GPIO `(v  1 e 1 0 ]
 "26 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
 [v _internal_16 internal_16 `(v  1 e 1 0 ]
-[s S265 . 1 `uc 1 TMR1IF 1 0 :1:0 
+"6 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+[v _init_RGB init_RGB `(v  1 e 1 0 ]
+"17
+[v _RGB_color RGB_color `(v  1 e 1 0 ]
+[s S320 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -45,9 +49,21 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "732 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
-[u S274 . 1 `S265 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES274  1 e 1 @17 ]
-[s S51 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S329 . 1 `S320 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES329  1 e 1 @17 ]
+[s S138 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1227
+[u S147 . 1 `S138 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES147  1 e 1 @140 ]
+[s S60 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -57,9 +73,9 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1289
-[u S60 . 1 `S51 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES60  1 e 1 @141 ]
-[s S108 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S69 . 1 `S60 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES69  1 e 1 @141 ]
+[s S117 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -69,9 +85,36 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1351
-[u S117 . 1 `S108 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES117  1 e 1 @142 ]
-[s S72 . 1 `uc 1 ANSB0 1 0 :1:0 
+[u S126 . 1 `S117 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES126  1 e 1 @142 ]
+[s S159 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 TRISE3 1 0 :1:3 
+]
+"1471
+[u S164 . 1 `S159 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES164  1 e 1 @144 ]
+[s S471 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"2307
+[u S480 . 1 `S471 1 . 1 0 ]
+[v _LATAbits LATAbits `VES480  1 e 1 @268 ]
+[s S492 . 1 `uc 1 LATE0 1 0 :1:0 
+`uc 1 LATE1 1 0 :1:1 
+`uc 1 LATE2 1 0 :1:2 
+]
+"2550
+[u S496 . 1 `S492 1 . 1 0 ]
+[v _LATEbits LATEbits `VES496  1 e 1 @272 ]
+[s S81 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
 `uc 1 ANSB3 1 0 :1:3 
@@ -79,9 +122,9 @@
 `uc 1 ANSB5 1 0 :1:5 
 ]
 "3869
-[u S79 . 1 `S72 1 . 1 0 ]
-[v _ANSELBbits ANSELBbits `VES79  1 e 1 @397 ]
-[s S89 . 1 `uc 1 . 1 0 :2:0 
+[u S88 . 1 `S81 1 . 1 0 ]
+[v _ANSELBbits ANSELBbits `VES88  1 e 1 @397 ]
+[s S98 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ANSC2 1 0 :1:2 
 `uc 1 ANSC3 1 0 :1:3 
 `uc 1 ANSC4 1 0 :1:4 
@@ -90,15 +133,15 @@
 `uc 1 ANSC7 1 0 :1:7 
 ]
 "3920
-[u S97 . 1 `S89 1 . 1 0 ]
-[v _ANSELCbits ANSELCbits `VES97  1 e 1 @398 ]
+[u S106 . 1 `S98 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES106  1 e 1 @398 ]
 "4240
 [v _RC1REG RC1REG `VEuc  1 e 1 @409 ]
 "4294
 [v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
 "4360
 [v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
-[s S244 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S299 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -108,27 +151,27 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4505
-[u S253 . 1 `S244 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES253  1 e 1 @413 ]
+[u S308 . 1 `S299 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES308  1 e 1 @413 ]
 "5376
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
 "5630
 [v _SSPADD SSPADD `VEuc  1 e 1 @530 ]
-[s S320 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S375 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "6351
-[s S326 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S381 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S331 . 1 `S320 1 . 1 0 `S326 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES331  1 e 1 @533 ]
-[s S366 . 1 `uc 1 SEN 1 0 :1:0 
+[u S386 . 1 `S375 1 . 1 0 `S381 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES386  1 e 1 @533 ]
+[s S421 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -138,45 +181,45 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6602
-[u S375 . 1 `S366 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES375  1 e 1 @534 ]
+[u S430 . 1 `S421 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES430  1 e 1 @534 ]
 "10778
 [v _PPSLOCK PPSLOCK `VEuc  1 e 1 @3599 ]
-[s S130 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+[s S173 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
 ]
 "10788
-[u S132 . 1 `S130 1 . 1 0 ]
-[v _PPSLOCKbits PPSLOCKbits `VES132  1 e 1 @3599 ]
-[s S151 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
+[u S175 . 1 `S173 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES175  1 e 1 @3599 ]
+[s S194 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
 ]
 "10948
-[u S153 . 1 `S151 1 . 1 0 ]
-[v _SSPCLKPPSbits SSPCLKPPSbits `VES153  1 e 1 @3616 ]
-[s S144 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
+[u S196 . 1 `S194 1 . 1 0 ]
+[v _SSPCLKPPSbits SSPCLKPPSbits `VES196  1 e 1 @3616 ]
+[s S187 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
 ]
 "10968
-[u S146 . 1 `S144 1 . 1 0 ]
-[v _SSPDATPPSbits SSPDATPPSbits `VES146  1 e 1 @3617 ]
-[s S172 . 1 `uc 1 RXPPS 1 0 :5:0 
+[u S189 . 1 `S187 1 . 1 0 ]
+[v _SSPDATPPSbits SSPDATPPSbits `VES189  1 e 1 @3617 ]
+[s S215 . 1 `uc 1 RXPPS 1 0 :5:0 
 ]
 "11008
-[u S174 . 1 `S172 1 . 1 0 ]
-[v _RXPPSbits RXPPSbits `VES174  1 e 1 @3620 ]
-[s S165 . 1 `uc 1 RB2PPS 1 0 :5:0 
+[u S217 . 1 `S215 1 . 1 0 ]
+[v _RXPPSbits RXPPSbits `VES217  1 e 1 @3620 ]
+[s S208 . 1 `uc 1 RB2PPS 1 0 :5:0 
 ]
 "11328
-[u S167 . 1 `S165 1 . 1 0 ]
-[v _RB2PPSbits RB2PPSbits `VES167  1 e 1 @3738 ]
-[s S137 . 1 `uc 1 RC4PPS 1 0 :5:0 
+[u S210 . 1 `S208 1 . 1 0 ]
+[v _RB2PPSbits RB2PPSbits `VES210  1 e 1 @3738 ]
+[s S180 . 1 `uc 1 RC4PPS 1 0 :5:0 
 ]
 "11528
-[u S139 . 1 `S137 1 . 1 0 ]
-[v _RC4PPSbits RC4PPSbits `VES139  1 e 1 @3748 ]
-[s S158 . 1 `uc 1 RC5PPS 1 0 :5:0 
+[u S182 . 1 `S180 1 . 1 0 ]
+[v _RC4PPSbits RC4PPSbits `VES182  1 e 1 @3748 ]
+[s S201 . 1 `uc 1 RC5PPS 1 0 :5:0 
 ]
 "11548
-[u S160 . 1 `S158 1 . 1 0 ]
-[v _RC5PPSbits RC5PPSbits `VES160  1 e 1 @3749 ]
+[u S203 . 1 `S201 1 . 1 0 ]
+[v _RC5PPSbits RC5PPSbits `VES203  1 e 1 @3749 ]
 "16354
 [v _BRGH BRGH `VEb  1 e 0 @3314 ]
 "16621
@@ -205,40 +248,51 @@
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1143 ]
 "19555
 [v _TXEN TXEN `VEb  1 e 0 @3317 ]
-"31 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+"32 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"49
-} 0
 "51
+} 0
+"53
 [v _statemachine statemachine `(v  1 e 1 0 ]
 {
-"55
+"57
+} 0
+"6 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+[v _init_RGB init_RGB `(v  1 e 1 0 ]
+{
+"12
 } 0
 "10 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
 [v _init_I2C init_I2C `(v  1 e 1 0 ]
 {
 "28
 } 0
-"79 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+"81 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _init_GPIO init_GPIO `(v  1 e 1 0 ]
 {
-"130
+"134
 } 0
-"57
+"59
 [v _init_AFE init_AFE `(v  1 e 1 0 ]
 {
-"71
-} 0
 "73
+} 0
+"75
 [v _initClock initClock `(v  1 e 1 0 ]
 {
-"77
+"79
 } 0
 "26 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
 [v _internal_16 internal_16 `(v  1 e 1 0 ]
 {
 "37
+} 0
+"17 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+[v _RGB_color RGB_color `(v  1 e 1 0 ]
+{
+[v RGB_color@color color `i  1 p 2 0 ]
+"38
 } 0
 "6 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
 [v _EUSART_Initialize EUSART_Initialize `(uc  1 e 1 0 ]

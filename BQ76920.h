@@ -1,5 +1,5 @@
 /* 
- * File:   BQ76920_registers.h
+ * File:   BQ76920.h
  *PIC: 16F1719 @16MHZ
  * compiler: XC8
  * 
