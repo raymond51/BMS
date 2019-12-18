@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "EUSART.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,37 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 15 "main.c"
+# 1 "EUSART.c" 2
+# 1 "./EUSART.h" 1
+# 13 "./EUSART.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+
+
+
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9554,7 +9583,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 15 "main.c" 2
+# 38 "./pic16f1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 3
@@ -9692,31 +9721,10 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 16 "main.c" 2
+# 39 "./pic16f1719_internals.h" 2
 
 
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
 
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-# 42 "./pic16f1719_internals.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10298,76 +10306,6 @@ void internal_32(void);
 void internal_16(void);
 void internal_8(void);
 void internal_4(void);
-# 18 "main.c" 2
-
-# 1 "./I2C.h" 1
-# 22 "./I2C.h"
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-# 22 "./I2C.h" 2
-
-
-
-
-
-
-const int ATmega328_address = 0x02;
-
-
-void init_I2C(void);
-void send_I2C_data(unsigned int databyte);
-unsigned int read_I2C_data(void);
-void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
-void send_I2C_startBit(void);
-void send_I2C_stopBit(void);
-void send_I2C_ACK(void);
-void send_I2C_NACK(void);
-
-void retrieve_data_ATmega328(void);
-# 19 "main.c" 2
-
-# 1 "./EUSART.h" 1
-# 13 "./EUSART.h"
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
 # 13 "./EUSART.h" 2
 
 
@@ -10380,88 +10318,84 @@ uint8_t EUSART_Read(void);
 void EUSART_Write(uint8_t txData);
 void EUSART_Write_Text(char *text);
 void EUSART_Read_Text(char *Output, unsigned int length);
-# 20 "main.c" 2
+# 1 "EUSART.c" 2
 
 
 
 
 
-void initClock(void);
-void init_EUSART(void);
-void init_GPIO(void);
-void init_AFE(void);
+char EUSART_Initialize(const long int baudrate)
+{
+ unsigned int x;
+ x = (16000000 - baudrate*64)/(baudrate*64);
+ if(x>255)
+ {
+  x = (16000000 - baudrate*16)/(baudrate*16);
+  BRGH = 1;
+ }
+ if(x<256)
+ {
+   SPBRG = x;
+   SYNC = 0;
+   SPEN = 1;
+          TRISC7 = 1;
+          TRISC6 = 1;
+          CREN = 1;
+          TXEN = 1;
+   return 1;
+ }
+ return 0;
 
-void main(void) {
+}
 
 
-    initClock();
-    init_GPIO();
-    init_I2C();
-    EUSART_Initialize(19200);
 
 
-    init_AFE();
+uint8_t EUSART_Read(void)
+{
 
-    while(1){
-
-
+   RC1STAbits.SREN = 1;
+    while(!PIR1bits.RCIF)
+    {
     }
 
-    return;
+
+    if(1 == RC1STAbits.OERR)
+    {
+
+
+        RC1STAbits.SPEN = 0;
+        RC1STAbits.SPEN = 1;
+    }
+
+    return RC1REG;
 }
 
 
-void init_AFE(void){
-# 64 "main.c"
+
+
+void EUSART_Write(uint8_t txData)
+{
+    while(0 == PIR1bits.TXIF)
+    {
+    }
+
+    TX1REG = txData;
 }
 
-void initClock() {
-
-    internal_16();
-
+void EUSART_Read_Text(char *Output, unsigned int length)
+{
+ int i;
+ for(int i=0;i<length;i++)
+  Output[i] = EUSART_Read();
 }
 
-void init_GPIO() {
 
 
 
-
-
-    TRISBbits.TRISB2 = 0;
-    ANSELBbits.ANSB2 = 0;
-    TRISBbits.TRISB3 = 1;
-    ANSELBbits.ANSB3 = 0;
-
-
-
-
-    ANSELCbits.ANSC4 = 0;
-    ANSELCbits.ANSC5 = 0;
-    TRISCbits.TRISC4 = 1;
-    TRISCbits.TRISC5 = 1;
-
-
-
-
-
-
-    PPSLOCK = 0x55;
-    PPSLOCK = 0xAA;
-    PPSLOCKbits.PPSLOCKED = 0x00;
-
-
-
-    RC4PPSbits.RC4PPS = 0x0011;
-    SSPDATPPSbits.SSPDATPPS = 0x0014;
-    SSPCLKPPSbits.SSPCLKPPS = 0x0015;
-    RC5PPSbits.RC5PPS = 0x0010;
-
-
-    RB2PPSbits.RB2PPS = 0x14;
-    RXPPSbits.RXPPS = 0x0B;
-
-    PPSLOCK = 0x55;
-    PPSLOCK = 0xAA;
-    PPSLOCKbits.PPSLOCKED = 0x01;
-
+void EUSART_Write_Text(char *text)
+{
+  int i;
+  for(i=0;text[i]!='\0';i++)
+   EUSART_Write(text[i]);
 }

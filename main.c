@@ -14,7 +14,7 @@
  **************************************************************/
 #include <xc.h>
 #include <stdio.h>
-#include <stdlib.h> // used for random number generation
+#include <stdlib.h>
 #include "pic16f1719_internals.h"
 #include "I2C.h"
 #include "EUSART.h"
@@ -24,29 +24,52 @@
  **************************************************************/
 void initClock(void);
 void init_EUSART(void);
-void init_main(void);
-
+void init_GPIO(void);
+void init_AFE(void);
 
 void main(void) {
     
+    //Peripherals
     initClock(); //initialise and set internal high frequency clock
-    init_main();
-    //init_I2C();
-
-
-    //EUSART_Initialize(19200);
+    init_GPIO(); //configuring PPS
+    init_I2C(); //configure i2c to 100kHz
+    EUSART_Initialize(19200);
     
+    //BMS boot/initialisation
+    init_AFE();
+    
+    while(1){
+    
+    
+    }
     
     return;
 }
 
+
+void init_AFE(void){
+    //begin communication
+    //set temperature limit
+    //set shunt resistor value
+    //set short circuit protection
+    //set over current charge protection
+    //set overcurrent discharge protection
+    //set cell under voltage protection
+    //set cell overvoltage protection
+    
+    //set balancing threshold
+    //set idle current threshold
+    //enable auto cell balancing
+    //set the green led output for the RGB led
+}
+
 void initClock() {
-    // Run at 16 MHz
-    //internal_16();
+    // Run at 16 MHz (internal clock)
+    internal_16();
 
 }
 
-void init_main() {
+void init_GPIO() {
 
 
     /////////////////////
@@ -75,12 +98,13 @@ void init_main() {
     PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
 
 
+    //Configure i2c pins
     RC4PPSbits.RC4PPS = 0x0011; //RC4->MSSP:SDA;
     SSPDATPPSbits.SSPDATPPS = 0x0014; //RC4->MSSP:SDA;
-
     SSPCLKPPSbits.SSPCLKPPS = 0x0015; //RC5->MSSP:SCL;
     RC5PPSbits.RC5PPS = 0x0010; //RC5->MSSP:SCL;
-
+    
+    //Configure the UART pins
     RB2PPSbits.RB2PPS = 0x14; //RB2->EUSART:TX;
     RXPPSbits.RXPPS = 0x0B; //RB3->EUSART:RX;
 

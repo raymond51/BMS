@@ -96,6 +96,7 @@ void retrieve_data_ATmega328(void) {
     send_I2C_startBit();
     send_I2C_controlByte(ATmega328_address, READ);
 
+    /*
     for (int i = 0; i < BUFFER_SIZE; i++) {
         if (i < BUFFER_SIZE) {
             incoming_data[i] = read_I2C_data();
@@ -105,7 +106,7 @@ void retrieve_data_ATmega328(void) {
             send_I2C_NACK();
         }
     }
-
+       */
     send_I2C_stopBit();
 
 }
