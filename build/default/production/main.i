@@ -10387,27 +10387,31 @@ void EUSART_Read_Text(char *Output, unsigned int length);
 void init_RGB();
 void RGB_color(int color);
 # 21 "main.c" 2
-
-
-
-
-
+# 39 "main.c"
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_AFE(void);
+void init_TMR1(void);
 void statemachine(void);
+
+
+
+
+uint8_t currState = 0;
 
 void __attribute__((picinterrupt(("")))) my_isr(void) {
 
     static uint8_t count = 0;
     static _Bool toggleColor = 0;
+
+    if(PIR1bits.TMR1IF){
     PIR1bits.TMR1IF = 0;
 
     count++;
 
 
-    if (count == 65) {
+    if (count == 61) {
         count = 0;
         if (toggleColor) {
             toggleColor = !toggleColor;
@@ -10416,6 +10420,7 @@ void __attribute__((picinterrupt(("")))) my_isr(void) {
             toggleColor = !toggleColor;
             RGB_color(1);
         }
+    }
     }
 
 }
@@ -10427,28 +10432,11 @@ void main(void) {
     init_GPIO();
     init_I2C();
     EUSART_Initialize(19200);
+    init_TMR1();
     init_RGB();
     RGB_color(0);
 
     init_AFE();
-
-
-
-
-    T1CONbits.T1CKPS = 0b00;
-
-    TMR1 = 0;
-
-
-    T1CONbits.TMR1ON = 1;
-
-
-    PIE1bits.TMR1IE = 1;
-
-
-    INTCONbits.PEIE = 1;
-
-    (INTCONbits.GIE = 1);
 
 
     while (1) {
@@ -10462,17 +10450,50 @@ void main(void) {
 
 void statemachine(void) {
 
+    switch (currState) {
+        case 0:
 
 
+
+
+
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+    }
 }
 
 void init_AFE(void) {
-# 114 "main.c"
+# 132 "main.c"
 }
 
 void initClock() {
 
     internal_16();
+
+}
+
+
+
+
+void init_TMR1(void) {
+
+
+    T1CONbits.T1CKPS = 0b00;
+
+    TMR1 = 0;
+
+    T1CONbits.TMR1ON = 1;
+
+    PIE1bits.TMR1IE = 1;
+
+    INTCONbits.PEIE = 1;
+
+    (INTCONbits.GIE = 1);
 
 }
 
@@ -10494,7 +10515,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 148 "main.c"
+# 186 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

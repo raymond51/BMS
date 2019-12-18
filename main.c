@@ -21,24 +21,45 @@
 #include "RGB.h"
 
 /**************************************************************
+ * Defines 
+ **************************************************************/
+//states 
+#define AWAIT_AFE_CONN 0 //await for response from the AFE, response occurs after boot 
+#define AFE_INIT 1
+#define READ_AFE_DATA 2
+
+
+//timer values
+#define countSecond 61
+
+//value = fclk/(4*prescaler*256)
+/**************************************************************
  * Function 
  **************************************************************/
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_AFE(void);
+void init_TMR1(void);
 void statemachine(void);
+
+/**************************************************************
+ * Globals
+ **************************************************************/
+uint8_t currState = AWAIT_AFE_CONN;
 
 void __interrupt() my_isr(void) { // High priority interrupt
 
     static uint8_t count = 0;
     static bool toggleColor = false;
-    PIR1bits.TMR1IF = 0;
+
+    if(PIR1bits.TMR1IF && PIE1bits.TMR1IE){//checking for overflow flag and if timer interrupt enabled
+    PIR1bits.TMR1IF = 0; //clear interrupt flag for timer 1
 
     count++;
 
     // Blink every second
-    if (count == 65) {
+    if (count == countSecond) {
         count = 0;
         if (toggleColor) {
             toggleColor = !toggleColor;
@@ -48,7 +69,8 @@ void __interrupt() my_isr(void) { // High priority interrupt
             RGB_color(RGB_GREEN);
         }
     }
-
+    }
+    
 }
 
 void main(void) {
@@ -58,28 +80,11 @@ void main(void) {
     init_GPIO(); //configuring PPS
     init_I2C(); //configure i2c to 100kHz
     EUSART_Initialize(19200);
+    init_TMR1(); //Enable timer 1 to repeatedly communicate with the AFE until boot
     init_RGB(); //set initially RGB all off
     RGB_color(RGB_RED); //set the RGB led red to initially to signal no communication with AFE chip
     //BMS boot/initialisation
     init_AFE();
-
-
-
-    // prescale = 1
-    T1CONbits.T1CKPS = 0b00;
-    // Set TMR1 to 0
-    TMR1 = 0;
-
-    // enable timer1
-    T1CONbits.TMR1ON = 1;
-
-    // enable timer1 interrupt
-    PIE1bits.TMR1IE = 1;
-
-    // enable peripheral interrupt
-    INTCONbits.PEIE = 1;
-    // enable global interrupts
-    ei();
 
 
     while (1) {
@@ -93,8 +98,21 @@ void main(void) {
 
 void statemachine(void) {
 
+    switch (currState) {
+        case AWAIT_AFE_CONN:
+            //create a flag
+            //check if flag set
+            //send i2c command to request for communication
+            //reset the flag
+            //move to next state
+            break;
+        case AFE_INIT:
+            //init AFE
+            break;
+        case READ_AFE_DATA:
 
-
+            break;
+    }
 }
 
 void init_AFE(void) {
@@ -116,6 +134,26 @@ void init_AFE(void) {
 void initClock() {
     // Run at 16 MHz (internal clock)
     internal_16();
+
+}
+
+/*
+ @brief: enable timer 1 to repeatedly communicate with AFE
+ */
+void init_TMR1(void) {
+
+    // pre-scaler = 1
+    T1CONbits.T1CKPS = 0b00;
+    // Set TMR1 to 0
+    TMR1 = 0;
+    // enable timer1
+    T1CONbits.TMR1ON = 1;
+    // enable timer1 interrupt
+    PIE1bits.TMR1IE = 1;
+    // enable peripheral interrupt
+    INTCONbits.PEIE = 1;
+    // enable global interrupts
+    ei();
 
 }
 
