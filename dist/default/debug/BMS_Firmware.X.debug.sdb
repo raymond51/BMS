@@ -4,7 +4,7 @@
 [d chip 16F1719 ]
 [d frameptr 6 ]
 "7 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-[v _beginAFEcommunication beginAFEcommunication `(uc  1 e 1 0 ]
+[v _beginAFEcommunication beginAFEcommunication `(i  1 e 2 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
@@ -17,6 +17,8 @@
 [v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
 "56
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+"75
+[v _EUSART_Write_Text EUSART_Write_Text `(v  1 e 1 0 ]
 "10 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
 [v _init_I2C init_I2C `(v  1 e 1 0 ]
 "33
@@ -33,6 +35,8 @@
 [v _send_I2C_NACK send_I2C_NACK `(v  1 e 1 0 ]
 "118
 [v _I2C_writeRegister I2C_writeRegister `(v  1 e 1 0 ]
+"129
+[v _readRegister readRegister `(i  1 e 2 0 ]
 "58 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _myIsr myIsr `II(v  1 e 1 0 ]
 "76
@@ -59,7 +63,7 @@
 [v _cellVoltages cellVoltages `[5]i  1 e 10 0 ]
 "24 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/RGB.h
 [v _toggleColor toggleColor `a  1 e 1 0 ]
-[s S151 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S156 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -69,13 +73,13 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "374 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
-[s S160 . 1 `uc 1 . 1 0 :2:0 
+[s S165 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S165 . 1 `S151 1 . 1 0 `S160 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES165  1 e 1 @11 ]
+[u S170 . 1 `S156 1 . 1 0 `S165 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES170  1 e 1 @11 ]
 [s S22 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -106,7 +110,7 @@
 ]
 [u S120 . 1 `S107 1 . 1 0 `S114 1 . 1 0 ]
 [v _T1CONbits T1CONbits `VES120  1 e 1 @24 ]
-[s S261 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S266 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -116,9 +120,9 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1227
-[u S270 . 1 `S261 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES270  1 e 1 @140 ]
-[s S183 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S275 . 1 `S266 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES275  1 e 1 @140 ]
+[s S188 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -128,9 +132,9 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1289
-[u S192 . 1 `S183 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES192  1 e 1 @141 ]
-[s S240 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S197 . 1 `S188 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES197  1 e 1 @141 ]
+[s S245 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -140,16 +144,16 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1351
-[u S249 . 1 `S240 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES249  1 e 1 @142 ]
-[s S282 . 1 `uc 1 TRISE0 1 0 :1:0 
+[u S254 . 1 `S245 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES254  1 e 1 @142 ]
+[s S287 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
 ]
 "1471
-[u S287 . 1 `S282 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES287  1 e 1 @144 ]
+[u S292 . 1 `S287 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES292  1 e 1 @144 ]
 [s S43 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
@@ -162,7 +166,7 @@
 "1513
 [u S52 . 1 `S43 1 . 1 0 ]
 [v _PIE1bits PIE1bits `VES52  1 e 1 @145 ]
-[s S632 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S638 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -172,16 +176,16 @@
 `uc 1 LATA7 1 0 :1:7 
 ]
 "2307
-[u S641 . 1 `S632 1 . 1 0 ]
-[v _LATAbits LATAbits `VES641  1 e 1 @268 ]
-[s S653 . 1 `uc 1 LATE0 1 0 :1:0 
+[u S647 . 1 `S638 1 . 1 0 ]
+[v _LATAbits LATAbits `VES647  1 e 1 @268 ]
+[s S659 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "2550
-[u S657 . 1 `S653 1 . 1 0 ]
-[v _LATEbits LATEbits `VES657  1 e 1 @272 ]
-[s S204 . 1 `uc 1 ANSB0 1 0 :1:0 
+[u S663 . 1 `S659 1 . 1 0 ]
+[v _LATEbits LATEbits `VES663  1 e 1 @272 ]
+[s S209 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
 `uc 1 ANSB3 1 0 :1:3 
@@ -189,9 +193,9 @@
 `uc 1 ANSB5 1 0 :1:5 
 ]
 "3869
-[u S211 . 1 `S204 1 . 1 0 ]
-[v _ANSELBbits ANSELBbits `VES211  1 e 1 @397 ]
-[s S221 . 1 `uc 1 . 1 0 :2:0 
+[u S216 . 1 `S209 1 . 1 0 ]
+[v _ANSELBbits ANSELBbits `VES216  1 e 1 @397 ]
+[s S226 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ANSC2 1 0 :1:2 
 `uc 1 ANSC3 1 0 :1:3 
 `uc 1 ANSC4 1 0 :1:4 
@@ -200,15 +204,15 @@
 `uc 1 ANSC7 1 0 :1:7 
 ]
 "3920
-[u S229 . 1 `S221 1 . 1 0 ]
-[v _ANSELCbits ANSELCbits `VES229  1 e 1 @398 ]
+[u S234 . 1 `S226 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES234  1 e 1 @398 ]
 "4240
 [v _RC1REG RC1REG `VEuc  1 e 1 @409 ]
 "4294
 [v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
 "4360
 [v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
-[s S470 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S476 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -218,27 +222,27 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4505
-[u S479 . 1 `S470 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES479  1 e 1 @413 ]
+[u S485 . 1 `S476 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES485  1 e 1 @413 ]
 "5376
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
 "5630
 [v _SSPADD SSPADD `VEuc  1 e 1 @530 ]
-[s S529 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S535 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "6351
-[s S535 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S541 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S540 . 1 `S529 1 . 1 0 `S535 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES540  1 e 1 @533 ]
-[s S571 . 1 `uc 1 SEN 1 0 :1:0 
+[u S546 . 1 `S535 1 . 1 0 `S541 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES546  1 e 1 @533 ]
+[s S577 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -248,45 +252,45 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6602
-[u S580 . 1 `S571 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES580  1 e 1 @534 ]
+[u S586 . 1 `S577 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES586  1 e 1 @534 ]
 "10778
 [v _PPSLOCK PPSLOCK `VEuc  1 e 1 @3599 ]
-[s S296 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+[s S301 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
 ]
 "10788
-[u S298 . 1 `S296 1 . 1 0 ]
-[v _PPSLOCKbits PPSLOCKbits `VES298  1 e 1 @3599 ]
-[s S317 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
+[u S303 . 1 `S301 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES303  1 e 1 @3599 ]
+[s S322 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
 ]
 "10948
-[u S319 . 1 `S317 1 . 1 0 ]
-[v _SSPCLKPPSbits SSPCLKPPSbits `VES319  1 e 1 @3616 ]
-[s S310 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
+[u S324 . 1 `S322 1 . 1 0 ]
+[v _SSPCLKPPSbits SSPCLKPPSbits `VES324  1 e 1 @3616 ]
+[s S315 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
 ]
 "10968
-[u S312 . 1 `S310 1 . 1 0 ]
-[v _SSPDATPPSbits SSPDATPPSbits `VES312  1 e 1 @3617 ]
-[s S338 . 1 `uc 1 RXPPS 1 0 :5:0 
+[u S317 . 1 `S315 1 . 1 0 ]
+[v _SSPDATPPSbits SSPDATPPSbits `VES317  1 e 1 @3617 ]
+[s S343 . 1 `uc 1 RXPPS 1 0 :5:0 
 ]
 "11008
-[u S340 . 1 `S338 1 . 1 0 ]
-[v _RXPPSbits RXPPSbits `VES340  1 e 1 @3620 ]
-[s S331 . 1 `uc 1 RB2PPS 1 0 :5:0 
+[u S345 . 1 `S343 1 . 1 0 ]
+[v _RXPPSbits RXPPSbits `VES345  1 e 1 @3620 ]
+[s S336 . 1 `uc 1 RB2PPS 1 0 :5:0 
 ]
 "11328
-[u S333 . 1 `S331 1 . 1 0 ]
-[v _RB2PPSbits RB2PPSbits `VES333  1 e 1 @3738 ]
-[s S303 . 1 `uc 1 RC4PPS 1 0 :5:0 
+[u S338 . 1 `S336 1 . 1 0 ]
+[v _RB2PPSbits RB2PPSbits `VES338  1 e 1 @3738 ]
+[s S308 . 1 `uc 1 RC4PPS 1 0 :5:0 
 ]
 "11528
-[u S305 . 1 `S303 1 . 1 0 ]
-[v _RC4PPSbits RC4PPSbits `VES305  1 e 1 @3748 ]
-[s S324 . 1 `uc 1 RC5PPS 1 0 :5:0 
+[u S310 . 1 `S308 1 . 1 0 ]
+[v _RC4PPSbits RC4PPSbits `VES310  1 e 1 @3748 ]
+[s S329 . 1 `uc 1 RC5PPS 1 0 :5:0 
 ]
 "11548
-[u S326 . 1 `S324 1 . 1 0 ]
-[v _RC5PPSbits RC5PPSbits `VES326  1 e 1 @3749 ]
+[u S331 . 1 `S329 1 . 1 0 ]
+[v _RC5PPSbits RC5PPSbits `VES331  1 e 1 @3749 ]
 "16354
 [v _BRGH BRGH `VEb  1 e 0 @3314 ]
 "16621
@@ -326,7 +330,7 @@
 [v _statemachine statemachine `(v  1 e 1 0 ]
 {
 "104
-[v statemachine@success success `uc  1 a 1 4 ]
+[v statemachine@success success `uc  1 a 1 7 ]
 "135
 } 0
 "137
@@ -335,15 +339,32 @@
 "151
 } 0
 "7 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-[v _beginAFEcommunication beginAFEcommunication `(uc  1 e 1 0 ]
+[v _beginAFEcommunication beginAFEcommunication `(i  1 e 2 0 ]
 {
 "12
-[v beginAFEcommunication@i i `i  1 a 2 1 ]
+[v beginAFEcommunication@i i `i  1 a 2 4 ]
 "9
-[v beginAFEcommunication@errCode errCode `uc  1 a 1 0 ]
-"25
+[v beginAFEcommunication@errCode errCode `i  1 a 2 2 ]
+"28
 } 0
-"118 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+"129 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+[v _readRegister readRegister `(i  1 e 2 0 ]
+{
+[v readRegister@slaveAddress slaveAddress `i  1 p 2 5 ]
+[v readRegister@regAddress regAddress `i  1 p 2 7 ]
+"140
+} 0
+"83
+[v _send_I2C_NACK send_I2C_NACK `(v  1 e 1 0 ]
+{
+"88
+} 0
+"42
+[v _read_I2C_data read_I2C_data `(ui  1 e 2 0 ]
+{
+"47
+} 0
+"118
 [v _I2C_writeRegister I2C_writeRegister `(v  1 e 1 0 ]
 {
 [v I2C_writeRegister@slaveAddress slaveAddress `i  1 p 2 5 ]
@@ -384,6 +405,23 @@
 {
 [v RGB_color@color color `i  1 p 2 1 ]
 "38
+} 0
+"75 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+[v _EUSART_Write_Text EUSART_Write_Text `(v  1 e 1 0 ]
+{
+"77
+[v EUSART_Write_Text@i i `i  1 a 2 5 ]
+"75
+[v EUSART_Write_Text@text text `*.25uc  1 p 2 2 ]
+"80
+} 0
+"56
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+{
+[v EUSART_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART_Write@txData txData `uc  1 a 1 1 ]
+"63
 } 0
 "162 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _init_TMR1 init_TMR1 `(v  1 e 1 0 ]

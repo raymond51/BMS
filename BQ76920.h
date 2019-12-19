@@ -29,8 +29,7 @@ int cellVoltages[MAX_NUMBER_OF_CELLS]; // mV
 
 
 //main function prototypes -----------------------------------------------------
-uint8_t beginAFEcommunication(void);
-
+int beginAFEcommunication(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

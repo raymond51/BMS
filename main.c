@@ -101,17 +101,21 @@ void statemachine(void) {
             if (tmr1_flag) {
                 tmr1_flag = 0; //clear flag
                 RGB_AWAIT_AFE_CONN(); //toggle to the color to indicate attempt to connect to AFE
-                uint8_t success = beginAFEcommunication(); //send i2c command to request for communication
-
+                uint8_t success1 = beginAFEcommunication(); //send i2c command to request for communication
+                uint8_t success = 0;
+                
+#ifdef BQ76920_DEBUG
+                EUSART_Write_Text("Attempting to communicate with AFE...\n\r"); //print to terminal if success check if debug is enabled;
+#endif
                 if (success) {
-                    T1CONbits.TMR1ON = 0;// disable timer1
-                    PIE1bits.TMR1IE = 0;// disable timer1 interrupt
+                    T1CONbits.TMR1ON = 0; // disable timer1
+                    PIE1bits.TMR1IE = 0; // disable timer1 interrupt
                     RGB_color(RGB_RED);
                     tmr1_flag = 0; //clear flag
-                    
+
 #ifdef BQ76920_DEBUG
                     __delay_ms(5); //allow time for i2c communication to end
-                    //print to terminal if success check if debug is enabled;
+                    EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r"); //print to terminal if success check if debug is enabled;
 #endif
                     //move to next state if communication was successful check the return value
                 }

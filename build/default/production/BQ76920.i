@@ -10457,7 +10457,7 @@ int cellVoltages[5];
 
 
 
-uint8_t beginAFEcommunication(void);
+int beginAFEcommunication(void);
 # 1 "BQ76920.c" 2
 
 
@@ -10465,9 +10465,9 @@ uint8_t beginAFEcommunication(void);
 
 
 
-uint8_t beginAFEcommunication(void){
+int beginAFEcommunication(void){
 
-   uint8_t errCode = 0;
+   int errCode = 0;
 
 
   for (int i = 0; i < 4; i++) {

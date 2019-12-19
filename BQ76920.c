@@ -4,9 +4,9 @@
 /*
  @brief: atempt to communicate with the AFE by sending i2c address, await for address response 
  */
-uint8_t beginAFEcommunication(void){
+int beginAFEcommunication(void){
     
-   uint8_t errCode = 0;
+   int errCode = 0;
     
   // initialize variables
   for (int i = 0; i < 4; i++) {

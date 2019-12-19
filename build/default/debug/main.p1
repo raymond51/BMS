@@ -53,8 +53,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./RGB.h: 31: void RGB_AWAIT_AFE_CONN();
 [v _RGB_AWAIT_AFE_CONN `(v ~T0 @X0 0 e? ]
 "32 ./BQ76920.h
-[; ;./BQ76920.h: 32: uint8_t beginAFEcommunication(void);
-[v _beginAFEcommunication `(uc ~T0 @X0 0 ef ]
+[; ;./BQ76920.h: 32: int beginAFEcommunication(void);
+[v _beginAFEcommunication `(i ~T0 @X0 0 ef ]
 "963 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 963:     struct {
 [s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
@@ -73,6 +73,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./RGB.h
 [; ;./RGB.h: 29: void RGB_color(int color);
 [v _RGB_color `(v ~T0 @X0 0 ef1`i ]
+"22 ./EUSART.h
+[; ;./EUSART.h: 22: void EUSART_Write_Text(char *text);
+[v _EUSART_Write_Text `(v ~T0 @X0 0 ef1`*uc ]
 "45 main.c
 [; ;main.c: 45: void init_AFE(void);
 [v _init_AFE `(v ~T0 @X0 0 ef ]
@@ -1505,9 +1508,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 103:                 RGB_AWAIT_AFE_CONN();
 [e ( _RGB_AWAIT_AFE_CONN ..  ]
 "104
-[; ;main.c: 104:                 uint8_t success = beginAFEcommunication();
+[; ;main.c: 104:                  uint8_t success = beginAFEcommunication();
 [v _success `uc ~T0 @X0 1 a ]
-[e = _success ( _beginAFEcommunication ..  ]
+[e = _success -> ( _beginAFEcommunication ..  `uc ]
 "106
 [; ;main.c: 106:                 if (success) {
 [e $ ! != -> _success `i -> 0 `i 812  ]
@@ -1527,6 +1530,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "113
 [; ;main.c: 113:                     _delay((unsigned long)((5)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"114
+[; ;main.c: 114:                     EUSART_Write_Text("Now communicating with BQ76920 AFE\n\r");
+[e ( _EUSART_Write_Text (1 :s 1C ]
 "117
 [; ;main.c: 117:                 }
 }
@@ -1697,3 +1703,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 232: }
 [e :UE 818 ]
 }
+[a 1C 78 111 119 32 99 111 109 109 117 110 105 99 97 116 105 110 103 32 119 105 116 104 32 66 81 55 54 57 50 48 32 65 70 69 10 13 0 ]

@@ -10521,7 +10521,7 @@ int cellVoltages[5];
 
 
 
-uint8_t beginAFEcommunication(void);
+int beginAFEcommunication(void);
 # 24 "main.c" 2
 # 42 "main.c"
 void initClock(void);
@@ -10586,7 +10586,11 @@ void statemachine(void) {
             if (tmr1_flag) {
                 tmr1_flag = 0;
                 RGB_AWAIT_AFE_CONN();
-                uint8_t success = beginAFEcommunication();
+                uint8_t success1 = beginAFEcommunication();
+                uint8_t success = 0;
+
+
+                EUSART_Write_Text("Attempting to communicate with AFE...\n\r");
 
                 if (success) {
                     T1CONbits.TMR1ON = 0;
@@ -10596,7 +10600,7 @@ void statemachine(void) {
 
 
                     _delay((unsigned long)((5)*(16000000/4000.0)));
-
+                    EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r");
 
 
                 }
@@ -10620,7 +10624,7 @@ void statemachine(void) {
 }
 
 void init_AFE(void) {
-# 151 "main.c"
+# 155 "main.c"
 }
 
 void initClock() {
@@ -10667,7 +10671,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 205 "main.c"
+# 209 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

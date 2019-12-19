@@ -10521,7 +10521,7 @@ int cellVoltages[5];
 
 
 
-uint8_t beginAFEcommunication(void);
+int beginAFEcommunication(void);
 # 24 "main.c" 2
 # 42 "main.c"
 void initClock(void);
@@ -10586,7 +10586,7 @@ void statemachine(void) {
             if (tmr1_flag) {
                 tmr1_flag = 0;
                 RGB_AWAIT_AFE_CONN();
-                uint8_t success = beginAFEcommunication();
+                 uint8_t success = beginAFEcommunication();
 
                 if (success) {
                     T1CONbits.TMR1ON = 0;
@@ -10596,7 +10596,7 @@ void statemachine(void) {
 
 
                     _delay((unsigned long)((5)*(16000000/4000.0)));
-
+                    EUSART_Write_Text("Now communicating with BQ76920 AFE\n\r");
 
 
                 }

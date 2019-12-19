@@ -10451,4 +10451,5 @@ int readRegister(int slaveAddress, int regAddress) {
     recievedData = read_I2C_data();
     send_I2C_NACK();
     send_I2C_stopBit();
+    return recievedData;
 }
