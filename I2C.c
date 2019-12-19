@@ -10,7 +10,7 @@
 void init_I2C() {
 
     //set master mode and clock speed-------------------------------------------
-    
+
     SSPCONbits.SSPM = 0x08; // I2C Master mode, clock = Fosc/(4 * (SSPADD+1)) gives us 100khz when sspadd  = 39, check datasheet
     SSPCONbits.SSPEN = 1; // enable MSSP port
     // The SSPADD register value is used to determine the clock rate for I2C
@@ -88,11 +88,12 @@ void send_I2C_NACK(void) {
 }
 
 //------------------------------------------------------------------------------------------------------Communication procedures
+
 /*
  @brief: Retrieve canbus data from the ATmega328 (arduino) through I2C, data received in order related to enum
  */
 void retrieve_data_ATmega328(void) {
-    
+
     send_I2C_startBit();
     send_I2C_controlByte(ATmega328_address, READ);
 
@@ -106,7 +107,7 @@ void retrieve_data_ATmega328(void) {
             send_I2C_NACK();
         }
     }
-       */
+     */
     send_I2C_stopBit();
 
 }
@@ -114,7 +115,7 @@ void retrieve_data_ATmega328(void) {
 /*
  @brief: Send the data to address register of slave
  */
-void I2C_writeRegister(int slaveAddress,int regAddress, int data){
+void I2C_writeRegister(int slaveAddress, int regAddress, int data) {
     send_I2C_startBit();
     send_I2C_controlByte(slaveAddress, WRITE);
     send_I2C_data(regAddress); //write to the reg address of slave 
@@ -125,12 +126,15 @@ void I2C_writeRegister(int slaveAddress,int regAddress, int data){
 /*
  @brief: Retrieve a single byte of data from the slave
  */
-
-/*
-void readRegister(int regAddress, int data){
+int readRegister(int slaveAddress, int regAddress) {
+    int recievedData;
     send_I2C_startBit();
-    send_I2C_controlByte(regAddress, WRITE);
-    send_I2C_data(data)
+    send_I2C_controlByte(slaveAddress, WRITE);
+    send_I2C_data(regAddress);
+    send_I2C_stopBit();
+    send_I2C_startBit();
+    send_I2C_controlByte(slaveAddress, READ);
+    recievedData = read_I2C_data();
+    send_I2C_NACK();
     send_I2C_stopBit();
 }
- */

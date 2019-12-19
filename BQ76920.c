@@ -12,10 +12,17 @@ uint8_t beginAFEcommunication(void){
   for (int i = 0; i < 4; i++) {
     cellVoltages[i] = 0;
   }
-   
+ 
     // test communication
+    
    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS,CC_CFG,0x19); // should be set to 0x19 according to datasheet
+
+   if(readRegister(AFE_BQ76920_I2C_ADDRESS,CC_CFG)==0x19){
+    errCode =1;
+   }
   
+   
+   
   return errCode;
   
 }

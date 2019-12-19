@@ -1,4 +1,4 @@
-# 1 "I2C.c"
+# 1 "EUSART.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "I2C.c" 2
-
-# 1 "./I2C.h" 1
-# 22 "./I2C.h"
+# 1 "EUSART.c" 2
+# 1 "./EUSART.h" 1
+# 13 "./EUSART.h"
 # 1 "./pic16f1719_internals.h" 1
 # 13 "./pic16f1719_internals.h"
 #pragma config FOSC = INTOSC
@@ -10307,148 +10306,96 @@ void internal_32(void);
 void internal_16(void);
 void internal_8(void);
 void internal_4(void);
-# 22 "./I2C.h" 2
+# 13 "./EUSART.h" 2
 
 
 
 
 
 
-const int ATmega328_address = 0x02;
-
-
-void init_I2C(void);
-void send_I2C_data(unsigned int databyte);
-unsigned int read_I2C_data(void);
-void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
-void send_I2C_startBit(void);
-void send_I2C_stopBit(void);
-void send_I2C_ACK(void);
-void send_I2C_NACK(void);
-
-void retrieve_data_ATmega328(void);
-
-void I2C_writeRegister(int slaveAddress,int regAddress, int data);
-int readRegister(int slaveAddress, int regAddress);
-# 2 "I2C.c" 2
+char EUSART_Initialize(const long int baudrate);
+uint8_t EUSART_Read(void);
+void EUSART_Write(uint8_t txData);
+void EUSART_Write_Text(char *text);
+void EUSART_Read_Text(char *Output, unsigned int length);
+# 1 "EUSART.c" 2
 
 
 
 
 
-
-
-
-void init_I2C() {
-
-
-
-    SSPCONbits.SSPM = 0x08;
-    SSPCONbits.SSPEN = 1;
-# 24 "I2C.c"
-    SSPADD = 39;
-
-
-    _delay((unsigned long)((10)*(16000000/4000.0)));
-}
-
-
-
-
-void send_I2C_data(unsigned int databyte) {
-    PIR1bits.SSP1IF = 0;
-    SSPBUF = databyte;
-    while (!PIR1bits.SSP1IF);
-}
-
-
-
-
-unsigned int read_I2C_data(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.RCEN = 1;
-    while (!PIR1bits.SSP1IF);
-    return (SSPBUF);
-}
-
-
-
-
-void send_I2C_controlByte(unsigned int BlockAddress, unsigned int RW_bit) {
-    PIR1bits.SSP1IF = 0;
-
-
-
-
-
-    SSPBUF = (((0b0000 << 4) | (BlockAddress << 1)) + RW_bit);
-
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_startBit(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.SEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_stopBit(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.PEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_ACK(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.ACKDT = 0;
-    SSPCON2bits.ACKEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_NACK(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.ACKDT = 1;
-    SSPCON2bits.ACKEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-
-
-
-
-
-void retrieve_data_ATmega328(void) {
-
-    send_I2C_startBit();
-    send_I2C_controlByte(ATmega328_address, 1);
-# 111 "I2C.c"
-    send_I2C_stopBit();
+char EUSART_Initialize(const long int baudrate)
+{
+ unsigned int x;
+ x = (16000000 - baudrate*64)/(baudrate*64);
+ if(x>255)
+ {
+  x = (16000000 - baudrate*16)/(baudrate*16);
+  BRGH = 1;
+ }
+ if(x<256)
+ {
+   SPBRG = x;
+   SYNC = 0;
+   SPEN = 1;
+          TRISC7 = 1;
+          TRISC6 = 1;
+          CREN = 1;
+          TXEN = 1;
+   return 1;
+ }
+ return 0;
 
 }
 
 
 
 
-void I2C_writeRegister(int slaveAddress, int regAddress, int data) {
-    send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 0);
-    send_I2C_data(regAddress);
-    send_I2C_data(data);
-    send_I2C_stopBit();
+uint8_t EUSART_Read(void)
+{
+
+   RC1STAbits.SREN = 1;
+    while(!PIR1bits.RCIF)
+    {
+    }
+
+
+    if(1 == RC1STAbits.OERR)
+    {
+
+
+        RC1STAbits.SPEN = 0;
+        RC1STAbits.SPEN = 1;
+    }
+
+    return RC1REG;
 }
 
 
 
 
-int readRegister(int slaveAddress, int regAddress) {
-    int recievedData;
-    send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 0);
-    send_I2C_data(regAddress);
-    send_I2C_stopBit();
-    send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 1);
-    recievedData = read_I2C_data();
-    send_I2C_NACK();
-    send_I2C_stopBit();
+void EUSART_Write(uint8_t txData)
+{
+    while(0 == PIR1bits.TXIF)
+    {
+    }
+
+    TX1REG = txData;
+}
+
+void EUSART_Read_Text(char *Output, unsigned int length)
+{
+ int i;
+ for(int i=0;i<length;i++)
+  Output[i] = EUSART_Read();
+}
+
+
+
+
+void EUSART_Write_Text(char *text)
+{
+  int i;
+  for(i=0;text[i]!='\0';i++)
+   EUSART_Write(text[i]);
 }

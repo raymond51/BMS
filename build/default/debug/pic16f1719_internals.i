@@ -1,4 +1,4 @@
-# 1 "I2C.c"
+# 1 "pic16f1719_internals.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "I2C.c" 2
+# 1 "pic16f1719_internals.c" 2
 
-# 1 "./I2C.h" 1
-# 22 "./I2C.h"
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
+# 1 "./pic16F1719_internals.h" 1
+# 13 "./pic16F1719_internals.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -9584,7 +9582,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 38 "./pic16f1719_internals.h" 2
+# 38 "./pic16F1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 3
@@ -9722,7 +9720,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 39 "./pic16f1719_internals.h" 2
+# 39 "./pic16F1719_internals.h" 2
 
 
 
@@ -9809,10 +9807,10 @@ typedef int32_t int_fast32_t;
 typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
-# 42 "./pic16f1719_internals.h" 2
+# 42 "./pic16F1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdbool.h" 1 3
-# 43 "./pic16f1719_internals.h" 2
+# 43 "./pic16F1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 1 3
 # 19 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 3
@@ -9820,7 +9818,7 @@ typedef uint32_t uint_fast32_t;
 # 140 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long ptrdiff_t;
 # 19 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 2 3
-# 44 "./pic16f1719_internals.h" 2
+# 44 "./pic16F1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\math.h" 3
@@ -10295,7 +10293,7 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 45 "./pic16f1719_internals.h" 2
+# 45 "./pic16F1719_internals.h" 2
 
 
 
@@ -10307,30 +10305,7 @@ void internal_32(void);
 void internal_16(void);
 void internal_8(void);
 void internal_4(void);
-# 22 "./I2C.h" 2
-
-
-
-
-
-
-const int ATmega328_address = 0x02;
-
-
-void init_I2C(void);
-void send_I2C_data(unsigned int databyte);
-unsigned int read_I2C_data(void);
-void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
-void send_I2C_startBit(void);
-void send_I2C_stopBit(void);
-void send_I2C_ACK(void);
-void send_I2C_NACK(void);
-
-void retrieve_data_ATmega328(void);
-
-void I2C_writeRegister(int slaveAddress,int regAddress, int data);
-int readRegister(int slaveAddress, int regAddress);
-# 2 "I2C.c" 2
+# 2 "pic16f1719_internals.c" 2
 
 
 
@@ -10338,117 +10313,64 @@ int readRegister(int slaveAddress, int regAddress);
 
 
 
+void internal_32(void){
 
-void init_I2C() {
+SCS0 = 0;
+SCS1 = 0;
 
+IRCF0 = 0;
+IRCF1 = 1;
+IRCF2 = 1;
+IRCF3 = 1;
 
-
-    SSPCONbits.SSPM = 0x08;
-    SSPCONbits.SSPEN = 1;
-# 24 "I2C.c"
-    SSPADD = 39;
-
-
-    _delay((unsigned long)((10)*(16000000/4000.0)));
-}
-
-
-
-
-void send_I2C_data(unsigned int databyte) {
-    PIR1bits.SSP1IF = 0;
-    SSPBUF = databyte;
-    while (!PIR1bits.SSP1IF);
-}
-
-
-
-
-unsigned int read_I2C_data(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.RCEN = 1;
-    while (!PIR1bits.SSP1IF);
-    return (SSPBUF);
-}
-
-
-
-
-void send_I2C_controlByte(unsigned int BlockAddress, unsigned int RW_bit) {
-    PIR1bits.SSP1IF = 0;
-
-
-
-
-
-    SSPBUF = (((0b0000 << 4) | (BlockAddress << 1)) + RW_bit);
-
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_startBit(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.SEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_stopBit(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.PEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_ACK(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.ACKDT = 0;
-    SSPCON2bits.ACKEN = 1;
-    while (!PIR1bits.SSP1IF);
-}
-
-void send_I2C_NACK(void) {
-    PIR1bits.SSP1IF = 0;
-    SSPCON2bits.ACKDT = 1;
-    SSPCON2bits.ACKEN = 1;
-    while (!PIR1bits.SSP1IF);
+SPLLEN = 1;
 }
 
 
 
 
 
+void internal_16(void){
 
-void retrieve_data_ATmega328(void) {
+SCS0 = 0;
+SCS1 = 0;
 
-    send_I2C_startBit();
-    send_I2C_controlByte(ATmega328_address, 1);
-# 111 "I2C.c"
-    send_I2C_stopBit();
+IRCF0 = 1;
+IRCF1 = 1;
+IRCF2 = 1;
+IRCF3 = 1;
 
+SPLLEN = 0;
 }
 
 
 
 
-void I2C_writeRegister(int slaveAddress, int regAddress, int data) {
-    send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 0);
-    send_I2C_data(regAddress);
-    send_I2C_data(data);
-    send_I2C_stopBit();
+void internal_8(void){
+
+SCS0 = 0;
+SCS1 = 0;
+
+IRCF0 = 0;
+IRCF1 = 1;
+IRCF2 = 1;
+IRCF3 = 1;
+
+SPLLEN = 0;
 }
 
 
 
 
-int readRegister(int slaveAddress, int regAddress) {
-    int recievedData;
-    send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 0);
-    send_I2C_data(regAddress);
-    send_I2C_stopBit();
-    send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 1);
-    recievedData = read_I2C_data();
-    send_I2C_NACK();
-    send_I2C_stopBit();
+void internal_4(void){
+
+SCS0 = 0;
+SCS1 = 0;
+
+IRCF0 = 1;
+IRCF1 = 0;
+IRCF2 = 1;
+IRCF3 = 1;
+
+SPLLEN = 0;
 }

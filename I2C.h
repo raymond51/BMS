@@ -40,6 +40,7 @@ void send_I2C_NACK(void);
 void retrieve_data_ATmega328(void);
 
 void I2C_writeRegister(int slaveAddress,int regAddress, int data);
+int readRegister(int slaveAddress, int regAddress);
 
 #endif	/* I2C_H */
 

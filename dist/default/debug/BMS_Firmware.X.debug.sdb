@@ -33,8 +33,6 @@
 [v _send_I2C_NACK send_I2C_NACK `(v  1 e 1 0 ]
 "118
 [v _I2C_writeRegister I2C_writeRegister `(v  1 e 1 0 ]
-"129
-[v _readRegister readRegister `(i  1 e 2 0 ]
 "58 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _myIsr myIsr `II(v  1 e 1 0 ]
 "76
@@ -343,26 +341,9 @@
 [v beginAFEcommunication@i i `i  1 a 2 1 ]
 "9
 [v beginAFEcommunication@errCode errCode `uc  1 a 1 0 ]
-"28
+"25
 } 0
-"129 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-[v _readRegister readRegister `(i  1 e 2 0 ]
-{
-[v readRegister@slaveAddress slaveAddress `i  1 p 2 5 ]
-[v readRegister@regAddress regAddress `i  1 p 2 7 ]
-"140
-} 0
-"83
-[v _send_I2C_NACK send_I2C_NACK `(v  1 e 1 0 ]
-{
-"88
-} 0
-"42
-[v _read_I2C_data read_I2C_data `(ui  1 e 2 0 ]
-{
-"47
-} 0
-"118
+"118 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
 [v _I2C_writeRegister I2C_writeRegister `(v  1 e 1 0 ]
 {
 [v I2C_writeRegister@slaveAddress slaveAddress `i  1 p 2 5 ]

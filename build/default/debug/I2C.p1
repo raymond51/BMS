@@ -1260,7 +1260,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 814 ]
 }
 "129
-[; ;I2C.c: 129: int readRegister(int slaveAddress, int regAddress) {
+[; ;I2C.c: 129: int readRegister(int slaveAddress, int regAddress){
 [v _readRegister `(i ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _readRegister ]
@@ -1274,30 +1274,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;I2C.c: 131:     send_I2C_startBit();
 [e ( _send_I2C_startBit ..  ]
 "132
-[; ;I2C.c: 132:     send_I2C_controlByte(slaveAddress, 0);
-[e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 0 `i `ui ]
+[; ;I2C.c: 132:     send_I2C_controlByte(slaveAddress, 1);
+[e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 1 `i `ui ]
 "133
 [; ;I2C.c: 133:     send_I2C_data(regAddress);
 [e ( _send_I2C_data (1 -> _regAddress `ui ]
 "134
-[; ;I2C.c: 134:     send_I2C_stopBit();
-[e ( _send_I2C_stopBit ..  ]
-"135
-[; ;I2C.c: 135:     send_I2C_startBit();
-[e ( _send_I2C_startBit ..  ]
-"136
-[; ;I2C.c: 136:     send_I2C_controlByte(slaveAddress, 1);
-[e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 1 `i `ui ]
-"137
-[; ;I2C.c: 137:     recievedData = read_I2C_data();
+[; ;I2C.c: 134:     recievedData=read_I2C_data();
 [e = _recievedData -> ( _read_I2C_data ..  `i ]
-"138
-[; ;I2C.c: 138:     send_I2C_NACK();
+"135
+[; ;I2C.c: 135:     send_I2C_NACK();
 [e ( _send_I2C_NACK ..  ]
-"139
-[; ;I2C.c: 139:     send_I2C_stopBit();
+"136
+[; ;I2C.c: 136:     send_I2C_stopBit();
 [e ( _send_I2C_stopBit ..  ]
-"140
-[; ;I2C.c: 140: }
+"137
+[; ;I2C.c: 137: }
 [e :UE 815 ]
 }

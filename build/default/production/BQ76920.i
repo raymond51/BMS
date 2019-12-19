@@ -10446,6 +10446,7 @@ void send_I2C_NACK(void);
 void retrieve_data_ATmega328(void);
 
 void I2C_writeRegister(int slaveAddress,int regAddress, int data);
+int readRegister(int slaveAddress, int regAddress);
 # 15 "./BQ76920.h" 2
 # 24 "./BQ76920.h"
 int cellVoltages[5];
@@ -10474,7 +10475,14 @@ uint8_t beginAFEcommunication(void){
   }
 
 
+
    I2C_writeRegister(0x18,0x0B,0x19);
+
+   if(readRegister(0x18,0x0B)==0x19){
+    errCode =1;
+   }
+
+
 
   return errCode;
 

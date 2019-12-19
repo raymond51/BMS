@@ -10440,15 +10440,12 @@ void I2C_writeRegister(int slaveAddress, int regAddress, int data) {
 
 
 
-int readRegister(int slaveAddress, int regAddress) {
+int readRegister(int slaveAddress, int regAddress){
     int recievedData;
     send_I2C_startBit();
-    send_I2C_controlByte(slaveAddress, 0);
-    send_I2C_data(regAddress);
-    send_I2C_stopBit();
-    send_I2C_startBit();
     send_I2C_controlByte(slaveAddress, 1);
-    recievedData = read_I2C_data();
+    send_I2C_data(regAddress);
+    recievedData=read_I2C_data();
     send_I2C_NACK();
     send_I2C_stopBit();
 }
