@@ -101,11 +101,10 @@ void statemachine(void) {
             if (tmr1_flag) {
                 tmr1_flag = 0; //clear flag
                 RGB_AWAIT_AFE_CONN(); //toggle to the color to indicate attempt to connect to AFE
-                uint8_t success1 = beginAFEcommunication(); //send i2c command to request for communication
-                uint8_t success = 0;
-                
+                uint8_t success = beginAFEcommunication(); //send i2c command to request for communication
+
 #ifdef BQ76920_DEBUG
-                EUSART_Write_Text("Attempting to communicate with AFE...\n\r"); //print to terminal if success check if debug is enabled;
+                EUSART_Write_Text("Attempting to communicate with AFE...\n\r");
 #endif
                 if (success) {
                     T1CONbits.TMR1ON = 0; // disable timer1
@@ -115,9 +114,12 @@ void statemachine(void) {
 
 #ifdef BQ76920_DEBUG
                     __delay_ms(5); //allow time for i2c communication to end
-                    EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r"); //print to terminal if success check if debug is enabled;
+                    EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r"); //print to terminal if success check 
+                    snprintf(messageBuffer, messageBuf_size, "Obtained adcOffset = %i and adcGain = %i\n\r", adcOffset, adcGain);
+                    EUSART_Write_Text(messageBuffer); //print to terminal if success check 
+                    EUSART_Write_Text("Attempt to set initial system parameters to AFE...\n\r");
 #endif
-                    //move to next state if communication was successful check the return value
+                    currState = AFE_INIT; //move to next state if communication was successful check the return value
                 }
 
 
@@ -125,12 +127,16 @@ void statemachine(void) {
 
             break;
         case AFE_INIT:
-            //init AFE
+            //initialise AFE
             init_AFE();
 
-            //if success set the rgb led to solid GREEN
-
-            //move to next state if communication was successful check the return value
+#ifdef BQ76920_DEBUG
+            __delay_ms(5); //allow time for i2c communication to end
+            EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
+            EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
+#endif
+            RGB_color(RGB_GREEN);//if success set the rgb led to solid GREEN
+            currState = READ_AFE_DATA; //move to next state if communication was successful check the return value
             break;
         case READ_AFE_DATA:
 
@@ -139,7 +145,7 @@ void statemachine(void) {
 }
 
 void init_AFE(void) {
-    //begin communication
+
     //set temperature limit
     //set shunt resistor value
     //set short circuit protection

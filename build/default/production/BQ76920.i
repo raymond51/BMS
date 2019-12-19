@@ -10456,6 +10456,9 @@ int cellVoltages[5];
 
 
 
+int adcGain;
+int adcOffset;
+
 
 int beginAFEcommunication(void);
 # 1 "BQ76920.c" 2
@@ -10464,26 +10467,35 @@ int beginAFEcommunication(void);
 
 
 
+int beginAFEcommunication(void) {
 
-int beginAFEcommunication(void){
-
-   int errCode = 0;
-
-
-  for (int i = 0; i < 4; i++) {
-    cellVoltages[i] = 0;
-  }
+    int commSuccess = 0;
 
 
+    for (int i = 0; i < 4; i++) {
+        cellVoltages[i] = 0;
+    }
 
-   I2C_writeRegister(0x18,0x0B,0x19);
 
-   if(readRegister(0x18,0x0B)==0x19){
-    errCode =1;
-   }
+    I2C_writeRegister(0x18, 0x0B, 0x19);
+
+    if (readRegister(0x18, 0x0B) == 0x19) {
+        commSuccess = 1;
 
 
 
-  return errCode;
+        I2C_writeRegister(0x18,0x04, 0x18);
+        I2C_writeRegister(0x18,0x05, 0x40);
+
+
+        adcOffset = (signed int) readRegister(0x18,0x51);
+        adcGain = 365 + (((readRegister(0x18,0x50) & 0x0C) << 1) |
+                ((readRegister(0x18,0x59) & 0xE0) >> 5));
+
+    }
+
+
+
+    return commSuccess;
 
 }

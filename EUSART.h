@@ -12,8 +12,10 @@
 //includes ---------------------------------------------------------------------
 #include "pic16f1719_internals.h"
 //defines-----------------------------------------------------------------------
+#define messageBuf_size 127
 
 //const and variables ----------------------------------------------------------
+char messageBuffer[messageBuf_size] = {0}; //sets all default array value to 0
 
 //main function prototypes -----------------------------------------------------
 char EUSART_Initialize(const long int baudrate);

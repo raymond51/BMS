@@ -4,7 +4,7 @@
  * compiler: XC8
  * 
  *Program Description: Header file to control the BQ76920 AFE chip
-*/
+ */
 
 #ifndef XC_HEADER_TEMPLATE_H
 #define	XC_HEADER_TEMPLATE_H
@@ -27,6 +27,9 @@ int cellVoltages[MAX_NUMBER_OF_CELLS]; // mV
 // output information to serial console for debugging, comment out to remove
 #define BQ76920_DEBUG
 
+
+int adcGain; // uV/LSB
+int adcOffset; // mV
 
 //main function prototypes -----------------------------------------------------
 int beginAFEcommunication(void);

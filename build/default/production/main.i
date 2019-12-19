@@ -10377,6 +10377,8 @@ int readRegister(int slaveAddress, int regAddress);
 
 
 
+char messageBuffer[127] = {0};
+
 
 char EUSART_Initialize(const long int baudrate);
 uint8_t EUSART_Read(void);
@@ -10520,6 +10522,9 @@ int cellVoltages[5];
 
 
 
+int adcGain;
+int adcOffset;
+
 
 int beginAFEcommunication(void);
 # 24 "main.c" 2
@@ -10586,8 +10591,7 @@ void statemachine(void) {
             if (tmr1_flag) {
                 tmr1_flag = 0;
                 RGB_AWAIT_AFE_CONN();
-                uint8_t success1 = beginAFEcommunication();
-                uint8_t success = 0;
+                uint8_t success = beginAFEcommunication();
 
 
                 EUSART_Write_Text("Attempting to communicate with AFE...\n\r");
@@ -10601,8 +10605,11 @@ void statemachine(void) {
 
                     _delay((unsigned long)((5)*(16000000/4000.0)));
                     EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r");
+                    snprintf(messageBuffer, 127, "Obtained adcOffset = %i and adcGain = %i\n\r", adcOffset, adcGain);
+                    EUSART_Write_Text(messageBuffer);
+                    EUSART_Write_Text("Attempt to set system parameters to AFE...\n\r");
 
-
+                    currState = 1;
                 }
 
 
@@ -10614,8 +10621,12 @@ void statemachine(void) {
             init_AFE();
 
 
+            _delay((unsigned long)((5)*(16000000/4000.0)));
+            EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
+            EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
 
-
+            RGB_color(1);
+            currState = 2;
             break;
         case 2:
 
@@ -10624,7 +10635,7 @@ void statemachine(void) {
 }
 
 void init_AFE(void) {
-# 155 "main.c"
+# 161 "main.c"
 }
 
 void initClock() {
@@ -10671,7 +10682,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 209 "main.c"
+# 215 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

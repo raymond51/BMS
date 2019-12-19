@@ -1064,18 +1064,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 ./BQ76920.h
 [; ;./BQ76920.h: 24: int cellVoltages[5];
 [v _cellVoltages `i ~T0 @X0 -> 5 `i e ]
-"7 BQ76920.c
-[; ;BQ76920.c: 7: int beginAFEcommunication(void){
+"31
+[; ;./BQ76920.h: 31: int adcGain;
+[v _adcGain `i ~T0 @X0 1 e ]
+"32
+[; ;./BQ76920.h: 32: int adcOffset;
+[v _adcOffset `i ~T0 @X0 1 e ]
+"6 BQ76920.c
+[; ;BQ76920.c: 6: int beginAFEcommunication(void) {
 [v _beginAFEcommunication `(i ~T0 @X0 1 ef ]
 {
 [e :U _beginAFEcommunication ]
 [f ]
-"9
-[; ;BQ76920.c: 9:    int errCode = 0;
-[v _errCode `i ~T0 @X0 1 a ]
-[e = _errCode -> 0 `i ]
-"12
-[; ;BQ76920.c: 12:   for (int i = 0; i < 4; i++) {
+"8
+[; ;BQ76920.c: 8:     int commSuccess = 0;
+[v _commSuccess `i ~T0 @X0 1 a ]
+[e = _commSuccess -> 0 `i ]
+"11
+[; ;BQ76920.c: 11:     for (int i = 0; i < 4; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1083,35 +1089,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 802  ]
 [e :U 801 ]
 {
-"13
-[; ;BQ76920.c: 13:     cellVoltages[i] = 0;
+"12
+[; ;BQ76920.c: 12:         cellVoltages[i] = 0;
 [e = *U + &U _cellVoltages * -> -> _i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> 0 `i ]
-"14
-[; ;BQ76920.c: 14:   }
+"13
+[; ;BQ76920.c: 13:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 4 `i 801  ]
 [e :U 802 ]
 }
-"18
-[; ;BQ76920.c: 18:    I2C_writeRegister(0x18,0x0B,0x19);
+"16
+[; ;BQ76920.c: 16:     I2C_writeRegister(0x18, 0x0B, 0x19);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 11 `i -> 25 `i ]
-"20
-[; ;BQ76920.c: 20:    if(readRegister(0x18,0x0B)==0x19){
+"18
+[; ;BQ76920.c: 18:     if (readRegister(0x18, 0x0B) == 0x19) {
 [e $ ! == ( _readRegister (2 , -> 24 `i -> 11 `i -> 25 `i 804  ]
 {
-"21
-[; ;BQ76920.c: 21:     errCode =1;
-[e = _errCode -> 1 `i ]
-"22
-[; ;BQ76920.c: 22:    }
+"19
+[; ;BQ76920.c: 19:         commSuccess = 1;
+[e = _commSuccess -> 1 `i ]
+"23
+[; ;BQ76920.c: 23:         I2C_writeRegister(0x18,0x04, 0x18);
+[e ( _I2C_writeRegister (3 , , -> 24 `i -> 4 `i -> 24 `i ]
+"24
+[; ;BQ76920.c: 24:         I2C_writeRegister(0x18,0x05, 0x40);
+[e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i -> 64 `i ]
+"27
+[; ;BQ76920.c: 27:         adcOffset = (signed int) readRegister(0x18,0x51);
+[e = _adcOffset ( _readRegister (2 , -> 24 `i -> 81 `i ]
+"28
+[; ;BQ76920.c: 28:         adcGain = 365 + (((readRegister(0x18,0x50) & 0x0C) << 1) |
+[e = _adcGain + -> 365 `i | << & ( _readRegister (2 , -> 24 `i -> 80 `i -> 12 `i -> 1 `i >> & ( _readRegister (2 , -> 24 `i -> 89 `i -> 224 `i -> 5 `i ]
+"31
+[; ;BQ76920.c: 31:     }
 }
 [e :U 804 ]
-"26
-[; ;BQ76920.c: 26:   return errCode;
-[e ) _errCode ]
+"35
+[; ;BQ76920.c: 35:     return commSuccess;
+[e ) _commSuccess ]
 [e $UE 800  ]
-"28
-[; ;BQ76920.c: 28: }
+"37
+[; ;BQ76920.c: 37: }
 [e :UE 800 ]
 }
