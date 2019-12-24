@@ -1015,6 +1015,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16144
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 16144: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
+"18 ./EUSART.h
+[; ;./EUSART.h: 18: char messageBuffer[127] = {0};
+[v _messageBuffer `uc ~T0 @X0 -> 127 `i e ]
+[i _messageBuffer
+:U ..
+-> -> 0 `i `uc
+..
+]
 "6 EUSART.c
 [; ;EUSART.c: 6: char EUSART_Initialize(const long int baudrate)
 [v _EUSART_Initialize `(uc ~T0 @X0 1 ef1`Cl ]

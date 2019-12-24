@@ -11,58 +11,127 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\raymo\AppData\Local\Temp\s9j0.o
+$C:\Users\raymo\AppData\Local\Temp\sap0.o
 reset_vec CODE 0 0 0 2 2
-end_init CODE 0 1D 1D 2 2
+end_init CODE 0 1E 1E 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/debug\BMS_Firmware.X.debug.o
-cinit CODE 0 1F 1F C 2
-text1 CODE 0 19B 19B 43 2
-text2 CODE 0 3DC 3DC 1 2
-text3 CODE 0 155 155 46 2
-text4 CODE 0 216 216 2E 2
-text5 CODE 0 383 383 9 2
-text6 CODE 0 34E 34E 10 2
-text7 CODE 0 2F6 2F6 1E 2
-text8 CODE 0 3B6 3B6 8 2
-text9 CODE 0 3BE 3BE 8 2
-text10 CODE 0 38C 38C 9 2
-text11 CODE 0 379 379 A 2
-text12 CODE 0 293 293 22 2
-text13 CODE 0 2B5 2B5 21 2
-text14 CODE 0 314 314 1A 2
-text15 CODE 0 3C6 3C6 8 2
-text16 CODE 0 36E 36E B 2
-text17 CODE 0 3D4 3D4 5 2
-text18 CODE 0 35E 35E 10 2
-text19 CODE 0 1DE 1DE 38 2
-text20 CODE 0 3D9 3D9 3 2
-text21 CODE 0 395 395 9 2
-text22 CODE 0 2B 2B A8 2
-text23 CODE 0 D3 D3 82 2
-maintext CODE 0 244 244 28 2
+cinit CODE 0 20 20 38 2
+text1 CODE 0 13B4 13B4 C6 2
+text2 CODE 0 1A1C 1A1C 18 2
+text3 CODE 0 1DEA 1DEA 77 2
+text4 CODE 0 1B94 1B94 31 2
+text5 CODE 0 58 58 1A2 2
+text6 CODE 0 1FA 1FA 159 2
+text7 CODE 0 1AC9 1AC9 22 2
+text8 CODE 0 1A05 1A05 17 2
+text9 CODE 0 19EE 19EE 17 2
+text10 CODE 0 1A69 1A69 1D 2
+text11 CODE 0 162E 162E E1 2
+text12 CODE 0 78E 78E 69 2
+text13 CODE 0 1E61 1E61 7C 2
+text14 CODE 0 1D44 1D44 52 2
+text15 CODE 0 12F1 12F1 C3 2
+text16 CODE 0 170F 170F F1 2
+text17 CODE 0 353 353 153 2
+text18 CODE 0 19D7 19D7 17 2
+text19 CODE 0 1552 1552 DC 2
+text20 CODE 0 69B 69B F3 2
+text21 CODE 0 1B63 1B63 31 2
+text22 CODE 0 1CF3 1CF3 51 2
+text23 CODE 0 19C0 19C0 17 2
+text24 CODE 0 1AEB 1AEB 26 2
+text25 CODE 0 1D96 1D96 54 2
+text26 CODE 0 3 3 1 2
+text27 CODE 0 1F5F 1F5F A1 2
+text28 CODE 0 1000 1000 1C 2
+text29 CODE 0 19A9 19A9 17 2
+text30 CODE 0 1B39 1B39 2A 2
+text31 CODE 0 1C65 1C65 44 2
+text32 CODE 0 1A4E 1A4E 1B 2
+text33 CODE 0 1931 1931 6 2
+text34 CODE 0 1233 1233 BE 2
+text35 CODE 0 10C5 10C5 B4 2
+text36 CODE 0 1BF7 1BF7 36 2
+text37 CODE 0 7F7 7F7 9 2
+text38 CODE 0 1999 1999 10 2
+text39 CODE 0 801 801 1E 2
+text40 CODE 0 194E 194E 8 2
+text41 CODE 0 1946 1946 8 2
+text42 CODE 0 195F 195F 9 2
+text43 CODE 0 1968 1968 A 2
+text44 CODE 0 1AA7 1AA7 22 2
+text45 CODE 0 1A86 1A86 21 2
+text46 CODE 0 1A34 1A34 1A 2
+text47 CODE 0 193E 193E 8 2
+text48 CODE 0 1CA9 1CA9 4A 2
+text49 CODE 0 1BC5 1BC5 32 2
+text50 CODE 0 1972 1972 B 2
+text51 CODE 0 192C 192C 5 2
+text52 CODE 0 1989 1989 10 2
+text53 CODE 0 1C2D 1C2D 38 2
+text54 CODE 0 1929 1929 3 2
+text55 CODE 0 1956 1956 9 2
+text56 CODE 0 101C 101C A9 2
+text57 CODE 0 1EDD 1EDD 82 2
+maintext CODE 0 1B11 1B11 28 2
 cstackCOMMON COMMON 1 70 70 C 1
-cstackBANK0 BANK0 1 20 20 17 1
-stringtext1 STRCODE 0 2D6 2D6 20 2
-stringtext2 STRCODE 0 32E 32E 10 2
-stringtext3 STRCODE 0 33E 33E 10 2
-stringtext4 STRCODE 0 39E 39E 8 2
-stringtext5 STRCODE 0 3A6 3A6 8 2
-stringtext6 STRCODE 0 3AE 3AE 8 2
-stringtext7 STRCODE 0 26C 26C 27 2
-intentry CODE 0 4 4 19 2
-bssBANK0 BANK0 1 37 37 D 1
-clrtext CODE 0 3CE 3CE 6 2
+cstackBANK0 BANK0 1 20 20 50 1
+cstackBANK1 BANK1 1 A0 A0 3D 1
+cstackBANK2 BANK2 1 159 159 1 1
+text5_split_1 CODE 0 5A1 5A1 FA 2
+text5_split_2 CODE 0 4A6 4A6 FB 2
+text5_split_3 CODE 0 147A 147A D8 2
+text5_split_4 CODE 0 1179 1179 BA 2
+text5_split_5 CODE 0 81F 81F 7E1 2
+stringtext1 STRCODE 0 213A 213A 20 2
+stringtext2 STRCODE 0 215A 215A 10 2
+stringtext3 STRCODE 0 216A 216A 10 2
+stringtext4 STRCODE 0 217A 217A 8 2
+stringtext5 STRCODE 0 2182 2182 8 2
+stringtext6 STRCODE 0 218A 218A 8 2
+stringtext7 STRCODE 0 2000 2000 37 2
+stringtext8 STRCODE 0 2037 2037 2E 2
+stringtext9 STRCODE 0 2065 2065 2D 2
+intentry CODE 0 4 4 1A 2
+bssBANK1 BANK1 1 DD DD 13 1
+bssBANK2 BANK2 1 120 120 32 1
+idataBANK2 CODE 0 1937 1937 7 2
+dataBANK2 BANK2 1 152 152 7 1
+clrtext CODE 0 197D 197D C 2
 bssCOMMON COMMON 1 7C 7C 1 1
+stringtext10 STRCODE 0 2092 2092 2B 2
+stringtext11 STRCODE 0 20BD 20BD 2B 2
+stringtext12 STRCODE 0 20E8 20E8 2A 2
+stringtext13 STRCODE 0 2112 2112 28 2
+stringtext14 STRCODE 0 2192 2192 4 2
+stringtext15 STRCODE 0 2196 2196 4 2
+stringtext16 STRCODE 0 219A 219A 4 2
+stringtext17 STRCODE 0 219E 219E 4 2
+stringtext18 STRCODE 0 21A2 21A2 4 2
+stringtext19 STRCODE 0 21A6 21A6 4 2
+stringtext20 STRCODE 0 21AA 21AA 4 2
+stringtext21 STRCODE 0 21AE 21AE 3 2
+stringtext22 STRCODE 0 21B1 21B1 3 2
+stringtext23 STRCODE 0 21B4 21B4 3 2
+stringtext24 STRCODE 0 21B7 21B7 3 2
+stringtext25 STRCODE 0 21BA 21BA 3 2
+stringtext26 STRCODE 0 21BD 21BD 3 2
+stringtext27 STRCODE 0 21C0 21C0 3 2
+stringtext28 STRCODE 0 21C3 21C3 3 2
+stringtext29 STRCODE 0 21C6 21C6 3 2
+stringtext30 STRCODE 0 21C9 21C9 3 2
+stringtext31 STRCODE 0 21CC 21CC 3 2
+stringtext32 STRCODE 0 21CF 21CF 3 2
+stringtext33 STRCODE 0 21D2 21D2 3 2
+stringtext34 STRCODE 0 21D5 21D5 3 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 44-6F 1
-RAM A0-EF 1
-RAM 120-16F 1
+RAM 15A-16F 1
 RAM 1A0-1EF 1
 RAM 220-26F 1
 RAM 2A0-2EF 1
@@ -83,12 +152,8 @@ RAM 9A0-9EF 1
 RAM A20-A6F 1
 RAM AA0-AEF 1
 RAM B20-B6F 1
-RAM BA0-BEF 1
-RAM C20-C6F 1
-RAM CA0-CBF 1
-BANK0 44-6F 1
-BANK1 A0-EF 1
-BANK2 120-16F 1
+RAM BA0-BE0 1
+BANK2 15A-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-26F 1
 BANK5 2A0-2EF 1
@@ -96,10 +161,14 @@ BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
-CONST 2-3 2
-CONST 3DD-3FFF 2
-ENTRY 2-3 2
-ENTRY 3DD-3FFF 2
+CONST 2-2 2
+CONST 800-800 2
+CONST 1800-1928 2
+CONST 21D8-3FFF 2
+ENTRY 2-2 2
+ENTRY 800-800 2
+ENTRY 1800-1928 2
+ENTRY 21D8-3FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -123,9 +192,11 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 2024-27EF 1
-CODE 2-3 2
-CODE 3DD-3FFF 2
+STACK 20DA-2770 1
+CODE 2-2 2
+CODE 800-800 2
+CODE 1800-1928 2
+CODE 21D8-3FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -149,15 +220,17 @@ BANK19 9A0-9EF 1
 BANK20 A20-A6F 1
 BANK21 AA0-AEF 1
 BANK22 B20-B6F 1
-BANK23 BA0-BEF 1
-BANK24 C20-C6F 1
-BANK25 CA0-CBF 1
+BANK23 BA0-BE0 1
 BIGRAM 2000-27EF 1
 COMMON 7D-7D 1
-STRCODE 2-3 2
-STRCODE 3DD-3FFF 2
-STRING 2-3 2
-STRING 3DD-3FFF 2
+STRCODE 2-2 2
+STRCODE 800-800 2
+STRCODE 1800-1928 2
+STRCODE 21D8-3FFF 2
+STRING 2-2 2
+STRING 800-800 2
+STRING 1800-1928 2
+STRING 21D8-3FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -172,250 +245,840 @@ STRING 3DD-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\BMS_Firmware.X.debug.o
-1F cinit CODE >4208:C:\Users\raymo\AppData\Local\Temp\s9j0.
-1F cinit CODE >4211:C:\Users\raymo\AppData\Local\Temp\s9j0.
-1F cinit CODE >4250:C:\Users\raymo\AppData\Local\Temp\s9j0.
-20 cinit CODE >4254:C:\Users\raymo\AppData\Local\Temp\s9j0.
-21 cinit CODE >4255:C:\Users\raymo\AppData\Local\Temp\s9j0.
-22 cinit CODE >4256:C:\Users\raymo\AppData\Local\Temp\s9j0.
-23 cinit CODE >4257:C:\Users\raymo\AppData\Local\Temp\s9j0.
-24 cinit CODE >4258:C:\Users\raymo\AppData\Local\Temp\s9j0.
-25 cinit CODE >4259:C:\Users\raymo\AppData\Local\Temp\s9j0.
-27 cinit CODE >4265:C:\Users\raymo\AppData\Local\Temp\s9j0.
-27 cinit CODE >4267:C:\Users\raymo\AppData\Local\Temp\s9j0.
-28 cinit CODE >4268:C:\Users\raymo\AppData\Local\Temp\s9j0.
-29 cinit CODE >4269:C:\Users\raymo\AppData\Local\Temp\s9j0.
-4 intentry CODE >58:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-6 intentry CODE >62:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-C intentry CODE >63:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-E intentry CODE >64:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-12 intentry CODE >67:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-16 intentry CODE >68:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1A intentry CODE >69:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1B intentry CODE >74:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-D3 text23 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-D3 text23 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-D5 text23 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-D7 text23 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-E2 text23 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-E4 text23 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-E4 text23 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-E6 text23 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-F1 text23 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-F5 text23 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-FD text23 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-103 text23 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-105 text23 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-107 text23 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-10E text23 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-112 text23 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-113 text23 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-11A text23 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-12A text23 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-132 text23 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-133 text23 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-13A text23 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-13E text23 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-141 text23 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-14C text23 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-154 text23 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
-2B text22 CODE >6:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-2B text22 CODE >9:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-71 text22 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-78 text22 CODE >12:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-BE text22 CODE >13:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-C0 text22 CODE >15:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-C7 text22 CODE >17:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-CA text22 CODE >18:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-CB text22 CODE >19:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-CC text22 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-CE text22 CODE >21:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-CF text22 CODE >22:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-D1 text22 CODE >23:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-D2 text22 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-395 text21 CODE >26:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-395 text21 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-397 text21 CODE >29:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-398 text21 CODE >31:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-399 text21 CODE >32:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-39A text21 CODE >33:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-39B text21 CODE >34:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-39C text21 CODE >36:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-39D text21 CODE >37:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
-3D9 text20 CODE >153:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-3D9 text20 CODE >155:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-3DB text20 CODE >157:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1DE text19 CODE >179:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1DE text19 CODE >185:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1E0 text19 CODE >186:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1E2 text19 CODE >187:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1E4 text19 CODE >188:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1E6 text19 CODE >193:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1E7 text19 CODE >194:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1E8 text19 CODE >195:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1EA text19 CODE >196:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1EB text19 CODE >205:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1EC text19 CODE >206:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1ED text19 CODE >207:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1EE text19 CODE >213:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1F1 text19 CODE >214:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1F3 text19 CODE >215:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1F4 text19 CODE >219:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1F9 text19 CODE >220:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1FE text19 CODE >221:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-202 text19 CODE >222:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-207 text19 CODE >225:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-20B text19 CODE >226:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-210 text19 CODE >228:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-212 text19 CODE >229:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-214 text19 CODE >230:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-215 text19 CODE >232:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-35E text18 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-35E text18 CODE >14:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-363 text18 CODE >15:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-364 text18 CODE >24:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-366 text18 CODE >27:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-36D text18 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3D4 text17 CODE >6:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-3D4 text17 CODE >8:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-3D6 text17 CODE >9:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-3D7 text17 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-3D8 text17 CODE >12:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-36E text16 CODE >162:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-36E text16 CODE >165:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-371 text16 CODE >167:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-373 text16 CODE >169:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-374 text16 CODE >171:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-376 text16 CODE >173:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-377 text16 CODE >175:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-378 text16 CODE >177:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-3C6 text15 CODE >56:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-3C7 text15 CODE >58:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-3C7 text15 CODE >60:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-3CA text15 CODE >62:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-3CD text15 CODE >63:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-314 text14 CODE >75:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-314 text14 CODE >78:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-316 text14 CODE >79:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
-2B5 text13 CODE >17:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2B5 text13 CODE >19:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2B6 text13 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2B6 text13 CODE >21:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2B8 text13 CODE >22:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2B9 text13 CODE >23:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2BA text13 CODE >24:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2BB text13 CODE >25:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2BB text13 CODE >26:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2BD text13 CODE >27:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2BE text13 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2BF text13 CODE >29:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2C0 text13 CODE >30:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2C0 text13 CODE >31:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2C2 text13 CODE >32:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2C3 text13 CODE >33:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2C4 text13 CODE >34:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2C5 text13 CODE >36:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2D5 text13 CODE >38:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-293 text12 CODE >43:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-293 text12 CODE >45:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-296 text12 CODE >46:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-29F text12 CODE >47:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2A4 text12 CODE >48:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2A5 text12 CODE >49:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2AE text12 CODE >50:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-2B4 text12 CODE >53:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
-379 text11 CODE >52:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-379 text11 CODE >53:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-37B text11 CODE >59:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-37F text11 CODE >61:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-38C text10 CODE >33:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-38C text10 CODE >34:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-38E text10 CODE >35:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-391 text10 CODE >36:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3BE text9 CODE >64:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3BE text9 CODE >65:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3C0 text9 CODE >66:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3C2 text9 CODE >67:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3B6 text8 CODE >70:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3B6 text8 CODE >71:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3B8 text8 CODE >72:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-3BA text8 CODE >73:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-2F6 text7 CODE >118:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-2F6 text7 CODE >119:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-2F9 text7 CODE >120:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-303 text7 CODE >121:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-30A text7 CODE >122:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-311 text7 CODE >123:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-313 text7 CODE >124:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-34E text6 CODE >42:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-34E text6 CODE >43:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-350 text6 CODE >44:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-352 text6 CODE >45:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-355 text6 CODE >46:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-35D text6 CODE >47:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-383 text5 CODE >83:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-383 text5 CODE >84:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-385 text5 CODE >85:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-387 text5 CODE >86:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-388 text5 CODE >87:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-216 text4 CODE >129:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-216 text4 CODE >131:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-219 text4 CODE >132:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-223 text4 CODE >133:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-22A text4 CODE >134:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-22D text4 CODE >135:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-230 text4 CODE >136:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-23B text4 CODE >137:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-23E text4 CODE >138:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-241 text4 CODE >139:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-243 text4 CODE >140:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
-155 text3 CODE >7:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-155 text3 CODE >9:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-158 text3 CODE >12:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-15A text3 CODE >13:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-162 text3 CODE >14:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-171 text3 CODE >18:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-180 text3 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-190 text3 CODE >21:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-195 text3 CODE >22:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-195 text3 CODE >26:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-19A text3 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-3DC text2 CODE >137:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-3DC text2 CODE >151:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-19B text1 CODE >96:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-19B text1 CODE >98:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-19C text1 CODE >101:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1A0 text1 CODE >102:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1A1 text1 CODE >103:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1A4 text1 CODE >104:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1AC text1 CODE >106:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1AF text1 CODE >107:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1B0 text1 CODE >108:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1B2 text1 CODE >109:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1B8 text1 CODE >110:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1BA text1 CODE >113:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1C3 text1 CODE >114:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1CA text1 CODE >125:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1CC text1 CODE >130:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1CD text1 CODE >134:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-1DD text1 CODE >135:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-244 maintext CODE >76:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-244 maintext CODE >79:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-247 maintext CODE >80:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-24A maintext CODE >81:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-24D maintext CODE >82:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-259 maintext CODE >83:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-25C maintext CODE >84:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-25F maintext CODE >88:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-262 maintext CODE >90:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-3CE clrtext CODE >4239:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3CE clrtext CODE >4240:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3CF clrtext CODE >4241:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3CF clrtext CODE >4242:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3D0 clrtext CODE >4243:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3D1 clrtext CODE >4244:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3D2 clrtext CODE >4245:C:\Users\raymo\AppData\Local\Temp\s9j0.
-3D3 clrtext CODE >4246:C:\Users\raymo\AppData\Local\Temp\s9j0.
+20 cinit CODE >4884:C:\Users\raymo\AppData\Local\Temp\sap0.
+20 cinit CODE >4887:C:\Users\raymo\AppData\Local\Temp\sap0.
+20 cinit CODE >4968:C:\Users\raymo\AppData\Local\Temp\sap0.
+21 cinit CODE >4969:C:\Users\raymo\AppData\Local\Temp\sap0.
+22 cinit CODE >4970:C:\Users\raymo\AppData\Local\Temp\sap0.
+23 cinit CODE >4971:C:\Users\raymo\AppData\Local\Temp\sap0.
+24 cinit CODE >4972:C:\Users\raymo\AppData\Local\Temp\sap0.
+25 cinit CODE >4973:C:\Users\raymo\AppData\Local\Temp\sap0.
+26 cinit CODE >4974:C:\Users\raymo\AppData\Local\Temp\sap0.
+27 cinit CODE >4975:C:\Users\raymo\AppData\Local\Temp\sap0.
+28 cinit CODE >4976:C:\Users\raymo\AppData\Local\Temp\sap0.
+29 cinit CODE >4977:C:\Users\raymo\AppData\Local\Temp\sap0.
+2A cinit CODE >4978:C:\Users\raymo\AppData\Local\Temp\sap0.
+2B cinit CODE >4979:C:\Users\raymo\AppData\Local\Temp\sap0.
+2C cinit CODE >4980:C:\Users\raymo\AppData\Local\Temp\sap0.
+2D cinit CODE >4981:C:\Users\raymo\AppData\Local\Temp\sap0.
+2E cinit CODE >4982:C:\Users\raymo\AppData\Local\Temp\sap0.
+2F cinit CODE >4983:C:\Users\raymo\AppData\Local\Temp\sap0.
+30 cinit CODE >4984:C:\Users\raymo\AppData\Local\Temp\sap0.
+31 cinit CODE >4985:C:\Users\raymo\AppData\Local\Temp\sap0.
+32 cinit CODE >4986:C:\Users\raymo\AppData\Local\Temp\sap0.
+33 cinit CODE >5009:C:\Users\raymo\AppData\Local\Temp\sap0.
+34 cinit CODE >5010:C:\Users\raymo\AppData\Local\Temp\sap0.
+35 cinit CODE >5011:C:\Users\raymo\AppData\Local\Temp\sap0.
+36 cinit CODE >5012:C:\Users\raymo\AppData\Local\Temp\sap0.
+37 cinit CODE >5013:C:\Users\raymo\AppData\Local\Temp\sap0.
+38 cinit CODE >5014:C:\Users\raymo\AppData\Local\Temp\sap0.
+39 cinit CODE >5015:C:\Users\raymo\AppData\Local\Temp\sap0.
+3A cinit CODE >5016:C:\Users\raymo\AppData\Local\Temp\sap0.
+3B cinit CODE >5017:C:\Users\raymo\AppData\Local\Temp\sap0.
+3E cinit CODE >5021:C:\Users\raymo\AppData\Local\Temp\sap0.
+3F cinit CODE >5025:C:\Users\raymo\AppData\Local\Temp\sap0.
+40 cinit CODE >5026:C:\Users\raymo\AppData\Local\Temp\sap0.
+41 cinit CODE >5027:C:\Users\raymo\AppData\Local\Temp\sap0.
+42 cinit CODE >5028:C:\Users\raymo\AppData\Local\Temp\sap0.
+43 cinit CODE >5029:C:\Users\raymo\AppData\Local\Temp\sap0.
+44 cinit CODE >5030:C:\Users\raymo\AppData\Local\Temp\sap0.
+45 cinit CODE >5031:C:\Users\raymo\AppData\Local\Temp\sap0.
+46 cinit CODE >5032:C:\Users\raymo\AppData\Local\Temp\sap0.
+47 cinit CODE >5033:C:\Users\raymo\AppData\Local\Temp\sap0.
+4A cinit CODE >5037:C:\Users\raymo\AppData\Local\Temp\sap0.
+4B cinit CODE >5038:C:\Users\raymo\AppData\Local\Temp\sap0.
+4C cinit CODE >5039:C:\Users\raymo\AppData\Local\Temp\sap0.
+4D cinit CODE >5040:C:\Users\raymo\AppData\Local\Temp\sap0.
+4E cinit CODE >5041:C:\Users\raymo\AppData\Local\Temp\sap0.
+4F cinit CODE >5042:C:\Users\raymo\AppData\Local\Temp\sap0.
+50 cinit CODE >5043:C:\Users\raymo\AppData\Local\Temp\sap0.
+51 cinit CODE >5044:C:\Users\raymo\AppData\Local\Temp\sap0.
+52 cinit CODE >5045:C:\Users\raymo\AppData\Local\Temp\sap0.
+54 cinit CODE >5051:C:\Users\raymo\AppData\Local\Temp\sap0.
+54 cinit CODE >5053:C:\Users\raymo\AppData\Local\Temp\sap0.
+55 cinit CODE >5054:C:\Users\raymo\AppData\Local\Temp\sap0.
+56 cinit CODE >5055:C:\Users\raymo\AppData\Local\Temp\sap0.
+4 intentry CODE >57:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+6 intentry CODE >61:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+C intentry CODE >62:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+E intentry CODE >63:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13 intentry CODE >66:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+17 intentry CODE >67:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B intentry CODE >68:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C intentry CODE >73:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+81F text5_split_5 CODE >1000:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+835 text5_split_5 CODE >1002:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+83E text5_split_5 CODE >1003:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+879 text5_split_5 CODE >1005:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8A6 text5_split_5 CODE >1044:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8BD text5_split_5 CODE >1046:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8C6 text5_split_5 CODE >1047:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8D9 text5_split_5 CODE >1049:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+906 text5_split_5 CODE >1058:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+91D text5_split_5 CODE >1060:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+926 text5_split_5 CODE >1061:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+932 text5_split_5 CODE >1062:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+93C text5_split_5 CODE >1068:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+93D text5_split_5 CODE >1070:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+946 text5_split_5 CODE >1071:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+952 text5_split_5 CODE >1072:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+95A text5_split_5 CODE >1078:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+962 text5_split_5 CODE >1079:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+96E text5_split_5 CODE >1080:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+976 text5_split_5 CODE >1087:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+97F text5_split_5 CODE >1088:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+98B text5_split_5 CODE >1089:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9A5 text5_split_5 CODE >1127:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9AE text5_split_5 CODE >1128:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9BA text5_split_5 CODE >1129:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9C1 text5_split_5 CODE >1063:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9C5 text5_split_5 CODE >1068:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9DC text5_split_5 CODE >1077:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9EC text5_split_5 CODE >1085:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+A02 text5_split_5 CODE >1125:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+A19 text5_split_5 CODE >1138:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+A29 text5_split_5 CODE >1140:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+A31 text5_split_5 CODE >1141:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+A60 text5_split_5 CODE >1143:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+A91 text5_split_5 CODE >1149:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+AA0 text5_split_5 CODE >1151:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+AA8 text5_split_5 CODE >1152:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+AB4 text5_split_5 CODE >1154:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+AC7 text5_split_5 CODE >1161:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+ADD text5_split_5 CODE >1163:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+AE6 text5_split_5 CODE >1164:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+AF8 text5_split_5 CODE >1166:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B25 text5_split_5 CODE >1172:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B3C text5_split_5 CODE >1174:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B45 text5_split_5 CODE >1175:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B58 text5_split_5 CODE >1177:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B85 text5_split_5 CODE >1182:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B95 text5_split_5 CODE >1184:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+B9D text5_split_5 CODE >1185:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+BB0 text5_split_5 CODE >1187:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+BDD text5_split_5 CODE >1192:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+BF3 text5_split_5 CODE >1194:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+BFC text5_split_5 CODE >1195:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C37 text5_split_5 CODE >1197:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C64 text5_split_5 CODE >1236:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C7B text5_split_5 CODE >1238:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C84 text5_split_5 CODE >1239:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C97 text5_split_5 CODE >1241:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+CC4 text5_split_5 CODE >1249:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+CF2 text5_split_5 CODE >1252:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D06 text5_split_5 CODE >1253:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D0F text5_split_5 CODE >1254:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D21 text5_split_5 CODE >1256:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D54 text5_split_5 CODE >1262:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D82 text5_split_5 CODE >1265:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D96 text5_split_5 CODE >1266:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+D9F text5_split_5 CODE >1267:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+DB2 text5_split_5 CODE >1269:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+DE5 text5_split_5 CODE >1274:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E04 text5_split_5 CODE >1276:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E14 text5_split_5 CODE >1277:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E1D text5_split_5 CODE >1278:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E30 text5_split_5 CODE >1280:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E63 text5_split_5 CODE >1285:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E90 text5_split_5 CODE >1288:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+EA4 text5_split_5 CODE >1289:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+EAD text5_split_5 CODE >1290:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+EE8 text5_split_5 CODE >1292:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F1B text5_split_5 CODE >1337:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F49 text5_split_5 CODE >1340:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F5D text5_split_5 CODE >1341:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F66 text5_split_5 CODE >1342:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F79 text5_split_5 CODE >1344:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FAC text5_split_5 CODE >1350:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FBC text5_split_5 CODE >1351:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FC4 text5_split_5 CODE >1352:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FCE text5_split_5 CODE >1353:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FD4 text5_split_5 CODE >1357:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FDD text5_split_5 CODE >1362:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+FF6 text5_split_5 CODE >1363:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1179 text5_split_4 CODE >980:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1190 text5_split_4 CODE >982:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1199 text5_split_4 CODE >983:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+11AC text5_split_4 CODE >985:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+11D9 text5_split_4 CODE >990:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+11E9 text5_split_4 CODE >992:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+11F1 text5_split_4 CODE >993:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1204 text5_split_4 CODE >995:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+147A text5_split_3 CODE >883:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+14A8 text5_split_3 CODE >886:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+14B1 text5_split_3 CODE >887:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+14C4 text5_split_3 CODE >889:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+14F1 text5_split_3 CODE >969:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1508 text5_split_3 CODE >971:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1511 text5_split_3 CODE >972:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1523 text5_split_3 CODE >974:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+4A6 text5_split_2 CODE >825:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+4C5 text5_split_2 CODE >827:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+4CD text5_split_2 CODE >828:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+4E9 text5_split_2 CODE >830:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+516 text5_split_2 CODE >835:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+543 text5_split_2 CODE >838:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+54C text5_split_2 CODE >839:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+572 text5_split_2 CODE >841:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+5A1 text5_split_1 CODE >802:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+5CE text5_split_1 CODE >805:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+5D7 text5_split_1 CODE >806:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+5EC text5_split_1 CODE >808:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+619 text5_split_1 CODE >814:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+647 text5_split_1 CODE >817:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+650 text5_split_1 CODE >818:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+66C text5_split_1 CODE >820:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1EDD text57 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EDD text57 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EDF text57 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EE1 text57 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EEC text57 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EEE text57 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EEE text57 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EF0 text57 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EFB text57 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1EFF text57 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F07 text57 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F0D text57 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F0F text57 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F11 text57 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F18 text57 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F1C text57 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F1D text57 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F24 text57 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F34 text57 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F3C text57 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F3D text57 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F44 text57 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F48 text57 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F4B text57 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F56 text57 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+1F5E text57 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aldiv.c
+101C text56 CODE >6:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+101C text56 CODE >9:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1063 text56 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+106A text56 CODE >12:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10B0 text56 CODE >13:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10B2 text56 CODE >15:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10B9 text56 CODE >17:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10BC text56 CODE >18:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10BD text56 CODE >19:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10BE text56 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10C0 text56 CODE >21:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10C1 text56 CODE >22:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10C3 text56 CODE >23:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+10C4 text56 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1956 text55 CODE >26:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+1956 text55 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+1958 text55 CODE >29:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+1959 text55 CODE >31:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+195A text55 CODE >32:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+195B text55 CODE >33:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+195C text55 CODE >34:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+195D text55 CODE >36:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+195E text55 CODE >37:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\pic16f1719_internals.c
+1929 text54 CODE >153:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1929 text54 CODE >155:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+192B text54 CODE >157:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C2D text53 CODE >179:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C2D text53 CODE >185:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C2F text53 CODE >186:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C31 text53 CODE >187:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C33 text53 CODE >188:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C35 text53 CODE >193:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C36 text53 CODE >194:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C37 text53 CODE >195:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C39 text53 CODE >196:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C3A text53 CODE >205:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C3B text53 CODE >206:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C3C text53 CODE >207:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C3D text53 CODE >213:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C40 text53 CODE >214:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C42 text53 CODE >215:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C43 text53 CODE >219:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C48 text53 CODE >220:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C4D text53 CODE >221:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C51 text53 CODE >222:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C56 text53 CODE >225:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C5A text53 CODE >226:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C5F text53 CODE >228:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C61 text53 CODE >229:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C63 text53 CODE >230:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1C64 text53 CODE >232:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1989 text52 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1989 text52 CODE >14:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+198E text52 CODE >15:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+198F text52 CODE >24:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1991 text52 CODE >27:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1998 text52 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+192C text51 CODE >6:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+192C text51 CODE >8:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+192E text51 CODE >9:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+192F text51 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1930 text51 CODE >12:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1972 text50 CODE >162:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1972 text50 CODE >165:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1975 text50 CODE >167:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1977 text50 CODE >169:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1978 text50 CODE >171:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+197A text50 CODE >173:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+197B text50 CODE >175:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+197C text50 CODE >177:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1BC5 text49 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BC5 text49 CODE >119:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BCE text49 CODE >121:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BD0 text49 CODE >122:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BD9 text49 CODE >123:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BE0 text49 CODE >124:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BE7 text49 CODE >125:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BED text49 CODE >128:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1BF6 text49 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+1CA9 text48 CODE >109:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1CA9 text48 CODE >110:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1CF2 text48 CODE >111:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+193E text47 CODE >56:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+193F text47 CODE >58:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+193F text47 CODE >60:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1942 text47 CODE >62:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1945 text47 CODE >63:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1A34 text46 CODE >75:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1A34 text46 CODE >78:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1A36 text46 CODE >79:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
+1A86 text45 CODE >17:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A86 text45 CODE >19:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A87 text45 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A87 text45 CODE >21:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A89 text45 CODE >22:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A8A text45 CODE >23:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A8B text45 CODE >24:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A8C text45 CODE >25:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A8C text45 CODE >26:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A8E text45 CODE >27:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A8F text45 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A90 text45 CODE >29:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A91 text45 CODE >30:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A91 text45 CODE >31:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A93 text45 CODE >32:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A94 text45 CODE >33:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A95 text45 CODE >34:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1A96 text45 CODE >36:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AA6 text45 CODE >38:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AA7 text44 CODE >43:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AA7 text44 CODE >45:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AAA text44 CODE >46:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AB3 text44 CODE >47:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AB8 text44 CODE >48:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AB9 text44 CODE >49:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AC2 text44 CODE >50:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1AC8 text44 CODE >53:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
+1968 text43 CODE >52:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1968 text43 CODE >53:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+196A text43 CODE >59:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+196E text43 CODE >61:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+195F text42 CODE >33:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+195F text42 CODE >34:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1961 text42 CODE >35:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1964 text42 CODE >36:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1946 text41 CODE >64:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1946 text41 CODE >65:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1948 text41 CODE >66:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+194A text41 CODE >67:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+194E text40 CODE >70:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+194E text40 CODE >71:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1950 text40 CODE >72:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1952 text40 CODE >73:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+801 text39 CODE >118:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+801 text39 CODE >119:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+804 text39 CODE >120:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+80E text39 CODE >121:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+815 text39 CODE >122:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+81C text39 CODE >123:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+81E text39 CODE >124:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1999 text38 CODE >42:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1999 text38 CODE >43:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+199B text38 CODE >44:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+199D text38 CODE >45:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+19A0 text38 CODE >46:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+19A8 text38 CODE >47:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+7F7 text37 CODE >83:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+7F7 text37 CODE >84:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+7F9 text37 CODE >85:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+7FB text37 CODE >86:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+7FC text37 CODE >87:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1BF7 text36 CODE >129:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1BF7 text36 CODE >131:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1BFA text36 CODE >132:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C04 text36 CODE >133:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C0B text36 CODE >134:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C0E text36 CODE >135:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C11 text36 CODE >136:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C1C text36 CODE >137:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C23 text36 CODE >138:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C26 text36 CODE >139:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C28 text36 CODE >140:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+1C2C text36 CODE >141:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
+10C5 text35 CODE >25:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+10C5 text35 CODE >27:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+10C8 text35 CODE >30:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+10CA text35 CODE >31:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+10D3 text35 CODE >32:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+10E2 text35 CODE >35:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+10F1 text35 CODE >37:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1101 text35 CODE >38:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1106 text35 CODE >42:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1115 text35 CODE >43:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1124 text35 CODE >46:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1134 text35 CODE >47:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1173 text35 CODE >50:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1173 text35 CODE >54:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1178 text35 CODE >56:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1233 text34 CODE >81:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1233 text34 CODE >86:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1236 text34 CODE >87:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+123B text34 CODE >88:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1296 text34 CODE >89:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+129E text34 CODE >90:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+129F text34 CODE >92:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12AE text34 CODE >94:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12B1 text34 CODE >95:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12B6 text34 CODE >96:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12D1 text34 CODE >97:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12DF text34 CODE >98:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12E0 text34 CODE >100:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1931 text33 CODE >73:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1931 text33 CODE >74:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1936 text33 CODE >75:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1A4E text32 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A4E text32 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A50 text32 CODE >45:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A52 text32 CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A56 text32 CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A5B text32 CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A60 text32 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A64 text32 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1A68 text32 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
+1C65 text31 CODE >61:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1C65 text31 CODE >63:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1C76 text31 CODE >64:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1C87 text31 CODE >65:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1C98 text31 CODE >66:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1CA8 text31 CODE >67:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1B39 text30 CODE >6:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1B39 text30 CODE >8:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1B4C text30 CODE >9:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1B53 text30 CODE >10:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1B62 text30 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+19A9 text29 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isdigit.c
+19A9 text29 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isdigit.c
+19BF text29 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isdigit.c
+1000 text28 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isspace.c
+1000 text28 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isspace.c
+101B text28 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isspace.c
+1F5F text27 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1F5F text27 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1F64 text27 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1F90 text27 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1F94 text27 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1FA9 text27 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1FC8 text27 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1FCC text27 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1FEB text27 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+1FFF text27 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\atoi.c
+3 text26 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\putch.c
+3 text26 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\putch.c
+1D96 text25 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1D96 text25 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1D9E text25 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1DA1 text25 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1DA2 text25 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1DC9 text25 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1DDF text25 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1DE9 text25 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputc.c
+1AEB text24 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputs.c
+1AED text24 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputs.c
+1AEF text24 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputs.c
+1AFD text24 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputs.c
+1B0B text24 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputs.c
+1B10 text24 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_fputs.c
+19C0 text23 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+19C0 text23 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+19C4 text23 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+19CB text23 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+19CF text23 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+19D0 text23 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+19D6 text23 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strlen.c
+1CF3 text22 CODE >72:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1CF3 text22 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1CF6 text22 CODE >78:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1CFF text22 CODE >82:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D09 text22 CODE >83:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D0B text22 CODE >84:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D17 text22 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D23 text22 CODE >86:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D28 text22 CODE >84:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D29 text22 CODE >90:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D2C text22 CODE >91:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D35 text22 CODE >94:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D43 text22 CODE >95:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B63 text21 CODE >259:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B63 text21 CODE >264:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B79 text21 CODE >267:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B7E text21 CODE >268:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B7F text21 CODE >269:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B93 text21 CODE >270:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+69B text20 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+69B text20 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+69C text20 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6A4 text20 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6C3 text20 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6C5 text20 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6CD text20 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6EC text20 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6F0 text20 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+6FA text20 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+705 text20 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+707 text20 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+709 text20 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+711 text20 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+715 text20 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+716 text20 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+71E text20 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+73E text20 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+74E text20 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+74F text20 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+757 text20 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+75B text20 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+75E text20 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+77C text20 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+78D text20 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aodiv.c
+1552 text19 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+1552 text19 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+1553 text19 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+155B text19 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+157A text19 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+157C text19 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+1584 text19 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15A3 text19 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15AE text19 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15B0 text19 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15B2 text19 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15BA text19 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15BE text19 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15BF text19 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15DF text19 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15EF text19 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15F7 text19 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15FB text19 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+15FE text19 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+161C text19 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+162D text19 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\aomod.c
+19D7 text18 CODE >1:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\abs.c
+19D7 text18 CODE >3:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\abs.c
+353 text17 CODE >274:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+353 text17 CODE >280:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+364 text17 CODE >281:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+376 text17 CODE >282:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+37A text17 CODE >283:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+398 text17 CODE >284:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+398 text17 CODE >287:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+39B text17 CODE >288:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+39F text17 CODE >289:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+39F text17 CODE >290:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3BA text17 CODE >291:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3C2 text17 CODE >292:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3C9 text17 CODE >293:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3CE text17 CODE >294:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3CE text17 CODE >297:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3D3 text17 CODE >298:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3D5 text17 CODE >299:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+3FB text17 CODE >300:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+400 text17 CODE >301:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+42F text17 CODE >302:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+433 text17 CODE >303:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+437 text17 CODE >304:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+464 text17 CODE >299:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+464 text17 CODE >305:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+470 text17 CODE >308:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+478 text17 CODE >309:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+47D text17 CODE >310:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+490 text17 CODE >314:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+4A5 text17 CODE >315:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+170F text16 CODE >507:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+170F text16 CODE >513:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1712 text16 CODE >514:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1716 text16 CODE >515:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1716 text16 CODE >516:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1731 text16 CODE >517:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1739 text16 CODE >520:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1749 text16 CODE >521:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+174D text16 CODE >522:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+174F text16 CODE >523:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1752 text16 CODE >524:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1778 text16 CODE >525:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+177D text16 CODE >526:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1783 text16 CODE >527:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+178D text16 CODE >528:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1791 text16 CODE >529:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1795 text16 CODE >530:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17C6 text16 CODE >524:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17C6 text16 CODE >531:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17D1 text16 CODE >534:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17D9 text16 CODE >535:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17DD text16 CODE >536:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17E6 text16 CODE >537:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17EA text16 CODE >541:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17FF text16 CODE >542:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+12F1 text15 CODE >546:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+12F1 text15 CODE >548:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+12FF text15 CODE >552:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1304 text15 CODE >553:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1307 text15 CODE >554:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+130B text15 CODE >558:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1317 text15 CODE >559:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+131F text15 CODE >560:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1332 text15 CODE >561:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1337 text15 CODE >562:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+133F text15 CODE >565:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1343 text15 CODE >567:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+134F text15 CODE >568:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1354 text15 CODE >566:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1361 text15 CODE >573:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1364 text15 CODE >574:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1370 text15 CODE >575:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1382 text15 CODE >576:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1387 text15 CODE >577:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+138B text15 CODE >574:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+138C text15 CODE >581:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1390 text15 CODE >583:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+139C text15 CODE >584:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+13A1 text15 CODE >582:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+13AE text15 CODE >588:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+13B3 text15 CODE >589:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D44 text14 CODE >3:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strncmp.c
+1D44 text14 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strncmp.c
+1D4C text14 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strncmp.c
+1D59 text14 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strncmp.c
+1D85 text14 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strncmp.c
+1D95 text14 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\strncmp.c
+1E61 text13 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E61 text13 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E6B text13 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E76 text13 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E78 text13 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E7A text13 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E82 text13 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E86 text13 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E87 text13 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1E8F text13 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1EAF text13 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1EBF text13 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1EC0 text13 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1EC8 text13 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1ECC text13 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1ECC text13 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+1EDC text13 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lodiv.c
+78E text12 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+78E text12 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+799 text12 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+79B text12 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+79D text12 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7A5 text12 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7A9 text12 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7AA text12 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7CA text12 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7DA text12 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7E2 text12 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7E6 text12 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7E6 text12 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+7F6 text12 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lomod.c
+162E text11 CODE >593:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+162E text11 CODE >599:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1631 text11 CODE >600:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1635 text11 CODE >601:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1635 text11 CODE >602:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1650 text11 CODE >603:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1658 text11 CODE >606:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1668 text11 CODE >607:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+166C text11 CODE >608:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+166E text11 CODE >609:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1693 text11 CODE >610:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1698 text11 CODE >611:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+16BF text11 CODE >612:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+16C3 text11 CODE >613:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+16C7 text11 CODE >614:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+16F4 text11 CODE >609:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+16F9 text11 CODE >618:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+170E text11 CODE >619:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1A69 text10 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isalpha.c
+1A69 text10 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isalpha.c
+1A85 text10 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isalpha.c
+19EE text9 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isupper.c
+19EE text9 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isupper.c
+1A04 text9 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\isupper.c
+1A05 text8 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\islower.c
+1A05 text8 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\islower.c
+1A1B text8 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\islower.c
+1AC9 text7 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\toupper.c
+1AC9 text7 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\toupper.c
+1FA text6 CODE >623:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1FA text6 CODE >629:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1FD text6 CODE >630:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+201 text6 CODE >631:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+201 text6 CODE >632:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+21C text6 CODE >633:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+224 text6 CODE >634:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+227 text6 CODE >635:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+22C text6 CODE >639:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+23D text6 CODE >640:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+241 text6 CODE >641:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+243 text6 CODE >642:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+244 text6 CODE >643:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+249 text6 CODE >644:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+24F text6 CODE >645:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+265 text6 CODE >646:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+2A0 text6 CODE >647:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+2AC text6 CODE >649:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+2B5 text6 CODE >650:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+2B9 text6 CODE >651:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+2BD text6 CODE >652:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+2EE text6 CODE >642:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+31F text6 CODE >656:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+322 text6 CODE >657:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+327 text6 CODE >658:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+330 text6 CODE >659:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+334 text6 CODE >660:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+33D text6 CODE >664:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+352 text6 CODE >665:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+58 text5 CODE >670:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+58 text5 CODE >680:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+68 text5 CODE >681:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+70 text5 CODE >683:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+75 text5 CODE >684:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+79 text5 CODE >688:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+7B text5 CODE >689:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+7C text5 CODE >691:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+7C text5 CODE >692:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+7E text5 CODE >693:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+87 text5 CODE >694:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+88 text5 CODE >695:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+88 text5 CODE >696:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8B text5 CODE >699:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8B text5 CODE >700:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8E text5 CODE >703:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+8E text5 CODE >704:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+91 text5 CODE >707:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+91 text5 CODE >708:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+94 text5 CODE >712:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+99 text5 CODE >689:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+9E text5 CODE >714:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C3 text5 CODE >689:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C4 text5 CODE >716:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+C6 text5 CODE >717:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+CA text5 CODE >723:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+DA text5 CODE >724:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+E2 text5 CODE >725:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+EF text5 CODE >726:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F1 text5 CODE >727:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F2 text5 CODE >728:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+F8 text5 CODE >731:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+107 text5 CODE >732:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+108 text5 CODE >733:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+111 text5 CODE >732:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+13B text5 CODE >740:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+14B text5 CODE >741:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+14E text5 CODE >742:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+157 text5 CODE >743:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+166 text5 CODE >744:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+16E text5 CODE >745:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17B text5 CODE >746:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+17C text5 CODE >747:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+18B text5 CODE >748:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+18C text5 CODE >749:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+195 text5 CODE >748:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1BF text5 CODE >792:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D0 text5 CODE >793:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1D8 text5 CODE >794:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1E5 text5 CODE >795:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B94 text4 CODE >1368:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B94 text4 CODE >1373:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B99 text4 CODE >1374:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1B9C text4 CODE >1375:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1BA4 text4 CODE >1376:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1BBB text4 CODE >1375:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1BBC text4 CODE >1378:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1BC4 text4 CODE >1382:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\doprnt.c
+1DEA text3 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1DEA text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1DF2 text3 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1DF7 text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1DFD text3 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E01 text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E08 text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E0E text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E10 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E11 text3 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E15 text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E19 text3 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E37 text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E3C text3 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E5C text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1E60 text3 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
+1A1C text2 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
+1A1C text2 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
+1A21 text2 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
+1A33 text2 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
+13B4 text1 CODE >95:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13B4 text1 CODE >97:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13B5 text1 CODE >100:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13B8 text1 CODE >101:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13B9 text1 CODE >102:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13BC text1 CODE >103:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13C5 text1 CODE >106:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13CC text1 CODE >108:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13D0 text1 CODE >109:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13D2 text1 CODE >110:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13D4 text1 CODE >111:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13DA text1 CODE >112:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13DC text1 CODE >115:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13E5 text1 CODE >116:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+13EC text1 CODE >117:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1404 text1 CODE >118:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+140B text1 CODE >119:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1411 text1 CODE >121:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1415 text1 CODE >130:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1418 text1 CODE >133:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1421 text1 CODE >134:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1444 text1 CODE >135:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+144B text1 CODE >136:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1452 text1 CODE >137:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1459 text1 CODE >139:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+145F text1 CODE >140:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1464 text1 CODE >141:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1465 text1 CODE >149:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1479 text1 CODE >150:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B11 maintext CODE >75:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B11 maintext CODE >78:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B14 maintext CODE >79:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B17 maintext CODE >80:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B1A maintext CODE >81:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B26 maintext CODE >82:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B29 maintext CODE >83:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B2C maintext CODE >87:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+1B2F maintext CODE >89:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
+197D clrtext CODE >4992:C:\Users\raymo\AppData\Local\Temp\sap0.
+197D clrtext CODE >4993:C:\Users\raymo\AppData\Local\Temp\sap0.
+197E clrtext CODE >4994:C:\Users\raymo\AppData\Local\Temp\sap0.
+197E clrtext CODE >4995:C:\Users\raymo\AppData\Local\Temp\sap0.
+197F clrtext CODE >4996:C:\Users\raymo\AppData\Local\Temp\sap0.
+1980 clrtext CODE >4997:C:\Users\raymo\AppData\Local\Temp\sap0.
+1981 clrtext CODE >4998:C:\Users\raymo\AppData\Local\Temp\sap0.
+1982 clrtext CODE >4999:C:\Users\raymo\AppData\Local\Temp\sap0.
+1983 clrtext CODE >5000:C:\Users\raymo\AppData\Local\Temp\sap0.
+1984 clrtext CODE >5001:C:\Users\raymo\AppData\Local\Temp\sap0.
+1985 clrtext CODE >5002:C:\Users\raymo\AppData\Local\Temp\sap0.
+1986 clrtext CODE >5003:C:\Users\raymo\AppData\Local\Temp\sap0.
+1987 clrtext CODE >5005:C:\Users\raymo\AppData\Local\Temp\sap0.
+1988 clrtext CODE >5004:C:\Users\raymo\AppData\Local\Temp\sap0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -429,19 +1092,30 @@ D2 text22 CODE >28:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\EUSART.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 3 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__LdataBANK2 0 0 ABS 0 dataBANK2 -
+vsnprintf@cnt C4 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+vsnprintf@fmt BD 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 __Hspace_0 8009 0 ABS 0 - -
-__Hspace_1 7D 0 ABS 0 - -
+__Hspace_1 15A 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
+__HidataBANK2 0 0 ABS 0 idataBANK2 -
+stoa@F1152 152 0 BANK2 1 dataBANK2 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_init_AFE 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_init_I2C 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_init_RGB 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+strncmp@_l 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+strncmp@_r 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 _toggleColor 7C 0 COMMON 1 bssCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-_cellVoltages 37 0 BANK0 1 bssBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_cellVoltages 120 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
+isalpha@c 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 _T1CONbits 18 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _RXPPSbits E24 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+?_abs 74 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_pad 26 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Hstrings 0 0 ABS 0 strings -
+?_vfprintf 67 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 _BRGH CF2 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _CREN CEC 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _SCS0 4C8 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
@@ -450,96 +1124,269 @@ _SPEN CEF 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _SYNC CF4 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TMR1 16 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TXEN CF5 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-___sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\s9j0.o
-_main 488 0 CODE 0 maintext dist/default/debug\BMS_Firmware.X.debug.o
+___sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\sap0.o
+_atoi 3EBE 0 CODE 0 text27 dist/default/debug\BMS_Firmware.X.debug.o
+_ctoa 36C6 0 CODE 0 text21 dist/default/debug\BMS_Firmware.X.debug.o
+_dbuf 132 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
+_dtoa 6A6 0 CODE 0 text17 dist/default/debug\BMS_Firmware.X.debug.o
+_main 3622 0 CODE 0 maintext dist/default/debug\BMS_Firmware.X.debug.o
+_nout DD 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+_otoa 2E1E 0 CODE 0 text16 dist/default/debug\BMS_Firmware.X.debug.o
+_prec E1 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+_stoa 25E2 0 CODE 0 text15 dist/default/debug\BMS_Firmware.X.debug.o
+_utoa 2C5C 0 CODE 0 text11 dist/default/debug\BMS_Firmware.X.debug.o
+_xtoa 3F4 0 CODE 0 text6 dist/default/debug\BMS_Firmware.X.debug.o
+abs@a 74 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-start 3A 0 CODE 0 init C:\Users\raymo\AppData\Local\Temp\s9j0.o
-_EUSART_Write 78C 0 CODE 0 text15 dist/default/debug\BMS_Firmware.X.debug.o
+pad@i 2C 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+pad@p 29 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+pad@w 2E 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+start 3C 0 CODE 0 init C:\Users\raymo\AppData\Local\Temp\sap0.o
+___aomod@counter 72 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_EUSART_Write 327C 0 CODE 0 text47 dist/default/debug\BMS_Firmware.X.debug.o
+_messageBuffer 2771 0 ABS 1 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of___aodiv 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of___aomod 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_atoi 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_ctoa 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_dtoa 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_main 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_otoa 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_stoa 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_utoa 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_xtoa 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of___lodiv 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of___lomod 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_send_I2C_startBit 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-_read_I2C_data 69C 0 CODE 0 text6 dist/default/debug\BMS_Firmware.X.debug.o
+__Hstringtext10 0 0 ABS 0 stringtext10 -
+__Hstringtext11 0 0 ABS 0 stringtext11 -
+__Hstringtext12 0 0 ABS 0 stringtext12 -
+__Hstringtext13 0 0 ABS 0 stringtext13 -
+__Hstringtext14 0 0 ABS 0 stringtext14 -
+__Hstringtext15 0 0 ABS 0 stringtext15 -
+__Hstringtext16 0 0 ABS 0 stringtext16 -
+__Hstringtext17 0 0 ABS 0 stringtext17 -
+__Hstringtext18 0 0 ABS 0 stringtext18 -
+__Hstringtext19 0 0 ABS 0 stringtext19 -
+__Hstringtext20 0 0 ABS 0 stringtext20 -
+__Hstringtext21 0 0 ABS 0 stringtext21 -
+__Hstringtext22 0 0 ABS 0 stringtext22 -
+__Hstringtext23 0 0 ABS 0 stringtext23 -
+__Hstringtext24 0 0 ABS 0 stringtext24 -
+__Hstringtext25 0 0 ABS 0 stringtext25 -
+__Hstringtext26 0 0 ABS 0 stringtext26 -
+__Hstringtext27 0 0 ABS 0 stringtext27 -
+__Hstringtext28 0 0 ABS 0 stringtext28 -
+__Hstringtext29 0 0 ABS 0 stringtext29 -
+__Hstringtext30 0 0 ABS 0 stringtext30 -
+__Hstringtext31 0 0 ABS 0 stringtext31 -
+__Hstringtext32 0 0 ABS 0 stringtext32 -
+__Hstringtext33 0 0 ABS 0 stringtext33 -
+__Hstringtext34 0 0 ABS 0 stringtext34 -
+__Hstringtext35 0 0 ABS 0 stringtext35 -
+_read_I2C_data 3332 0 CODE 0 text38 dist/default/debug\BMS_Firmware.X.debug.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
-__end_of_SCD_delay_setting 76C 0 STRCODE 0 stringtext6 dist/default/debug\BMS_Firmware.X.debug.o
+otoa@d 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+otoa@i 50 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+otoa@n 48 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+otoa@p 42 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+otoa@t 44 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+otoa@w 46 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_currState EE 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_SCD_delay_setting 4324 0 STRCODE 0 stringtext6 dist/default/debug\BMS_Firmware.X.debug.o
+pad@fp 26 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 send_I2C_controlByte@RW_bit 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_toupper 3592 0 CODE 0 text7 dist/default/debug\BMS_Firmware.X.debug.o
+?___lmul 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?___wmul 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 send_I2C_controlByte@BlockAddress 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_EUSART_Initialize 1A6 0 CODE 0 text22 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_EUSART_Write_Text 65C 0 CODE 0 text14 dist/default/debug\BMS_Firmware.X.debug.o
+isupper@c 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_AFE_getSetShortCircuitCurrent 39E6 0 CODE 0 text48 dist/default/debug\BMS_Firmware.X.debug.o
+__LidataBANK2 0 0 ABS 0 idataBANK2 -
+__end_of_EUSART_Initialize 218A 0 CODE 0 text56 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_EUSART_Write_Text 349C 0 CODE 0 text46 dist/default/debug\BMS_Firmware.X.debug.o
 __Hpowerup 0 0 CODE 0 powerup -
+pnum$text5_split_1 6B 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+pnum$text5_split_2 6C 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+pnum$text5_split_3 6D 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+pnum$text5_split_4 6E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+pnum$text5_split_5 6F 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+stoa@i 2A 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@l 31 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@p 2F 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@s 22 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@w 2C 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 send_I2C_data@databyte 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_OV_delay_setting 74C 0 STRCODE 0 stringtext4 dist/default/debug\BMS_Firmware.X.debug.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s9j0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s9j0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s9j0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s9j0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s9j0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s9j0.o
+__end_of_vfpfcnvrt 2000 0 CODE 0 text5_split_5 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_OV_delay_setting 4304 0 STRCODE 0 stringtext4 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___lodiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+utoa@d 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+utoa@i 47 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+utoa@n 3F 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+utoa@p 3B 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+utoa@w 3D 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\sap0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\sap0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\sap0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\sap0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\sap0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\sap0.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
-_send_I2C_stopBit 76C 0 CODE 0 text8 dist/default/debug\BMS_Firmware.X.debug.o
-_init_AFE 7B8 0 CODE 0 text2 dist/default/debug\BMS_Firmware.X.debug.o
-_init_I2C 6BC 0 CODE 0 text18 dist/default/debug\BMS_Firmware.X.debug.o
-_init_RGB 7A8 0 CODE 0 text17 dist/default/debug\BMS_Firmware.X.debug.o
-___aldiv@divisor 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_send_I2C_stopBit 329C 0 CODE 0 text40 dist/default/debug\BMS_Firmware.X.debug.o
+_init_AFE 3672 0 CODE 0 text30 dist/default/debug\BMS_Firmware.X.debug.o
+_init_I2C 3312 0 CODE 0 text52 dist/default/debug\BMS_Firmware.X.debug.o
+_init_RGB 3258 0 CODE 0 text51 dist/default/debug\BMS_Firmware.X.debug.o
+pnum$text5 35 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___aldiv@divisor 24 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 wtemp0 7E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __size_of_beginAFEcommunication 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _RC1STAbits 19D 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-_send_I2C_NACK 706 0 CODE 0 text5 dist/default/debug\BMS_Firmware.X.debug.o
-_send_I2C_data 718 0 CODE 0 text10 dist/default/debug\BMS_Firmware.X.debug.o
+_send_I2C_NACK FEE 0 CODE 0 text37 dist/default/debug\BMS_Firmware.X.debug.o
+_send_I2C_data 32BE 0 CODE 0 text42 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@c 55 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@d 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@i 53 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@n 4B 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@p 47 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@w 49 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@x 3A 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_EUSART_Write 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-___aldiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+___aldiv@sign 2D 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+setTemperatureLimitsint@maxCharge_degC 26 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_init_AFE 7BA 0 CODE 0 text2 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_init_I2C 6DC 0 CODE 0 text18 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_init_RGB 7B2 0 CODE 0 text17 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_init_AFE 36C6 0 CODE 0 text30 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_init_I2C 3332 0 CODE 0 text52 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_init_RGB 3262 0 CODE 0 text51 dist/default/debug\BMS_Firmware.X.debug.o
+_vfpfcnvrt B0 0 CODE 0 text5 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@fp 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 I2C_writeRegister@slaveAddress 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_RGB_AWAIT_AFE_CONN 56A 0 CODE 0 text12 dist/default/debug\BMS_Firmware.X.debug.o
+xtoa@fp 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+___wmul@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_vsnprintf B9 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_RGB_AWAIT_AFE_CONN 3592 0 CODE 0 text44 dist/default/debug\BMS_Firmware.X.debug.o
 I2C_writeRegister@data 79 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_vfpfcnvrt$953 A3 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+_vfpfcnvrt$954 A5 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 _SSPCONbits 215 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_SCD_threshold_setting 69C 0 STRCODE 0 stringtext3 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_EUSART_Write 79C 0 CODE 0 text15 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_RGB_color 5AC 0 CODE 0 text13 dist/default/debug\BMS_Firmware.X.debug.o
+?_toupper 77 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_SCD_threshold_setting 42F4 0 STRCODE 0 stringtext3 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___lmul 37EE 0 CODE 0 text49 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___wmul 34D2 0 CODE 0 text32 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_EUSART_Write 328C 0 CODE 0 text47 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_RGB_color 354E 0 CODE 0 text45 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_RGB_color 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __Lmaintext 0 0 ABS 0 maintext -
-_internal_16 72A 0 CODE 0 text21 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of___aldiv 2AA 0 CODE 0 text23 dist/default/debug\BMS_Firmware.X.debug.o
+_atoi$1386 26 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_atoi$1387 2A 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_atoi$1388 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_internal_16 32AC 0 CODE 0 text55 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___aldiv 3EBE 0 CODE 0 text57 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___aodiv F1C 0 CODE 0 text20 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___aomod 2C5C 0 CODE 0 text19 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_isalpha 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___lodiv 3DBA 0 CODE 0 text13 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of___lomod FEE 0 CODE 0 text12 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_isdigit 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_islower 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_isspace 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_isupper 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+_SCD_delay_setting 4314 0 STRCODE 0 stringtext6 dist/default/debug\BMS_Firmware.X.debug.o
+_adcGain E9 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+___aodiv@quotient 74 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+___lodiv@dividend 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_SCD_threshold_setting 42D4 0 STRCODE 0 stringtext3 dist/default/debug\BMS_Firmware.X.debug.o
+?_strlen 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_read_I2C_data 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-___stackhi 27EF 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\s9j0.o
-___stacklo 2024 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\s9j0.o
-_RGB_AWAIT_AFE_CONN 526 0 CODE 0 text12 dist/default/debug\BMS_Firmware.X.debug.o
-_RGB_color 56A 0 CODE 0 text13 dist/default/debug\BMS_Firmware.X.debug.o
-_EUSART_Initialize 56 0 CODE 0 text22 dist/default/debug\BMS_Firmware.X.debug.o
-_EUSART_Write_Text 628 0 CODE 0 text14 dist/default/debug\BMS_Firmware.X.debug.o
+___stackhi 2770 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\sap0.o
+___stacklo 20DA 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\sap0.o
+__size_of_strncmp 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+_RGB_AWAIT_AFE_CONN 354E 0 CODE 0 text44 dist/default/debug\BMS_Firmware.X.debug.o
+___aomod@dividend 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+utoa@fp 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_RGB_color 350C 0 CODE 0 text45 dist/default/debug\BMS_Firmware.X.debug.o
+_EUSART_Initialize 2038 0 CODE 0 text56 dist/default/debug\BMS_Firmware.X.debug.o
+_EUSART_Write_Text 3468 0 CODE 0 text46 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_fputc 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_fputs 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_myIsr 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_putch 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _SSPDATPPSbits E21 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_send_I2C_startBit 78C 0 CODE 0 text9 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_send_I2C_startBit 329C 0 CODE 0 text41 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_snprintf 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_send_I2C_stopBit 77C 0 CODE 0 text8 dist/default/debug\BMS_Firmware.X.debug.o
-start_initialization 3E 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
+__Lstringtext10 0 0 ABS 0 stringtext10 -
+__Lstringtext11 0 0 ABS 0 stringtext11 -
+__Lstringtext12 0 0 ABS 0 stringtext12 -
+__Lstringtext13 0 0 ABS 0 stringtext13 -
+__Lstringtext14 0 0 ABS 0 stringtext14 -
+__Lstringtext15 0 0 ABS 0 stringtext15 -
+__Lstringtext16 0 0 ABS 0 stringtext16 -
+__Lstringtext17 0 0 ABS 0 stringtext17 -
+__Lstringtext18 0 0 ABS 0 stringtext18 -
+__Lstringtext19 0 0 ABS 0 stringtext19 -
+__Lstringtext20 0 0 ABS 0 stringtext20 -
+__Lstringtext21 0 0 ABS 0 stringtext21 -
+__Lstringtext22 0 0 ABS 0 stringtext22 -
+__Lstringtext23 0 0 ABS 0 stringtext23 -
+__Lstringtext24 0 0 ABS 0 stringtext24 -
+__Lstringtext25 0 0 ABS 0 stringtext25 -
+__Lstringtext26 0 0 ABS 0 stringtext26 -
+__Lstringtext27 0 0 ABS 0 stringtext27 -
+__Lstringtext28 0 0 ABS 0 stringtext28 -
+__Lstringtext29 0 0 ABS 0 stringtext29 -
+__Lstringtext30 0 0 ABS 0 stringtext30 -
+__Lstringtext31 0 0 ABS 0 stringtext31 -
+__Lstringtext32 0 0 ABS 0 stringtext32 -
+__Lstringtext33 0 0 ABS 0 stringtext33 -
+__Lstringtext34 0 0 ABS 0 stringtext34 -
+__Lstringtext35 0 0 ABS 0 stringtext35 -
+___aomod@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_send_I2C_stopBit 32AC 0 CODE 0 text40 dist/default/debug\BMS_Firmware.X.debug.o
+start_initialization 40 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
+setShortCircuitProtection@delay_us 36 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 readRegister@slaveAddress 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 _TRISAbits 8C 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TRISBbits 8D 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+vsnprintf@ap BF 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 _TRISCbits 8E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TRISEbits 90 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-___aldiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+___aldiv@quotient 2E 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_send_I2C_stopBit 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-_readRegister 42C 0 CODE 0 text4 dist/default/debug\BMS_Firmware.X.debug.o
+_maxCellTempCharge 12E 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
+_readRegister 37EE 0 CODE 0 text36 dist/default/debug\BMS_Firmware.X.debug.o
+snprintf@ap D9 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+_minCellTempCharge E5 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+snprintf@fmt D0 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 _RC1REG 199 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_read_I2C_data 6BC 0 CODE 0 text6 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_read_I2C_data 3352 0 CODE 0 text38 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_send_I2C_NACK 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_send_I2C_data 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-clear_ram0 79C 0 CODE 0 clrtext dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_AFE_getSetShortCircuitCurrent 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+clear_ram0 32FA 0 CODE 0 clrtext dist/default/debug\BMS_Firmware.X.debug.o
 _SPLLEN 4CF 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__pcstackBANK2 159 0 BANK2 1 cstackBANK2 dist/default/debug\BMS_Firmware.X.debug.o
 _SSPADD 212 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _SSPBUF 211 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TRISC6 476 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TRISC7 477 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _TX1REG 19A 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-___int_sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\s9j0.o
-__end_of_UV_delay_setting 75C 0 STRCODE 0 stringtext5 dist/default/debug\BMS_Firmware.X.debug.o
+islower@c 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_dtoa$902 3D 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_maxCellTempDischarge 12C 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
+fputc@fp 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+fputs@fp 7A 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+___int_sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\sap0.o
+toupper@c 77 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+setShortCircuitProtection@current_mA 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_UV_delay_setting 4314 0 STRCODE 0 stringtext5 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@done A1 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -550,7 +1397,8 @@ __Hbank6 0 0 ABS 0 bank6 -
 __Hbank7 0 0 ABS 0 bank7 -
 __Hbank8 0 0 ABS 0 bank8 -
 __Hbank9 0 0 ABS 0 bank9 -
-__Hcinit 56 0 CODE 0 cinit -
+__Hcinit B0 0 CODE 0 cinit -
+__end_of_strlen 33AE 0 CODE 0 text23 dist/default/debug\BMS_Firmware.X.debug.o
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
@@ -599,13 +1447,14 @@ __Hbank30 0 0 BANK30 1 bank30 -
 __Hbank31 0 0 BANK31 1 bank31 -
 __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
-beginAFEcommunication@errCode 22 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10012 0 CONFIG 0 config -
-__end_of_send_I2C_NACK 718 0 CODE 0 text5 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_send_I2C_data 72A 0 CODE 0 text10 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_send_I2C_NACK 1000 0 CODE 0 text37 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_send_I2C_data 32D0 0 CODE 0 text42 dist/default/debug\BMS_Firmware.X.debug.o
+_snprintf 3438 0 CODE 0 text2 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_readRegister 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_isalpha 350C 0 CODE 0 text10 dist/default/debug\BMS_Firmware.X.debug.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -616,8 +1465,11 @@ __Lbank6 0 0 ABS 0 bank6 -
 __Lbank7 0 0 ABS 0 bank7 -
 __Lbank8 0 0 ABS 0 bank8 -
 __Lbank9 0 0 ABS 0 bank9 -
-__Lcinit 3E 0 CODE 0 cinit -
+__end_of_isdigit 3380 0 CODE 0 text29 dist/default/debug\BMS_Firmware.X.debug.o
+__Lcinit 40 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
+__end_of_islower 3438 0 CODE 0 text8 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_isspace 2038 0 CODE 0 text28 dist/default/debug\BMS_Firmware.X.debug.o
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -641,10 +1493,16 @@ __Lsfr29 0 0 ABS 0 sfr29 -
 __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
+__end_of_isupper 340A 0 CODE 0 text9 dist/default/debug\BMS_Firmware.X.debug.o
+_vsnprintf$1530 C2 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_snprintf 3468 0 CODE 0 text2 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_strncmp 3B2C 0 CODE 0 text14 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_setShuntResistorValue 326E 0 CODE 0 text33 dist/default/debug\BMS_Firmware.X.debug.o
 _INTCONbits B 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_setTemperatureLimitsint 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
-__Hinit 3A 0 CODE 0 init -
+__Hinit 3C 0 CODE 0 init -
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
@@ -658,7 +1516,7 @@ __Hsfr9 0 0 ABS 0 sfr9 -
 __Htext 0 0 ABS 0 text -
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
-__Linit 3A 0 CODE 0 init -
+__Linit 3C 0 CODE 0 init -
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
@@ -670,30 +1528,89 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 5AC 0 STRCODE 0 stringtext1 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext2 65C 0 STRCODE 0 stringtext2 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext3 67C 0 STRCODE 0 stringtext3 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext4 73C 0 STRCODE 0 stringtext4 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext5 74C 0 STRCODE 0 stringtext5 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext6 75C 0 STRCODE 0 stringtext6 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext7 4D8 0 STRCODE 0 stringtext7 dist/default/debug\BMS_Firmware.X.debug.o
-__pstringtext8 0 0 STRCODE 0 stringtext8 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext1 4274 0 STRCODE 0 stringtext1 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext2 42B4 0 STRCODE 0 stringtext2 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext3 42D4 0 STRCODE 0 stringtext3 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext4 42F4 0 STRCODE 0 stringtext4 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext5 4304 0 STRCODE 0 stringtext5 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext6 4314 0 STRCODE 0 stringtext6 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext7 4000 0 STRCODE 0 stringtext7 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext8 406E 0 STRCODE 0 stringtext8 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext9 40CA 0 STRCODE 0 stringtext9 dist/default/debug\BMS_Firmware.X.debug.o
+___aodiv@counter 72 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext10 4124 0 STRCODE 0 stringtext10 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext11 417A 0 STRCODE 0 stringtext11 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext12 41D0 0 STRCODE 0 stringtext12 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext13 4224 0 STRCODE 0 stringtext13 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext14 4324 0 STRCODE 0 stringtext14 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext15 432C 0 STRCODE 0 stringtext15 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext16 4334 0 STRCODE 0 stringtext16 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext17 433C 0 STRCODE 0 stringtext17 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext18 4344 0 STRCODE 0 stringtext18 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext19 434C 0 STRCODE 0 stringtext19 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext20 4354 0 STRCODE 0 stringtext20 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext21 435C 0 STRCODE 0 stringtext21 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext22 4362 0 STRCODE 0 stringtext22 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext23 4368 0 STRCODE 0 stringtext23 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext24 436E 0 STRCODE 0 stringtext24 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext25 4374 0 STRCODE 0 stringtext25 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext26 437A 0 STRCODE 0 stringtext26 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext27 4380 0 STRCODE 0 stringtext27 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext28 4386 0 STRCODE 0 stringtext28 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext29 438C 0 STRCODE 0 stringtext29 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext30 4392 0 STRCODE 0 stringtext30 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext31 4398 0 STRCODE 0 stringtext31 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext32 439E 0 STRCODE 0 stringtext32 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext33 43A4 0 STRCODE 0 stringtext33 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext34 43AA 0 STRCODE 0 stringtext34 dist/default/debug\BMS_Firmware.X.debug.o
+__pstringtext35 0 0 STRCODE 0 stringtext35 dist/default/debug\BMS_Firmware.X.debug.o
+___lmul 378A 0 CODE 0 text49 dist/default/debug\BMS_Firmware.X.debug.o
+___wmul 349C 0 CODE 0 text32 dist/default/debug\BMS_Firmware.X.debug.o
+___aomod@sign 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+___lomod@counter 72 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
+__LcstackBANK2 0 0 ABS 0 cstackBANK2 -
+psplit$0 35006B 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+psplit$1 6B006C 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+psplit$2 6C006D 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+psplit$3 6D006E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+psplit$4 6E006F 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+_toupper$1493 79 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 int$flags 7E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+otoa@fp 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_send_I2C_controlByte 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-_send_I2C_startBit 77C 0 CODE 0 text9 dist/default/debug\BMS_Firmware.X.debug.o
+isspace@c 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_send_I2C_startBit 328C 0 CODE 0 text41 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_I2C_writeRegister 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __S0 8009 0 ABS 0 - -
-__S1 7D 0 ABS 0 - -
+__S1 15A 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
-__end_of_readRegister 488 0 CODE 0 text4 dist/default/debug\BMS_Firmware.X.debug.o
-_statemachine 336 0 CODE 0 text1 dist/default/debug\BMS_Firmware.X.debug.o
+_abs 33AE 0 CODE 0 text18 dist/default/debug\BMS_Firmware.X.debug.o
+_pad 39E6 0 CODE 0 text22 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_readRegister 385A 0 CODE 0 text36 dist/default/debug\BMS_Firmware.X.debug.o
+_statemachine 2768 0 CODE 0 text1 dist/default/debug\BMS_Firmware.X.debug.o
+_setShuntResistorValue 3262 0 CODE 0 text33 dist/default/debug\BMS_Firmware.X.debug.o
 EUSART_Write_Text@text 72 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_send_I2C_controlByte 706 0 CODE 0 text11 dist/default/debug\BMS_Firmware.X.debug.o
+___aodiv@sign 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_send_I2C_controlByte 32E4 0 CODE 0 text43 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_toupper 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_abs 33DC 0 CODE 0 text18 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_pad 3A88 0 CODE 0 text22 dist/default/debug\BMS_Firmware.X.debug.o
+setTemperatureLimitsint@maxDischarge_degC 22 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?_readRegister 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+readRegister@recievedData 79 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+setTemperatureLimitsint@minDischarge_degC 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\raymo\AppData\Local\Temp\s9j0.o
-__LbssBANK0 0 0 ABS 0 bssBANK0 -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\raymo\AppData\Local\Temp\sap0.o
+strlen@a 73 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+strlen@s 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__pdataBANK2 152 0 BANK2 1 dataBANK2 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of___lmul 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of___wmul 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__LbssBANK1 0 0 ABS 0 bssBANK1 -
+__LbssBANK2 0 0 ABS 0 bssBANK2 -
 __Lstringtext1 0 0 ABS 0 stringtext1 -
 __Lstringtext2 0 0 ABS 0 stringtext2 -
 __Lstringtext3 0 0 ABS 0 stringtext3 -
@@ -702,31 +1619,78 @@ __Lstringtext5 0 0 ABS 0 stringtext5 -
 __Lstringtext6 0 0 ABS 0 stringtext6 -
 __Lstringtext7 0 0 ABS 0 stringtext7 -
 __Lstringtext8 0 0 ABS 0 stringtext8 -
-__end_of_initClock 7B8 0 CODE 0 text20 dist/default/debug\BMS_Firmware.X.debug.o
+__Lstringtext9 0 0 ABS 0 stringtext9 -
+vfpfcnvrt@fmt 59 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@llu B1 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_initClock 3258 0 CODE 0 text54 dist/default/debug\BMS_Firmware.X.debug.o
 _PIE1bits 91 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_init_GPIO 42C 0 CODE 0 text19 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_init_TMR1 6F2 0 CODE 0 text16 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_init_GPIO 38CA 0 CODE 0 text53 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_init_TMR1 32FA 0 CODE 0 text50 dist/default/debug\BMS_Firmware.X.debug.o
+pad@buf 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_initClock 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_setShortCircuitProtection 25E2 0 CODE 0 text34 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_vsnprintf 3CC2 0 CODE 0 text3 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@nuls 23 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_minCellTempDischarge 130 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_statemachine 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__ptext10 718 0 CODE 0 text10 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext11 6F2 0 CODE 0 text11 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext12 526 0 CODE 0 text12 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext13 56A 0 CODE 0 text13 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext14 628 0 CODE 0 text14 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext15 78C 0 CODE 0 text15 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext16 6DC 0 CODE 0 text16 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext17 7A8 0 CODE 0 text17 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext18 6BC 0 CODE 0 text18 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext19 3BC 0 CODE 0 text19 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext20 7B2 0 CODE 0 text20 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext21 72A 0 CODE 0 text21 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext22 56 0 CODE 0 text22 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext23 1A6 0 CODE 0 text23 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext10 34D2 0 CODE 0 text10 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext11 2C5C 0 CODE 0 text11 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext12 F1C 0 CODE 0 text12 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext13 3CC2 0 CODE 0 text13 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext14 3A88 0 CODE 0 text14 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext15 25E2 0 CODE 0 text15 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext16 2E1E 0 CODE 0 text16 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext17 6A6 0 CODE 0 text17 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext18 33AE 0 CODE 0 text18 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext19 2AA4 0 CODE 0 text19 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext20 D36 0 CODE 0 text20 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext21 36C6 0 CODE 0 text21 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext22 39E6 0 CODE 0 text22 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext23 3380 0 CODE 0 text23 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext24 35D6 0 CODE 0 text24 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext25 3B2C 0 CODE 0 text25 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext26 6 0 CODE 0 text26 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext27 3EBE 0 CODE 0 text27 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext28 2000 0 CODE 0 text28 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext29 3352 0 CODE 0 text29 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext30 3672 0 CODE 0 text30 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext31 38CA 0 CODE 0 text31 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext32 349C 0 CODE 0 text32 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext33 3262 0 CODE 0 text33 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext34 2466 0 CODE 0 text34 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext35 218A 0 CODE 0 text35 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext36 37EE 0 CODE 0 text36 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext37 FEE 0 CODE 0 text37 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext38 3332 0 CODE 0 text38 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext39 1002 0 CODE 0 text39 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext40 329C 0 CODE 0 text40 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext41 328C 0 CODE 0 text41 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext42 32BE 0 CODE 0 text42 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext43 32D0 0 CODE 0 text43 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext44 354E 0 CODE 0 text44 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext45 350C 0 CODE 0 text45 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext46 3468 0 CODE 0 text46 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext47 327C 0 CODE 0 text47 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext48 3952 0 CODE 0 text48 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext49 378A 0 CODE 0 text49 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext50 32E4 0 CODE 0 text50 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext51 3258 0 CODE 0 text51 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext52 3312 0 CODE 0 text52 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext53 385A 0 CODE 0 text53 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext54 3252 0 CODE 0 text54 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext55 32AC 0 CODE 0 text55 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext56 2038 0 CODE 0 text56 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext57 3DBA 0 CODE 0 text57 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_init_GPIO 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_init_TMR1 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 EUSART_Initialize@x 7A 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-___aldiv 1A6 0 CODE 0 text23 dist/default/debug\BMS_Firmware.X.debug.o
-EUSART_Initialize@baudrate 26 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_vsnprintf 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___aldiv 3DBA 0 CODE 0 text57 dist/default/debug\BMS_Firmware.X.debug.o
+___aodiv D36 0 CODE 0 text20 dist/default/debug\BMS_Firmware.X.debug.o
+___aomod 2AA4 0 CODE 0 text19 dist/default/debug\BMS_Firmware.X.debug.o
+___lodiv 3CC2 0 CODE 0 text13 dist/default/debug\BMS_Firmware.X.debug.o
+___lomod F1C 0 CODE 0 text12 dist/default/debug\BMS_Firmware.X.debug.o
+EUSART_Initialize@baudrate 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Lbank10 0 0 ABS 0 bank10 -
 __Lbank11 0 0 ABS 0 bank11 -
 __Lbank12 0 0 ABS 0 bank12 -
@@ -749,63 +1713,126 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 488 0 CODE 0 maintext dist/default/debug\BMS_Firmware.X.debug.o
+__pmaintext 3622 0 CODE 0 maintext dist/default/debug\BMS_Firmware.X.debug.o
 __Lbigram 0 0 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___lmul@multiplier 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_atoi 77 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_ctoa 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?_dtoa 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?_otoa 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?_stoa 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?_utoa 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?_xtoa 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+strncmp@l 78 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+strncmp@n 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+strncmp@r 7A 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___wmul@multiplier 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_RGB_AWAIT_AFE_CONN 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _LATAbits 10C 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _LATEbits 110 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_internal_16 73C 0 CODE 0 text21 dist/default/debug\BMS_Firmware.X.debug.o
-_initClock 7B2 0 CODE 0 text20 dist/default/debug\BMS_Firmware.X.debug.o
-_init_GPIO 3BC 0 CODE 0 text19 dist/default/debug\BMS_Firmware.X.debug.o
-_init_TMR1 6DC 0 CODE 0 text16 dist/default/debug\BMS_Firmware.X.debug.o
+setShortCircuitProtection@i 43 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_internal_16 32BE 0 CODE 0 text55 dist/default/debug\BMS_Firmware.X.debug.o
+_adcOffset E7 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+_initClock 3252 0 CODE 0 text54 dist/default/debug\BMS_Firmware.X.debug.o
+_init_GPIO 385A 0 CODE 0 text53 dist/default/debug\BMS_Firmware.X.debug.o
+_init_TMR1 32E4 0 CODE 0 text50 dist/default/debug\BMS_Firmware.X.debug.o
+_strlen 3380 0 CODE 0 text23 dist/default/debug\BMS_Firmware.X.debug.o
+_vsnprintf 3BD4 0 CODE 0 text3 dist/default/debug\BMS_Firmware.X.debug.o
 readRegister@regAddress 77 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_statemachine 3BC 0 CODE 0 text1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_statemachine 28F4 0 CODE 0 text1 dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_vfprintf 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+beginAFEcommunication@commSuccess 2B 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@cp 2E 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+stoa@fp 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 _RB2PPSbits E9A 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_beginAFEcommunication 336 0 CODE 0 text3 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_beginAFEcommunication 22F2 0 CODE 0 text35 dist/default/debug\BMS_Firmware.X.debug.o
+?_snprintf CC 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__pbssBIGRAM 2771 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_ZCDDIS$ON 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+?_vfpfcnvrt 57 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __pbssCOMMON 7C 0 COMMON 1 bssCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_shuntResistorValue_mOhm EF 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+snprintf@n CE 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+snprintf@s CC 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
-__end_of_I2C_writeRegister 628 0 CODE 0 text7 dist/default/debug\BMS_Firmware.X.debug.o
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
+__HcstackBANK2 0 0 ABS 0 cstackBANK2 -
+__end_of_I2C_writeRegister 103E 0 CODE 0 text39 dist/default/debug\BMS_Firmware.X.debug.o
 _PIR1bits 11 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__Lend_init 3A 0 CODE 0 end_init -
+__Lend_init 3C 0 CODE 0 end_init -
+___aodiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_toupper 35D6 0 CODE 0 text7 dist/default/debug\BMS_Firmware.X.debug.o
+___aodiv@dividend 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization 4E 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
-__Hintentry 3A 0 CODE 0 intentry -
+___lomod@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+end_of_initialization A8 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
+_AFE_getSetShortCircuitCurrent 3952 0 CODE 0 text48 dist/default/debug\BMS_Firmware.X.debug.o
+__Hintentry 3C 0 CODE 0 intentry -
+?_AFE_getSetShortCircuitCurrent 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+setTemperatureLimitsint@minCharge_degC 24 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-_beginAFEcommunication 2AA 0 CODE 0 text3 dist/default/debug\BMS_Firmware.X.debug.o
+fputc@c 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+fputs@c 22 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+fputs@i 23 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+fputs@s 25 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_beginAFEcommunication 218A 0 CODE 0 text35 dist/default/debug\BMS_Firmware.X.debug.o
 _PPSLOCKbits E0F 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __Lstrings 0 0 ABS 0 strings -
-?___aldiv 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-statemachine@success 27 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?___aldiv 24 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?___aodiv 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?___aomod 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+statemachine@success DC 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+?___lodiv 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+?___lomod 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+setShortCircuitProtection@i_783 45 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+vfprintf@fmt 69 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
 RGB_color@color 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__HbssBANK1 0 0 ABS 0 bssBANK1 -
+__HbssBANK2 0 0 ABS 0 bssBANK2 -
+__size_of_setShortCircuitProtection 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_strlen 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _SSPCON2bits 216 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__ptext1 336 0 CODE 0 text1 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext2 7B8 0 CODE 0 text2 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext3 2AA 0 CODE 0 text3 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext4 42C 0 CODE 0 text4 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext5 706 0 CODE 0 text5 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext6 69C 0 CODE 0 text6 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext7 5EC 0 CODE 0 text7 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext8 76C 0 CODE 0 text8 dist/default/debug\BMS_Firmware.X.debug.o
-__ptext9 77C 0 CODE 0 text9 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_OCD_delay_setting 67C 0 STRCODE 0 stringtext2 dist/default/debug\BMS_Firmware.X.debug.o
-___aldiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@ap 5A 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@cp A0 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@fp 57 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@ll A7 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@vp AF 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext1 2768 0 CODE 0 text1 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext2 3438 0 CODE 0 text2 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext3 3BD4 0 CODE 0 text3 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext4 3728 0 CODE 0 text4 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext5 B0 0 CODE 0 text5 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext6 3F4 0 CODE 0 text6 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext7 3592 0 CODE 0 text7 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext8 340A 0 CODE 0 text8 dist/default/debug\BMS_Firmware.X.debug.o
+__ptext9 33DC 0 CODE 0 text9 dist/default/debug\BMS_Firmware.X.debug.o
+vfprintf@ap 6B 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+vfprintf@fp 67 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+vfprintf@cfmt 6E 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_OCD_delay_setting 42D4 0 STRCODE 0 stringtext2 dist/default/debug\BMS_Firmware.X.debug.o
+___aldiv@dividend 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_vfprintf 3728 0 CODE 0 text4 dist/default/debug\BMS_Firmware.X.debug.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
+_isalpha 34D2 0 CODE 0 text10 dist/default/debug\BMS_Firmware.X.debug.o
 ?_read_I2C_data 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_isdigit 3352 0 CODE 0 text29 dist/default/debug\BMS_Firmware.X.debug.o
+_islower 340A 0 CODE 0 text8 dist/default/debug\BMS_Firmware.X.debug.o
+_isspace 2000 0 CODE 0 text28 dist/default/debug\BMS_Firmware.X.debug.o
+___lodiv@quotient 72 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_isupper 33DC 0 CODE 0 text9 dist/default/debug\BMS_Firmware.X.debug.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __Hstringtext1 0 0 ABS 0 stringtext1 -
 __Hstringtext2 0 0 ABS 0 stringtext2 -
@@ -815,50 +1842,111 @@ __Hstringtext5 0 0 ABS 0 stringtext5 -
 __Hstringtext6 0 0 ABS 0 stringtext6 -
 __Hstringtext7 0 0 ABS 0 stringtext7 -
 __Hstringtext8 0 0 ABS 0 stringtext8 -
+__Hstringtext9 0 0 ABS 0 stringtext9 -
 __CFG_LPBOR$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_ATmega328_address 4DC 0 STRCODE 0 stringtext7 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_vfprintf 378A 0 CODE 0 text4 dist/default/debug\BMS_Firmware.X.debug.o
+_strncmp 3A88 0 CODE 0 text14 dist/default/debug\BMS_Firmware.X.debug.o
+___lomod@dividend 28 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_ATmega328_address 4004 0 STRCODE 0 stringtext7 dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+_xtoa$938 43 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_xtoa$939 45 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 EUSART_Write@txData 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-_tmr1_flag 42 0 BANK0 1 bssBANK0 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of__initialization 4E 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
+_tmr1_flag ED 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of__initialization A8 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
 __Lfunctab 0 0 ENTRY 0 functab -
-myIsr@count 41 0 BANK0 1 bssBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+myIsr@count EC 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__pidataBANK2 326E 0 CODE 0 idataBANK2 dist/default/debug\BMS_Firmware.X.debug.o
+_protect1 EB 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 __Lclrtext 0 0 ABS 0 clrtext -
+_isspace$1413 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 EUSART_Write_Text@i 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
-beginAFEcommunication@i 24 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+beginAFEcommunication@i 2D 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_PLLEN$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___lmul@product 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+ctoa@fp 30 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_EUSART_Initialize 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_EUSART_Write_Text 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+___lmul@multiplicand 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+___lodiv@counter 7A 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+vsnprintf@f C6 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+vsnprintf@n BB 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+vsnprintf@s B9 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
 ?_beginAFEcommunication 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
-__Hend_init 3E 0 CODE 0 end_init -
-___aldiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
-_I2C_writeRegister 5EC 0 CODE 0 text7 dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_main 4D8 0 CODE 0 maintext dist/default/debug\BMS_Firmware.X.debug.o
+__Hend_init 40 0 CODE 0 end_init -
+___aldiv@counter 2C 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_I2C_writeRegister 1002 0 CODE 0 text39 dist/default/debug\BMS_Firmware.X.debug.o
+vfpfcnvrt@c B0 0 BANK1 1 cstackBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_atoi 4000 0 CODE 0 text27 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_ctoa 3728 0 CODE 0 text21 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_dtoa 94C 0 CODE 0 text17 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_main 3672 0 CODE 0 maintext dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_otoa 3000 0 CODE 0 text16 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_stoa 2768 0 CODE 0 text15 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_utoa 2E1E 0 CODE 0 text11 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_xtoa 6A6 0 CODE 0 text6 dist/default/debug\BMS_Firmware.X.debug.o
+isdigit@c 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 _RC5PPSbits EA5 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _IRCF0 4CB 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _IRCF1 4CC 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _IRCF2 4CD 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _IRCF3 4CE 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_fputc 3BD4 0 CODE 0 text25 dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_fputs 3622 0 CODE 0 text24 dist/default/debug\BMS_Firmware.X.debug.o
 __size_of_internal_16 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_myIsr 3A 0 CODE 0 intentry dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_myIsr 3C 0 CODE 0 intentry dist/default/debug\BMS_Firmware.X.debug.o
 _SPBRG 19B 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_putch 8 0 CODE 0 text26 dist/default/debug\BMS_Firmware.X.debug.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
+atoi@neg 24 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+_errno 12A 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
+_flags E3 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+_fputc 3B2C 0 CODE 0 text25 dist/default/debug\BMS_Firmware.X.debug.o
+_fputs 35D6 0 CODE 0 text24 dist/default/debug\BMS_Firmware.X.debug.o
 _myIsr 8 0 CODE 0 intentry dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_setShuntResistorValue 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+_putch 6 0 CODE 0 text26 dist/default/debug\BMS_Firmware.X.debug.o
+_width DF 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+?_isalpha 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_isdigit 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __pintentry 8 0 CODE 0 intentry dist/default/debug\BMS_Firmware.X.debug.o
+?_islower 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_isspace 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+?_isupper 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_abs 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__size_of_pad 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__HdataBANK2 0 0 ABS 0 dataBANK2 -
+setShuntResistorValue@res_mOhm 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+atoi@n 2B 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+atoi@s 77 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_PPS1WAY$ON 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__end_of_OCD_threshold_setting 5EC 0 STRCODE 0 stringtext1 dist/default/debug\BMS_Firmware.X.debug.o
-_send_I2C_controlByte 6F2 0 CODE 0 text11 dist/default/debug\BMS_Firmware.X.debug.o
-__initialization 3E 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_OCD_threshold_setting 42B4 0 STRCODE 0 stringtext1 dist/default/debug\BMS_Firmware.X.debug.o
+_send_I2C_controlByte 32D0 0 CODE 0 text43 dist/default/debug\BMS_Firmware.X.debug.o
+?_strncmp 71 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+__initialization 40 0 CODE 0 cinit dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
-__pbssBANK0 37 0 BANK0 1 bssBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+__pbssBANK1 DD 0 BANK1 1 bssBANK1 dist/default/debug\BMS_Firmware.X.debug.o
+__pbssBANK2 120 0 BANK2 1 bssBANK2 dist/default/debug\BMS_Firmware.X.debug.o
 _PPSLOCK E0F 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+ctoa@c 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+ctoa@w 34 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+___wmul@product 75 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
+_setTemperatureLimitsint 38CA 0 CODE 0 text31 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@d 32 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@i 4D 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@n 45 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@p 3F 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@s 43 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
+dtoa@w 41 0 BANK0 1 cstackBANK0 dist/default/debug\BMS_Firmware.X.debug.o
 _SSPCLKPPSbits E20 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+_setShortCircuitProtection 2466 0 CODE 0 text34 dist/default/debug\BMS_Firmware.X.debug.o
 I2C_writeRegister@regAddress 77 0 COMMON 1 cstackCOMMON dist/default/debug\BMS_Firmware.X.debug.o
 _ANSELBbits 18D 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 _ANSELCbits 18E 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
+__end_of_setTemperatureLimitsint 3952 0 CODE 0 text31 dist/default/debug\BMS_Firmware.X.debug.o
 _RC4PPSbits EA4 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -868,6 +1956,11 @@ _RC4PPSbits EA4 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 # split form the top of the parent psect. All splits from a given parent
 # are listed in the order in which they occurred.
 %SPLITSTAB
+text5 text5_split_1
+text5_split_1 text5_split_2
+text5_split_2 text5_split_3
+text5_split_3 text5_split_4
+text5_split_4 text5_split_5
 # %DABS Section
 # This section contains a table of all usuage of the assember
 # directive DABS in the program. Each line has the following format:
@@ -876,6 +1969,10 @@ _RC4PPSbits EA4 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 # otherwise name will be "-".  The <space> number is in decimal.
 # <address> and <size> are in byte units as unqaulified hexadecimal
 %DABS
+_messageBuffer 1 2771 0
+- 1 CA0 20
+- 1 C20 50
+- 1 BE1 F
 - 1 7E 2
 # %SEGMENTS Section
 # This sections enumerates the segments of the program.  Each segment
@@ -885,16 +1982,67 @@ _RC4PPSbits EA4 0 ABS 0 - dist/default/debug\BMS_Firmware.X.debug.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text6 0 34E 69C 50 2
-text7 0 2F6 5EC 38 2
-text8 0 3B6 76C 27 2
-text12 0 293 526 43 2
+text1 0 13B4 2768 C6 2
+text2 0 1A1C 3438 18 2
+text3 0 1DEA 3BD4 77 2
+text4 0 1B94 3728 31 2
+text7 0 1AC9 3592 22 2
+text8 0 1A05 340A 17 2
+text9 0 19EE 33DC 17 2
+text10 0 1A69 34D2 1D 2
+text11 0 162E 2C5C E1 2
+text13 0 1E61 3CC2 7C 2
+text14 0 1D44 3A88 52 2
+text15 0 12F1 25E2 C3 2
+text16 0 170F 2E1E F1 2
+text18 0 19D7 33AE 17 2
+text19 0 1552 2AA4 DC 2
+text21 0 1B63 36C6 31 2
+text22 0 1CF3 39E6 51 2
+text23 0 19C0 3380 17 2
+text24 0 1AEB 35D6 26 2
+text25 0 1D96 3B2C 54 2
+text26 0 3 6 1 2
+text27 0 1F5F 3EBE A1 2
+text29 0 19A9 3352 17 2
+text30 0 1B39 3672 2A 2
+text31 0 1C65 38CA 44 2
+text32 0 1A4E 349C 1B 2
+text33 0 1931 3262 6 2
+text34 0 1233 2466 BE 2
+text35 0 10C5 218A B4 2
+text36 0 1BF7 37EE 36 2
+text38 0 1999 3332 10 2
+text39 0 801 1002 1E 2
+text40 0 194E 329C 8 2
+text41 0 1946 328C 8 2
+text42 0 195F 32BE 9 2
+text43 0 1968 32D0 A 2
+text44 0 1AA7 354E 22 2
+text45 0 1A86 350C 21 2
+text46 0 1A34 3468 1A 2
+text47 0 193E 327C 8 2
+text48 0 1CA9 3952 4A 2
+text49 0 1BC5 378A 32 2
+text50 0 1972 32E4 B 2
+text51 0 192C 3258 5 2
+text52 0 1989 3312 10 2
+text53 0 1C2D 385A 38 2
+text54 0 1929 3252 3 2
+text55 0 1956 32AC 9 2
+text56 0 101C 2038 A9 2
+text57 0 1EDD 3DBA 82 2
+maintext 0 1B11 3622 28 2
 cstackCOMMON 1 70 70 D 1
-cstackBANK0 1 20 20 24 1
-stringtext1 0 2D6 5AC 20 2
-stringtext2 0 32E 65C 20 2
-stringtext4 0 39E 73C 18 2
-stringtext7 0 26C 4D8 27 2
-intentry 0 4 8 268 2
+cstackBANK0 1 20 20 50 1
+cstackBANK1 1 A0 A0 50 1
+text5_split_3 0 147A 28F4 D8 2
+text5_split_4 0 1179 22F2 BA 2
+text5_split_5 0 81F 103E 7FD 2
+stringtext7 0 2000 4000 1D8 2
+intentry 0 4 8 7FC 2
 reset_vec 0 0 0 2 2
+bssBANK2 1 120 120 3A 1
+idataBANK2 0 1937 326E 7 2
+clrtext 0 197D 32FA C 2
 config 0 8007 1000E 2 2

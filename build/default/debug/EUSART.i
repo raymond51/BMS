@@ -10312,6 +10312,8 @@ void internal_4(void);
 
 
 
+char messageBuffer[127] = {0};
+
 
 char EUSART_Initialize(const long int baudrate);
 uint8_t EUSART_Read(void);

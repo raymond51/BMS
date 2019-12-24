@@ -10377,6 +10377,8 @@ int readRegister(int slaveAddress, int regAddress);
 
 
 
+char messageBuffer[127] = {0};
+
 
 char EUSART_Initialize(const long int baudrate);
 uint8_t EUSART_Read(void);
@@ -10520,14 +10522,33 @@ int cellVoltages[5];
 
 
 
+int adcGain;
+int adcOffset;
 
+
+int minCellTempCharge;
+int minCellTempDischarge;
+int maxCellTempCharge;
+int maxCellTempDischarge;
+
+
+uint8_t shuntResistorValue_mOhm;
+
+
+void init_AFE(void);
 int beginAFEcommunication(void);
+
+void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
+void setShuntResistorValue(int res_mOhm);
+void setShortCircuitProtection(long current_mA, int delay_us);
+
+
+long AFE_getSetShortCircuitCurrent(void);
 # 24 "main.c" 2
 # 42 "main.c"
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
-void init_AFE(void);
 void init_TMR1(void);
 void statemachine(void);
 
@@ -10586,7 +10607,10 @@ void statemachine(void) {
             if (tmr1_flag) {
                 tmr1_flag = 0;
                 RGB_AWAIT_AFE_CONN();
-                 uint8_t success = beginAFEcommunication();
+                uint8_t success = beginAFEcommunication();
+
+
+                EUSART_Write_Text("Attempting to communicate with AFE...\n\r");
 
                 if (success) {
                     T1CONbits.TMR1ON = 0;
@@ -10596,9 +10620,12 @@ void statemachine(void) {
 
 
                     _delay((unsigned long)((5)*(16000000/4000.0)));
-                    EUSART_Write_Text("Now communicating with BQ76920 AFE\n\r");
+                    EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r");
+                    snprintf(messageBuffer, 127, "Obtained adcOffset = %i and adcGain = %i\n\r", adcOffset, adcGain);
+                    EUSART_Write_Text(messageBuffer);
+                    EUSART_Write_Text("Attempt to set initial system parameters to AFE...\n\r");
 
-
+                    currState = 1;
                 }
 
 
@@ -10610,18 +10637,25 @@ void statemachine(void) {
             init_AFE();
 
 
+            _delay((unsigned long)((5)*(16000000/4000.0)));
+            snprintf(messageBuffer, 127, "Set short circuit current for AFE: %lu !\n\r", AFE_getSetShortCircuitCurrent());
+            EUSART_Write_Text(messageBuffer);
+            EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
+            EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
 
-
+            RGB_color(1);
+            currState = 2;
             break;
         case 2:
+
+
+
+
 
             break;
     }
 }
 
-void init_AFE(void) {
-# 151 "main.c"
-}
 
 void initClock() {
 

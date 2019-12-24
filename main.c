@@ -42,7 +42,6 @@
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
-void init_AFE(void);
 void init_TMR1(void);
 void statemachine(void);
 
@@ -132,6 +131,8 @@ void statemachine(void) {
 
 #ifdef BQ76920_DEBUG
             __delay_ms(5); //allow time for i2c communication to end
+            snprintf(messageBuffer, messageBuf_size, "Set short circuit current for AFE: %lu !\n\r", AFE_getSetShortCircuitCurrent());
+            EUSART_Write_Text(messageBuffer);
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
 #endif
@@ -139,26 +140,15 @@ void statemachine(void) {
             currState = READ_AFE_DATA; //move to next state if communication was successful check the return value
             break;
         case READ_AFE_DATA:
-
+               
+            //enable the 1 second timer again
+            //perform update 
+            //once update complete enter sleep mode 
+            
             break;
     }
 }
 
-void init_AFE(void) {
-
-    //set temperature limit
-    //set shunt resistor value
-    //set short circuit protection
-    //set over current charge protection
-    //set overcurrent discharge protection
-    //set cell under voltage protection
-    //set cell overvoltage protection
-
-    //set balancing threshold
-    //set idle current threshold
-    //enable auto cell balancing
-    //set the green led output for the RGB led
-}
 
 void initClock() {
     // Run at 16 MHz (internal clock)
