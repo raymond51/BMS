@@ -10532,18 +10532,19 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
-uint8_t shuntResistorValue_mOhm;
+static float shuntResistorValue_mOhm;
 
 
 void init_AFE(void);
 int beginAFEcommunication(void);
 
 void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
-void setShuntResistorValue(int res_mOhm);
+void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 
 
 long AFE_getSetShortCircuitCurrent(void);
+float AFE_getSetCurrentSenseRes(void);
 # 24 "main.c" 2
 # 42 "main.c"
 void initClock(void);
@@ -10638,7 +10639,10 @@ void statemachine(void) {
 
 
             _delay((unsigned long)((5)*(16000000/4000.0)));
-            snprintf(messageBuffer, 127, "Set short circuit current for AFE: %lu !\n\r", AFE_getSetShortCircuitCurrent());
+            EUSART_Write_Text("\n\r");
+            snprintf(messageBuffer, 127, "Current sense resistor value: %.4f ohms\n\r", AFE_getSetCurrentSenseRes());
+            EUSART_Write_Text(messageBuffer);
+            snprintf(messageBuffer, 127, "Set short circuit current for AFE: %lu mA\n\r", AFE_getSetShortCircuitCurrent());
             EUSART_Write_Text(messageBuffer);
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
@@ -10701,7 +10705,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 205 "main.c"
+# 208 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

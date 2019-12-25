@@ -131,7 +131,10 @@ void statemachine(void) {
 
 #ifdef BQ76920_DEBUG
             __delay_ms(5); //allow time for i2c communication to end
-            snprintf(messageBuffer, messageBuf_size, "Set short circuit current for AFE: %lu !\n\r", AFE_getSetShortCircuitCurrent());
+            EUSART_Write_Text("\n\r"); //newline
+            snprintf(messageBuffer, messageBuf_size, "Current sense resistor value: %.4f ohms\n\r", AFE_getSetCurrentSenseRes());
+            EUSART_Write_Text(messageBuffer);
+            snprintf(messageBuffer, messageBuf_size, "Set short circuit current for AFE: %lu mA\n\r", AFE_getSetShortCircuitCurrent());
             EUSART_Write_Text(messageBuffer);
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");

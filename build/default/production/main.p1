@@ -81,6 +81,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44 ./BQ76920.h
 [; ;./BQ76920.h: 44: void init_AFE(void);
 [v _init_AFE `(v ~T0 @X0 0 ef ]
+"53
+[; ;./BQ76920.h: 53: float AFE_getSetCurrentSenseRes(void);
+[v _AFE_getSetCurrentSenseRes `(f ~T0 @X0 0 ef ]
 "52
 [; ;./BQ76920.h: 52: long AFE_getSetShortCircuitCurrent(void);
 [v _AFE_getSetShortCircuitCurrent `(l ~T0 @X0 0 ef ]
@@ -1411,8 +1414,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./BQ76920.h: 38: int maxCellTempDischarge;
 [v _maxCellTempDischarge `i ~T0 @X0 1 e ]
 "41
-[; ;./BQ76920.h: 41: uint8_t shuntResistorValue_mOhm;
-[v _shuntResistorValue_mOhm `uc ~T0 @X0 1 e ]
+[; ;./BQ76920.h: 41: static float shuntResistorValue_mOhm;
+[v _shuntResistorValue_mOhm `f ~T0 @X0 1 s ]
 "51 main.c
 [; ;main.c: 51: uint8_t currState = 0;
 [v _currState `uc ~T0 @X0 1 e ]
@@ -1434,8 +1437,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "59
 [; ;main.c: 59:     static uint8_t count = 0;
-[v F6469 `uc ~T0 @X0 1 s count ]
-[i F6469
+[v F6470 `uc ~T0 @X0 1 s count ]
+[i F6470
 -> -> 0 `i `uc
 ]
 "61
@@ -1447,17 +1450,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "63
 [; ;main.c: 63:         count++;
-[e ++ F6469 -> -> 1 `i `uc ]
+[e ++ F6470 -> -> 1 `i `uc ]
 "66
 [; ;main.c: 66:         if (count == 61) {
-[e $ ! == -> F6469 `i -> 61 `i 802  ]
+[e $ ! == -> F6470 `i -> 61 `i 802  ]
 {
 "67
 [; ;main.c: 67:             tmr1_flag = 1;
 [e = _tmr1_flag -> -> 1 `i `uc ]
 "68
 [; ;main.c: 68:             count = 0;
-[e = F6469 -> -> 0 `i `uc ]
+[e = F6470 -> -> 0 `i `uc ]
 "69
 [; ;main.c: 69:         }
 }
@@ -1603,34 +1606,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 133:             _delay((unsigned long)((5)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "134
-[; ;main.c: 134:             snprintf(messageBuffer, 127, "Set short circuit current for AFE: %lu !\n\r", AFE_getSetShortCircuitCurrent());
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 5C ( _AFE_getSetShortCircuitCurrent ..  ]
+[; ;main.c: 134:             EUSART_Write_Text("\n\r");
+[e ( _EUSART_Write_Text (1 :s 5C ]
 "135
-[; ;main.c: 135:             EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+[; ;main.c: 135:             snprintf(messageBuffer, 127, "Current sense resistor value: %.4f ohms\n\r", AFE_getSetCurrentSenseRes());
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 6C -> ( _AFE_getSetCurrentSenseRes ..  `d ]
 "136
-[; ;main.c: 136:             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
-[e ( _EUSART_Write_Text (1 :s 6C ]
+[; ;main.c: 136:             EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "137
-[; ;main.c: 137:             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
-[e ( _EUSART_Write_Text (1 :s 7C ]
+[; ;main.c: 137:             snprintf(messageBuffer, 127, "Set short circuit current for AFE: %lu mA\n\r", AFE_getSetShortCircuitCurrent());
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 7C ( _AFE_getSetShortCircuitCurrent ..  ]
+"138
+[; ;main.c: 138:             EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "139
-[; ;main.c: 139:             RGB_color(1);
-[e ( _RGB_color (1 -> 1 `i ]
+[; ;main.c: 139:             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
+[e ( _EUSART_Write_Text (1 :s 8C ]
 "140
-[; ;main.c: 140:             currState = 2;
-[e = _currState -> -> 2 `i `uc ]
-"141
-[; ;main.c: 141:             break;
-[e $U 808  ]
+[; ;main.c: 140:             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
+[e ( _EUSART_Write_Text (1 :s 9C ]
 "142
-[; ;main.c: 142:         case 2:
-[e :U 814 ]
-"148
-[; ;main.c: 148:             break;
+[; ;main.c: 142:             RGB_color(1);
+[e ( _RGB_color (1 -> 1 `i ]
+"143
+[; ;main.c: 143:             currState = 2;
+[e = _currState -> -> 2 `i `uc ]
+"144
+[; ;main.c: 144:             break;
 [e $U 808  ]
-"149
-[; ;main.c: 149:     }
+"145
+[; ;main.c: 145:         case 2:
+[e :U 814 ]
+"151
+[; ;main.c: 151:             break;
+[e $U 808  ]
+"152
+[; ;main.c: 152:     }
 }
 [e $U 808  ]
 [e :U 809 ]
@@ -1639,135 +1651,137 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 814
  808 ]
 [e :U 808 ]
-"150
-[; ;main.c: 150: }
+"153
+[; ;main.c: 153: }
 [e :UE 807 ]
 }
-"153
-[; ;main.c: 153: void initClock() {
+"156
+[; ;main.c: 156: void initClock() {
 [v _initClock `(v ~T0 @X0 1 ef ]
 {
 [e :U _initClock ]
 [f ]
-"155
-[; ;main.c: 155:     internal_16();
+"158
+[; ;main.c: 158:     internal_16();
 [e ( _internal_16 ..  ]
-"157
-[; ;main.c: 157: }
+"160
+[; ;main.c: 160: }
 [e :UE 815 ]
 }
-"162
-[; ;main.c: 162: void init_TMR1(void) {
+"165
+[; ;main.c: 165: void init_TMR1(void) {
 [v _init_TMR1 `(v ~T0 @X0 1 ef ]
 {
 [e :U _init_TMR1 ]
 [f ]
-"165
-[; ;main.c: 165:     T1CONbits.T1CKPS = 0b00;
+"168
+[; ;main.c: 168:     T1CONbits.T1CKPS = 0b00;
 [e = . . _T1CONbits 0 4 -> -> 0 `i `uc ]
-"167
-[; ;main.c: 167:     TMR1 = 0;
+"170
+[; ;main.c: 170:     TMR1 = 0;
 [e = _TMR1 -> -> 0 `i `us ]
-"169
-[; ;main.c: 169:     T1CONbits.TMR1ON = 1;
+"172
+[; ;main.c: 172:     T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"171
-[; ;main.c: 171:     PIE1bits.TMR1IE = 1;
+"174
+[; ;main.c: 174:     PIE1bits.TMR1IE = 1;
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-"173
-[; ;main.c: 173:     INTCONbits.PEIE = 1;
+"176
+[; ;main.c: 176:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"175
-[; ;main.c: 175:     (INTCONbits.GIE = 1);
+"178
+[; ;main.c: 178:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"177
-[; ;main.c: 177: }
+"180
+[; ;main.c: 180: }
 [e :UE 816 ]
 }
-"179
-[; ;main.c: 179: void init_GPIO() {
+"182
+[; ;main.c: 182: void init_GPIO() {
 [v _init_GPIO `(v ~T0 @X0 1 ef ]
 {
 [e :U _init_GPIO ]
 [f ]
-"185
-[; ;main.c: 185:     TRISBbits.TRISB2 = 0;
-[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-"186
-[; ;main.c: 186:     ANSELBbits.ANSB2 = 0;
-[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-"187
-[; ;main.c: 187:     TRISBbits.TRISB3 = 1;
-[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
 "188
-[; ;main.c: 188:     ANSELBbits.ANSB3 = 0;
+[; ;main.c: 188:     TRISBbits.TRISB2 = 0;
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
+"189
+[; ;main.c: 189:     ANSELBbits.ANSB2 = 0;
+[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
+"190
+[; ;main.c: 190:     TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+"191
+[; ;main.c: 191:     ANSELBbits.ANSB3 = 0;
 [e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
-"193
-[; ;main.c: 193:     ANSELCbits.ANSC4 = 0;
-[e = . . _ANSELCbits 0 3 -> -> 0 `i `uc ]
-"194
-[; ;main.c: 194:     ANSELCbits.ANSC5 = 0;
-[e = . . _ANSELCbits 0 4 -> -> 0 `i `uc ]
-"195
-[; ;main.c: 195:     TRISCbits.TRISC4 = 1;
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
 "196
-[; ;main.c: 196:     TRISCbits.TRISC5 = 1;
+[; ;main.c: 196:     ANSELCbits.ANSC4 = 0;
+[e = . . _ANSELCbits 0 3 -> -> 0 `i `uc ]
+"197
+[; ;main.c: 197:     ANSELCbits.ANSC5 = 0;
+[e = . . _ANSELCbits 0 4 -> -> 0 `i `uc ]
+"198
+[; ;main.c: 198:     TRISCbits.TRISC4 = 1;
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+"199
+[; ;main.c: 199:     TRISCbits.TRISC5 = 1;
 [e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-"205
-[; ;main.c: 205:     TRISAbits.TRISA4 = 0;
+"208
+[; ;main.c: 208:     TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"206
-[; ;main.c: 206:     TRISAbits.TRISA5 = 0;
+"209
+[; ;main.c: 209:     TRISAbits.TRISA5 = 0;
 [e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-"207
-[; ;main.c: 207:     TRISEbits.TRISE0 = 0;
+"210
+[; ;main.c: 210:     TRISEbits.TRISE0 = 0;
 [e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
-"213
-[; ;main.c: 213:     PPSLOCK = 0x55;
+"216
+[; ;main.c: 216:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
-"214
-[; ;main.c: 214:     PPSLOCK = 0xAA;
+"217
+[; ;main.c: 217:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
-"215
-[; ;main.c: 215:     PPSLOCKbits.PPSLOCKED = 0x00;
+"218
+[; ;main.c: 218:     PPSLOCKbits.PPSLOCKED = 0x00;
 [e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"219
-[; ;main.c: 219:     RC4PPSbits.RC4PPS = 0x0011;
-[e = . . _RC4PPSbits 0 0 -> -> 17 `i `uc ]
-"220
-[; ;main.c: 220:     SSPDATPPSbits.SSPDATPPS = 0x0014;
-[e = . . _SSPDATPPSbits 0 0 -> -> 20 `i `uc ]
-"221
-[; ;main.c: 221:     SSPCLKPPSbits.SSPCLKPPS = 0x0015;
-[e = . . _SSPCLKPPSbits 0 0 -> -> 21 `i `uc ]
 "222
-[; ;main.c: 222:     RC5PPSbits.RC5PPS = 0x0010;
-[e = . . _RC5PPSbits 0 0 -> -> 16 `i `uc ]
+[; ;main.c: 222:     RC4PPSbits.RC4PPS = 0x0011;
+[e = . . _RC4PPSbits 0 0 -> -> 17 `i `uc ]
+"223
+[; ;main.c: 223:     SSPDATPPSbits.SSPDATPPS = 0x0014;
+[e = . . _SSPDATPPSbits 0 0 -> -> 20 `i `uc ]
+"224
+[; ;main.c: 224:     SSPCLKPPSbits.SSPCLKPPS = 0x0015;
+[e = . . _SSPCLKPPSbits 0 0 -> -> 21 `i `uc ]
 "225
-[; ;main.c: 225:     RB2PPSbits.RB2PPS = 0x14;
-[e = . . _RB2PPSbits 0 0 -> -> 20 `i `uc ]
-"226
-[; ;main.c: 226:     RXPPSbits.RXPPS = 0x0B;
-[e = . . _RXPPSbits 0 0 -> -> 11 `i `uc ]
+[; ;main.c: 225:     RC5PPSbits.RC5PPS = 0x0010;
+[e = . . _RC5PPSbits 0 0 -> -> 16 `i `uc ]
 "228
-[; ;main.c: 228:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
+[; ;main.c: 228:     RB2PPSbits.RB2PPS = 0x14;
+[e = . . _RB2PPSbits 0 0 -> -> 20 `i `uc ]
 "229
-[; ;main.c: 229:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"230
-[; ;main.c: 230:     PPSLOCKbits.PPSLOCKED = 0x01;
-[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 229:     RXPPSbits.RXPPS = 0x0B;
+[e = . . _RXPPSbits 0 0 -> -> 11 `i `uc ]
+"231
+[; ;main.c: 231:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
 "232
-[; ;main.c: 232: }
+[; ;main.c: 232:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"233
+[; ;main.c: 233:     PPSLOCKbits.PPSLOCKED = 0x01;
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+"235
+[; ;main.c: 235: }
 [e :UE 817 ]
 }
-[p f _snprintf 8389776 ]
+[p f _snprintf 8463504 ]
+[a 6C 67 117 114 114 101 110 116 32 115 101 110 115 101 32 114 101 115 105 115 116 111 114 32 118 97 108 117 101 58 32 37 46 52 102 32 111 104 109 115 10 13 0 ]
 [a 3C 79 98 116 97 105 110 101 100 32 97 100 99 79 102 102 115 101 116 32 61 32 37 105 32 97 110 100 32 97 100 99 71 97 105 110 32 61 32 37 105 10 13 0 ]
-[a 7C 78 111 119 32 114 101 97 100 105 110 103 32 65 70 69 32 100 97 116 97 32 97 116 32 114 101 103 117 108 97 114 32 105 110 116 101 114 118 97 108 115 46 10 13 0 ]
+[a 7C 83 101 116 32 115 104 111 114 116 32 99 105 114 99 117 105 116 32 99 117 114 114 101 110 116 32 102 111 114 32 65 70 69 58 32 37 108 117 32 109 65 10 13 0 ]
+[a 9C 78 111 119 32 114 101 97 100 105 110 103 32 65 70 69 32 100 97 116 97 32 97 116 32 114 101 103 117 108 97 114 32 105 110 116 101 114 118 97 108 115 46 10 13 0 ]
 [a 4C 65 116 116 101 109 112 116 32 116 111 32 115 101 116 32 105 110 105 116 105 97 108 32 115 121 115 116 101 109 32 112 97 114 97 109 101 116 101 114 115 32 116 111 32 65 70 69 46 46 46 10 13 0 ]
 [a 1C 65 116 116 101 109 112 116 105 110 103 32 116 111 32 99 111 109 109 117 110 105 99 97 116 101 32 119 105 116 104 32 65 70 69 46 46 46 10 13 0 ]
-[a 6C 73 110 105 116 105 97 108 32 112 97 114 97 109 101 116 101 114 115 32 102 111 114 32 66 81 55 54 57 50 48 32 65 70 69 32 115 101 116 33 10 13 0 ]
+[a 8C 73 110 105 116 105 97 108 32 112 97 114 97 109 101 116 101 114 115 32 102 111 114 32 66 81 55 54 57 50 48 32 65 70 69 32 115 101 116 33 10 13 0 ]
 [a 2C 67 111 109 109 117 110 105 99 97 116 105 111 110 32 119 105 116 104 32 66 81 55 54 57 50 48 32 65 70 69 32 101 115 116 97 98 108 105 115 104 101 100 33 10 13 0 ]
-[a 5C 83 101 116 32 115 104 111 114 116 32 99 105 114 99 117 105 116 32 99 117 114 114 101 110 116 32 102 111 114 32 65 70 69 58 32 37 108 117 32 33 10 13 0 ]
+[a 5C 10 13 0 ]

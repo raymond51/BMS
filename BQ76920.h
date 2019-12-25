@@ -38,18 +38,19 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 //Shunt resistor value
-uint8_t shuntResistorValue_mOhm;
+static float shuntResistorValue_mOhm;
 
 //main function prototypes -----------------------------------------------------
 void init_AFE(void);
 int beginAFEcommunication(void);
 
 void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
-void setShuntResistorValue(int res_mOhm);
+void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 
 //Printout serial monitor helper functions -------------------------------------
 long AFE_getSetShortCircuitCurrent(void);
+float AFE_getSetCurrentSenseRes(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

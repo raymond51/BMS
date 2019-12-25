@@ -10466,18 +10466,19 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
-uint8_t shuntResistorValue_mOhm;
+static float shuntResistorValue_mOhm;
 
 
 void init_AFE(void);
 int beginAFEcommunication(void);
 
 void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
-void setShuntResistorValue(int res_mOhm);
+void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 
 
 long AFE_getSetShortCircuitCurrent(void);
+float AFE_getSetCurrentSenseRes(void);
 # 1 "BQ76920.c" 2
 
 
@@ -10487,8 +10488,8 @@ static regPROTECT1_t protect1;
 void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45);
-    setShuntResistorValue(1);
-    setShortCircuitProtection(22000, 200);
+    setShuntResistorValue(0.02);
+    setShortCircuitProtection(4000, 200);
 # 20 "BQ76920.c"
 }
 
@@ -10543,7 +10544,7 @@ void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int m
 
 
 
-void setShuntResistorValue(int res_mOhm) {
+void setShuntResistorValue(float res_mOhm) {
     shuntResistorValue_mOhm = res_mOhm;
 }
 
@@ -10556,29 +10557,39 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
 
 
 
+    float scaler = 1000.0;
     protect1.bits.SCD_THRESH = 0;
-    for (int i = sizeof (SCD_threshold_setting) - 1; i > 0; i--) {
-        if (current_mA * shuntResistorValue_mOhm / 1000 >= SCD_threshold_setting[i]) {
-            protect1.bits.SCD_THRESH = i;
-            break;
+        for (int i = 0; i < 8; i++) {
+            if ( ((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+                protect1.bits.SCD_THRESH = i;
+            }
         }
+
+        protect1.bits.SCD_DELAY = 0;
+        for (int i = sizeof (SCD_delay_setting) - 1; i > 0; i--) {
+            if (delay_us >= SCD_delay_setting[i]) {
+                protect1.bits.SCD_DELAY = i;
+                break;
+            }
+        }
+
+
     }
 
-    protect1.bits.SCD_DELAY = 0;
-    for (int i = sizeof (SCD_delay_setting) - 1; i > 0; i--) {
-        if (delay_us >= SCD_delay_setting[i]) {
-            protect1.bits.SCD_DELAY = i;
-            break;
-        }
+
+
+
+
+    float AFE_getSetCurrentSenseRes() {
+        return (float) shuntResistorValue_mOhm;
     }
 
 
-}
 
 
 
 
 
-long AFE_getSetShortCircuitCurrent(){
-    return (long) SCD_threshold_setting[protect1.bits.SCD_THRESH] * 1000 / shuntResistorValue_mOhm;
-}
+    long AFE_getSetShortCircuitCurrent(){
+        return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
+    }

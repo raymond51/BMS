@@ -6,8 +6,8 @@ static regPROTECT1_t protect1;
 void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45); //set temperature limit - minDischarge_Deb, maxDischarge_degC, minCharge_degC, maxCharge_degC
-    setShuntResistorValue(1); //set shunt resistor value table, our value of resistor is 20mOhms
-    setShortCircuitProtection(22000, 200); //set short circuit protection
+    setShuntResistorValue(0.02); //set shunt resistor value table, our value of resistor is 20mOhms
+    setShortCircuitProtection(4000, 200); //set short circuit protection
     //set over current charge protection
     //set overcurrent discharge protection
     //set cell under voltage protection
@@ -70,12 +70,12 @@ void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int m
  @brief: Select the usage of reference table in short circuit in discharge threshold setting (SCD register in AFE)
  * Only choice avaliable is value of 1 or 0 as we have two tables to select from
  */
-void setShuntResistorValue(int res_mOhm) {
+void setShuntResistorValue(float res_mOhm) {
     shuntResistorValue_mOhm = res_mOhm;
 }
 
 /*
- @brief: sequential search in the SCD sense resistor value to find if set value exists, in the table we have 8 configurable current (for table 1 of SCD) threshold settings
+ @brief: sequential search in the SCD sense resistor value to find if set value exists, in the table we have 8 configurable current (for table RSNS = 1) threshold settings
  * we use the same method is used for setting the delay check time (or short circuit sample time)
  */
 void setShortCircuitProtection(long current_mA, int delay_us) {
@@ -83,29 +83,40 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
     /*
      v=IR if lowest voltage differential is 40mV then I = 40mV/20mOhms  = 2.2A
      */
-    protect1.bits.SCD_THRESH = 0;
-    for (int i = sizeof (SCD_threshold_setting) - 1; i > 0; i--) {
-        if (current_mA * shuntResistorValue_mOhm / 1000 >= SCD_threshold_setting[i]) {
-            protect1.bits.SCD_THRESH = i;
-            break;
+    float scaler = 1000.0; //negate mv unit
+    protect1.bits.SCD_THRESH = 0;//set initial current limiting if inserted value is below threshold
+        for (int i = 0; i < 8; i++) {
+            if ( ((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+                protect1.bits.SCD_THRESH = i;
+            }
         }
+
+        protect1.bits.SCD_DELAY = 0;
+        for (int i = sizeof (SCD_delay_setting) - 1; i > 0; i--) {
+            if (delay_us >= SCD_delay_setting[i]) {
+                protect1.bits.SCD_DELAY = i;
+                break;
+            }
+        }
+
+        //write these data to BQchip
     }
 
-    protect1.bits.SCD_DELAY = 0;
-    for (int i = sizeof (SCD_delay_setting) - 1; i > 0; i--) {
-        if (delay_us >= SCD_delay_setting[i]) {
-            protect1.bits.SCD_DELAY = i;
-            break;
-        }
+    /**************************************************************
+     * Printout serial monitor helper functions
+     **************************************************************/
+
+    float AFE_getSetCurrentSenseRes() {
+        return (float) shuntResistorValue_mOhm;
     }
 
-    //write these data to BQchip
-}
+    /*
+    uint8_t AFE_getSetTemperatureLimit(){
+        return (uint8_t) ;
+    }
+     */
 
-/**************************************************************
- * Printout serial monitor helper functions
- **************************************************************/
+    long AFE_getSetShortCircuitCurrent(){
+        return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
+    }
 
-long AFE_getSetShortCircuitCurrent(){
-    return (long) SCD_threshold_setting[protect1.bits.SCD_THRESH] * 1000 / shuntResistorValue_mOhm;
-}
