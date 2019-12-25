@@ -14,6 +14,9 @@
 #include "BQ76920_registers.h"
 #include "I2C.h"
 
+//array size macro
+#define arrSize(x)  (sizeof(x) / sizeof((x)[0]))
+
 #define MAX_NUMBER_OF_CELLS 5
 #define MAX_NUMBER_OF_THERMISTORS 1
 // IC type/size

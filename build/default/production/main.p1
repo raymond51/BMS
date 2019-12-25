@@ -52,8 +52,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ./RGB.h
 [; ;./RGB.h: 31: void RGB_AWAIT_AFE_CONN();
 [v _RGB_AWAIT_AFE_CONN `(v ~T0 @X0 0 e? ]
-"45 ./BQ76920.h
-[; ;./BQ76920.h: 45: int beginAFEcommunication(void);
+"48 ./BQ76920.h
+[; ;./BQ76920.h: 48: int beginAFEcommunication(void);
 [v _beginAFEcommunication `(i ~T0 @X0 0 ef ]
 "24 ./EUSART.h
 [; ;./EUSART.h: 24: void EUSART_Write_Text(char *text);
@@ -78,14 +78,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RGB_color `(v ~T0 @X0 0 ef1`i ]
 "116 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c99\stdio.h
 [v _snprintf `(i ~T0 @X0 0 e2v`*uc`ui`*Cuc ]
-"44 ./BQ76920.h
-[; ;./BQ76920.h: 44: void init_AFE(void);
+"47 ./BQ76920.h
+[; ;./BQ76920.h: 47: void init_AFE(void);
 [v _init_AFE `(v ~T0 @X0 0 ef ]
-"53
-[; ;./BQ76920.h: 53: float AFE_getSetCurrentSenseRes(void);
+"56
+[; ;./BQ76920.h: 56: float AFE_getSetCurrentSenseRes(void);
 [v _AFE_getSetCurrentSenseRes `(f ~T0 @X0 0 ef ]
-"52
-[; ;./BQ76920.h: 52: long AFE_getSetShortCircuitCurrent(void);
+"55
+[; ;./BQ76920.h: 55: long AFE_getSetShortCircuitCurrent(void);
 [v _AFE_getSetShortCircuitCurrent `(l ~T0 @X0 0 ef ]
 "53 ./pic16f1719_internals.h
 [; ;./pic16f1719_internals.h: 53: void internal_16(void);
@@ -1392,29 +1392,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 8 `i
 ..
 ]
-"24 ./BQ76920.h
-[; ;./BQ76920.h: 24: int cellVoltages[5];
+"27 ./BQ76920.h
+[; ;./BQ76920.h: 27: int cellVoltages[5];
 [v _cellVoltages `i ~T0 @X0 -> 5 `i e ]
-"31
-[; ;./BQ76920.h: 31: int adcGain;
+"34
+[; ;./BQ76920.h: 34: int adcGain;
 [v _adcGain `i ~T0 @X0 1 e ]
-"32
-[; ;./BQ76920.h: 32: int adcOffset;
-[v _adcOffset `i ~T0 @X0 1 e ]
 "35
-[; ;./BQ76920.h: 35: int minCellTempCharge;
-[v _minCellTempCharge `i ~T0 @X0 1 e ]
-"36
-[; ;./BQ76920.h: 36: int minCellTempDischarge;
-[v _minCellTempDischarge `i ~T0 @X0 1 e ]
-"37
-[; ;./BQ76920.h: 37: int maxCellTempCharge;
-[v _maxCellTempCharge `i ~T0 @X0 1 e ]
+[; ;./BQ76920.h: 35: int adcOffset;
+[v _adcOffset `i ~T0 @X0 1 e ]
 "38
-[; ;./BQ76920.h: 38: int maxCellTempDischarge;
-[v _maxCellTempDischarge `i ~T0 @X0 1 e ]
+[; ;./BQ76920.h: 38: int minCellTempCharge;
+[v _minCellTempCharge `i ~T0 @X0 1 e ]
+"39
+[; ;./BQ76920.h: 39: int minCellTempDischarge;
+[v _minCellTempDischarge `i ~T0 @X0 1 e ]
+"40
+[; ;./BQ76920.h: 40: int maxCellTempCharge;
+[v _maxCellTempCharge `i ~T0 @X0 1 e ]
 "41
-[; ;./BQ76920.h: 41: static float shuntResistorValue_mOhm;
+[; ;./BQ76920.h: 41: int maxCellTempDischarge;
+[v _maxCellTempDischarge `i ~T0 @X0 1 e ]
+"44
+[; ;./BQ76920.h: 44: static float shuntResistorValue_mOhm;
 [v _shuntResistorValue_mOhm `f ~T0 @X0 1 s ]
 "51 main.c
 [; ;main.c: 51: uint8_t currState = 0;

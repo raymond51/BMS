@@ -157,21 +157,21 @@
 [v _RGB_color RGB_color `(v  1 e 1 0 ]
 "43
 [v _RGB_AWAIT_AFE_CONN RGB_AWAIT_AFE_CONN `(v  1 e 1 0 ]
-"24 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/BQ76920.h
+"27 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/BQ76920.h
 [v _cellVoltages cellVoltages `[5]i  1 e 10 0 ]
-"31
+"34
 [v _adcGain adcGain `i  1 e 2 0 ]
-"32
-[v _adcOffset adcOffset `i  1 e 2 0 ]
 "35
-[v _minCellTempCharge minCellTempCharge `i  1 e 2 0 ]
-"36
-[v _minCellTempDischarge minCellTempDischarge `i  1 e 2 0 ]
-"37
-[v _maxCellTempCharge maxCellTempCharge `i  1 e 2 0 ]
+[v _adcOffset adcOffset `i  1 e 2 0 ]
 "38
-[v _maxCellTempDischarge maxCellTempDischarge `i  1 e 2 0 ]
+[v _minCellTempCharge minCellTempCharge `i  1 e 2 0 ]
+"39
+[v _minCellTempDischarge minCellTempDischarge `i  1 e 2 0 ]
+"40
+[v _maxCellTempCharge maxCellTempCharge `i  1 e 2 0 ]
 "41
+[v _maxCellTempDischarge maxCellTempDischarge `i  1 e 2 0 ]
+"44
 [v BQ76920@shuntResistorValue_mOhm shuntResistorValue_mOhm `f  1 s 4 shuntResistorValue_mOhm ]
 "114 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/BQ76920_registers.h
 [v _SCD_delay_setting SCD_delay_setting `DC[4]i  1 e 8 0 ]

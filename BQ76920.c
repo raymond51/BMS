@@ -7,7 +7,7 @@ void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45); //set temperature limit - minDischarge_Deb, maxDischarge_degC, minCharge_degC, maxCharge_degC
     setShuntResistorValue(0.02); //set shunt resistor value table, our value of resistor is 20mOhms
-    setShortCircuitProtection(4000, 200); //set short circuit protection
+    setShortCircuitProtection(2500, 200); //set short circuit protection
     //set over current charge protection
     //set overcurrent discharge protection
     //set cell under voltage protection
@@ -85,7 +85,7 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
      */
     float scaler = 1000.0; //negate mv unit
     protect1.bits.SCD_THRESH = 0;//set initial current limiting if inserted value is below threshold
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < arrSize(SCD_threshold_setting)-1 ; i++) {
             if ( ((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
                 protect1.bits.SCD_THRESH = i;
             }
@@ -119,4 +119,3 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
     long AFE_getSetShortCircuitCurrent(){
         return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
     }
-

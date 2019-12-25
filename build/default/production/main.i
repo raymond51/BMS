@@ -10514,7 +10514,7 @@ typedef union regVCELL
     uint16_t regWord;
 } regVCELL_t;
 # 14 "./BQ76920.h" 2
-# 24 "./BQ76920.h"
+# 27 "./BQ76920.h"
 int cellVoltages[5];
 
 

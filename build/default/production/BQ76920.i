@@ -10448,7 +10448,7 @@ void retrieve_data_ATmega328(void);
 void I2C_writeRegister(int slaveAddress,int regAddress, int data);
 int readRegister(int slaveAddress, int regAddress);
 # 15 "./BQ76920.h" 2
-# 24 "./BQ76920.h"
+# 27 "./BQ76920.h"
 int cellVoltages[5];
 
 
@@ -10489,7 +10489,7 @@ void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45);
     setShuntResistorValue(0.02);
-    setShortCircuitProtection(4000, 200);
+    setShortCircuitProtection(6650, 200);
 # 20 "BQ76920.c"
 }
 
@@ -10559,7 +10559,7 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
 
     float scaler = 1000.0;
     protect1.bits.SCD_THRESH = 0;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0]))-1 ; i++) {
             if ( ((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
                 protect1.bits.SCD_THRESH = i;
             }
