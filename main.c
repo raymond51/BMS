@@ -136,6 +136,8 @@ void statemachine(void) {
             EUSART_Write_Text(messageBuffer);
             snprintf(messageBuffer, messageBuf_size, "Set short circuit current for AFE: %lu mA\n\r", AFE_getSetShortCircuitCurrent());
             EUSART_Write_Text(messageBuffer);
+            snprintf(messageBuffer, messageBuf_size, "Set Over-current discharge protection  for AFE: %lu mA\n\r", AFE_getOverCurrentDischargeCurrent());
+            EUSART_Write_Text(messageBuffer);
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
 #endif

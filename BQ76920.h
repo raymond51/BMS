@@ -40,8 +40,12 @@ int minCellTempDischarge;
 int maxCellTempCharge;
 int maxCellTempDischarge;
 
-//Shunt resistor value
-static float shuntResistorValue_mOhm;
+//Static variables - //When a global variable is made static, its scope is restricted to the current file.
+
+static float shuntResistorValue_mOhm; //Shunt resistor value
+static regPROTECT1_t protect1;
+static regPROTECT2_t protect2;
+    
 
 //main function prototypes -----------------------------------------------------
 void init_AFE(void);
@@ -50,10 +54,12 @@ int beginAFEcommunication(void);
 void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
 void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
+void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 
 //Printout serial monitor helper functions -------------------------------------
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
+long AFE_getOverCurrentDischargeCurrent(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

@@ -10466,7 +10466,11 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
+
 static float shuntResistorValue_mOhm;
+static regPROTECT1_t protect1;
+static regPROTECT2_t protect2;
+
 
 
 void init_AFE(void);
@@ -10475,22 +10479,29 @@ int beginAFEcommunication(void);
 void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
 void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
+void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 
 
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
+long AFE_getOverCurrentDischargeCurrent(void);
 # 1 "BQ76920.c" 2
 
-
-
-static regPROTECT1_t protect1;
 
 void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45);
     setShuntResistorValue(0.02);
-    setShortCircuitProtection(6650, 200);
-# 20 "BQ76920.c"
+    setShortCircuitProtection(2500, 200);
+
+    setOverCurrentDischargeProtection(20000, 320);
+
+
+
+
+
+
+
 }
 
 
@@ -10559,37 +10570,60 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
 
     float scaler = 1000.0;
     protect1.bits.SCD_THRESH = 0;
-        for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0]))-1 ; i++) {
-            if ( ((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
-                protect1.bits.SCD_THRESH = i;
-            }
+    for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0])) - 1; i++) {
+        if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+            protect1.bits.SCD_THRESH = i;
         }
+    }
 
-        protect1.bits.SCD_DELAY = 0;
-        for (int i = sizeof (SCD_delay_setting) - 1; i > 0; i--) {
-            if (delay_us >= SCD_delay_setting[i]) {
-                protect1.bits.SCD_DELAY = i;
-                break;
-            }
+    protect1.bits.SCD_DELAY = 0;
+    for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0])) - 1; i++) {
+        if (delay_us >= SCD_delay_setting[i]) {
+            protect1.bits.SCD_DELAY = i;
         }
-
-
     }
 
+    I2C_writeRegister(0x18, 0x06, protect1.regByte);
+
+}
 
 
 
 
-    float AFE_getSetCurrentSenseRes() {
-        return (float) shuntResistorValue_mOhm;
+void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
+
+
+    float scaler = 1000.0;
+    protect2.bits.OCD_THRESH = 0;
+    for (int i = 0; i < (sizeof(OCD_threshold_setting) / sizeof((OCD_threshold_setting)[0])) - 1; i++) {
+        if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+            protect2.bits.OCD_THRESH = i;
+        }
     }
 
-
-
-
-
-
-
-    long AFE_getSetShortCircuitCurrent(){
-        return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
+    protect2.bits.OCD_DELAY = 0;
+    for (int i = 0; i < (sizeof(OCD_delay_setting) / sizeof((OCD_delay_setting)[0])) - 1; i++) {
+        if (delay_ms >= SCD_delay_setting[i]) {
+            protect2.bits.OCD_DELAY = i;
+        }
     }
+
+    I2C_writeRegister(0x18, 0x07, protect2.regByte);
+
+}
+
+
+
+
+
+float AFE_getSetCurrentSenseRes() {
+    return (float) shuntResistorValue_mOhm;
+}
+
+long AFE_getSetShortCircuitCurrent() {
+    return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
+}
+
+long AFE_getOverCurrentDischargeCurrent() {
+    return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
+}

@@ -170,10 +170,10 @@ typedef union regSYS_CTRL2 {
 typedef union regPROTECT1 {
   struct
   {
-      uint8_t SCD_THRESH      :3; //this bit field size of 3 due to 2^(3) equals 8 choices
+      uint8_t SCD_THRESH      :3; //this bit field size of 3 due to 2^(3) equals 8 choices, LSB
       uint8_t SCD_DELAY       :2;
       uint8_t RSVD            :2;
-      uint8_t RSNS            :1;
+      uint8_t RSNS            :1; //MSB
   } bits;
   uint8_t regByte;
 } regPROTECT1_t;
