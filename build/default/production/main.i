@@ -10532,11 +10532,15 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
+int maxCellVoltage;
+int minCellVoltage;
+
+
 
 static float shuntResistorValue_mOhm;
 static regPROTECT1_t protect1;
 static regPROTECT2_t protect2;
-
+static regPROTECT3_t protect3;
 
 
 void init_AFE(void);
@@ -10546,6 +10550,7 @@ void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int m
 void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
+void setCellUndervoltageProtection(int voltage_mv, int delay_s);
 
 
 long AFE_getSetShortCircuitCurrent(void);

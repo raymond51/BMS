@@ -15,6 +15,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./BQ76920_registers.h: 181: typedef union regPROTECT2 {
 [u S792 `S793 1 `uc 1 ]
 [n S792 regPROTECT2 bits regByte ]
+"193
+[; ;./BQ76920_registers.h: 193:   {
+[s S795 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S795 . RSVD OV_DELAY UV_DELAY ]
+"191
+[; ;./BQ76920_registers.h: 191: typedef union regPROTECT3 {
+[u S794 `S795 1 `uc 1 ]
+[n S794 regPROTECT3 bits regByte ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "721 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
@@ -68,8 +76,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ./RGB.h
 [; ;./RGB.h: 31: void RGB_AWAIT_AFE_CONN();
 [v _RGB_AWAIT_AFE_CONN `(v ~T0 @X0 0 e? ]
-"53 ./BQ76920.h
-[; ;./BQ76920.h: 53: int beginAFEcommunication(void);
+"57 ./BQ76920.h
+[; ;./BQ76920.h: 57: int beginAFEcommunication(void);
 [v _beginAFEcommunication `(i ~T0 @X0 0 ef ]
 "24 ./EUSART.h
 [; ;./EUSART.h: 24: void EUSART_Write_Text(char *text);
@@ -94,20 +102,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RGB_color `(v ~T0 @X0 0 ef1`i ]
 "116 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c99\stdio.h
 [v _snprintf `(i ~T0 @X0 0 e2v`*uc`ui`*Cuc ]
-"52 ./BQ76920.h
-[; ;./BQ76920.h: 52: void init_AFE(void);
+"56 ./BQ76920.h
+[; ;./BQ76920.h: 56: void init_AFE(void);
 [v _init_AFE `(v ~T0 @X0 0 ef ]
-"62
-[; ;./BQ76920.h: 62: float AFE_getSetCurrentSenseRes(void);
+"67
+[; ;./BQ76920.h: 67: float AFE_getSetCurrentSenseRes(void);
 [v _AFE_getSetCurrentSenseRes `(f ~T0 @X0 0 ef ]
-"61
-[; ;./BQ76920.h: 61: long AFE_getSetShortCircuitCurrent(void);
+"66
+[; ;./BQ76920.h: 66: long AFE_getSetShortCircuitCurrent(void);
 [v _AFE_getSetShortCircuitCurrent `(l ~T0 @X0 0 ef ]
-"63
-[; ;./BQ76920.h: 63: long AFE_getOverCurrentDischargeCurrent(void);
+"68
+[; ;./BQ76920.h: 68: long AFE_getOverCurrentDischargeCurrent(void);
 [v _AFE_getOverCurrentDischargeCurrent `(l ~T0 @X0 0 ef ]
-"65
-[; ;./BQ76920.h: 65: void printotAFERegisters(void);
+"70
+[; ;./BQ76920.h: 70: void printotAFERegisters(void);
 [v _printotAFERegisters `(v ~T0 @X0 0 ef ]
 "53 ./pic16f1719_internals.h
 [; ;./pic16f1719_internals.h: 53: void internal_16(void);
@@ -1435,15 +1443,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "42
 [; ;./BQ76920.h: 42: int maxCellTempDischarge;
 [v _maxCellTempDischarge `i ~T0 @X0 1 e ]
+"45
+[; ;./BQ76920.h: 45: int maxCellVoltage;
+[v _maxCellVoltage `i ~T0 @X0 1 e ]
 "46
-[; ;./BQ76920.h: 46: static float shuntResistorValue_mOhm;
+[; ;./BQ76920.h: 46: int minCellVoltage;
+[v _minCellVoltage `i ~T0 @X0 1 e ]
+"50
+[; ;./BQ76920.h: 50: static float shuntResistorValue_mOhm;
 [v _shuntResistorValue_mOhm `f ~T0 @X0 1 s ]
-"47
-[; ;./BQ76920.h: 47: static regPROTECT1_t protect1;
+"51
+[; ;./BQ76920.h: 51: static regPROTECT1_t protect1;
 [v _protect1 `S790 ~T0 @X0 1 s ]
-"48
-[; ;./BQ76920.h: 48: static regPROTECT2_t protect2;
+"52
+[; ;./BQ76920.h: 52: static regPROTECT2_t protect2;
 [v _protect2 `S792 ~T0 @X0 1 s ]
+"53
+[; ;./BQ76920.h: 53: static regPROTECT3_t protect3;
+[v _protect3 `S794 ~T0 @X0 1 s ]
 "51 main.c
 [; ;main.c: 51: uint8_t currState = 0;
 [v _currState `uc ~T0 @X0 1 e ]
@@ -1465,8 +1482,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "59
 [; ;main.c: 59:     static uint8_t count = 0;
-[v F6477 `uc ~T0 @X0 1 s count ]
-[i F6477
+[v F6483 `uc ~T0 @X0 1 s count ]
+[i F6483
 -> -> 0 `i `uc
 ]
 "61
@@ -1478,17 +1495,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "63
 [; ;main.c: 63:         count++;
-[e ++ F6477 -> -> 1 `i `uc ]
+[e ++ F6483 -> -> 1 `i `uc ]
 "66
 [; ;main.c: 66:         if (count == 61) {
-[e $ ! == -> F6477 `i -> 61 `i 802  ]
+[e $ ! == -> F6483 `i -> 61 `i 802  ]
 {
 "67
 [; ;main.c: 67:             tmr1_flag = 1;
 [e = _tmr1_flag -> -> 1 `i `uc ]
 "68
 [; ;main.c: 68:             count = 0;
-[e = F6477 -> -> 0 `i `uc ]
+[e = F6483 -> -> 0 `i `uc ]
 "69
 [; ;main.c: 69:         }
 }

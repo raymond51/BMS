@@ -7,7 +7,7 @@ void init_AFE(void) {
     setShortCircuitProtection(2500, 200); //set short circuit protection
     //set over current charge protection
     setOverCurrentDischargeProtection(20000, 320); //set overcurrent discharge protection
-    //set cell under voltage protection
+    setCellUndervoltageProtection(2900,2);//set cell under voltage protection
     //set cell overvoltage protection
 
     //set balancing threshold
@@ -115,14 +115,33 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
 
     protect2.bits.OCD_DELAY = 0;
     for (int i = 0; i < arrSize(OCD_delay_setting) - 1; i++) {
-        if (delay_ms >= SCD_delay_setting[i]) {
+        if (delay_ms >= OCD_delay_setting[i]) {
             protect2.bits.OCD_DELAY = i;
         }
     }
 
     I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT2, protect2.regByte); //transmit compact bit field as byte to AFE
+}
 
-    //todo: check if this result is right
+/*
+ @brief:
+ */
+void setCellUndervoltageProtection(int voltage_mV, int delay_s) {
+    uint8_t uv_trip = 0;
+    minCellVoltage = voltage_mV;
+
+    protect3.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT3);
+    uv_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
+    uv_trip += 1; // always round up for lower cell voltage
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, UV_TRIP, uv_trip);
+
+    protect3.bits.UV_DELAY = 0;
+    for (int i = 0; i < arrSize(UV_delay_setting) - 1; i++) {
+        if (delay_s >= UV_delay_setting[i]) {
+            protect3.bits.UV_DELAY = i;
+        }
+    }
+      I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS,PROTECT3, protect3.regByte);
 }
 
 /**************************************************************
@@ -155,9 +174,9 @@ void printotAFERegisters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "0x06 PROTECT1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1));
+    snprintf(messageBuffer, messageBuf_size, "0x06 PROTECT1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1)); //expected 159
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "0x07 PROTECT2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT2));
+    snprintf(messageBuffer, messageBuf_size, "0x07 PROTECT2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT2)); //expected 122
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x08 PROTECT3: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT3));
     EUSART_Write_Text(messageBuffer);

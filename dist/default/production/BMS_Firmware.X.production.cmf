@@ -95,21 +95,21 @@ cstackCOMMON COMMON 1 70 70 C 1
 cstackBANK0 BANK0 1 20 20 50 1
 cstackBANK1 BANK1 1 A0 A0 50 1
 cstackBANK2 BANK2 1 120 120 50 1
-cstackBANK3 BANK3 1 1DE 1DE 2 1
-stringtext1 STRCODE 0 39C8 39C8 20 2
-stringtext2 STRCODE 0 3ADC 3ADC 10 2
-stringtext3 STRCODE 0 3AEC 3AEC 10 2
-stringtext4 STRCODE 0 3AFC 3AFC 8 2
-stringtext5 STRCODE 0 3B04 3B04 8 2
-stringtext6 STRCODE 0 3B0C 3B0C 8 2
+cstackBANK3 BANK3 1 1E4 1E4 2 1
+stringtext1 STRCODE 0 39C4 39C4 20 2
+stringtext2 STRCODE 0 3AD8 3AD8 10 2
+stringtext3 STRCODE 0 3AE8 3AE8 10 2
+stringtext4 STRCODE 0 3AF8 3AF8 8 2
+stringtext5 STRCODE 0 3B00 3B00 8 2
+stringtext6 STRCODE 0 3B08 3B08 8 2
 stringtext7 STRCODE 0 3800 3800 3B 2
 stringtext8 STRCODE 0 383B 383B 35 2
 stringtext9 STRCODE 0 3870 3870 2E 2
 intentry CODE 0 4 4 1A 2
-bssBANK3 BANK3 1 1A0 1A0 37 1
+bssBANK3 BANK3 1 1A0 1A0 3D 1
 bssBANK4 BANK4 1 220 220 50 1
 idataBANK3 CODE 0 32CC 32CC 7 2
-dataBANK3 BANK3 1 1D7 1D7 7 1
+dataBANK3 BANK3 1 1DD 1DD 7 1
 clrtext CODE 0 3338 3338 C 2
 bssCOMMON COMMON 1 7C 7C 1 1
 stringtext10 STRCODE 0 389E 389E 2D 2
@@ -117,46 +117,46 @@ stringtext11 STRCODE 0 38CB 38CB 2C 2
 stringtext12 STRCODE 0 38F7 38F7 2B 2
 stringtext13 STRCODE 0 3922 3922 2A 2
 stringtext14 STRCODE 0 394C 394C 2A 2
-stringtext15 STRCODE 0 3976 3976 2A 2
-stringtext16 STRCODE 0 39A0 39A0 28 2
-stringtext17 STRCODE 0 39E8 39E8 16 2
-stringtext18 STRCODE 0 39FE 39FE 16 2
-stringtext19 STRCODE 0 3A14 3A14 15 2
-stringtext20 STRCODE 0 3A29 3A29 15 2
-stringtext21 STRCODE 0 3A3E 3A3E 15 2
-stringtext22 STRCODE 0 3A53 3A53 15 2
-stringtext23 STRCODE 0 3A68 3A68 15 2
-stringtext24 STRCODE 0 3A7D 3A7D 14 2
-stringtext25 STRCODE 0 3A91 3A91 14 2
-stringtext26 STRCODE 0 3AA5 3AA5 13 2
-stringtext27 STRCODE 0 3AB8 3AB8 12 2
-stringtext28 STRCODE 0 3ACA 3ACA 12 2
-stringtext29 STRCODE 0 3B14 3B14 4 2
-stringtext30 STRCODE 0 3B18 3B18 4 2
-stringtext31 STRCODE 0 3B1C 3B1C 4 2
-stringtext32 STRCODE 0 3B20 3B20 4 2
-stringtext33 STRCODE 0 3B24 3B24 4 2
-stringtext34 STRCODE 0 3B28 3B28 4 2
-stringtext35 STRCODE 0 3B2C 3B2C 4 2
-stringtext36 STRCODE 0 3B30 3B30 4 2
-stringtext37 STRCODE 0 3B34 3B34 4 2
-stringtext38 STRCODE 0 3B38 3B38 4 2
-stringtext39 STRCODE 0 3B3C 3B3C 4 2
-stringtext40 STRCODE 0 3B40 3B40 3 2
-stringtext41 STRCODE 0 3B43 3B43 3 2
-stringtext42 STRCODE 0 3B46 3B46 3 2
-stringtext43 STRCODE 0 3B49 3B49 3 2
-stringtext44 STRCODE 0 3B4C 3B4C 3 2
-stringtext45 STRCODE 0 3B4F 3B4F 3 2
-stringtext46 STRCODE 0 3B52 3B52 3 2
-stringtext47 STRCODE 0 3B55 3B55 3 2
-stringtext48 STRCODE 0 3B58 3B58 3 2
-stringtext49 STRCODE 0 3B5B 3B5B 3 2
-stringtext50 STRCODE 0 3B5E 3B5E 3 2
-stringtext51 STRCODE 0 3B61 3B61 3 2
-stringtext52 STRCODE 0 3B64 3B64 3 2
-stringtext53 STRCODE 0 3B67 3B67 3 2
-stringtext54 STRCODE 0 3B6A 3B6A 3 2
+stringtext15 STRCODE 0 3976 3976 28 2
+stringtext16 STRCODE 0 399E 399E 26 2
+stringtext17 STRCODE 0 39E4 39E4 16 2
+stringtext18 STRCODE 0 39FA 39FA 16 2
+stringtext19 STRCODE 0 3A10 3A10 15 2
+stringtext20 STRCODE 0 3A25 3A25 15 2
+stringtext21 STRCODE 0 3A3A 3A3A 15 2
+stringtext22 STRCODE 0 3A4F 3A4F 15 2
+stringtext23 STRCODE 0 3A64 3A64 15 2
+stringtext24 STRCODE 0 3A79 3A79 14 2
+stringtext25 STRCODE 0 3A8D 3A8D 14 2
+stringtext26 STRCODE 0 3AA1 3AA1 13 2
+stringtext27 STRCODE 0 3AB4 3AB4 12 2
+stringtext28 STRCODE 0 3AC6 3AC6 12 2
+stringtext29 STRCODE 0 3B10 3B10 4 2
+stringtext30 STRCODE 0 3B14 3B14 4 2
+stringtext31 STRCODE 0 3B18 3B18 4 2
+stringtext32 STRCODE 0 3B1C 3B1C 4 2
+stringtext33 STRCODE 0 3B20 3B20 4 2
+stringtext34 STRCODE 0 3B24 3B24 4 2
+stringtext35 STRCODE 0 3B28 3B28 4 2
+stringtext36 STRCODE 0 3B2C 3B2C 4 2
+stringtext37 STRCODE 0 3B30 3B30 4 2
+stringtext38 STRCODE 0 3B34 3B34 4 2
+stringtext39 STRCODE 0 3B38 3B38 4 2
+stringtext40 STRCODE 0 3B3C 3B3C 3 2
+stringtext41 STRCODE 0 3B3F 3B3F 3 2
+stringtext42 STRCODE 0 3B42 3B42 3 2
+stringtext43 STRCODE 0 3B45 3B45 3 2
+stringtext44 STRCODE 0 3B48 3B48 3 2
+stringtext45 STRCODE 0 3B4B 3B4B 3 2
+stringtext46 STRCODE 0 3B4E 3B4E 3 2
+stringtext47 STRCODE 0 3B51 3B51 3 2
+stringtext48 STRCODE 0 3B54 3B54 3 2
+stringtext49 STRCODE 0 3B57 3B57 3 2
+stringtext50 STRCODE 0 3B5A 3B5A 3 2
+stringtext51 STRCODE 0 3B5D 3B5D 3 2
+stringtext52 STRCODE 0 3B60 3B60 3 2
+stringtext53 STRCODE 0 3B63 3B63 3 2
+stringtext54 STRCODE 0 3B66 3B66 3 2
 text6_split_1 CODE 0 2BBE 2BBE 83 2
 text6_split_2 CODE 0 2C41 2C41 88 2
 text6_split_3 CODE 0 183E 183E 108 2
@@ -165,7 +165,7 @@ text6_split_5 CODE 0 2E00 2E00 A4 2
 text6_split_6 CODE 0 20FA 20FA D1 2
 text6_split_7 CODE 0 2536 2536 E6 2
 text6_split_8 CODE 0 83F 83F 7C1 2
-$C:\Users\raymo\AppData\Local\Temp\scck.o
+$C:\Users\raymo\AppData\Local\Temp\slsg.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 1E 1E 2 2
 config CONFIG 0 8007 8007 2 2
@@ -175,7 +175,7 @@ config CONFIG 0 8007 8007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 1E0-1EF 1
+RAM 1E6-1EF 1
 RAM 2A0-2EF 1
 RAM 320-36F 1
 RAM 3A0-3EF 1
@@ -195,7 +195,7 @@ RAM A20-A6F 1
 RAM AA0-AEF 1
 RAM B20-B6F 1
 RAM BA0-BE0 1
-BANK3 1E0-1EF 1
+BANK3 1E6-1EF 1
 BANK5 2A0-2EF 1
 BANK6 320-36F 1
 BANK7 3A0-3EF 1
@@ -206,13 +206,13 @@ CONST 7FF-800 2
 CONST 1800-1800 2
 CONST 2800-2800 2
 CONST 3000-32CB 2
-CONST 3B6D-3FFF 2
+CONST 3B69-3FFF 2
 ENTRY 2-3 2
 ENTRY 7FF-800 2
 ENTRY 1800-1800 2
 ENTRY 2800-2800 2
 ENTRY 3000-32CB 2
-ENTRY 3B6D-3FFF 2
+ENTRY 3B69-3FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -242,7 +242,7 @@ CODE 7FF-800 2
 CODE 1800-1800 2
 CODE 2800-2800 2
 CODE 3000-32CB 2
-CODE 3B6D-3FFF 2
+CODE 3B69-3FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -274,13 +274,13 @@ STRCODE 7FF-800 2
 STRCODE 1800-1800 2
 STRCODE 2800-2800 2
 STRCODE 3000-32CB 2
-STRCODE 3B6D-3FFF 2
+STRCODE 3B69-3FFF 2
 STRING 2-3 2
 STRING 7FF-800 2
 STRING 1800-1800 2
 STRING 2800-2800 2
 STRING 3000-32CB 2
-STRING 3B6D-3FFF 2
+STRING 3B69-3FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -295,59 +295,59 @@ STRING 3B6D-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\BMS_Firmware.X.production.o
-20 cinit CODE >5446:C:\Users\raymo\AppData\Local\Temp\scck.
-20 cinit CODE >5449:C:\Users\raymo\AppData\Local\Temp\scck.
-20 cinit CODE >5548:C:\Users\raymo\AppData\Local\Temp\scck.
-21 cinit CODE >5549:C:\Users\raymo\AppData\Local\Temp\scck.
-22 cinit CODE >5550:C:\Users\raymo\AppData\Local\Temp\scck.
-23 cinit CODE >5551:C:\Users\raymo\AppData\Local\Temp\scck.
-24 cinit CODE >5552:C:\Users\raymo\AppData\Local\Temp\scck.
-25 cinit CODE >5553:C:\Users\raymo\AppData\Local\Temp\scck.
-26 cinit CODE >5554:C:\Users\raymo\AppData\Local\Temp\scck.
-27 cinit CODE >5555:C:\Users\raymo\AppData\Local\Temp\scck.
-28 cinit CODE >5556:C:\Users\raymo\AppData\Local\Temp\scck.
-29 cinit CODE >5557:C:\Users\raymo\AppData\Local\Temp\scck.
-2A cinit CODE >5558:C:\Users\raymo\AppData\Local\Temp\scck.
-2B cinit CODE >5559:C:\Users\raymo\AppData\Local\Temp\scck.
-2C cinit CODE >5560:C:\Users\raymo\AppData\Local\Temp\scck.
-2D cinit CODE >5561:C:\Users\raymo\AppData\Local\Temp\scck.
-2E cinit CODE >5562:C:\Users\raymo\AppData\Local\Temp\scck.
-2F cinit CODE >5563:C:\Users\raymo\AppData\Local\Temp\scck.
-30 cinit CODE >5564:C:\Users\raymo\AppData\Local\Temp\scck.
-31 cinit CODE >5565:C:\Users\raymo\AppData\Local\Temp\scck.
-32 cinit CODE >5566:C:\Users\raymo\AppData\Local\Temp\scck.
-33 cinit CODE >5589:C:\Users\raymo\AppData\Local\Temp\scck.
-34 cinit CODE >5590:C:\Users\raymo\AppData\Local\Temp\scck.
-35 cinit CODE >5591:C:\Users\raymo\AppData\Local\Temp\scck.
-36 cinit CODE >5592:C:\Users\raymo\AppData\Local\Temp\scck.
-37 cinit CODE >5593:C:\Users\raymo\AppData\Local\Temp\scck.
-38 cinit CODE >5594:C:\Users\raymo\AppData\Local\Temp\scck.
-39 cinit CODE >5595:C:\Users\raymo\AppData\Local\Temp\scck.
-3A cinit CODE >5596:C:\Users\raymo\AppData\Local\Temp\scck.
-3B cinit CODE >5597:C:\Users\raymo\AppData\Local\Temp\scck.
-3E cinit CODE >5601:C:\Users\raymo\AppData\Local\Temp\scck.
-3F cinit CODE >5605:C:\Users\raymo\AppData\Local\Temp\scck.
-40 cinit CODE >5606:C:\Users\raymo\AppData\Local\Temp\scck.
-41 cinit CODE >5607:C:\Users\raymo\AppData\Local\Temp\scck.
-42 cinit CODE >5608:C:\Users\raymo\AppData\Local\Temp\scck.
-43 cinit CODE >5609:C:\Users\raymo\AppData\Local\Temp\scck.
-44 cinit CODE >5610:C:\Users\raymo\AppData\Local\Temp\scck.
-45 cinit CODE >5611:C:\Users\raymo\AppData\Local\Temp\scck.
-46 cinit CODE >5612:C:\Users\raymo\AppData\Local\Temp\scck.
-47 cinit CODE >5613:C:\Users\raymo\AppData\Local\Temp\scck.
-4A cinit CODE >5617:C:\Users\raymo\AppData\Local\Temp\scck.
-4B cinit CODE >5618:C:\Users\raymo\AppData\Local\Temp\scck.
-4C cinit CODE >5619:C:\Users\raymo\AppData\Local\Temp\scck.
-4D cinit CODE >5620:C:\Users\raymo\AppData\Local\Temp\scck.
-4E cinit CODE >5621:C:\Users\raymo\AppData\Local\Temp\scck.
-4F cinit CODE >5622:C:\Users\raymo\AppData\Local\Temp\scck.
-50 cinit CODE >5623:C:\Users\raymo\AppData\Local\Temp\scck.
-51 cinit CODE >5624:C:\Users\raymo\AppData\Local\Temp\scck.
-52 cinit CODE >5625:C:\Users\raymo\AppData\Local\Temp\scck.
-54 cinit CODE >5631:C:\Users\raymo\AppData\Local\Temp\scck.
-54 cinit CODE >5633:C:\Users\raymo\AppData\Local\Temp\scck.
-55 cinit CODE >5634:C:\Users\raymo\AppData\Local\Temp\scck.
-56 cinit CODE >5635:C:\Users\raymo\AppData\Local\Temp\scck.
+20 cinit CODE >5448:C:\Users\raymo\AppData\Local\Temp\slsg.
+20 cinit CODE >5451:C:\Users\raymo\AppData\Local\Temp\slsg.
+20 cinit CODE >5562:C:\Users\raymo\AppData\Local\Temp\slsg.
+21 cinit CODE >5563:C:\Users\raymo\AppData\Local\Temp\slsg.
+22 cinit CODE >5564:C:\Users\raymo\AppData\Local\Temp\slsg.
+23 cinit CODE >5565:C:\Users\raymo\AppData\Local\Temp\slsg.
+24 cinit CODE >5566:C:\Users\raymo\AppData\Local\Temp\slsg.
+25 cinit CODE >5567:C:\Users\raymo\AppData\Local\Temp\slsg.
+26 cinit CODE >5568:C:\Users\raymo\AppData\Local\Temp\slsg.
+27 cinit CODE >5569:C:\Users\raymo\AppData\Local\Temp\slsg.
+28 cinit CODE >5570:C:\Users\raymo\AppData\Local\Temp\slsg.
+29 cinit CODE >5571:C:\Users\raymo\AppData\Local\Temp\slsg.
+2A cinit CODE >5572:C:\Users\raymo\AppData\Local\Temp\slsg.
+2B cinit CODE >5573:C:\Users\raymo\AppData\Local\Temp\slsg.
+2C cinit CODE >5574:C:\Users\raymo\AppData\Local\Temp\slsg.
+2D cinit CODE >5575:C:\Users\raymo\AppData\Local\Temp\slsg.
+2E cinit CODE >5576:C:\Users\raymo\AppData\Local\Temp\slsg.
+2F cinit CODE >5577:C:\Users\raymo\AppData\Local\Temp\slsg.
+30 cinit CODE >5578:C:\Users\raymo\AppData\Local\Temp\slsg.
+31 cinit CODE >5579:C:\Users\raymo\AppData\Local\Temp\slsg.
+32 cinit CODE >5580:C:\Users\raymo\AppData\Local\Temp\slsg.
+33 cinit CODE >5603:C:\Users\raymo\AppData\Local\Temp\slsg.
+34 cinit CODE >5604:C:\Users\raymo\AppData\Local\Temp\slsg.
+35 cinit CODE >5605:C:\Users\raymo\AppData\Local\Temp\slsg.
+36 cinit CODE >5606:C:\Users\raymo\AppData\Local\Temp\slsg.
+37 cinit CODE >5607:C:\Users\raymo\AppData\Local\Temp\slsg.
+38 cinit CODE >5608:C:\Users\raymo\AppData\Local\Temp\slsg.
+39 cinit CODE >5609:C:\Users\raymo\AppData\Local\Temp\slsg.
+3A cinit CODE >5610:C:\Users\raymo\AppData\Local\Temp\slsg.
+3B cinit CODE >5611:C:\Users\raymo\AppData\Local\Temp\slsg.
+3E cinit CODE >5615:C:\Users\raymo\AppData\Local\Temp\slsg.
+3F cinit CODE >5619:C:\Users\raymo\AppData\Local\Temp\slsg.
+40 cinit CODE >5620:C:\Users\raymo\AppData\Local\Temp\slsg.
+41 cinit CODE >5621:C:\Users\raymo\AppData\Local\Temp\slsg.
+42 cinit CODE >5622:C:\Users\raymo\AppData\Local\Temp\slsg.
+43 cinit CODE >5623:C:\Users\raymo\AppData\Local\Temp\slsg.
+44 cinit CODE >5624:C:\Users\raymo\AppData\Local\Temp\slsg.
+45 cinit CODE >5625:C:\Users\raymo\AppData\Local\Temp\slsg.
+46 cinit CODE >5626:C:\Users\raymo\AppData\Local\Temp\slsg.
+47 cinit CODE >5627:C:\Users\raymo\AppData\Local\Temp\slsg.
+4A cinit CODE >5631:C:\Users\raymo\AppData\Local\Temp\slsg.
+4B cinit CODE >5632:C:\Users\raymo\AppData\Local\Temp\slsg.
+4C cinit CODE >5633:C:\Users\raymo\AppData\Local\Temp\slsg.
+4D cinit CODE >5634:C:\Users\raymo\AppData\Local\Temp\slsg.
+4E cinit CODE >5635:C:\Users\raymo\AppData\Local\Temp\slsg.
+4F cinit CODE >5636:C:\Users\raymo\AppData\Local\Temp\slsg.
+50 cinit CODE >5637:C:\Users\raymo\AppData\Local\Temp\slsg.
+51 cinit CODE >5638:C:\Users\raymo\AppData\Local\Temp\slsg.
+52 cinit CODE >5639:C:\Users\raymo\AppData\Local\Temp\slsg.
+54 cinit CODE >5645:C:\Users\raymo\AppData\Local\Temp\slsg.
+54 cinit CODE >5647:C:\Users\raymo\AppData\Local\Temp\slsg.
+55 cinit CODE >5648:C:\Users\raymo\AppData\Local\Temp\slsg.
+56 cinit CODE >5649:C:\Users\raymo\AppData\Local\Temp\slsg.
 4 intentry CODE >57:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 6 intentry CODE >61:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 C intentry CODE >62:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
@@ -718,15 +718,15 @@ FF6 text6_split_8 CODE >1363:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sour
 2D55 text67 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\xxtofl.c
 2D56 text67 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\xxtofl.c
 2D5E text67 CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\xxtofl.c
-36BE text66 CODE >140:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-36BE text66 CODE >141:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-370D text66 CODE >142:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-330F text65 CODE >132:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-330F text65 CODE >133:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-3318 text65 CODE >134:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-370E text64 CODE >136:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-370E text64 CODE >137:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-375D text64 CODE >138:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+36BE text66 CODE >159:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+36BE text66 CODE >160:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+370D text66 CODE >161:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+330F text65 CODE >151:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+330F text65 CODE >152:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+3318 text65 CODE >153:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+370E text64 CODE >155:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+370E text64 CODE >156:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+375D text64 CODE >157:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 34D8 text63 CODE >17:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
 34D8 text63 CODE >19:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
 34D9 text63 CODE >20:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\RGB.c
@@ -933,7 +933,7 @@ FF6 text6_split_8 CODE >1363:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sour
 1A2E text49 CODE >119:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 1A3B text49 CODE >121:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 1A47 text49 CODE >123:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1A5A text49 CODE >126:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1A5A text49 CODE >124:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 1A5B text48 CODE >78:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 1A5B text48 CODE >83:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 1A64 text48 CODE >84:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
@@ -1681,36 +1681,36 @@ FC text17 CODE >349:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\c
 33D7 text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
 33DC text3 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
 33EE text3 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
-11CC text2 CODE >144:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-11CC text2 CODE >146:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-11D5 text2 CODE >148:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-11DC text2 CODE >149:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-11E3 text2 CODE >150:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1202 text2 CODE >151:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1209 text2 CODE >152:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1229 text2 CODE >153:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1230 text2 CODE >154:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1250 text2 CODE >155:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1257 text2 CODE >156:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1277 text2 CODE >157:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-127E text2 CODE >158:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-129E text2 CODE >159:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-12A5 text2 CODE >160:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-12C5 text2 CODE >161:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-12CC text2 CODE >162:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-12EC text2 CODE >163:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-12F3 text2 CODE >164:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1313 text2 CODE >165:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-131A text2 CODE >166:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-133A text2 CODE >167:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1341 text2 CODE >168:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1361 text2 CODE >169:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1368 text2 CODE >170:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-1388 text2 CODE >171:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-138F text2 CODE >172:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-13AF text2 CODE >173:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-13B6 text2 CODE >174:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
-13BC text2 CODE >175:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+11CC text2 CODE >163:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+11CC text2 CODE >165:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+11D5 text2 CODE >167:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+11DC text2 CODE >168:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+11E3 text2 CODE >169:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1202 text2 CODE >170:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1209 text2 CODE >171:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1229 text2 CODE >172:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1230 text2 CODE >173:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1250 text2 CODE >174:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1257 text2 CODE >175:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1277 text2 CODE >176:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+127E text2 CODE >177:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+129E text2 CODE >178:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12A5 text2 CODE >179:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12C5 text2 CODE >180:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12CC text2 CODE >181:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12EC text2 CODE >182:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+12F3 text2 CODE >183:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1313 text2 CODE >184:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+131A text2 CODE >185:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+133A text2 CODE >186:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1341 text2 CODE >187:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1361 text2 CODE >188:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1368 text2 CODE >189:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+1388 text2 CODE >190:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+138F text2 CODE >191:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+13AF text2 CODE >192:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+13B6 text2 CODE >193:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+13BC text2 CODE >194:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 6D5 text1 CODE >95:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 6D5 text1 CODE >97:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 6D6 text1 CODE >100:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
@@ -1755,20 +1755,20 @@ FC text17 CODE >349:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\c
 281C maintext CODE >83:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 281F maintext CODE >87:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 2822 maintext CODE >89:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-3338 clrtext CODE >5572:C:\Users\raymo\AppData\Local\Temp\scck.
-3338 clrtext CODE >5573:C:\Users\raymo\AppData\Local\Temp\scck.
-3339 clrtext CODE >5574:C:\Users\raymo\AppData\Local\Temp\scck.
-3339 clrtext CODE >5575:C:\Users\raymo\AppData\Local\Temp\scck.
-333A clrtext CODE >5576:C:\Users\raymo\AppData\Local\Temp\scck.
-333B clrtext CODE >5577:C:\Users\raymo\AppData\Local\Temp\scck.
-333C clrtext CODE >5578:C:\Users\raymo\AppData\Local\Temp\scck.
-333D clrtext CODE >5579:C:\Users\raymo\AppData\Local\Temp\scck.
-333E clrtext CODE >5580:C:\Users\raymo\AppData\Local\Temp\scck.
-333F clrtext CODE >5581:C:\Users\raymo\AppData\Local\Temp\scck.
-3340 clrtext CODE >5582:C:\Users\raymo\AppData\Local\Temp\scck.
-3341 clrtext CODE >5583:C:\Users\raymo\AppData\Local\Temp\scck.
-3342 clrtext CODE >5585:C:\Users\raymo\AppData\Local\Temp\scck.
-3343 clrtext CODE >5584:C:\Users\raymo\AppData\Local\Temp\scck.
+3338 clrtext CODE >5586:C:\Users\raymo\AppData\Local\Temp\slsg.
+3338 clrtext CODE >5587:C:\Users\raymo\AppData\Local\Temp\slsg.
+3339 clrtext CODE >5588:C:\Users\raymo\AppData\Local\Temp\slsg.
+3339 clrtext CODE >5589:C:\Users\raymo\AppData\Local\Temp\slsg.
+333A clrtext CODE >5590:C:\Users\raymo\AppData\Local\Temp\slsg.
+333B clrtext CODE >5591:C:\Users\raymo\AppData\Local\Temp\slsg.
+333C clrtext CODE >5592:C:\Users\raymo\AppData\Local\Temp\slsg.
+333D clrtext CODE >5593:C:\Users\raymo\AppData\Local\Temp\slsg.
+333E clrtext CODE >5594:C:\Users\raymo\AppData\Local\Temp\slsg.
+333F clrtext CODE >5595:C:\Users\raymo\AppData\Local\Temp\slsg.
+3340 clrtext CODE >5596:C:\Users\raymo\AppData\Local\Temp\slsg.
+3341 clrtext CODE >5597:C:\Users\raymo\AppData\Local\Temp\slsg.
+3342 clrtext CODE >5599:C:\Users\raymo\AppData\Local\Temp\slsg.
+3343 clrtext CODE >5598:C:\Users\raymo\AppData\Local\Temp\slsg.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1783,7 +1783,7 @@ FC text17 CODE >349:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\c
 %SYMTAB
 ___latbits 3 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 ___awdiv@counter 76 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-_OCD_threshold_setting 7390 0 STRCODE 0 stringtext1 dist/default/production\BMS_Firmware.X.production.o
+_OCD_threshold_setting 7388 0 STRCODE 0 stringtext1 dist/default/production\BMS_Firmware.X.production.o
 ___fpclassifyf@e 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___fpclassifyf@u 22 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___fpclassifyf@x 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
@@ -1795,7 +1795,7 @@ __Hspace_1 270 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __HidataBANK3 0 0 ABS 0 idataBANK3 -
-stoa@F1174 1D7 0 BANK3 1 dataBANK3 dist/default/production\BMS_Firmware.X.production.o
+stoa@F1174 1DD 0 BANK3 1 dataBANK3 dist/default/production\BMS_Firmware.X.production.o
 __size_of_init_AFE 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of_init_I2C 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of_init_RGB 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
@@ -1819,7 +1819,7 @@ _SPEN CEF 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _SYNC CF4 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TMR1 16 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TXEN CF5 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\scck.o
+___sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\slsg.o
 _atoi 5ABE 0 CODE 0 text39 dist/default/production\BMS_Firmware.X.production.o
 _ctoa 6B0A 0 CODE 0 text33 dist/default/production\BMS_Firmware.X.production.o
 _dbuf 220 0 BANK4 1 bssBANK4 dist/default/production\BMS_Firmware.X.production.o
@@ -1836,7 +1836,7 @@ btemp 7E 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 pad@i 2C 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 pad@p 29 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 pad@w 2E 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-start 3C 0 CODE 0 init C:\Users\raymo\AppData\Local\Temp\scck.o
+start 3C 0 CODE 0 init C:\Users\raymo\AppData\Local\Temp\slsg.o
 ___aomod@counter 72 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 ___flmul@aexp 38 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___flmul@bexp 39 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -1922,8 +1922,8 @@ otoa@n 48 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.productio
 otoa@p 42 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 otoa@t 44 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 otoa@w 46 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_currState 1D4 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
-__end_of_SCD_delay_setting 7628 0 STRCODE 0 stringtext6 dist/default/production\BMS_Firmware.X.production.o
+_currState 1D9 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+__end_of_SCD_delay_setting 7620 0 STRCODE 0 stringtext6 dist/default/production\BMS_Firmware.X.production.o
 pad@fp 26 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 _tolower 6A36 0 CODE 0 text18 dist/default/production\BMS_Firmware.X.production.o
 send_I2C_controlByte@RW_bit 73 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
@@ -1948,7 +1948,7 @@ stoa@w 2C 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.productio
 send_I2C_data@databyte 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __end_of_vfpfcnvrt 2000 0 CODE 0 text6_split_8 dist/default/production\BMS_Firmware.X.production.o
 ___awmod@sign 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-__end_of_OV_delay_setting 7608 0 STRCODE 0 stringtext4 dist/default/production\BMS_Firmware.X.production.o
+__end_of_OV_delay_setting 7600 0 STRCODE 0 stringtext4 dist/default/production\BMS_Firmware.X.production.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 ___lodiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 utoa@d 32 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -1956,12 +1956,12 @@ utoa@i 47 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.productio
 utoa@n 3F 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 utoa@p 3B 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 utoa@w 3D 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\scck.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\scck.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\scck.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\scck.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\scck.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\scck.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\slsg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\slsg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\slsg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\slsg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\slsg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\slsg.o
 floorf@e 68 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 floorf@m 64 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 floorf@u 6A 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -1980,7 +1980,7 @@ wtemp0 7E 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __size_of_beginAFEcommunication 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _RC1STAbits 19D 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-setOverCurrentDischargeProtection@i_860 AA 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+setOverCurrentDischargeProtection@i_894 AA 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 _send_I2C_NACK 65FA 0 CODE 0 text55 dist/default/production\BMS_Firmware.X.production.o
 _send_I2C_data 65E8 0 CODE 0 text60 dist/default/production\BMS_Firmware.X.production.o
 xtoa@c 55 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -2014,20 +2014,22 @@ __size_of__Umul8_16 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.productio
 ?_tolower 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 ?_toupper 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __size_of_setOverCurrentDischargeProtection 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-__end_of_SCD_threshold_setting 75F8 0 STRCODE 0 stringtext3 dist/default/production\BMS_Firmware.X.production.o
+__end_of_SCD_threshold_setting 75F0 0 STRCODE 0 stringtext3 dist/default/production\BMS_Firmware.X.production.o
+_minCellVoltage 1C4 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 __end_of___fleq 6D7C 0 CODE 0 text26 dist/default/production\BMS_Firmware.X.production.o
 __end_of___flge 5486 0 CODE 0 text52 dist/default/production\BMS_Firmware.X.production.o
 __end_of___wmul 6848 0 CODE 0 text46 dist/default/production\BMS_Firmware.X.production.o
 __end_of_EUSART_Write 65D6 0 CODE 0 text43 dist/default/production\BMS_Firmware.X.production.o
+_UV_delay_setting 7600 0 STRCODE 0 stringtext5 dist/default/production\BMS_Firmware.X.production.o
 __end_of_RGB_color 69F2 0 CODE 0 text63 dist/default/production\BMS_Firmware.X.production.o
 __size_of_RGB_color 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___fldiv@aexp 59 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___fldiv@bexp 58 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___fldiv@sign 51 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_atoi$1557 26 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_atoi$1558 2A 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_atoi$1559 28 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_atoi$1599 26 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_atoi$1600 2A 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_atoi$1601 28 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___awdiv@divisor 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 _internal_16 65D6 0 CODE 0 text75 dist/default/production\BMS_Firmware.X.production.o
 __end_of___aldiv 577C 0 CODE 0 text77 dist/default/production\BMS_Firmware.X.production.o
@@ -2050,17 +2052,17 @@ __size_of_isdigit 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.
 __size_of_islower 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of_isspace 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of_isupper 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-_SCD_delay_setting 7618 0 STRCODE 0 stringtext6 dist/default/production\BMS_Firmware.X.production.o
-_adcGain 1CE 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_SCD_delay_setting 7610 0 STRCODE 0 stringtext6 dist/default/production\BMS_Firmware.X.production.o
+_adcGain 1D2 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 ___aodiv@quotient 74 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 ___lodiv@dividend 28 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __end_of_AFE_getSetCurrentSenseRes 6632 0 CODE 0 text65 dist/default/production\BMS_Firmware.X.production.o
-_SCD_threshold_setting 75D8 0 STRCODE 0 stringtext3 dist/default/production\BMS_Firmware.X.production.o
+_SCD_threshold_setting 75D0 0 STRCODE 0 stringtext3 dist/default/production\BMS_Firmware.X.production.o
 ?_strlen 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __Umul8_16@multiplicand 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __size_of_read_I2C_data 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-___stackhi 2770 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\scck.o
-___stacklo 2190 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\scck.o
+___stackhi 2770 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\slsg.o
+___stacklo 2190 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\slsg.o
 __end_of_efgtoa DAA 0 CODE 0 text17 dist/default/production\BMS_Firmware.X.production.o
 __size_of_strncmp 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _RGB_AWAIT_AFE_CONN 69F2 0 CODE 0 text62 dist/default/production\BMS_Firmware.X.production.o
@@ -2161,11 +2163,11 @@ efgtoa@t BB 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.product
 efgtoa@u DF 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 efgtoa@w CA 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 __size_of_send_I2C_stopBit 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-_tolower$1680 79 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-_maxCellTempCharge 1C6 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_tolower$1722 79 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
+_maxCellTempCharge 1CA 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 _readRegister 6B6C 0 CODE 0 text54 dist/default/production\BMS_Firmware.X.production.o
 snprintf@ap 16C 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
-_minCellTempCharge 1CA 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_minCellTempCharge 1CE 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 snprintf@fmt 163 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
 efgtoa@mode CC 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 efgtoa@sign C5 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
@@ -2179,21 +2181,21 @@ _SPLLEN 4CF 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 __pcstackBANK2 120 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
-__pcstackBANK3 1DE 0 BANK3 1 cstackBANK3 dist/default/production\BMS_Firmware.X.production.o
+__pcstackBANK3 1E4 0 BANK3 1 cstackBANK3 dist/default/production\BMS_Firmware.X.production.o
 _SSPADD 212 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _SSPBUF 211 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TRISC6 476 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TRISC7 477 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TX1REG 19A 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 islower@c 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-_maxCellTempDischarge 1C4 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_maxCellTempDischarge 1C8 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 _printotAFERegisters 2398 0 CODE 0 text2 dist/default/production\BMS_Firmware.X.production.o
 fputc@fp 73 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 fputs@fp 7A 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\scck.o
+___int_sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\slsg.o
 toupper@c 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 setShortCircuitProtection@current_mA 66 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-__end_of_UV_delay_setting 7618 0 STRCODE 0 stringtext5 dist/default/production\BMS_Firmware.X.production.o
+__end_of_UV_delay_setting 7610 0 STRCODE 0 stringtext5 dist/default/production\BMS_Firmware.X.production.o
 vfpfcnvrt@done 12D 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -2309,7 +2311,7 @@ __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
 __end_of_isupper 6780 0 CODE 0 text19 dist/default/production\BMS_Firmware.X.production.o
-_vsnprintf$1732 155 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
+_vsnprintf$1774 155 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
 ___flmul@grs 34 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __end_of_snprintf 67DE 0 CODE 0 text3 dist/default/production\BMS_Firmware.X.production.o
 __end_of_strncmp 20A4 0 CODE 0 text14 dist/default/production\BMS_Firmware.X.production.o
@@ -2344,12 +2346,12 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 7390 0 STRCODE 0 stringtext1 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext2 75B8 0 STRCODE 0 stringtext2 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext3 75D8 0 STRCODE 0 stringtext3 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext4 75F8 0 STRCODE 0 stringtext4 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext5 7608 0 STRCODE 0 stringtext5 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext6 7618 0 STRCODE 0 stringtext6 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext1 7388 0 STRCODE 0 stringtext1 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext2 75B0 0 STRCODE 0 stringtext2 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext3 75D0 0 STRCODE 0 stringtext3 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext4 75F0 0 STRCODE 0 stringtext4 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext5 7600 0 STRCODE 0 stringtext5 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext6 7610 0 STRCODE 0 stringtext6 dist/default/production\BMS_Firmware.X.production.o
 __pstringtext7 7000 0 STRCODE 0 stringtext7 dist/default/production\BMS_Firmware.X.production.o
 __pstringtext8 7076 0 STRCODE 0 stringtext8 dist/default/production\BMS_Firmware.X.production.o
 __pstringtext9 70E0 0 STRCODE 0 stringtext9 dist/default/production\BMS_Firmware.X.production.o
@@ -2361,45 +2363,45 @@ __pstringtext12 71EE 0 STRCODE 0 stringtext12 dist/default/production\BMS_Firmwa
 __pstringtext13 7244 0 STRCODE 0 stringtext13 dist/default/production\BMS_Firmware.X.production.o
 __pstringtext14 7298 0 STRCODE 0 stringtext14 dist/default/production\BMS_Firmware.X.production.o
 __pstringtext15 72EC 0 STRCODE 0 stringtext15 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext16 7340 0 STRCODE 0 stringtext16 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext17 73D0 0 STRCODE 0 stringtext17 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext18 73FC 0 STRCODE 0 stringtext18 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext19 7428 0 STRCODE 0 stringtext19 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext20 7452 0 STRCODE 0 stringtext20 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext21 747C 0 STRCODE 0 stringtext21 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext22 74A6 0 STRCODE 0 stringtext22 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext23 74D0 0 STRCODE 0 stringtext23 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext24 74FA 0 STRCODE 0 stringtext24 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext25 7522 0 STRCODE 0 stringtext25 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext26 754A 0 STRCODE 0 stringtext26 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext27 7570 0 STRCODE 0 stringtext27 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext28 7594 0 STRCODE 0 stringtext28 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext29 7628 0 STRCODE 0 stringtext29 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext30 7630 0 STRCODE 0 stringtext30 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext31 7638 0 STRCODE 0 stringtext31 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext32 7640 0 STRCODE 0 stringtext32 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext33 7648 0 STRCODE 0 stringtext33 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext34 7650 0 STRCODE 0 stringtext34 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext35 7658 0 STRCODE 0 stringtext35 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext36 7660 0 STRCODE 0 stringtext36 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext37 7668 0 STRCODE 0 stringtext37 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext38 7670 0 STRCODE 0 stringtext38 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext39 7678 0 STRCODE 0 stringtext39 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext40 7680 0 STRCODE 0 stringtext40 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext41 7686 0 STRCODE 0 stringtext41 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext42 768C 0 STRCODE 0 stringtext42 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext43 7692 0 STRCODE 0 stringtext43 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext44 7698 0 STRCODE 0 stringtext44 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext45 769E 0 STRCODE 0 stringtext45 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext46 76A4 0 STRCODE 0 stringtext46 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext47 76AA 0 STRCODE 0 stringtext47 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext48 76B0 0 STRCODE 0 stringtext48 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext49 76B6 0 STRCODE 0 stringtext49 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext50 76BC 0 STRCODE 0 stringtext50 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext51 76C2 0 STRCODE 0 stringtext51 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext52 76C8 0 STRCODE 0 stringtext52 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext53 76CE 0 STRCODE 0 stringtext53 dist/default/production\BMS_Firmware.X.production.o
-__pstringtext54 76D4 0 STRCODE 0 stringtext54 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext16 733C 0 STRCODE 0 stringtext16 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext17 73C8 0 STRCODE 0 stringtext17 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext18 73F4 0 STRCODE 0 stringtext18 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext19 7420 0 STRCODE 0 stringtext19 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext20 744A 0 STRCODE 0 stringtext20 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext21 7474 0 STRCODE 0 stringtext21 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext22 749E 0 STRCODE 0 stringtext22 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext23 74C8 0 STRCODE 0 stringtext23 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext24 74F2 0 STRCODE 0 stringtext24 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext25 751A 0 STRCODE 0 stringtext25 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext26 7542 0 STRCODE 0 stringtext26 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext27 7568 0 STRCODE 0 stringtext27 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext28 758C 0 STRCODE 0 stringtext28 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext29 7620 0 STRCODE 0 stringtext29 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext30 7628 0 STRCODE 0 stringtext30 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext31 7630 0 STRCODE 0 stringtext31 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext32 7638 0 STRCODE 0 stringtext32 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext33 7640 0 STRCODE 0 stringtext33 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext34 7648 0 STRCODE 0 stringtext34 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext35 7650 0 STRCODE 0 stringtext35 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext36 7658 0 STRCODE 0 stringtext36 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext37 7660 0 STRCODE 0 stringtext37 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext38 7668 0 STRCODE 0 stringtext38 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext39 7670 0 STRCODE 0 stringtext39 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext40 7678 0 STRCODE 0 stringtext40 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext41 767E 0 STRCODE 0 stringtext41 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext42 7684 0 STRCODE 0 stringtext42 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext43 768A 0 STRCODE 0 stringtext43 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext44 7690 0 STRCODE 0 stringtext44 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext45 7696 0 STRCODE 0 stringtext45 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext46 769C 0 STRCODE 0 stringtext46 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext47 76A2 0 STRCODE 0 stringtext47 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext48 76A8 0 STRCODE 0 stringtext48 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext49 76AE 0 STRCODE 0 stringtext49 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext50 76B4 0 STRCODE 0 stringtext50 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext51 76BA 0 STRCODE 0 stringtext51 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext52 76C0 0 STRCODE 0 stringtext52 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext53 76C6 0 STRCODE 0 stringtext53 dist/default/production\BMS_Firmware.X.production.o
+__pstringtext54 76CC 0 STRCODE 0 stringtext54 dist/default/production\BMS_Firmware.X.production.o
 __pstringtext55 0 0 STRCODE 0 stringtext55 dist/default/production\BMS_Firmware.X.production.o
 ___fleq 6CEA 0 CODE 0 text26 dist/default/production\BMS_Firmware.X.production.o
 ___flge 538E 0 CODE 0 text52 dist/default/production\BMS_Firmware.X.production.o
@@ -2418,7 +2420,7 @@ psplit$4 970098 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 psplit$5 980099 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 psplit$6 99009A 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 psplit$7 9A009B 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-_toupper$1695 79 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
+_toupper$1737 79 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 int$flags 7E 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 otoa@fp 30 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
@@ -2441,15 +2443,16 @@ __end_of_send_I2C_controlByte 6646 0 CODE 0 text61 dist/default/production\BMS_F
 _efgtoa B0 0 CODE 0 text17 dist/default/production\BMS_Firmware.X.production.o
 __size_of_tolower 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of_toupper 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-BQ76920@protect1 1D1 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
-BQ76920@protect2 1D0 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
-_dtoa$1018 3D 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_vfpfcnvrt$1103 12F 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
-_vfpfcnvrt$1104 131 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
-_vfpfcnvrt$1130 133 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
+BQ76920@protect1 1D6 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+BQ76920@protect2 1D5 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+BQ76920@protect3 1D4 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_dtoa$1060 3D 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_vfpfcnvrt$1145 12F 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
+_vfpfcnvrt$1146 131 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
+_vfpfcnvrt$1172 133 0 BANK2 1 cstackBANK2 dist/default/production\BMS_Firmware.X.production.o
 ___xxtofl 5992 0 CODE 0 text67 dist/default/production\BMS_Firmware.X.production.o
 _floorf 4542 0 CODE 0 text21 dist/default/production\BMS_Firmware.X.production.o
-_setOverCurrentDischargeProtection$1930 A4 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_setOverCurrentDischargeProtection$1975 A4 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 __end_of_abs 6752 0 CODE 0 text30 dist/default/production\BMS_Firmware.X.production.o
 __end_of_pad 6F5E 0 CODE 0 text34 dist/default/production\BMS_Firmware.X.production.o
 setTemperatureLimitsint@maxDischarge_degC 22 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -2460,7 +2463,7 @@ _setOverCurrentDischargeProtection 328C 0 CODE 0 text49 dist/default/production\
 __Lintentry 8 0 CODE 0 intentry -
 strcpy@d 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 strcpy@s 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\raymo\AppData\Local\Temp\scck.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\raymo\AppData\Local\Temp\slsg.o
 pnum$text6_split_1 94 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 pnum$text6_split_2 95 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 pnum$text6_split_3 96 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
@@ -2472,7 +2475,7 @@ pnum$text6_split_8 9B 0 ABS 0 - dist/default/production\BMS_Firmware.X.productio
 strlen@a 73 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 strlen@s 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __end_of___xxtofl 5ABE 0 CODE 0 text67 dist/default/production\BMS_Firmware.X.production.o
-__pdataBANK3 1D7 0 BANK3 1 dataBANK3 dist/default/production\BMS_Firmware.X.production.o
+__pdataBANK3 1DD 0 BANK3 1 dataBANK3 dist/default/production\BMS_Firmware.X.production.o
 __size_of___fleq 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of___flge 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
@@ -2501,7 +2504,7 @@ __end_of_setShortCircuitProtection 36E4 0 CODE 0 text48 dist/default/production\
 __end_of_vsnprintf 5678 0 CODE 0 text4 dist/default/production\BMS_Firmware.X.production.o
 stoa@nuls 23 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___fladd@signs 28 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_minCellTempDischarge 1C8 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_minCellTempDischarge 1CC 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 __size_of_statemachine 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __ptext10 6880 0 CODE 0 text10 dist/default/production\BMS_Firmware.X.production.o
 __ptext11 48AA 0 CODE 0 text11 dist/default/production\BMS_Firmware.X.production.o
@@ -2630,8 +2633,8 @@ __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 strncmp@l 78 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 strncmp@n 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 strncmp@r 7A 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-_xtoa$1088 43 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-_xtoa$1089 45 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_xtoa$1130 43 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_xtoa$1131 45 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 ___wmul@multiplier 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __size_of_RGB_AWAIT_AFE_CONN 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
@@ -2643,7 +2646,7 @@ ___fldiv@rem 4D 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.pro
 setShortCircuitProtection@i A8 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 __size_of_floorf 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __end_of_internal_16 65E8 0 CODE 0 text75 dist/default/production\BMS_Firmware.X.production.o
-_adcOffset 1CC 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_adcOffset 1D0 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 _initClock 5002 0 CODE 0 text74 dist/default/production\BMS_Firmware.X.production.o
 _init_GPIO 300C 0 CODE 0 text73 dist/default/production\BMS_Firmware.X.production.o
 _init_TMR1 665A 0 CODE 0 text70 dist/default/production\BMS_Firmware.X.production.o
@@ -2698,7 +2701,7 @@ ___lomod@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X
 __size_of___fpclassifyf 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 end_of_initialization A8 0 CODE 0 cinit dist/default/production\BMS_Firmware.X.production.o
 _AFE_getSetShortCircuitCurrent 6E1C 0 CODE 0 text64 dist/default/production\BMS_Firmware.X.production.o
-_setShortCircuitProtection$1929 A4 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_setShortCircuitProtection$1974 A4 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 __Hintentry 3C 0 CODE 0 intentry -
 ?_AFE_getSetShortCircuitCurrent 63 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 setTemperatureLimitsint@minCharge_degC 24 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -2722,10 +2725,10 @@ ___awdiv@quotient 78 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmwar
 ?___flneg 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 ?___flsub 40 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ?___fltol 5A 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-statemachine@success 1DE 0 BANK3 1 cstackBANK3 dist/default/production\BMS_Firmware.X.production.o
+statemachine@success 1E4 0 BANK3 1 cstackBANK3 dist/default/production\BMS_Firmware.X.production.o
 ?___lodiv 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ?___lomod 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-setShortCircuitProtection@i_851 AA 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+setShortCircuitProtection@i_885 AA 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 vfprintf@fmt E9 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
 RGB_color@color 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
@@ -2758,7 +2761,7 @@ vfprintf@ap EB 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.prod
 vfprintf@fp E7 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 vfprintf@cfmt EC 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 ?__Umul8_16 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-__end_of_OCD_delay_setting 75D8 0 STRCODE 0 stringtext2 dist/default/production\BMS_Firmware.X.production.o
+__end_of_OCD_delay_setting 75D0 0 STRCODE 0 stringtext2 dist/default/production\BMS_Firmware.X.production.o
 ___aldiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 _vfprintf 4000 0 CODE 0 text5 dist/default/production\BMS_Firmware.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
@@ -2795,15 +2798,15 @@ __end_of_ATmega328_address 7004 0 STRCODE 0 stringtext7 dist/default/production\
 ___fltol@f1 5A 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 EUSART_Write@txData 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
-_tmr1_flag 1D3 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+_tmr1_flag 1D8 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 strcpy@src 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __end_of__initialization A8 0 CODE 0 cinit dist/default/production\BMS_Firmware.X.production.o
 ___awmod@divisor 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-myIsr@count 1D2 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
+myIsr@count 1D7 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 __pidataBANK3 6598 0 CODE 0 idataBANK3 dist/default/production\BMS_Firmware.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-_isspace$1597 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
+_isspace$1639 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 EUSART_Write_Text@i 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 beginAFEcommunication@i 2D 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __CFG_PLLEN$OFF 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
@@ -2855,12 +2858,12 @@ setOverCurrentDischargeProtection@current_mA 66 0 BANK0 1 cstackBANK0 dist/defau
 _myIsr 8 0 CODE 0 intentry dist/default/production\BMS_Firmware.X.production.o
 __size_of_setShuntResistorValue 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _putch FFC 0 CODE 0 text38 dist/default/production\BMS_Firmware.X.production.o
-_efgtoa$1041 AF 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
-_efgtoa$1042 B1 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
-_efgtoa$1046 B3 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
-_efgtoa$1050 B5 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
-_efgtoa$1051 B7 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
-_efgtoa$1052 B9 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_efgtoa$1083 AF 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_efgtoa$1084 B1 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_efgtoa$1088 B3 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_efgtoa$1092 B5 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_efgtoa$1093 B7 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
+_efgtoa$1094 B9 0 BANK1 1 cstackBANK1 dist/default/production\BMS_Firmware.X.production.o
 _width 1BE 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
 ?_isalpha 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 floorf@F524 1AA 0 BANK3 1 bssBANK3 dist/default/production\BMS_Firmware.X.production.o
@@ -2876,7 +2879,7 @@ setShuntResistorValue@res_mOhm 71 0 COMMON 1 cstackCOMMON dist/default/productio
 atoi@n 2B 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 atoi@s 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __CFG_PPS1WAY$ON 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-__end_of_OCD_threshold_setting 73D0 0 STRCODE 0 stringtext1 dist/default/production\BMS_Firmware.X.production.o
+__end_of_OCD_threshold_setting 73C8 0 STRCODE 0 stringtext1 dist/default/production\BMS_Firmware.X.production.o
 _send_I2C_controlByte 6632 0 CODE 0 text61 dist/default/production\BMS_Firmware.X.production.o
 ?_strncmp 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __initialization 40 0 CODE 0 cinit dist/default/production\BMS_Firmware.X.production.o
@@ -2888,6 +2891,7 @@ _PPSLOCK E0F 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 ctoa@c 32 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ctoa@w 34 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
+_OCD_delay_setting 75B0 0 STRCODE 0 stringtext2 dist/default/production\BMS_Firmware.X.production.o
 ___wmul@product 75 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 _setTemperatureLimitsint 6BD8 0 CODE 0 text45 dist/default/production\BMS_Firmware.X.production.o
 dtoa@d 32 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -3017,10 +3021,10 @@ cstackCOMMON 1 70 70 D 1
 cstackBANK0 1 20 20 50 1
 cstackBANK1 1 A0 A0 50 1
 cstackBANK2 1 120 120 50 1
-stringtext7 0 3800 7000 36D 2
+stringtext7 0 3800 7000 369 2
 intentry 0 4 8 7FB 2
 reset_vec 0 0 0 2 2
-bssBANK3 1 1A0 1A0 40 1
+bssBANK3 1 1A0 1A0 46 1
 bssBANK4 1 220 220 50 1
 idataBANK3 0 32CC 6598 7 2
 clrtext 0 3338 6670 C 2

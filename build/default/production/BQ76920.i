@@ -10505,11 +10505,15 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
+int maxCellVoltage;
+int minCellVoltage;
+
+
 
 static float shuntResistorValue_mOhm;
 static regPROTECT1_t protect1;
 static regPROTECT2_t protect2;
-
+static regPROTECT3_t protect3;
 
 
 void init_AFE(void);
@@ -10519,6 +10523,7 @@ void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int m
 void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
+void setCellUndervoltageProtection(int voltage_mv, int delay_s);
 
 
 long AFE_getSetShortCircuitCurrent(void);
@@ -10637,21 +10642,40 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
     float scaler = 1000.0;
     protect2.bits.OCD_THRESH = 0;
     for (int i = 0; i < (sizeof(OCD_threshold_setting) / sizeof((OCD_threshold_setting)[0])) - 1; i++) {
-        if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+        if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= OCD_threshold_setting[i]) {
             protect2.bits.OCD_THRESH = i;
         }
     }
 
     protect2.bits.OCD_DELAY = 0;
     for (int i = 0; i < (sizeof(OCD_delay_setting) / sizeof((OCD_delay_setting)[0])) - 1; i++) {
-        if (delay_ms >= SCD_delay_setting[i]) {
+        if (delay_ms >= OCD_delay_setting[i]) {
             protect2.bits.OCD_DELAY = i;
         }
     }
 
     I2C_writeRegister(0x18, 0x07, protect2.regByte);
+}
 
 
+
+
+void setCellUndervoltageProtection(int voltage_mV, int delay_s) {
+    uint8_t uv_trip = 0;
+    minCellVoltage = voltage_mV;
+
+    protect3.regByte = readRegister(0x18, 0x08);
+    uv_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
+    uv_trip += 1;
+    I2C_writeRegister(0x18, 0x0A, uv_trip);
+
+    protect3.bits.UV_DELAY = 0;
+    for (int i = 0; i < (sizeof(UV_delay_setting) / sizeof((UV_delay_setting)[0])) - 1; i++) {
+        if (delay_s >= UV_delay_setting[i]) {
+            protect3.bits.UV_DELAY = i;
+        }
+    }
+      writeRegister(0x18,0x08, protect3.regByte);
 }
 
 
@@ -10674,7 +10698,7 @@ void printotAFERegisters() {
 
     _delay((unsigned long)((5)*(16000000/4000.0)));
 
-    EUSART_Write_Text("Printing out AFE register values... out\n\r");
+    EUSART_Write_Text("Printing out AFE register values...\n\r");
     EUSART_Write_Text("\n\r");
     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
     EUSART_Write_Text(messageBuffer);
