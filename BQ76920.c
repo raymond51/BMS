@@ -7,8 +7,8 @@ void init_AFE(void) {
     setShortCircuitProtection(2500, 200); //set short circuit protection
     //set over current charge protection
     setOverCurrentDischargeProtection(20000, 320); //set overcurrent discharge protection
-    setCellUndervoltageProtection(2900,2);//set cell under voltage protection
-    //set cell overvoltage protection
+    setCellUndervoltageProtection(2900, 2); //set cell under voltage protection
+    setCellOvervoltageProtection(4100,2);//set cell overvoltage protection
 
     //set balancing threshold
     //set idle current threshold
@@ -45,9 +45,6 @@ int beginAFEcommunication(void) {
                 ((readRegister(AFE_BQ76920_I2C_ADDRESS, ADCGAIN2) & 0xE0) >> 5)); // uV/LSB
 
     }
-
-
-
     return commSuccess;
 
 }
@@ -141,8 +138,28 @@ void setCellUndervoltageProtection(int voltage_mV, int delay_s) {
             protect3.bits.UV_DELAY = i;
         }
     }
-      I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS,PROTECT3, protect3.regByte);
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT3, protect3.regByte);
 }
+
+/*
+ @brief:
+ */
+void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
+    uint8_t ov_trip = 0;
+    maxCellVoltage = voltage_mV;
+    protect3.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT3);
+    ov_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, OV_TRIP, ov_trip);
+    
+    for (int i = 0; i < arrSize(OV_delay_setting) - 1; i++) {
+        if (delay_s >= OV_delay_setting[i]) {
+            protect3.bits.UV_DELAY = i;
+        }
+    }
+    I2C_writeRegister(PROTECT3, protect3.regByte);
+}
+
+
 
 /**************************************************************
  * Printout serial monitor helper functions

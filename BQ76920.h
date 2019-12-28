@@ -61,6 +61,7 @@ void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 void setCellUndervoltageProtection(int voltage_mv, int delay_s);
+void setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
 //Printout serial monitor helper functions -------------------------------------
 long AFE_getSetShortCircuitCurrent(void);
