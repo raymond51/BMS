@@ -10448,7 +10448,46 @@ void retrieve_data_ATmega328(void);
 void I2C_writeRegister(int slaveAddress,int regAddress, int data);
 int readRegister(int slaveAddress, int regAddress);
 # 15 "./BQ76920.h" 2
-# 27 "./BQ76920.h"
+
+# 1 "./EUSART.h" 1
+# 13 "./EUSART.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 13 "./EUSART.h" 2
+
+
+
+
+
+char messageBuffer[127] = {0};
+
+
+char EUSART_Initialize(const long int baudrate);
+uint8_t EUSART_Read(void);
+void EUSART_Write(uint8_t txData);
+void EUSART_Write_Text(char *text);
+void EUSART_Read_Text(char *Output, unsigned int length);
+# 16 "./BQ76920.h" 2
+# 28 "./BQ76920.h"
 int cellVoltages[5];
 
 
@@ -10485,6 +10524,8 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
+
+void printotAFERegisters(void);
 # 1 "BQ76920.c" 2
 
 
@@ -10610,6 +10651,7 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
 
     I2C_writeRegister(0x18, 0x07, protect2.regByte);
 
+
 }
 
 
@@ -10626,4 +10668,37 @@ long AFE_getSetShortCircuitCurrent() {
 
 long AFE_getOverCurrentDischargeCurrent() {
     return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
+}
+
+void printotAFERegisters() {
+
+    _delay((unsigned long)((5)*(16000000/4000.0)));
+
+    EUSART_Write_Text("Printing out AFE register values... out\n\r");
+    EUSART_Write_Text("\n\r");
+    snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x01 CELLBAL1: %i \n\r", readRegister(0x18, 0x01));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x04 SYS_CTRL1: %i \n\r", readRegister(0x18, 0x04));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x07 PROTECT2: %i \n\r", readRegister(0x18, 0x07));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x08 PROTECT3: %i \n\r", readRegister(0x18, 0x08));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x09 OV_TRIP: %i \n\r", readRegister(0x18, 0x09));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x0A UV_TRIP: %i \n\r", readRegister(0x18, 0x0A));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x0B CC_CFG: %i \n\r", readRegister(0x18, 0x0B));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x32 CC_HI: %i \n\r", readRegister(0x18, 0x32));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x33 CC_LO: %i \n\r", readRegister(0x18, 0x33));
+    EUSART_Write_Text(messageBuffer);
+    EUSART_Write_Text("\n\r");
 }

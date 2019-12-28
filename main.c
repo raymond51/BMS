@@ -138,8 +138,13 @@ void statemachine(void) {
             EUSART_Write_Text(messageBuffer);
             snprintf(messageBuffer, messageBuf_size, "Set Over-current discharge protection  for AFE: %lu mA\n\r", AFE_getOverCurrentDischargeCurrent());
             EUSART_Write_Text(messageBuffer);
+            printotAFERegisters();
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
+            
+            
+            
+            
 #endif
             RGB_color(RGB_GREEN);//if success set the rgb led to solid GREEN
             currState = READ_AFE_DATA; //move to next state if communication was successful check the return value

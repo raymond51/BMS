@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include "BQ76920_registers.h"
 #include "I2C.h"
+#include "EUSART.h"
 
 //array size macro
 #define arrSize(x)  (sizeof(x) / sizeof((x)[0]))
@@ -60,6 +61,8 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
+
+void printotAFERegisters(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

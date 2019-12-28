@@ -108,7 +108,7 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
     float scaler = 1000.0; //negate mv unit
     protect2.bits.OCD_THRESH = 0;
     for (int i = 0; i < arrSize(OCD_threshold_setting) - 1; i++) {
-        if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+        if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= OCD_threshold_setting[i]) {
             protect2.bits.OCD_THRESH = i;
         }
     }
@@ -121,7 +121,7 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
     }
 
     I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT2, protect2.regByte); //transmit compact bit field as byte to AFE
-    
+
     //todo: check if this result is right
 }
 
@@ -139,4 +139,37 @@ long AFE_getSetShortCircuitCurrent() {
 
 long AFE_getOverCurrentDischargeCurrent() {
     return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
+}
+
+void printotAFERegisters() {
+
+    __delay_ms(5); //allow time for i2c communication to end
+
+    EUSART_Write_Text("Printing out AFE register values...\n\r"); //newline
+    EUSART_Write_Text("\n\r"); //newline
+    snprintf(messageBuffer, messageBuf_size, "0x00 SYS_STAT: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x01 CELLBAL1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, CELLBAL1));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x04 SYS_CTRL1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL1));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x06 PROTECT1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x07 PROTECT2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT2));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x08 PROTECT3: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT3));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x09 OV_TRIP: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, OV_TRIP));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x0A UV_TRIP: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, UV_TRIP));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x0B CC_CFG: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, CC_CFG));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x32 CC_HI: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, CC_HI_BYTE));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x33 CC_LO: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, CC_LO_BYTE));
+    EUSART_Write_Text(messageBuffer);
+    EUSART_Write_Text("\n\r"); //newline
 }

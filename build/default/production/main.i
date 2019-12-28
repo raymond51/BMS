@@ -10514,7 +10514,7 @@ typedef union regVCELL
     uint16_t regWord;
 } regVCELL_t;
 # 14 "./BQ76920.h" 2
-# 27 "./BQ76920.h"
+# 28 "./BQ76920.h"
 int cellVoltages[5];
 
 
@@ -10551,6 +10551,8 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
+
+void printotAFERegisters(void);
 # 24 "main.c" 2
 # 42 "main.c"
 void initClock(void);
@@ -10652,8 +10654,13 @@ void statemachine(void) {
             EUSART_Write_Text(messageBuffer);
             snprintf(messageBuffer, 127, "Set Over-current discharge protection  for AFE: %lu mA\n\r", AFE_getOverCurrentDischargeCurrent());
             EUSART_Write_Text(messageBuffer);
+            printotAFERegisters();
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
+
+
+
+
 
             RGB_color(1);
             currState = 2;
@@ -10713,7 +10720,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 210 "main.c"
+# 215 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;
