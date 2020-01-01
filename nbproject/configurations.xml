@@ -10,6 +10,7 @@
       <itemPath>BQ76920_registers.h</itemPath>
       <itemPath>BQ76920.h</itemPath>
       <itemPath>RGB.h</itemPath>
+      <itemPath>algorithms.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +25,7 @@
       <itemPath>I2C.c</itemPath>
       <itemPath>RGB.c</itemPath>
       <itemPath>BQ76920.c</itemPath>
+      <itemPath>algorithms.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -5,4 +5,5 @@ I2C.h  \
 EUSART.h  \
 RGB.h  \
 BQ76920.h  \
-BQ76920_registers.h 
+BQ76920_registers.h  \
+algorithms.h 

@@ -13,7 +13,7 @@
 # 1 "./pic16f1719_internals.h" 1
 # 13 "./pic16f1719_internals.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
 #pragma config CP = OFF

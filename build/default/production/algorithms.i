@@ -1,4 +1,4 @@
-# 1 "pic16f1719_internals.c"
+# 1 "algorithms.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,36 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "pic16f1719_internals.c" 2
-
-# 1 "./pic16F1719_internals.h" 1
-# 13 "./pic16F1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = ON
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-
-
-
-
-
-
-
+# 1 "algorithms.c" 2
+# 1 "./algorithms.h" 1
+# 13 "./algorithms.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9582,7 +9555,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 38 "./pic16F1719_internals.h" 2
+# 13 "./algorithms.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdio.h" 3
@@ -9720,10 +9693,30 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 39 "./pic16F1719_internals.h" 2
+# 14 "./algorithms.h" 2
+
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = ON
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
 
 
-
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 42 "./pic16f1719_internals.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9807,10 +9800,10 @@ typedef int32_t int_fast32_t;
 typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 155 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdint.h" 2 3
-# 42 "./pic16F1719_internals.h" 2
+# 42 "./pic16f1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdbool.h" 1 3
-# 43 "./pic16F1719_internals.h" 2
+# 43 "./pic16f1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 1 3
 # 19 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 3
@@ -9818,7 +9811,7 @@ typedef uint32_t uint_fast32_t;
 # 140 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long ptrdiff_t;
 # 19 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stddef.h" 2 3
-# 44 "./pic16F1719_internals.h" 2
+# 44 "./pic16f1719_internals.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\math.h" 3
@@ -10293,7 +10286,7 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 45 "./pic16F1719_internals.h" 2
+# 45 "./pic16f1719_internals.h" 2
 
 
 
@@ -10305,72 +10298,33 @@ void internal_32(void);
 void internal_16(void);
 void internal_8(void);
 void internal_4(void);
-# 2 "pic16f1719_internals.c" 2
+# 15 "./algorithms.h" 2
+
+# 1 "./RGB.h" 1
+# 24 "./RGB.h"
+_Bool toggleColor = 0;
+
+
+
+void init_RGB();
+void RGB_color(int color);
+
+void RGB_AWAIT_AFE_CONN();
+# 16 "./algorithms.h" 2
 
 
 
 
 
+void watchdog_timeout_shutdown(void);
+# 1 "algorithms.c" 2
 
 
-void internal_32(void){
+void watchdog_timeout_shutdown() {
 
-SCS0 = 0;
-SCS1 = 0;
-
-IRCF0 = 0;
-IRCF1 = 1;
-IRCF2 = 1;
-IRCF3 = 1;
-
-SPLLEN = 1;
-}
-
-
-
-
-
-void internal_16(void){
-
-SCS0 = 0;
-SCS1 = 0;
-
-IRCF0 = 1;
-IRCF1 = 1;
-IRCF2 = 1;
-IRCF3 = 1;
-
-SPLLEN = 0;
-}
-
-
-
-
-void internal_8(void){
-
-SCS0 = 0;
-SCS1 = 0;
-
-IRCF0 = 0;
-IRCF1 = 1;
-IRCF2 = 1;
-IRCF3 = 1;
-
-SPLLEN = 0;
-}
-
-
-
-
-void internal_4(void){
-
-SCS0 = 0;
-SCS1 = 0;
-
-IRCF0 = 1;
-IRCF1 = 0;
-IRCF2 = 1;
-IRCF3 = 1;
-
-SPLLEN = 0;
+    if (!STATUSbits.nTO) {
+        RGB_color(0);
+         _delay((unsigned long)((2000)*(16000000/4000.0)));
+         LATAbits.LATA3 = 1;
+    }
 }

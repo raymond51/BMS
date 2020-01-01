@@ -9786,7 +9786,7 @@ typedef uint32_t uint_fast32_t;
 # 1 "./pic16f1719_internals.h" 1
 # 13 "./pic16f1719_internals.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
 #pragma config CP = OFF
@@ -10305,7 +10305,7 @@ void internal_4(void);
 # 1 "./pic16f1719_internals.h" 1
 # 13 "./pic16f1719_internals.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
 #pragma config CP = OFF
@@ -10353,7 +10353,7 @@ int readRegister(int slaveAddress, int regAddress);
 # 1 "./pic16f1719_internals.h" 1
 # 13 "./pic16f1719_internals.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
 #pragma config CP = OFF
@@ -10562,11 +10562,45 @@ long AFE_getOverCurrentDischargeCurrent(void);
 
 void printotAFERegisters(void);
 # 24 "main.c" 2
-# 42 "main.c"
+
+# 1 "./algorithms.h" 1
+# 15 "./algorithms.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = ON
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 15 "./algorithms.h" 2
+
+
+
+
+
+
+void watchdog_timeout_shutdown(void);
+# 25 "main.c" 2
+# 43 "main.c"
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_TMR1(void);
+void initWDT();
 void statemachine(void);
 
 
@@ -10601,16 +10635,20 @@ void main(void) {
 
     initClock();
     init_GPIO();
+    initWDT();
     init_I2C();
     EUSART_Initialize(9600);
     init_TMR1();
     init_RGB();
 
+
+    watchdog_timeout_shutdown();
+
     while (1) {
 
         statemachine();
 
-        _delay((unsigned long)((10)*(16000000/4000.0)));
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
     }
 
     return;
@@ -10675,6 +10713,7 @@ void statemachine(void) {
 
             AFE_UPDATE();
 
+            __asm("clrwdt");
 
             break;
     }
@@ -10725,10 +10764,16 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 212 "main.c"
+# 219 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;
+
+
+
+
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 0;
 
 
 
@@ -10752,5 +10797,11 @@ void init_GPIO() {
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x01;
+
+}
+
+void initWDT(){
+
+    WDTCONbits.WDTPS = 0b01101;
 
 }

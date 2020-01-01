@@ -1075,7 +1075,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./pic16f1719_internals.h
 [p x FOSC = INTOSC ]
 "14
-[p x WDTE = OFF ]
+[p x WDTE = ON ]
 "15
 [p x PWRTE = OFF ]
 "16
@@ -1115,7 +1115,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./pic16f1719_internals.h
 [p x FOSC = INTOSC ]
 "14
-[p x WDTE = OFF ]
+[p x WDTE = ON ]
 "15
 [p x PWRTE = OFF ]
 "16

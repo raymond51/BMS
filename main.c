@@ -22,6 +22,7 @@
 #include "EUSART.h"
 #include "RGB.h"
 #include "BQ76920.h"
+#include "algorithms.h"
 
 /**************************************************************
  * Defines 
@@ -43,6 +44,7 @@ void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_TMR1(void);
+void initWDT();
 void statemachine(void);
 
 /**************************************************************
@@ -77,16 +79,20 @@ void main(void) {
     //Peripherals
     initClock(); //initialise and set internal high frequency clock
     init_GPIO(); //configuring PPS
+    initWDT(); //watchdog timer 
     init_I2C(); //configure i2c to 100kHz
     EUSART_Initialize(9600); //begin UART communication at 9600baud
     init_TMR1(); //Enable timer 1 to repeatedly communicate with the AFE until boot
     init_RGB(); //set initially RGB all off
 
+    //initial check
+    watchdog_timeout_shutdown(); //check if the system reset with watchdog timer expiration
+    
     while (1) {
 
         statemachine();
 
-        __delay_ms(10);
+        __delay_ms(1000); 
     }
 
     return;
@@ -151,6 +157,7 @@ void statemachine(void) {
             //enable the 1 second timer again
             AFE_UPDATE();//perform update 
             //once update complete enter sleep mode 
+            CLRWDT(); //kick watchdog, to reset WD timer
             
             break;
     }
@@ -212,7 +219,13 @@ void init_GPIO() {
     TRISAbits.TRISA4 = 0; //set as output for RED led
     TRISAbits.TRISA5 = 0; //set as output for GREEN led
     TRISEbits.TRISE0 = 0; //set as output for BLUE led
-
+    
+    /////////////////////
+    // Setup the shutdown relay pin
+    ////////////////////
+    TRISAbits.TRISA3 = 0; //set as output
+    LATAbits.LATA3 = 0; //set output initially 0
+    
     /////////////////////
     // Define peripheral pin select
     ////////////////////
@@ -236,4 +249,10 @@ void init_GPIO() {
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
 
+}
+
+void initWDT(){
+    // Set watchdog timeout for 8 seconds
+    WDTCONbits.WDTPS = 0b01101; //see page 104 for the length table
+    //if watchdog is enabled and if its not cleared then the program will reset every duration of 8 seconds
 }
