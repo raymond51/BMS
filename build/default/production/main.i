@@ -10551,6 +10551,9 @@ void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 void setCellUndervoltageProtection(int voltage_mv, int delay_s);
+void setCellOvervoltageProtection(int voltage_mV, int delay_s);
+
+void AFE_UPDATE(void);
 
 
 long AFE_getSetShortCircuitCurrent(void);
@@ -10664,16 +10667,13 @@ void statemachine(void) {
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
 
 
-
-
-
             RGB_color(1);
             currState = 2;
             break;
         case 2:
 
 
-
+            AFE_UPDATE();
 
 
             break;
@@ -10725,7 +10725,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 215 "main.c"
+# 212 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

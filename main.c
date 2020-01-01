@@ -142,9 +142,6 @@ void statemachine(void) {
             EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
             
-            
-            
-            
 #endif
             RGB_color(RGB_GREEN);//if success set the rgb led to solid GREEN
             currState = READ_AFE_DATA; //move to next state if communication was successful check the return value
@@ -152,7 +149,7 @@ void statemachine(void) {
         case READ_AFE_DATA:
                
             //enable the 1 second timer again
-            //perform update 
+            AFE_UPDATE();//perform update 
             //once update complete enter sleep mode 
             
             break;

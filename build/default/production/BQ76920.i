@@ -10524,6 +10524,9 @@ void setShuntResistorValue(float res_mOhm);
 void setShortCircuitProtection(long current_mA, int delay_us);
 void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 void setCellUndervoltageProtection(int voltage_mv, int delay_s);
+void setCellOvervoltageProtection(int voltage_mV, int delay_s);
+
+void AFE_UPDATE(void);
 
 
 long AFE_getSetShortCircuitCurrent(void);
@@ -10541,7 +10544,8 @@ void init_AFE(void) {
     setShortCircuitProtection(2500, 200);
 
     setOverCurrentDischargeProtection(20000, 320);
-
+    setCellUndervoltageProtection(2900, 2);
+    setCellOvervoltageProtection(4100,2);
 
 
 
@@ -10579,9 +10583,6 @@ int beginAFEcommunication(void) {
                 ((readRegister(0x18, 0x59) & 0xE0) >> 5));
 
     }
-
-
-
     return commSuccess;
 
 }
@@ -10675,7 +10676,30 @@ void setCellUndervoltageProtection(int voltage_mV, int delay_s) {
             protect3.bits.UV_DELAY = i;
         }
     }
-      writeRegister(0x18,0x08, protect3.regByte);
+    I2C_writeRegister(0x18, 0x08, protect3.regByte);
+}
+
+
+
+
+void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
+    uint8_t ov_trip = 0;
+    maxCellVoltage = voltage_mV;
+    protect3.regByte = readRegister(0x18, 0x08);
+    ov_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
+    I2C_writeRegister(0x18, 0x09, ov_trip);
+
+    for (int i = 0; i < (sizeof(OV_delay_setting) / sizeof((OV_delay_setting)[0])) - 1; i++) {
+        if (delay_s >= OV_delay_setting[i]) {
+            protect3.bits.UV_DELAY = i;
+        }
+    }
+    I2C_writeRegister(0x18,0x08, protect3.regByte);
+}
+
+void AFE_UPDATE(){
+
+
 }
 
 

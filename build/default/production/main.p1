@@ -105,18 +105,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56 ./BQ76920.h
 [; ;./BQ76920.h: 56: void init_AFE(void);
 [v _init_AFE `(v ~T0 @X0 0 ef ]
-"67
-[; ;./BQ76920.h: 67: float AFE_getSetCurrentSenseRes(void);
-[v _AFE_getSetCurrentSenseRes `(f ~T0 @X0 0 ef ]
-"66
-[; ;./BQ76920.h: 66: long AFE_getSetShortCircuitCurrent(void);
-[v _AFE_getSetShortCircuitCurrent `(l ~T0 @X0 0 ef ]
-"68
-[; ;./BQ76920.h: 68: long AFE_getOverCurrentDischargeCurrent(void);
-[v _AFE_getOverCurrentDischargeCurrent `(l ~T0 @X0 0 ef ]
 "70
-[; ;./BQ76920.h: 70: void printotAFERegisters(void);
+[; ;./BQ76920.h: 70: float AFE_getSetCurrentSenseRes(void);
+[v _AFE_getSetCurrentSenseRes `(f ~T0 @X0 0 ef ]
+"69
+[; ;./BQ76920.h: 69: long AFE_getSetShortCircuitCurrent(void);
+[v _AFE_getSetShortCircuitCurrent `(l ~T0 @X0 0 ef ]
+"71
+[; ;./BQ76920.h: 71: long AFE_getOverCurrentDischargeCurrent(void);
+[v _AFE_getOverCurrentDischargeCurrent `(l ~T0 @X0 0 ef ]
+"73
+[; ;./BQ76920.h: 73: void printotAFERegisters(void);
 [v _printotAFERegisters `(v ~T0 @X0 0 ef ]
+"66
+[; ;./BQ76920.h: 66: void AFE_UPDATE(void);
+[v _AFE_UPDATE `(v ~T0 @X0 0 ef ]
 "53 ./pic16f1719_internals.h
 [; ;./pic16f1719_internals.h: 53: void internal_16(void);
 [v _internal_16 `(v ~T0 @X0 0 ef ]
@@ -1482,8 +1485,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "59
 [; ;main.c: 59:     static uint8_t count = 0;
-[v F6483 `uc ~T0 @X0 1 s count ]
-[i F6483
+[v F6487 `uc ~T0 @X0 1 s count ]
+[i F6487
 -> -> 0 `i `uc
 ]
 "61
@@ -1495,17 +1498,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "63
 [; ;main.c: 63:         count++;
-[e ++ F6483 -> -> 1 `i `uc ]
+[e ++ F6487 -> -> 1 `i `uc ]
 "66
 [; ;main.c: 66:         if (count == 61) {
-[e $ ! == -> F6483 `i -> 61 `i 802  ]
+[e $ ! == -> F6487 `i -> 61 `i 802  ]
 {
 "67
 [; ;main.c: 67:             tmr1_flag = 1;
 [e = _tmr1_flag -> -> 1 `i `uc ]
 "68
 [; ;main.c: 68:             count = 0;
-[e = F6483 -> -> 0 `i `uc ]
+[e = F6487 -> -> 0 `i `uc ]
 "69
 [; ;main.c: 69:         }
 }
@@ -1680,23 +1683,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "143
 [; ;main.c: 143:             EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
 [e ( _EUSART_Write_Text (1 :s 10C ]
-"149
-[; ;main.c: 149:             RGB_color(1);
+"146
+[; ;main.c: 146:             RGB_color(1);
 [e ( _RGB_color (1 -> 1 `i ]
-"150
-[; ;main.c: 150:             currState = 2;
+"147
+[; ;main.c: 147:             currState = 2;
 [e = _currState -> -> 2 `i `uc ]
-"151
-[; ;main.c: 151:             break;
+"148
+[; ;main.c: 148:             break;
 [e $U 808  ]
-"152
-[; ;main.c: 152:         case 2:
+"149
+[; ;main.c: 149:         case 2:
 [e :U 814 ]
-"158
-[; ;main.c: 158:             break;
+"152
+[; ;main.c: 152:             AFE_UPDATE();
+[e ( _AFE_UPDATE ..  ]
+"155
+[; ;main.c: 155:             break;
 [e $U 808  ]
-"159
-[; ;main.c: 159:     }
+"156
+[; ;main.c: 156:     }
 }
 [e $U 808  ]
 [e :U 809 ]
@@ -1705,128 +1711,128 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 814
  808 ]
 [e :U 808 ]
-"160
-[; ;main.c: 160: }
+"157
+[; ;main.c: 157: }
 [e :UE 807 ]
 }
-"163
-[; ;main.c: 163: void initClock() {
+"160
+[; ;main.c: 160: void initClock() {
 [v _initClock `(v ~T0 @X0 1 ef ]
 {
 [e :U _initClock ]
 [f ]
-"165
-[; ;main.c: 165:     internal_16();
+"162
+[; ;main.c: 162:     internal_16();
 [e ( _internal_16 ..  ]
-"167
-[; ;main.c: 167: }
+"164
+[; ;main.c: 164: }
 [e :UE 815 ]
 }
-"172
-[; ;main.c: 172: void init_TMR1(void) {
+"169
+[; ;main.c: 169: void init_TMR1(void) {
 [v _init_TMR1 `(v ~T0 @X0 1 ef ]
 {
 [e :U _init_TMR1 ]
 [f ]
-"175
-[; ;main.c: 175:     T1CONbits.T1CKPS = 0b00;
+"172
+[; ;main.c: 172:     T1CONbits.T1CKPS = 0b00;
 [e = . . _T1CONbits 0 4 -> -> 0 `i `uc ]
-"177
-[; ;main.c: 177:     TMR1 = 0;
+"174
+[; ;main.c: 174:     TMR1 = 0;
 [e = _TMR1 -> -> 0 `i `us ]
-"179
-[; ;main.c: 179:     T1CONbits.TMR1ON = 1;
+"176
+[; ;main.c: 176:     T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"181
-[; ;main.c: 181:     PIE1bits.TMR1IE = 1;
+"178
+[; ;main.c: 178:     PIE1bits.TMR1IE = 1;
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-"183
-[; ;main.c: 183:     INTCONbits.PEIE = 1;
+"180
+[; ;main.c: 180:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"185
-[; ;main.c: 185:     (INTCONbits.GIE = 1);
+"182
+[; ;main.c: 182:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"187
-[; ;main.c: 187: }
+"184
+[; ;main.c: 184: }
 [e :UE 816 ]
 }
-"189
-[; ;main.c: 189: void init_GPIO() {
+"186
+[; ;main.c: 186: void init_GPIO() {
 [v _init_GPIO `(v ~T0 @X0 1 ef ]
 {
 [e :U _init_GPIO ]
 [f ]
-"195
-[; ;main.c: 195:     TRISBbits.TRISB2 = 0;
+"192
+[; ;main.c: 192:     TRISBbits.TRISB2 = 0;
 [e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-"196
-[; ;main.c: 196:     ANSELBbits.ANSB2 = 0;
+"193
+[; ;main.c: 193:     ANSELBbits.ANSB2 = 0;
 [e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-"197
-[; ;main.c: 197:     TRISBbits.TRISB3 = 1;
+"194
+[; ;main.c: 194:     TRISBbits.TRISB3 = 1;
 [e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
-"198
-[; ;main.c: 198:     ANSELBbits.ANSB3 = 0;
+"195
+[; ;main.c: 195:     ANSELBbits.ANSB3 = 0;
 [e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
-"203
-[; ;main.c: 203:     ANSELCbits.ANSC4 = 0;
+"200
+[; ;main.c: 200:     ANSELCbits.ANSC4 = 0;
 [e = . . _ANSELCbits 0 3 -> -> 0 `i `uc ]
-"204
-[; ;main.c: 204:     ANSELCbits.ANSC5 = 0;
+"201
+[; ;main.c: 201:     ANSELCbits.ANSC5 = 0;
 [e = . . _ANSELCbits 0 4 -> -> 0 `i `uc ]
-"205
-[; ;main.c: 205:     TRISCbits.TRISC4 = 1;
+"202
+[; ;main.c: 202:     TRISCbits.TRISC4 = 1;
 [e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-"206
-[; ;main.c: 206:     TRISCbits.TRISC5 = 1;
+"203
+[; ;main.c: 203:     TRISCbits.TRISC5 = 1;
 [e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-"215
-[; ;main.c: 215:     TRISAbits.TRISA4 = 0;
+"212
+[; ;main.c: 212:     TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"216
-[; ;main.c: 216:     TRISAbits.TRISA5 = 0;
+"213
+[; ;main.c: 213:     TRISAbits.TRISA5 = 0;
 [e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-"217
-[; ;main.c: 217:     TRISEbits.TRISE0 = 0;
+"214
+[; ;main.c: 214:     TRISEbits.TRISE0 = 0;
 [e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
-"223
-[; ;main.c: 223:     PPSLOCK = 0x55;
+"220
+[; ;main.c: 220:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
-"224
-[; ;main.c: 224:     PPSLOCK = 0xAA;
+"221
+[; ;main.c: 221:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
-"225
-[; ;main.c: 225:     PPSLOCKbits.PPSLOCKED = 0x00;
+"222
+[; ;main.c: 222:     PPSLOCKbits.PPSLOCKED = 0x00;
 [e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"229
-[; ;main.c: 229:     RC4PPSbits.RC4PPS = 0x0011;
+"226
+[; ;main.c: 226:     RC4PPSbits.RC4PPS = 0x0011;
 [e = . . _RC4PPSbits 0 0 -> -> 17 `i `uc ]
-"230
-[; ;main.c: 230:     SSPDATPPSbits.SSPDATPPS = 0x0014;
+"227
+[; ;main.c: 227:     SSPDATPPSbits.SSPDATPPS = 0x0014;
 [e = . . _SSPDATPPSbits 0 0 -> -> 20 `i `uc ]
-"231
-[; ;main.c: 231:     SSPCLKPPSbits.SSPCLKPPS = 0x0015;
+"228
+[; ;main.c: 228:     SSPCLKPPSbits.SSPCLKPPS = 0x0015;
 [e = . . _SSPCLKPPSbits 0 0 -> -> 21 `i `uc ]
-"232
-[; ;main.c: 232:     RC5PPSbits.RC5PPS = 0x0010;
+"229
+[; ;main.c: 229:     RC5PPSbits.RC5PPS = 0x0010;
 [e = . . _RC5PPSbits 0 0 -> -> 16 `i `uc ]
-"235
-[; ;main.c: 235:     RB2PPSbits.RB2PPS = 0x14;
+"232
+[; ;main.c: 232:     RB2PPSbits.RB2PPS = 0x14;
 [e = . . _RB2PPSbits 0 0 -> -> 20 `i `uc ]
-"236
-[; ;main.c: 236:     RXPPSbits.RXPPS = 0x0B;
+"233
+[; ;main.c: 233:     RXPPSbits.RXPPS = 0x0B;
 [e = . . _RXPPSbits 0 0 -> -> 11 `i `uc ]
-"238
-[; ;main.c: 238:     PPSLOCK = 0x55;
+"235
+[; ;main.c: 235:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
-"239
-[; ;main.c: 239:     PPSLOCK = 0xAA;
+"236
+[; ;main.c: 236:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
-"240
-[; ;main.c: 240:     PPSLOCKbits.PPSLOCKED = 0x01;
+"237
+[; ;main.c: 237:     PPSLOCKbits.PPSLOCKED = 0x01;
 [e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"242
-[; ;main.c: 242: }
+"239
+[; ;main.c: 239: }
 [e :UE 817 ]
 }
 [p f _snprintf 8463504 ]

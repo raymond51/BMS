@@ -1212,27 +1212,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;I2C.c: 88: }
 [e :UE 809 ]
 }
-"95
-[; ;I2C.c: 95: void retrieve_data_ATmega328(void) {
-[v _retrieve_data_ATmega328 `(v ~T0 @X0 1 ef ]
-{
-[e :U _retrieve_data_ATmega328 ]
-[f ]
-"97
-[; ;I2C.c: 97:     send_I2C_startBit();
-[e ( _send_I2C_startBit ..  ]
-"98
-[; ;I2C.c: 98:     send_I2C_controlByte(ATmega328_address, 1);
-[e ( _send_I2C_controlByte (2 , -> _ATmega328_address `ui -> -> 1 `i `ui ]
-"111
-[; ;I2C.c: 111:     send_I2C_stopBit();
-[e ( _send_I2C_stopBit ..  ]
-"113
-[; ;I2C.c: 113: }
-[e :UE 813 ]
-}
-"118
-[; ;I2C.c: 118: void I2C_writeRegister(int slaveAddress, int regAddress, int data) {
+"96
+[; ;I2C.c: 96: void I2C_writeRegister(int slaveAddress, int regAddress, int data) {
 [v _I2C_writeRegister `(v ~T0 @X0 1 ef3`i`i`i ]
 {
 [e :U _I2C_writeRegister ]
@@ -1240,68 +1221,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _regAddress `i ~T0 @X0 1 r2 ]
 [v _data `i ~T0 @X0 1 r3 ]
 [f ]
-"119
-[; ;I2C.c: 119:     send_I2C_startBit();
+"97
+[; ;I2C.c: 97:     send_I2C_startBit();
 [e ( _send_I2C_startBit ..  ]
-"120
-[; ;I2C.c: 120:     send_I2C_controlByte(slaveAddress, 0);
+"98
+[; ;I2C.c: 98:     send_I2C_controlByte(slaveAddress, 0);
 [e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 0 `i `ui ]
-"121
-[; ;I2C.c: 121:     send_I2C_data(regAddress);
+"99
+[; ;I2C.c: 99:     send_I2C_data(regAddress);
 [e ( _send_I2C_data (1 -> _regAddress `ui ]
-"122
-[; ;I2C.c: 122:     send_I2C_data(data);
+"100
+[; ;I2C.c: 100:     send_I2C_data(data);
 [e ( _send_I2C_data (1 -> _data `ui ]
-"123
-[; ;I2C.c: 123:     send_I2C_stopBit();
+"101
+[; ;I2C.c: 101:     send_I2C_stopBit();
 [e ( _send_I2C_stopBit ..  ]
-"124
-[; ;I2C.c: 124: }
-[e :UE 814 ]
+"102
+[; ;I2C.c: 102: }
+[e :UE 813 ]
 }
-"129
-[; ;I2C.c: 129: int readRegister(int slaveAddress, int regAddress) {
+"107
+[; ;I2C.c: 107: int readRegister(int slaveAddress, int regAddress) {
 [v _readRegister `(i ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _readRegister ]
 [v _slaveAddress `i ~T0 @X0 1 r1 ]
 [v _regAddress `i ~T0 @X0 1 r2 ]
 [f ]
-"130
-[; ;I2C.c: 130:     int recievedData;
+"108
+[; ;I2C.c: 108:     int recievedData;
 [v _recievedData `i ~T0 @X0 1 a ]
-"131
-[; ;I2C.c: 131:     send_I2C_startBit();
+"109
+[; ;I2C.c: 109:     send_I2C_startBit();
 [e ( _send_I2C_startBit ..  ]
-"132
-[; ;I2C.c: 132:     send_I2C_controlByte(slaveAddress, 0);
+"110
+[; ;I2C.c: 110:     send_I2C_controlByte(slaveAddress, 0);
 [e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 0 `i `ui ]
-"133
-[; ;I2C.c: 133:     send_I2C_data(regAddress);
+"111
+[; ;I2C.c: 111:     send_I2C_data(regAddress);
 [e ( _send_I2C_data (1 -> _regAddress `ui ]
-"134
-[; ;I2C.c: 134:     send_I2C_stopBit();
+"112
+[; ;I2C.c: 112:     send_I2C_stopBit();
 [e ( _send_I2C_stopBit ..  ]
-"135
-[; ;I2C.c: 135:     send_I2C_startBit();
+"113
+[; ;I2C.c: 113:     send_I2C_startBit();
 [e ( _send_I2C_startBit ..  ]
-"136
-[; ;I2C.c: 136:     send_I2C_controlByte(slaveAddress, 1);
+"114
+[; ;I2C.c: 114:     send_I2C_controlByte(slaveAddress, 1);
 [e ( _send_I2C_controlByte (2 , -> _slaveAddress `ui -> -> 1 `i `ui ]
-"137
-[; ;I2C.c: 137:     recievedData = read_I2C_data();
+"115
+[; ;I2C.c: 115:     recievedData = read_I2C_data();
 [e = _recievedData -> ( _read_I2C_data ..  `i ]
-"138
-[; ;I2C.c: 138:     send_I2C_NACK();
+"116
+[; ;I2C.c: 116:     send_I2C_NACK();
 [e ( _send_I2C_NACK ..  ]
-"139
-[; ;I2C.c: 139:     send_I2C_stopBit();
+"117
+[; ;I2C.c: 117:     send_I2C_stopBit();
 [e ( _send_I2C_stopBit ..  ]
-"140
-[; ;I2C.c: 140:     return recievedData;
+"118
+[; ;I2C.c: 118:     return recievedData;
 [e ) _recievedData ]
-[e $UE 815  ]
-"141
-[; ;I2C.c: 141: }
-[e :UE 815 ]
+[e $UE 814  ]
+"119
+[; ;I2C.c: 119: }
+[e :UE 814 ]
 }

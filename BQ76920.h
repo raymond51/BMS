@@ -63,6 +63,8 @@ void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
 void setCellUndervoltageProtection(int voltage_mv, int delay_s);
 void setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
+void AFE_UPDATE(void);
+
 //Printout serial monitor helper functions -------------------------------------
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);

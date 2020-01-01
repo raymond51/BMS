@@ -10,6 +10,7 @@ void init_AFE(void) {
     setCellUndervoltageProtection(2900, 2); //set cell under voltage protection
     setCellOvervoltageProtection(4100,2);//set cell overvoltage protection
 
+    //***Balance algorithms
     //set balancing threshold
     //set idle current threshold
     //enable auto cell balancing
@@ -156,10 +157,13 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
             protect3.bits.UV_DELAY = i;
         }
     }
-    I2C_writeRegister(PROTECT3, protect3.regByte);
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS,PROTECT3, protect3.regByte);
 }
 
+void AFE_UPDATE(){
 
+
+}
 
 /**************************************************************
  * Printout serial monitor helper functions
