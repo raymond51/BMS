@@ -24,9 +24,6 @@
 #define bq76920 1
 #define AFE_BQ76920_I2C_ADDRESS 0x18
 
-//cell data
-int cellVoltages[MAX_NUMBER_OF_CELLS]; // mV
-
 
 // output information to serial console for debugging, comment out to remove
 #define BQ76920_DEBUG
@@ -41,9 +38,14 @@ int minCellTempDischarge;
 int maxCellTempCharge;
 int maxCellTempDischarge;
 
-//cell Voltages
-int maxCellVoltage;
+//cell parameters
+int numberOfCells;
+int cellVoltages[MAX_NUMBER_OF_CELLS];          // mV
+int maxCellVoltage; //read from eeprom and compared with varying batvoltage
 int minCellVoltage;
+long batVoltage;                                // mV
+long batCurrent;                                // mA
+int temperatures[MAX_NUMBER_OF_THERMISTORS];    // °C/10
 
 //Static variables - //When a global variable is made static, its scope is restricted to the current file.
 
@@ -65,12 +67,18 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
 void AFE_UPDATE(void);
 
+void updateCurrent(void);
+void updateVoltages(void);
+void updateTemperatures(void);
+
 //Printout serial monitor helper functions -------------------------------------
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
 
 void printotAFERegisters(void);
+void printcellVoltages(void);
+
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

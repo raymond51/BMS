@@ -10487,14 +10487,7 @@ void EUSART_Write(uint8_t txData);
 void EUSART_Write_Text(char *text);
 void EUSART_Read_Text(char *Output, unsigned int length);
 # 16 "./BQ76920.h" 2
-# 28 "./BQ76920.h"
-int cellVoltages[5];
-
-
-
-
-
-
+# 32 "./BQ76920.h"
 int adcGain;
 int adcOffset;
 
@@ -10505,8 +10498,13 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
+int numberOfCells;
+int cellVoltages[5];
 int maxCellVoltage;
 int minCellVoltage;
+long batVoltage;
+long batCurrent;
+int temperatures[1];
 
 
 
@@ -10528,12 +10526,17 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
 void AFE_UPDATE(void);
 
+void updateCurrent(void);
+void updateVoltages(void);
+void updateTemperatures(void);
+
 
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
 
 void printotAFERegisters(void);
+void printcellVoltages(void);
 # 1 "BQ76920.c" 2
 
 
@@ -10697,8 +10700,53 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
     I2C_writeRegister(0x18,0x08, protect3.regByte);
 }
 
+
+
+
 void AFE_UPDATE(){
 
+    updateVoltages();
+
+
+
+
+
+}
+
+
+
+
+void updateVoltages(){
+
+    long adcVal = 0;
+
+
+  adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
+  batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
+
+
+    send_I2C_startBit();
+    send_I2C_controlByte(0x18, 0);
+    send_I2C_data(0x0C);
+    send_I2C_stopBit();
+    send_I2C_startBit();
+    send_I2C_controlByte(0x18, 1);
+
+    for(int i=0;i<numberOfCells;i++){
+
+      adcVal = ((read_I2C_data() & 0x3F ) << 8) | read_I2C_data();
+
+
+
+
+
+      if(i<numberOfCells){ send_I2C_ACK(); }else{send_I2C_NACK(); }
+      cellVoltages[i] = adcVal * adcGain / 1000 + adcOffset;
+
+
+    }
+
+    send_I2C_stopBit();
 
 }
 
@@ -10718,6 +10766,10 @@ long AFE_getOverCurrentDischargeCurrent() {
     return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
 }
 
+void printcellVoltages() {
+    snprintf(messageBuffer, 127, "Cell batt: %i ,%i, %i , %i, %i, %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
+    EUSART_Write_Text(messageBuffer);
+ }
 void printotAFERegisters() {
 
     _delay((unsigned long)((5)*(16000000/4000.0)));

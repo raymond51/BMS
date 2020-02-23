@@ -21,6 +21,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h
 [v __delay `JF5530 ~T0 @X0 0 e ]
 [p i __delay ]
+"21 ./algorithms.h
+[; ;./algorithms.h: 21: void shutdown_BMS(void);
+[v _shutdown_BMS `(v ~T0 @X0 0 ef ]
 "2296 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 2296:     struct {
 [s S115 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1019,8 +1022,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;algorithms.c: 7:          _delay((unsigned long)((2000)*(16000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "8
-[; ;algorithms.c: 8:          LATAbits.LATA3 = 1;
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;algorithms.c: 8:         shutdown_BMS();
+[e ( _shutdown_BMS ..  ]
 "9
 [; ;algorithms.c: 9:     }
 }
@@ -1028,4 +1031,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10
 [; ;algorithms.c: 10: }
 [e :UE 784 ]
+}
+"12
+[; ;algorithms.c: 12: void shutdown_BMS(){
+[v _shutdown_BMS `(v ~T0 @X0 1 ef ]
+{
+[e :U _shutdown_BMS ]
+[f ]
+"13
+[; ;algorithms.c: 13:  LATAbits.LATA3 = 1;
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+"14
+[; ;algorithms.c: 14: }
+[e :UE 786 ]
 }

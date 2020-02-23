@@ -16,10 +16,9 @@
 #include "RGB.h"
 //const and variables ----------------------------------------------------------
 
-
 //function prototypes ----------------------------------------------------------
 void watchdog_timeout_shutdown(void);
-
+void shutdown_BMS(void);
 
 #endif
 

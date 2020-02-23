@@ -29,8 +29,8 @@
  **************************************************************/
 //states 
 #define AWAIT_AFE_CONN 0 //await for response from the AFE, response occurs after boot 
-#define AFE_INIT 1
-#define READ_AFE_DATA 2
+#define AFE_INIT 1 //provide the BQ AFE chip information via i2c
+#define READ_AFE_DATA 2 //state to constantly read and update the BQ AFE chip, also kick watchdog 
 
 
 //timer values
@@ -118,11 +118,15 @@ void statemachine(void) {
                     tmr1_flag = 0; //clear flag
 
 #ifdef BQ76920_DEBUG
+                    
                     __delay_ms(5); //allow time for i2c communication to end
                     EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r"); //print to terminal if success check 
+                    
                     snprintf(messageBuffer, messageBuf_size, "Obtained adcOffset = %i and adcGain = %i\n\r", adcOffset, adcGain);
                     EUSART_Write_Text(messageBuffer); //print to terminal if success check 
                     EUSART_Write_Text("Attempt to set initial system parameters to AFE...\n\r");
+                     
+                    
 #endif
                     currState = AFE_INIT; //move to next state if communication was successful check the return value
                 }
@@ -134,9 +138,12 @@ void statemachine(void) {
         case AFE_INIT:
             //initialise AFE
             init_AFE();
-
+            numberOfCells = 5; //initialise number of cells for BQ76920    
+            
 #ifdef BQ76920_DEBUG
             __delay_ms(5); //allow time for i2c communication to end
+            
+            
             EUSART_Write_Text("\n\r"); //newline
             snprintf(messageBuffer, messageBuf_size, "Current sense resistor value: %.4f ohms\n\r", AFE_getSetCurrentSenseRes());
             EUSART_Write_Text(messageBuffer);
@@ -157,7 +164,11 @@ void statemachine(void) {
             //enable the 1 second timer again
             AFE_UPDATE();//perform update 
             //once update complete enter sleep mode 
-            CLRWDT(); //kick watchdog, to reset WD timer
+            CLRWDT(); //kick watchdog, to reset WD timer. Software not stuck via hung i2c
+            
+            printcellVoltages();
+           //printotAFERegisters();//prints the data to the serial 
+            __delay_ms(5000); //allow time for i2c communication to end [delete once we use proper timer module] [update module must be called quite frequently i.e every 250ms]
             
             break;
     }

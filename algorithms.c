@@ -5,6 +5,10 @@ void watchdog_timeout_shutdown() {
     if (!STATUSbits.nTO) {
         RGB_color(RGB_RED);
          __delay_ms(2000); 
-         LATAbits.LATA3 = 1; //unlatch the relay  to shutdown bms system
+        shutdown_BMS();
     }
+}
+
+void shutdown_BMS(){
+ LATAbits.LATA3 = 1; //unlatch the relay to shutdown bms system
 }

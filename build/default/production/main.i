@@ -10514,14 +10514,7 @@ typedef union regVCELL
     uint16_t regWord;
 } regVCELL_t;
 # 14 "./BQ76920.h" 2
-# 28 "./BQ76920.h"
-int cellVoltages[5];
-
-
-
-
-
-
+# 32 "./BQ76920.h"
 int adcGain;
 int adcOffset;
 
@@ -10532,8 +10525,13 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
+int numberOfCells;
+int cellVoltages[5];
 int maxCellVoltage;
 int minCellVoltage;
+long batVoltage;
+long batCurrent;
+int temperatures[1];
 
 
 
@@ -10555,12 +10553,17 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s);
 
 void AFE_UPDATE(void);
 
+void updateCurrent(void);
+void updateVoltages(void);
+void updateTemperatures(void);
+
 
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
 
 void printotAFERegisters(void);
+void printcellVoltages(void);
 # 24 "main.c" 2
 
 # 1 "./algorithms.h" 1
@@ -10592,8 +10595,8 @@ void printotAFERegisters(void);
 
 
 
-
 void watchdog_timeout_shutdown(void);
+void shutdown_BMS(void);
 # 25 "main.c" 2
 # 43 "main.c"
 void initClock(void);
@@ -10674,11 +10677,15 @@ void statemachine(void) {
                     tmr1_flag = 0;
 
 
+
                     _delay((unsigned long)((5)*(16000000/4000.0)));
                     EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r");
+
                     snprintf(messageBuffer, 127, "Obtained adcOffset = %i and adcGain = %i\n\r", adcOffset, adcGain);
                     EUSART_Write_Text(messageBuffer);
                     EUSART_Write_Text("Attempt to set initial system parameters to AFE...\n\r");
+
+
 
                     currState = 1;
                 }
@@ -10690,9 +10697,12 @@ void statemachine(void) {
         case 1:
 
             init_AFE();
+            numberOfCells = 5;
 
 
             _delay((unsigned long)((5)*(16000000/4000.0)));
+
+
             EUSART_Write_Text("\n\r");
             snprintf(messageBuffer, 127, "Current sense resistor value: %.4f ohms\n\r", AFE_getSetCurrentSenseRes());
             EUSART_Write_Text(messageBuffer);
@@ -10714,6 +10724,10 @@ void statemachine(void) {
             AFE_UPDATE();
 
             __asm("clrwdt");
+
+            printcellVoltages();
+
+            _delay((unsigned long)((5000)*(16000000/4000.0)));
 
             break;
     }
@@ -10764,7 +10778,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 219 "main.c"
+# 230 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;
