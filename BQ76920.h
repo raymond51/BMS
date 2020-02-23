@@ -39,7 +39,6 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 //cell parameters
-int numberOfCells;
 int cellVoltages[MAX_NUMBER_OF_CELLS];          // mV
 int maxCellVoltage; //read from eeprom and compared with varying batvoltage
 int minCellVoltage;
@@ -77,7 +76,7 @@ float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
 
 void printotAFERegisters(void);
-void printcellVoltages(void);
+void printcellParameters(void);
 
 
 #endif	/* XC_HEADER_TEMPLATE_H */

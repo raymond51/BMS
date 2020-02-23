@@ -138,7 +138,7 @@ void statemachine(void) {
         case AFE_INIT:
             //initialise AFE
             init_AFE();
-            numberOfCells = 5; //initialise number of cells for BQ76920    
+         
             
 #ifdef BQ76920_DEBUG
             __delay_ms(5); //allow time for i2c communication to end
@@ -166,7 +166,7 @@ void statemachine(void) {
             //once update complete enter sleep mode 
             CLRWDT(); //kick watchdog, to reset WD timer. Software not stuck via hung i2c
             
-            printcellVoltages();
+            printcellParameters();
            //printotAFERegisters();//prints the data to the serial 
             __delay_ms(5000); //allow time for i2c communication to end [delete once we use proper timer module] [update module must be called quite frequently i.e every 250ms]
             

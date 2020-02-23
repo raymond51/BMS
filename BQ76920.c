@@ -164,7 +164,7 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
  @brief: Function to read values from AFE via i2c communication for cell info
  */
 void AFE_UPDATE(){
-    //updateCurrent();//update the current reading
+    updateCurrent();//update the current reading
     updateVoltages();//update the voltages reading from 5 cells
     //updateTemperatures();//update the temperature value reading from the battery pack
     //ypdate the balancing switch [for charging]
@@ -174,11 +174,37 @@ void AFE_UPDATE(){
 }
 
 /*
+ @brief: check if the flag CC new reading reg as it indicates new coulomb measurement
+ */
+void updateCurrent(){
+   int adcVal = 0;
+    regSYS_STAT_t sys_stat;
+    sys_stat.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS,SYS_STAT);
+    
+    /*
+    
+    if (sys_stat.bits.CC_READY == 1){
+       
+    adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, 0x32) << 8)| readRegister(AFE_BQ76920_I2C_ADDRESS, 0x33);
+    batCurrent = adcVal * 8.44 / 5.0;  // mA
+    
+    if (batCurrent > -10 && batCurrent < 10)
+    {
+      batCurrent = 0;
+    }
+    
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT, 0x80); // Clear CC ready flag by wriring 1 to it as specified in the datasheet
+    }
+     * */
+}
+
+/*
  @brief: reads all cell voltages to array cellVoltages and updates the battery pack voltage (access the cell voltage register which is two bytes long must be be bit shifted)
  */
 void updateVoltages(){
     
     long adcVal = 0;
+   
     
   // read battery pack voltage
   adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, BAT_HI_BYTE) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, BAT_LO_BYTE);
@@ -188,25 +214,31 @@ void updateVoltages(){
     send_I2C_startBit();
     send_I2C_controlByte(AFE_BQ76920_I2C_ADDRESS, WRITE);
     send_I2C_data(VC1_HI_BYTE);
-    send_I2C_stopBit();
-    send_I2C_startBit();
     send_I2C_controlByte(AFE_BQ76920_I2C_ADDRESS, READ);
     
-    for(int i=0;i<numberOfCells;i++){
-        
-      adcVal = ((read_I2C_data() & 0x3F ) << 8) | read_I2C_data();
+    
+    for(int i=0;i<(MAX_NUMBER_OF_CELLS);i++){
+     adcVal = 0;
+     
+     adcVal = ((read_I2C_data() & 0x3F ) << 8);
+     send_I2C_ACK();
+     adcVal = adcVal | read_I2C_data();
+     if(i<(MAX_NUMBER_OF_CELLS)){ send_I2C_ACK(); }else{send_I2C_NACK(); }
+     //(i < numberOfCells) ?  send_I2C_ACK() : send_I2C_NACK();
+     
+     cellVoltages[i] = adcVal * adcGain / 1000 + adcOffset;  
+
+     
       /*
       adcVal = ((read_I2C_data() & 0x3F ) << 8);
       send_I2C_ACK();
       adcVal = adcVal | read_I2C_data();
       */
-      if(i<numberOfCells){ send_I2C_ACK(); }else{send_I2C_NACK(); }
-      cellVoltages[i] = adcVal * adcGain / 1000 + adcOffset;
-      //(i < numberOfCells) ?  send_I2C_ACK() : send_I2C_NACK();
       
     }
-  
     send_I2C_stopBit();
+    
+
   
 }
 
@@ -226,8 +258,8 @@ long AFE_getOverCurrentDischargeCurrent() {
     return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
 }
 
-void printcellVoltages() {
-    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%i, %i , %i, %i, %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
+void printcellParameters() {
+    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%i, %i , %i, %i, %i Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);
     EUSART_Write_Text(messageBuffer);
  }
 void printotAFERegisters() {

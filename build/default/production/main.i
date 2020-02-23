@@ -10525,7 +10525,6 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
-int numberOfCells;
 int cellVoltages[5];
 int maxCellVoltage;
 int minCellVoltage;
@@ -10563,7 +10562,7 @@ float AFE_getSetCurrentSenseRes(void);
 long AFE_getOverCurrentDischargeCurrent(void);
 
 void printotAFERegisters(void);
-void printcellVoltages(void);
+void printcellParameters(void);
 # 24 "main.c" 2
 
 # 1 "./algorithms.h" 1
@@ -10697,7 +10696,7 @@ void statemachine(void) {
         case 1:
 
             init_AFE();
-            numberOfCells = 5;
+
 
 
             _delay((unsigned long)((5)*(16000000/4000.0)));
@@ -10725,7 +10724,7 @@ void statemachine(void) {
 
             __asm("clrwdt");
 
-            printcellVoltages();
+            printcellParameters();
 
             _delay((unsigned long)((5000)*(16000000/4000.0)));
 
