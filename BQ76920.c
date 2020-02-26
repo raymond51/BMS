@@ -206,12 +206,14 @@ void updateVoltages(){
   adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, BAT_HI_BYTE) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, BAT_LO_BYTE);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
   
-   //Functionality not 100%, concept remains. Started reading manually via byte address
-    /*
+   //Functionality not 100%, concept remains. Required to have repeated start but the function hangs on i2c. Started reading manually via byte address
+  /*
     //begin reading 
     send_I2C_startBit();
     send_I2C_controlByte(AFE_BQ76920_I2C_ADDRESS, WRITE);
     send_I2C_data(VC1_HI_BYTE);
+    //send_I2C_repeatedStartCondition();
+    //send_I2C_startBit();
     send_I2C_controlByte(AFE_BQ76920_I2C_ADDRESS, READ);
     for(int i=0;i<(MAX_NUMBER_OF_CELLS);i++){
      adcVal = 0;
@@ -223,8 +225,10 @@ void updateVoltages(){
      cellVoltages[i] = (adcVal * adcGain / 1000) + adcOffset;
     }
     send_I2C_stopBit();
-     */    
+    
+    */
 
+  
     adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC1_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC1_LO_BYTE);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC2_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC2_LO_BYTE);
@@ -236,8 +240,28 @@ void updateVoltages(){
     adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC5_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC5_LO_BYTE);
     cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
     
-    adcVal = 0;
 }
+
+/*
+ @brief: function to read the temperature on battery pack according to 10k NTC thermistor datasheet
+ */
+void updateTemperatures(){
+     float tmp = 0;
+     int adcVal = 0;
+     int vtsx = 0;
+     unsigned long rts = 0;
+     
+     adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, TS1_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, TS1_LO_BYTE);
+     vtsx = adcVal * 0.382; // mV
+     rts = 10000.0 * vtsx / (3300.0 - vtsx); // Ohm
+         // Temperature calculation using Beta equation
+    // - According to bq769x0 datasheet, only 10k thermistors should be used
+    // - 25°C reference temperature for Beta equation assumed
+     tmp = 1.0/(1.0/(273.15+25) + 1.0/thermistorBetaValue*log(rts/10000.0)); // K
+     temperatureThermistor = (tmp - 273.15) * 10.0;
+     
+}
+
 
 /**************************************************************
  * Printout serial monitor helper functions
@@ -256,9 +280,10 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);;
+    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor);;
     EUSART_Write_Text(messageBuffer);
  }
+
 void printotAFERegisters() {
 
     __delay_ms(5); //allow time for i2c communication to end
@@ -291,3 +316,4 @@ void printotAFERegisters() {
     EUSART_Write_Text(messageBuffer);
     EUSART_Write_Text("\n\r"); //newline
 }
+  

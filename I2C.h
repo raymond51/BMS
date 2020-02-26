@@ -33,6 +33,7 @@ void send_I2C_data(unsigned int databyte);
 unsigned int read_I2C_data(void);
 void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
 void send_I2C_startBit(void);
+void send_I2C_repeatedStartCondition(void); //experimental
 void send_I2C_stopBit(void);
 void send_I2C_ACK(void);
 void send_I2C_NACK(void);

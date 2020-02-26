@@ -10439,6 +10439,7 @@ void send_I2C_data(unsigned int databyte);
 unsigned int read_I2C_data(void);
 void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
 void send_I2C_startBit(void);
+void send_I2C_repeatedStartCondition(void);
 void send_I2C_stopBit(void);
 void send_I2C_ACK(void);
 void send_I2C_NACK(void);
@@ -10487,7 +10488,7 @@ void EUSART_Write(uint8_t txData);
 void EUSART_Write_Text(char *text);
 void EUSART_Read_Text(char *Output, unsigned int length);
 # 16 "./BQ76920.h" 2
-# 32 "./BQ76920.h"
+# 33 "./BQ76920.h"
 int adcGain=0;
 int adcOffset=0;
 
@@ -10503,8 +10504,8 @@ int maxCellVoltage;
 int minCellVoltage;
 long batVoltage=0;
 long batCurrent=0;
-int temperatures[1];
-
+int temperatureThermistor=0;
+int thermistorBetaValue = 3435;
 
 
 static float shuntResistorValue_mOhm;
@@ -10705,7 +10706,7 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 void AFE_UPDATE(){
 
     updateVoltages();
-
+    updateTemperatures();
 
 
 
@@ -10744,7 +10745,7 @@ void updateVoltages(){
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
-# 228 "BQ76920.c"
+# 232 "BQ76920.c"
     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
@@ -10756,7 +10757,23 @@ void updateVoltages(){
     adcVal = ((readRegister(0x18, 0x14) & 0x3F) << 8) | readRegister(0x18, 0x15);
     cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
 
-    adcVal = 0;
+}
+
+void updateTemperatures(){
+     float tmp = 0;
+     int adcVal = 0;
+     int vtsx = 0;
+     unsigned long rts = 0;
+
+     adcVal = ((readRegister(0x18, 0x2C) & 0x3F) << 8) | readRegister(0x18, 0x2D);
+     vtsx = adcVal * 0.382;
+     rts = 10000.0 * vtsx / (3300.0 - vtsx);
+
+
+
+     tmp = 1.0/(1.0/(273.15+25) + 1.0/thermistorBetaValue*logf(rts/10000.0));
+     temperatureThermistor = (tmp - 273.15) * 10.0;
+
 }
 
 
@@ -10776,9 +10793,10 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);;
+    snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor);;
     EUSART_Write_Text(messageBuffer);
  }
+
 void printotAFERegisters() {
 
     _delay((unsigned long)((5)*(16000000/4000.0)));

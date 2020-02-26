@@ -33,6 +33,7 @@ void init_I2C() {
 void send_I2C_data(unsigned int databyte) {
     PIR1bits.SSP1IF = 0; // clear SSP interrupt bit
     SSPBUF = databyte; // send databyte
+    
     while (!PIR1bits.SSP1IF); // Wait for interrupt flag to go high indicating transmission is complete
 }
 
@@ -64,6 +65,13 @@ void send_I2C_controlByte(unsigned int BlockAddress, unsigned int RW_bit) {
 void send_I2C_startBit(void) {
     PIR1bits.SSP1IF = 0; // clear SSP interrupt bit
     SSPCON2bits.SEN = 1; // send start bit
+    while (!PIR1bits.SSP1IF); // Wait for the SSPIF bit to go back high before we load the data buffer
+}
+
+
+void send_I2C_repeatedStartCondition(void) {
+    PIR1bits.SSP1IF = 0; // clear SSP interrupt bit
+    SSPCON2bits.RSEN = 1; // send repeated start bit
     while (!PIR1bits.SSP1IF); // Wait for the SSPIF bit to go back high before we load the data buffer
 }
 

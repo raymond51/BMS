@@ -917,7 +917,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 55 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
 static int flags, prec, width;
 # 66 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
-static char dbuf[80];
+static char dbuf[32];
 
 
 static int nout;
@@ -1005,197 +1005,7 @@ static int dtoa(FILE *fp, long long d)
 
     return pad(fp, &dbuf[i], w);
 }
-
-
-
-static int efgtoa(FILE *fp, long double f, char c)
-{
-    char mode, nmode;
-    int d, e, i, m, n, ne, p, pp, sign, t, w;
-    long double g, h, l, ou, u;
-
-
-    sign = 0;
-    g = f;
-    if (g < 0.0) {
-        sign = 1;
-        g = -g;
-    }
-
-
-    n = 0;
-    w = width;
-    if (sign || (flags & (1 << 2))) {
-        dbuf[n] = sign ? '-' : '+';
-        ++n;
-        --w;
-    }
-
-
-    if (( __fpclassifyf(g) == 1 )) {
-        if ((0 ? isupper((int)c) : ((unsigned)((int)c)-'A') < 26)) {
-            strcpy(&dbuf[n], "INF");
-        } else {
-            strcpy(&dbuf[n], "inf");
-        }
-        w -= ((sizeof("inf")/sizeof("inf"[0]))-1);
-        return pad(fp, &dbuf[0], w);
-    }
-    if (( __fpclassifyf(g) == 0 )) {
-        if ((0 ? isupper((int)c) : ((unsigned)((int)c)-'A') < 26)) {
-            strcpy(&dbuf[n], "NAN");
-        } else {
-            strcpy(&dbuf[n], "nan");
-        }
-        w -= ((sizeof("inf")/sizeof("inf"[0]))-1);
-        return pad(fp, &dbuf[0], w);
-    }
-
-
-    u = 1.0;
-    e = 0;
-    if (!(g == 0.0)) {
-        while (!(g < (u*10.0))) {
-            u = u*10.0;
-            ++e;
-        }
-        while (g < u) {
-            u = u/10.0;
-            --e;
-        }
-    }
-
-
-    mode = tolower((int)c);
-    nmode = mode;
-    if (mode == 'g') {
-  if (prec == 0) {
-   prec = 1;
-  }
-        p = (0 < prec) ? prec : 6;
-    } else {
-        p = (prec < 0) ? 6 : prec;
-    }
-
-
-    if (mode == 'g') {
-        if (!(e < -4) && !((p - 1) < e)) {
-            nmode = 'f';
-        } else {
-            nmode = 'e';
-        }
-    }
-
-
-    m = p;
-    if (!(mode == 'g') || ((nmode == 'f') && (e < 0))) {
-        ++m;
-    }
-
-
-    if (nmode == 'f') {
-        if (e < 0) {
-            u = 1.0;
-            e = 0;
-        }
-        if (!(mode == 'g')) {
-            m += e;
-        }
-    }
-
-
-    i = 0;
-    h = g;
-    ou = u;
-    while (i < m) {
-        l = floorf(h/u);
-        d = (int)l;
-        h -= l*u;
-        u = u/10.0;
-        ++i;
-    }
-
-
-    l = u*5.0;
-    if (h < l) {
-        l = 0.0;
-    } else {
-
-        if ((h == l) && !(d % 2)) {
-            l = 0.0;
-        }
-    }
-
-
-    h = g + l;
-
-
-    u = ou;
-    ne = (nmode == 'e') ? 0 : e;
-    pp = 0;
-    t = 0;
-    i = 0;
-    while ((i < m) && (n < (80 - 5))) {
-        l = floorf(h/u);
-        d = (int)l;
-        if (!(flags & (1 << 4)) && !d && (mode == 'g') && (ne < 0)) {
-            ++t;
-        } else {
-            if (!pp && (ne < 0)) {
-                dbuf[n++] = '.';
-                --w;
-                pp = 1;
-            }
-            while (t) {
-                dbuf[n++] = '0';
-                --w;
-                --t;
-            }
-            dbuf[n++] = '0' + d;
-            --w;
-        }
-        h -= l*u;
-        u = u/10.0;
-        --ne;
-        ++i;
-    }
-    if (!pp && (flags & (1 << 4))) {
-        dbuf[n++] = '.';
-    }
-    dbuf[n] = '\0';
-
-
-    if (nmode == 'e') {
-        i = sizeof(dbuf) - 1;
-        dbuf[i] = '\0';
-        sign = 0;
-        if (e < 0) {
-            sign = 1;
-            e = -e;
-        }
-        p = 2;
-        while (e || (0 < p)) {
-            --i;
-            dbuf[i] = '0' + (e % 10);
-            e = e / 10;
-            --p;
-            --w;
-        }
-        --i;
-        dbuf[i] = sign ? '-' : '+';
-        --w;
-        --i;
-        dbuf[i] = (0 ? isupper((int)c) : ((unsigned)((int)c)-'A') < 26) ? 'E' : 'e';
-        --w;
-        strcpy(&dbuf[n], &dbuf[i]);
-    }
-
-
-    return pad(fp, &dbuf[0], w);
-}
-
-
-
+# 507 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
 static int otoa(FILE *fp, unsigned long long d)
 {
     int i, p, t, w;
@@ -1442,17 +1252,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
                 }
             }
         }
-
-
-
-
-        ct[0] = tolower((int)(*fmt)[0]);
-        if (ct[0]) {
-            ct[1] = tolower((int)(*fmt)[1]);
-            if (ct[1]) {
-                ct[2] = tolower((int)(*fmt)[2]);
-            }
-        }
 # 792 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
         if (*fmt[0] == 'c') {
             ++*fmt;
@@ -1494,17 +1293,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
             return dtoa(fp, ll);
         }
-
-
-
-        if (!strncmp(*fmt, "ld", ((sizeof("ld")/sizeof("ld"[0]))-1)) || !strncmp(*fmt, "li", ((sizeof("li")/sizeof("li"[0]))-1))) {
-
-
-            *fmt += ((sizeof("ld")/sizeof("ld"[0]))-1);
-            ll = (long long)(*(long *)__va_arg(*(long **)ap, (long)0));
-
-            return dtoa(fp, ll);
-        }
 # 883 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
         if (!strncmp(*fmt, "zd", ((sizeof("zd")/sizeof("zd"[0]))-1)) || !strncmp(*fmt, "zi", ((sizeof("zi")/sizeof("zi"[0]))-1))) {
 
@@ -1513,27 +1301,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
             ll = (long long)(*(size_t *)__va_arg(*(size_t **)ap, (size_t)0));
 
             return dtoa(fp, ll);
-        }
-# 920 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
-        if (ct[0] == 'f') {
-
-            c = (*fmt)[0];
-            ++*fmt;
-            f = (long double)(*(double *)__va_arg(*(double **)ap, (double)0));
-
-            return efgtoa(fp, f, c);
-        }
-        if (!strncmp(ct, "lf", ((sizeof("lf")/sizeof("lf"[0]))-1))) {
-
-            c = (*fmt)[1];
-            if ((0 ? isupper((int)(*fmt)[0]) : ((unsigned)((int)(*fmt)[0])-'A') < 26)) {
-                f = (*(long double *)__va_arg(*(long double **)ap, (long double)0));
-            } else {
-                f = (long double)(*(double *)__va_arg(*(double **)ap, (double)0));
-            }
-            *fmt += ((sizeof("lf")/sizeof("lf"[0]))-1);
-
-            return efgtoa(fp, f, c);
         }
 # 969 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
         if (!strncmp(*fmt, "hho", ((sizeof("hho")/sizeof("hho"[0]))-1))) {
@@ -1561,16 +1328,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
             ++*fmt;
             llu = (unsigned long long)(*(unsigned int *)__va_arg(*(unsigned int **)ap, (unsigned int)0));
-
-            return otoa(fp, llu);
-        }
-
-
-
-        if (!strncmp(*fmt, "lo", ((sizeof("lo")/sizeof("lo"[0]))-1))) {
-
-            *fmt += ((sizeof("lo")/sizeof("lo"[0]))-1);
-            llu = (unsigned long long)(*(unsigned long *)__va_arg(*(unsigned long **)ap, (unsigned long)0));
 
             return otoa(fp, llu);
         }
@@ -1612,15 +1369,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
             ++*fmt;
             vp = (void *)(*(int * *)__va_arg(*(int * **)ap, (int *)0));
             *(int *)vp = nout;
-            return 0;
-        }
-
-
-        if (!strncmp(*fmt, "ln", ((sizeof("ln")/sizeof("ln"[0]))-1))) {
-
-            *fmt += ((sizeof("ln")/sizeof("ln"[0]))-1);
-            vp = (void *)(*(long * *)__va_arg(*(long * **)ap, (long *)0));
-            *(long *)vp = (long)nout;
             return 0;
         }
 # 1125 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
@@ -1688,16 +1436,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
             return utoa(fp, llu);
         }
-
-
-
-        if (!strncmp(*fmt, "lu", ((sizeof("lu")/sizeof("lu"[0]))-1))) {
-
-            *fmt += ((sizeof("lu")/sizeof("lu"[0]))-1);
-            llu = (unsigned long long)(*(unsigned long *)__va_arg(*(unsigned long **)ap, (unsigned long)0));
-
-            return utoa(fp, llu);
-        }
 # 1236 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\sources\\c99\\common\\doprnt.c"
         if (!strncmp(*fmt, "zu", ((sizeof("zu")/sizeof("zu"[0]))-1))) {
 
@@ -1742,18 +1480,6 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
             c = (*fmt)[0];
             ++*fmt;
             llu = (unsigned long long)(*(unsigned int *)__va_arg(*(unsigned int **)ap, (unsigned int)0));
-
-            return xtoa(fp, llu, c);
-        }
-
-
-
-        if (!strncmp(*fmt, "lx", ((sizeof("lx")/sizeof("lx"[0]))-1)) || !strncmp(*fmt, "lX", ((sizeof("lX")/sizeof("lX"[0]))-1))) {
-
-
-            c = (*fmt)[1];
-            *fmt += ((sizeof("lx")/sizeof("lx"[0]))-1);
-            llu = (unsigned long long)(*(unsigned long *)__va_arg(*(unsigned long **)ap, (unsigned long)0));
 
             return xtoa(fp, llu, c);
         }

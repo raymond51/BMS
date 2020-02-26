@@ -14,19 +14,20 @@
 #include "BQ76920_registers.h"
 #include "I2C.h"
 #include "EUSART.h"
+#include <math.h>
 
 //array size macro
 #define arrSize(x)  (sizeof(x) / sizeof((x)[0]))
 
 #define MAX_NUMBER_OF_CELLS 5
-#define MAX_NUMBER_OF_THERMISTORS 1
+
 // IC type/size
 #define bq76920 1
 #define AFE_BQ76920_I2C_ADDRESS 0x18
 
 
 // output information to serial console for debugging, comment out to remove
-#define BQ76920_DEBUG
+//#define BQ76920_DEBUG
 
 
 int adcGain=0; // uV/LSB values updated during beginnging of communication with AFE
@@ -44,8 +45,8 @@ int maxCellVoltage; //read from eeprom and compared with varying batvoltage
 int minCellVoltage;
 long batVoltage=0;                                // mV
 long batCurrent=0;                                // mA
-int temperatures[MAX_NUMBER_OF_THERMISTORS];    // °C/10
-
+int temperatureThermistor=0;    // °C/10
+int thermistorBetaValue = 3435;  // typical value for Semitec 103AT-5 thermistor
 //Static variables - //When a global variable is made static, its scope is restricted to the current file.
 
 static float shuntResistorValue_mOhm; //Shunt resistor value

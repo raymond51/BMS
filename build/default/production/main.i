@@ -10338,6 +10338,7 @@ void send_I2C_data(unsigned int databyte);
 unsigned int read_I2C_data(void);
 void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
 void send_I2C_startBit(void);
+void send_I2C_repeatedStartCondition(void);
 void send_I2C_stopBit(void);
 void send_I2C_ACK(void);
 void send_I2C_NACK(void);
@@ -10514,7 +10515,7 @@ typedef union regVCELL
     uint16_t regWord;
 } regVCELL_t;
 # 14 "./BQ76920.h" 2
-# 32 "./BQ76920.h"
+# 33 "./BQ76920.h"
 int adcGain=0;
 int adcOffset=0;
 
@@ -10530,8 +10531,8 @@ int maxCellVoltage;
 int minCellVoltage;
 long batVoltage=0;
 long batCurrent=0;
-int temperatures[1];
-
+int temperatureThermistor=0;
+int thermistorBetaValue = 3435;
 
 
 static float shuntResistorValue_mOhm;
@@ -10667,25 +10668,14 @@ void statemachine(void) {
                 uint8_t success = beginAFEcommunication();
 
 
-                EUSART_Write_Text("Attempting to communicate with AFE...\n\r");
+
 
                 if (success) {
                     T1CONbits.TMR1ON = 0;
                     PIE1bits.TMR1IE = 0;
                     RGB_color(0);
                     tmr1_flag = 0;
-
-
-
-                    _delay((unsigned long)((5)*(16000000/4000.0)));
-                    EUSART_Write_Text("Communication with BQ76920 AFE established!\n\r");
-
-                    snprintf(messageBuffer, 127, "Obtained adcOffset = %i and adcGain = %i\n\r", adcOffset, adcGain);
-                    EUSART_Write_Text(messageBuffer);
-                    EUSART_Write_Text("Attempt to set initial system parameters to AFE...\n\r");
-
-
-
+# 131 "main.c"
                     currState = 1;
                 }
 
@@ -10696,24 +10686,7 @@ void statemachine(void) {
         case 1:
 
             init_AFE();
-
-
-
-            _delay((unsigned long)((5)*(16000000/4000.0)));
-
-
-            EUSART_Write_Text("\n\r");
-            snprintf(messageBuffer, 127, "Current sense resistor value: %.4f ohms\n\r", AFE_getSetCurrentSenseRes());
-            EUSART_Write_Text(messageBuffer);
-            snprintf(messageBuffer, 127, "Set short circuit current for AFE: %lu mA\n\r", AFE_getSetShortCircuitCurrent());
-            EUSART_Write_Text(messageBuffer);
-            snprintf(messageBuffer, 127, "Set Over-current discharge protection  for AFE: %lu mA\n\r", AFE_getOverCurrentDischargeCurrent());
-            EUSART_Write_Text(messageBuffer);
-            printotAFERegisters();
-            EUSART_Write_Text("Initial parameters for BQ76920 AFE set!\n\r");
-            EUSART_Write_Text("Now reading AFE data at regular intervals.\n\r");
-
-
+# 159 "main.c"
             RGB_color(1);
             currState = 2;
             break;
