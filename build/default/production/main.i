@@ -10557,6 +10557,9 @@ void updateCurrent(void);
 void updateVoltages(void);
 void updateTemperatures(void);
 
+void enableDischarging(unsigned int enable);
+void enableCharging(unsigned int enable);
+
 
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);

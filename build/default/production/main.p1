@@ -109,8 +109,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "68
 [; ;./BQ76920.h: 68: void AFE_UPDATE(void);
 [v _AFE_UPDATE `(v ~T0 @X0 0 ef ]
-"80
-[; ;./BQ76920.h: 80: void printcellParameters(void);
+"83
+[; ;./BQ76920.h: 83: void printcellParameters(void);
 [v _printcellParameters `(v ~T0 @X0 0 ef ]
 "53 ./pic16f1719_internals.h
 [; ;./pic16f1719_internals.h: 53: void internal_16(void);
@@ -1567,8 +1567,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "61
 [; ;main.c: 61:     static uint8_t count = 0;
-[v F6499 `uc ~T0 @X0 1 s count ]
-[i F6499
+[v F6503 `uc ~T0 @X0 1 s count ]
+[i F6503
 -> -> 0 `i `uc
 ]
 "63
@@ -1580,17 +1580,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "65
 [; ;main.c: 65:         count++;
-[e ++ F6499 -> -> 1 `i `uc ]
+[e ++ F6503 -> -> 1 `i `uc ]
 "68
 [; ;main.c: 68:         if (count == 61) {
-[e $ ! == -> F6499 `i -> 61 `i 802  ]
+[e $ ! == -> F6503 `i -> 61 `i 802  ]
 {
 "69
 [; ;main.c: 69:             tmr1_flag = 1;
 [e = _tmr1_flag -> -> 1 `i `uc ]
 "70
 [; ;main.c: 70:             count = 0;
-[e = F6499 -> -> 0 `i `uc ]
+[e = F6503 -> -> 0 `i `uc ]
 "71
 [; ;main.c: 71:         }
 }

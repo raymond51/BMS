@@ -167,9 +167,10 @@ void AFE_UPDATE(){
     //updateCurrent();//update the current reading
     updateVoltages();//update the voltages reading from 5 cells
     //updateTemperatures();//update the temperature value reading from the battery pack
+    
     //ypdate the balancing switch [for charging]
-    //enable dicharging [held in SYS_CTRL2 on 2nd bit]
-    //enable charging [held in SYS_CTRL2 on 1st bit]
+    enableDischarging(0);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
+    enableCharging(0);//enable charging [held in SYS_CTRL2 on 1st bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
 
 }
 
@@ -225,10 +226,8 @@ void updateVoltages(){
      cellVoltages[i] = (adcVal * adcGain / 1000) + adcOffset;
     }
     send_I2C_stopBit();
-    
     */
 
-  
     adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC1_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC1_LO_BYTE);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC2_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC2_LO_BYTE);
@@ -262,6 +261,29 @@ void updateTemperatures(){
      
 }
 
+/*
+ @brief: function to set the AFE to enable the discharge fet, function can only be enabled if not serious fault detected
+ */
+void enableDischarging(unsigned int enable){
+    uint8_t sys_ctrl2;
+    sys_ctrl2 = readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2);
+    if(enable){
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2, sys_ctrl2 | 0x02); // switch DSCHG on
+    }else{
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2, sys_ctrl2 & ~(0x02));
+    }
+}
+
+void enableCharging(unsigned int enable){
+    uint8_t sys_ctrl2;
+    sys_ctrl2 = readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2);
+    if(enable){
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2, sys_ctrl2 | 0x01); // switch CHG on
+    }else{
+    I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2, sys_ctrl2 & ~(0x01));
+    }
+}
+
 
 /**************************************************************
  * Printout serial monitor helper functions
@@ -280,7 +302,10 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor);;
+    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
+
     EUSART_Write_Text(messageBuffer);
  }
 

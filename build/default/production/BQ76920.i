@@ -10530,6 +10530,9 @@ void updateCurrent(void);
 void updateVoltages(void);
 void updateTemperatures(void);
 
+void enableDischarging(unsigned int enable);
+void enableCharging(unsigned int enable);
+
 
 long AFE_getSetShortCircuitCurrent(void);
 float AFE_getSetCurrentSenseRes(void);
@@ -10706,10 +10709,11 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 void AFE_UPDATE(){
 
     updateVoltages();
-    updateTemperatures();
 
 
 
+    enableDischarging(0);
+    enableCharging(0);
 
 }
 
@@ -10745,7 +10749,7 @@ void updateVoltages(){
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
-# 232 "BQ76920.c"
+# 231 "BQ76920.c"
     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
@@ -10758,6 +10762,9 @@ void updateVoltages(){
     cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
 
 }
+
+
+
 
 void updateTemperatures(){
      float tmp = 0;
@@ -10779,6 +10786,30 @@ void updateTemperatures(){
 
 
 
+void enableDischarging(unsigned int enable){
+    uint8_t sys_ctrl2;
+    sys_ctrl2 = readRegister(0x18, 0x05);
+    if(enable){
+    I2C_writeRegister(0x18, 0x05, sys_ctrl2 | 0x02);
+    }else{
+    I2C_writeRegister(0x18, 0x05, sys_ctrl2 & ~(0x02));
+    }
+}
+
+void enableCharging(unsigned int enable){
+    uint8_t sys_ctrl2;
+    sys_ctrl2 = readRegister(0x18, 0x05);
+    if(enable){
+    I2C_writeRegister(0x18, 0x05, sys_ctrl2 | 0x01);
+    }else{
+    I2C_writeRegister(0x18, 0x05, sys_ctrl2 & ~(0x01));
+    }
+}
+
+
+
+
+
 
 float AFE_getSetCurrentSenseRes() {
     return (float) shuntResistorValue_mOhm;
@@ -10793,7 +10824,10 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor);;
+    snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(0x18, 0x05));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
+
     EUSART_Write_Text(messageBuffer);
  }
 
