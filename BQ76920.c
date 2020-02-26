@@ -164,7 +164,7 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
  @brief: Function to read values from AFE via i2c communication for cell info
  */
 void AFE_UPDATE(){
-    updateCurrent();//update the current reading
+    //updateCurrent();//update the current reading
     updateVoltages();//update the voltages reading from 5 cells
     //updateTemperatures();//update the temperature value reading from the battery pack
     //ypdate the balancing switch [for charging]
@@ -180,12 +180,10 @@ void updateCurrent(){
    int adcVal = 0;
     regSYS_STAT_t sys_stat;
     sys_stat.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS,SYS_STAT);
-    
-    /*
-    
+   
     if (sys_stat.bits.CC_READY == 1){
        
-    adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, 0x32) << 8)| readRegister(AFE_BQ76920_I2C_ADDRESS, 0x33);
+    adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, CC_HI_BYTE) << 8)| readRegister(AFE_BQ76920_I2C_ADDRESS, CC_LO_BYTE);
     batCurrent = adcVal * 8.44 / 5.0;  // mA
     
     if (batCurrent > -10 && batCurrent < 10)
@@ -195,7 +193,7 @@ void updateCurrent(){
     
     I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT, 0x80); // Clear CC ready flag by wriring 1 to it as specified in the datasheet
     }
-     * */
+     
 }
 
 /*
@@ -203,43 +201,42 @@ void updateCurrent(){
  */
 void updateVoltages(){
     
-    long adcVal = 0;
-   
-    
+  long adcVal = 0;
   // read battery pack voltage
   adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, BAT_HI_BYTE) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, BAT_LO_BYTE);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
   
+   //Functionality not 100%, concept remains. Started reading manually via byte address
+    /*
     //begin reading 
     send_I2C_startBit();
     send_I2C_controlByte(AFE_BQ76920_I2C_ADDRESS, WRITE);
     send_I2C_data(VC1_HI_BYTE);
     send_I2C_controlByte(AFE_BQ76920_I2C_ADDRESS, READ);
-    
-    
     for(int i=0;i<(MAX_NUMBER_OF_CELLS);i++){
      adcVal = 0;
-     
      adcVal = ((read_I2C_data() & 0x3F ) << 8);
      send_I2C_ACK();
      adcVal = adcVal | read_I2C_data();
      if(i<(MAX_NUMBER_OF_CELLS)){ send_I2C_ACK(); }else{send_I2C_NACK(); }
      //(i < numberOfCells) ?  send_I2C_ACK() : send_I2C_NACK();
-     
-     cellVoltages[i] = adcVal * adcGain / 1000 + adcOffset;  
-
-     
-      /*
-      adcVal = ((read_I2C_data() & 0x3F ) << 8);
-      send_I2C_ACK();
-      adcVal = adcVal | read_I2C_data();
-      */
-      
+     cellVoltages[i] = (adcVal * adcGain / 1000) + adcOffset;
     }
     send_I2C_stopBit();
-    
+     */    
 
-  
+    adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC1_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC1_LO_BYTE);
+    cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC2_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC2_LO_BYTE);
+    cellVoltages[1] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC3_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC3_LO_BYTE);
+    cellVoltages[2] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC4_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC4_LO_BYTE);
+    cellVoltages[3] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, VC5_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, VC5_LO_BYTE);
+    cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
+    
+    adcVal = 0;
 }
 
 /**************************************************************
@@ -259,7 +256,7 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%i, %i , %i, %i, %i Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);
+    snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);;
     EUSART_Write_Text(messageBuffer);
  }
 void printotAFERegisters() {

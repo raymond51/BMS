@@ -29,8 +29,8 @@
 #define BQ76920_DEBUG
 
 
-int adcGain; // uV/LSB
-int adcOffset; // mV
+int adcGain=0; // uV/LSB values updated during beginnging of communication with AFE
+int adcOffset=0; // mV
 
 // Temperature limits (°C/10)
 int minCellTempCharge;
@@ -42,8 +42,8 @@ int maxCellTempDischarge;
 int cellVoltages[MAX_NUMBER_OF_CELLS];          // mV
 int maxCellVoltage; //read from eeprom and compared with varying batvoltage
 int minCellVoltage;
-long batVoltage;                                // mV
-long batCurrent;                                // mA
+long batVoltage=0;                                // mV
+long batCurrent=0;                                // mA
 int temperatures[MAX_NUMBER_OF_THERMISTORS];    // °C/10
 
 //Static variables - //When a global variable is made static, its scope is restricted to the current file.

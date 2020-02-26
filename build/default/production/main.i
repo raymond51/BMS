@@ -10515,8 +10515,8 @@ typedef union regVCELL
 } regVCELL_t;
 # 14 "./BQ76920.h" 2
 # 32 "./BQ76920.h"
-int adcGain;
-int adcOffset;
+int adcGain=0;
+int adcOffset=0;
 
 
 int minCellTempCharge;
@@ -10528,8 +10528,8 @@ int maxCellTempDischarge;
 int cellVoltages[5];
 int maxCellVoltage;
 int minCellVoltage;
-long batVoltage;
-long batCurrent;
+long batVoltage=0;
+long batCurrent=0;
 int temperatures[1];
 
 

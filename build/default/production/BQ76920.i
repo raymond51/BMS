@@ -10488,8 +10488,8 @@ void EUSART_Write_Text(char *text);
 void EUSART_Read_Text(char *Output, unsigned int length);
 # 16 "./BQ76920.h" 2
 # 32 "./BQ76920.h"
-int adcGain;
-int adcOffset;
+int adcGain=0;
+int adcOffset=0;
 
 
 int minCellTempCharge;
@@ -10501,8 +10501,8 @@ int maxCellTempDischarge;
 int cellVoltages[5];
 int maxCellVoltage;
 int minCellVoltage;
-long batVoltage;
-long batCurrent;
+long batVoltage=0;
+long batCurrent=0;
 int temperatures[1];
 
 
@@ -10703,7 +10703,7 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 
 
 void AFE_UPDATE(){
-    updateCurrent();
+
     updateVoltages();
 
 
@@ -10719,7 +10719,20 @@ void updateCurrent(){
    int adcVal = 0;
     regSYS_STAT_t sys_stat;
     sys_stat.regByte = readRegister(0x18,0x00);
-# 199 "BQ76920.c"
+
+    if (sys_stat.bits.CC_READY == 1){
+
+    adcVal = (readRegister(0x18, 0x32) << 8)| readRegister(0x18, 0x33);
+    batCurrent = adcVal * 8.44 / 5.0;
+
+    if (batCurrent > -10 && batCurrent < 10)
+    {
+      batCurrent = 0;
+    }
+
+    I2C_writeRegister(0x18, 0x00, 0x80);
+    }
+
 }
 
 
@@ -10727,36 +10740,23 @@ void updateCurrent(){
 
 void updateVoltages(){
 
-    long adcVal = 0;
-
-
+  long adcVal = 0;
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
+# 228 "BQ76920.c"
+    adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
+    cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
+    cellVoltages[1] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(0x18, 0x10) & 0x3F) << 8) | readRegister(0x18, 0x11);
+    cellVoltages[2] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(0x18, 0x12) & 0x3F) << 8) | readRegister(0x18, 0x13);
+    cellVoltages[3] = (adcVal * adcGain / 1000) + adcOffset;
+    adcVal = ((readRegister(0x18, 0x14) & 0x3F) << 8) | readRegister(0x18, 0x15);
+    cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
 
-
-    send_I2C_startBit();
-    send_I2C_controlByte(0x18, 0);
-    send_I2C_data(0x0C);
-    send_I2C_controlByte(0x18, 1);
-
-
-    for(int i=0;i<(5);i++){
-     adcVal = 0;
-
-     adcVal = ((read_I2C_data() & 0x3F ) << 8);
-     send_I2C_ACK();
-     adcVal = adcVal | read_I2C_data();
-     if(i<(5)){ send_I2C_ACK(); }else{send_I2C_NACK(); }
-
-
-     cellVoltages[i] = adcVal * adcGain / 1000 + adcOffset;
-# 238 "BQ76920.c"
-    }
-    send_I2C_stopBit();
-
-
-
+    adcVal = 0;
 }
 
 
@@ -10776,7 +10776,7 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, 127, "Cell batt: %i ,%i, %i , %i, %i, %i Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);
+    snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent);;
     EUSART_Write_Text(messageBuffer);
  }
 void printotAFERegisters() {
