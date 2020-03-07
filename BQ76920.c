@@ -164,13 +164,13 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
  @brief: Function to read values from AFE via i2c communication for cell info
  */
 void AFE_UPDATE(){
-    //updateCurrent();//update the current reading
+    updateCurrent();//update the current reading
     updateVoltages();//update the voltages reading from 5 cells
     updateTemperatures();//update the temperature value reading from the battery pack
     
     //ypdate the balancing switch [for charging]
-    enableDischarging(0);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
-    enableCharging(0);//enable charging [held in SYS_CTRL2 on 1st bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
+    enableDischarging(1);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
+    enableCharging(1);//enable charging [held in SYS_CTRL2 on 1st bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
 
 }
 
@@ -182,10 +182,10 @@ void updateCurrent(){
     regSYS_STAT_t sys_stat;
     sys_stat.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS,SYS_STAT);
    
-    if (sys_stat.bits.CC_READY == 1){
+    //if (sys_stat.bits.CC_READY == 1){
        
     adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, CC_HI_BYTE) << 8)| readRegister(AFE_BQ76920_I2C_ADDRESS, CC_LO_BYTE);
-    batCurrent = adcVal * 8.44 / 5.0;  // mA
+    batCurrent = -(adcVal * 8.44 / 5.0);  // mA, invert polarity due to correct hardware orientation
     
     if (batCurrent > -10 && batCurrent < 10)
     {
@@ -193,7 +193,7 @@ void updateCurrent(){
     }
     
     I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT, 0x80); // Clear CC ready flag by wriring 1 to it as specified in the datasheet
-    }
+    //}
      
 }
 
@@ -257,7 +257,8 @@ void updateTemperatures(){
     // - According to bq769x0 datasheet, only 10k thermistors should be used
     // - 25°C reference temperature for Beta equation assumed
      //tmp = 1.0/(1.0/(273.15+25) + 1.0/thermistorBetaValue*log(rts/10000.0)); // K
-     
+    
+     //co-efficient a,b,c
      tmp = 1/ (-0.017428133935807 + 0.003137120345556*log(rts) + -0.000010382213834 *(log(rts)*log(rts)*log(rts)));
      
      temperatureThermistor = (tmp - 273.15)*100; 
@@ -308,6 +309,10 @@ void printcellParameters() {
     snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x00 SYS_STAT: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);

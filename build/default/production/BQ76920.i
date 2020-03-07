@@ -10754,13 +10754,13 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 
 
 void AFE_UPDATE(){
-
+    updateCurrent();
     updateVoltages();
     updateTemperatures();
 
 
-    enableDischarging(0);
-    enableCharging(0);
+    enableDischarging(1);
+    enableCharging(1);
 
 }
 
@@ -10772,10 +10772,10 @@ void updateCurrent(){
     regSYS_STAT_t sys_stat;
     sys_stat.regByte = readRegister(0x18,0x00);
 
-    if (sys_stat.bits.CC_READY == 1){
+
 
     adcVal = (readRegister(0x18, 0x32) << 8)| readRegister(0x18, 0x33);
-    batCurrent = adcVal * 8.44 / 5.0;
+    batCurrent = -(adcVal * 8.44 / 5.0);
 
     if (batCurrent > -10 && batCurrent < 10)
     {
@@ -10783,7 +10783,7 @@ void updateCurrent(){
     }
 
     I2C_writeRegister(0x18, 0x00, 0x80);
-    }
+
 
 }
 
@@ -10822,6 +10822,7 @@ void updateTemperatures(){
      adcVal = ((readRegister(0x18, 0x2C) & 0x3F) << 8) | readRegister(0x18, 0x2D);
      vtsx = adcVal * 0.382;
      rts = 10000.0 * vtsx / (3300.0 - vtsx);
+
 
 
 
@@ -10877,6 +10878,10 @@ void printcellParameters() {
     snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(0x18, 0x05));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
