@@ -10488,7 +10488,54 @@ void EUSART_Write(uint8_t txData);
 void EUSART_Write_Text(char *text);
 void EUSART_Read_Text(char *Output, unsigned int length);
 # 16 "./BQ76920.h" 2
-# 33 "./BQ76920.h"
+
+
+# 1 "./algorithms.h" 1
+# 15 "./algorithms.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = ON
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 15 "./algorithms.h" 2
+
+# 1 "./RGB.h" 1
+# 24 "./RGB.h"
+_Bool toggleColor = 0;
+
+
+
+void init_RGB();
+void RGB_color(int color);
+
+void RGB_AWAIT_AFE_CONN();
+# 16 "./algorithms.h" 2
+# 28 "./algorithms.h"
+uint8_t currState = 0;
+
+
+
+
+void watchdog_timeout_shutdown(void);
+void shutdown_BMS(void);
+# 18 "./BQ76920.h" 2
+# 36 "./BQ76920.h"
 int adcGain=0;
 int adcOffset=0;
 
@@ -10504,7 +10551,7 @@ int maxCellVoltage;
 int minCellVoltage;
 long batVoltage=0;
 long batCurrent=0;
-int temperatureThermistor=0;
+long temperatureThermistor=0;
 int thermistorBetaValue = 3435;
 
 
@@ -10709,7 +10756,7 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 void AFE_UPDATE(){
 
     updateVoltages();
-
+    updateTemperatures();
 
 
     enableDischarging(0);
@@ -10778,8 +10825,11 @@ void updateTemperatures(){
 
 
 
-     tmp = 1.0/(1.0/(273.15+25) + 1.0/thermistorBetaValue*logf(rts/10000.0));
-     temperatureThermistor = (tmp - 273.15) * 10.0;
+
+
+     tmp = 1/ (-0.017428133935807 + 0.003137120345556*logf(rts) + -0.000010382213834 *(logf(rts)*logf(rts)*logf(rts)));
+
+     temperatureThermistor = (tmp - 273.15)*100;
 
 }
 
@@ -10827,7 +10877,8 @@ void printcellParameters() {
     snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(0x18, 0x05));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
-
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
  }
 

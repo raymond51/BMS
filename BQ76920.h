@@ -15,6 +15,9 @@
 #include "I2C.h"
 #include "EUSART.h"
 #include <math.h>
+#include "algorithms.h"
+//----------------------------------DEFINES
+
 
 //array size macro
 #define arrSize(x)  (sizeof(x) / sizeof((x)[0]))
@@ -45,7 +48,7 @@ int maxCellVoltage; //read from eeprom and compared with varying batvoltage
 int minCellVoltage;
 long batVoltage=0;                                // mV
 long batCurrent=0;                                // mA
-int temperatureThermistor=0;    // °C/10
+long temperatureThermistor=0;    //in centi Temp 
 int thermistorBetaValue = 3435;  // typical value for Semitec 103AT-5 thermistor
 //Static variables - //When a global variable is made static, its scope is restricted to the current file.
 

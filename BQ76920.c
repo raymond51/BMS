@@ -166,7 +166,7 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 void AFE_UPDATE(){
     //updateCurrent();//update the current reading
     updateVoltages();//update the voltages reading from 5 cells
-    //updateTemperatures();//update the temperature value reading from the battery pack
+    updateTemperatures();//update the temperature value reading from the battery pack
     
     //ypdate the balancing switch [for charging]
     enableDischarging(0);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
@@ -256,9 +256,12 @@ void updateTemperatures(){
          // Temperature calculation using Beta equation
     // - According to bq769x0 datasheet, only 10k thermistors should be used
     // - 25°C reference temperature for Beta equation assumed
-     tmp = 1.0/(1.0/(273.15+25) + 1.0/thermistorBetaValue*log(rts/10000.0)); // K
-     temperatureThermistor = (tmp - 273.15) * 10.0;
+     //tmp = 1.0/(1.0/(273.15+25) + 1.0/thermistorBetaValue*log(rts/10000.0)); // K
      
+     tmp = 1/ (-0.017428133935807 + 0.003137120345556*log(rts) + -0.000010382213834 *(log(rts)*log(rts)*log(rts)));
+     
+     temperatureThermistor = (tmp - 273.15)*100; 
+  
 }
 
 /*
@@ -305,7 +308,8 @@ void printcellParameters() {
     snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
-
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
  }
 

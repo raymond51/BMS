@@ -10515,7 +10515,44 @@ typedef union regVCELL
     uint16_t regWord;
 } regVCELL_t;
 # 14 "./BQ76920.h" 2
-# 33 "./BQ76920.h"
+
+
+
+
+# 1 "./algorithms.h" 1
+# 15 "./algorithms.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = ON
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 15 "./algorithms.h" 2
+# 28 "./algorithms.h"
+uint8_t currState = 0;
+
+
+
+
+void watchdog_timeout_shutdown(void);
+void shutdown_BMS(void);
+# 18 "./BQ76920.h" 2
+# 36 "./BQ76920.h"
 int adcGain=0;
 int adcOffset=0;
 
@@ -10531,7 +10568,7 @@ int maxCellVoltage;
 int minCellVoltage;
 long batVoltage=0;
 long batCurrent=0;
-int temperatureThermistor=0;
+long temperatureThermistor=0;
 int thermistorBetaValue = 3435;
 
 
@@ -10568,40 +10605,7 @@ long AFE_getOverCurrentDischargeCurrent(void);
 void printotAFERegisters(void);
 void printcellParameters(void);
 # 24 "main.c" 2
-
-# 1 "./algorithms.h" 1
-# 15 "./algorithms.h"
-# 1 "./pic16f1719_internals.h" 1
-# 13 "./pic16f1719_internals.h"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = ON
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PPS1WAY = ON
-#pragma config ZCDDIS = ON
-#pragma config PLLEN = OFF
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config LPBOR = OFF
-#pragma config LVP = OFF
-# 15 "./algorithms.h" 2
-
-
-
-
-
-void watchdog_timeout_shutdown(void);
-void shutdown_BMS(void);
-# 25 "main.c" 2
-# 43 "main.c"
+# 38 "main.c"
 void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
@@ -10612,7 +10616,7 @@ void statemachine(void);
 
 
 
-uint8_t currState = 0;
+
 volatile uint8_t tmr1_flag = 0;
 
 
@@ -10678,7 +10682,7 @@ void statemachine(void) {
                     PIE1bits.TMR1IE = 0;
                     RGB_color(0);
                     tmr1_flag = 0;
-# 131 "main.c"
+# 126 "main.c"
                     currState = 1;
                 }
 
@@ -10689,7 +10693,7 @@ void statemachine(void) {
         case 1:
 
             init_AFE();
-# 159 "main.c"
+# 154 "main.c"
             RGB_color(1);
             currState = 2;
             break;
@@ -10705,6 +10709,13 @@ void statemachine(void) {
             _delay((unsigned long)((5000)*(16000000/4000.0)));
 
             break;
+        case 3:
+
+
+             snprintf(messageBuffer, 127, "WATCHDOG NOT KICKED: AFE comms error \n\r");
+             EUSART_Write_Text(messageBuffer);
+            break;
+
     }
 }
 
@@ -10753,7 +10764,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 230 "main.c"
+# 232 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;

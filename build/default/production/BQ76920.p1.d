@@ -4,4 +4,6 @@ BQ76920.h  \
 BQ76920_registers.h  \
 I2C.h  \
 pic16f1719_internals.h  \
-EUSART.h 
+EUSART.h  \
+algorithms.h  \
+RGB.h 

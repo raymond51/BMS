@@ -27,11 +27,6 @@
 /**************************************************************
  * Defines 
  **************************************************************/
-//states 
-#define AWAIT_AFE_CONN 0 //await for response from the AFE, response occurs after boot 
-#define AFE_INIT 1 //provide the BQ AFE chip information via i2c
-#define READ_AFE_DATA 2 //state to constantly read and update the BQ AFE chip, also kick watchdog 
-
 
 //timer values
 #define countSecond 61
@@ -50,7 +45,7 @@ void statemachine(void);
 /**************************************************************
  * Globals
  **************************************************************/
-uint8_t currState = AWAIT_AFE_CONN;
+
 volatile uint8_t tmr1_flag = 0; //flag cleared when tmr1 overflows
 
 /**************************************************************
@@ -171,6 +166,13 @@ void statemachine(void) {
             __delay_ms(5000); //allow time for i2c communication to end [delete once we use proper timer module] [update module must be called quite frequently i.e every 250ms]
             
             break;
+        case AFE_COMM_ERROR:
+            
+            //print error message to operator
+             snprintf(messageBuffer, messageBuf_size, "WATCHDOG NOT KICKED: AFE comms error \n\r");
+             EUSART_Write_Text(messageBuffer);
+            break;
+            
     }
 }
 

@@ -10311,6 +10311,8 @@ void RGB_color(int color);
 
 void RGB_AWAIT_AFE_CONN();
 # 16 "./algorithms.h" 2
+# 28 "./algorithms.h"
+uint8_t currState = 0;
 
 
 
@@ -10325,10 +10327,7 @@ void watchdog_timeout_shutdown() {
     if (!STATUSbits.nTO) {
         RGB_color(0);
          _delay((unsigned long)((2000)*(16000000/4000.0)));
-        shutdown_BMS();
-    }
-}
+         currState = 3;
 
-void shutdown_BMS(){
- LATAbits.LATA3 = 1;
+    }
 }
