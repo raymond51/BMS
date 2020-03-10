@@ -10594,9 +10594,14 @@ void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45);
     setShuntResistorValue(0.02);
-    setShortCircuitProtection(2500, 200);
 
-    setOverCurrentDischargeProtection(20000, 320);
+
+    setShortCircuitProtection(500, 200);
+
+
+
+
+    setOverCurrentDischargeProtection(10, 320);
     setCellUndervoltageProtection(2900, 2);
     setCellOvervoltageProtection(4100,2);
 
@@ -10682,6 +10687,7 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
             protect1.bits.SCD_DELAY = i;
         }
     }
+    protect1.bits.RSNS = 1;
 
     I2C_writeRegister(0x18, 0x06, protect1.regByte);
 
@@ -10796,7 +10802,7 @@ void updateVoltages(){
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
-# 231 "BQ76920.c"
+# 237 "BQ76920.c"
     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
@@ -10880,6 +10886,8 @@ void printcellParameters() {
     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);

@@ -4,9 +4,14 @@ void init_AFE(void) {
 
     setTemperatureLimitsint(-20, 45, 0, 45); //set temperature limit - minDischarge_Deb, maxDischarge_degC, minCharge_degC, maxCharge_degC
     setShuntResistorValue(0.02); //set shunt resistor value table, our value of resistor is 20mOhms
-    setShortCircuitProtection(2500, 200); //set short circuit protection
+    //setShortCircuitProtection(2500, 200); //set short circuit protection
+    
+    setShortCircuitProtection(500, 200); //set short circuit protection
+    
     //set over current charge protection
-    setOverCurrentDischargeProtection(20000, 320); //set overcurrent discharge protection
+    //setOverCurrentDischargeProtection(20000, 320); //set overcurrent discharge protection
+    
+    setOverCurrentDischargeProtection(10, 320); //set overcurrent discharge protection
     setCellUndervoltageProtection(2900, 2); //set cell under voltage protection
     setCellOvervoltageProtection(4100,2);//set cell overvoltage protection
 
@@ -92,7 +97,8 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
             protect1.bits.SCD_DELAY = i;
         }
     }
-
+    protect1.bits.RSNS = 1; //enable lower input range for detection of lower current trip
+    
     I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1, protect1.regByte); //transmit compact bit field as byte to AFE
 
 }
@@ -311,6 +317,8 @@ void printcellParameters() {
     snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x00 SYS_STAT: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x06 PROTECT1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1)); //expected 159
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);

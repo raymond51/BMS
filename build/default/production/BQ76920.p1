@@ -1307,34 +1307,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6
 [; ;BQ76920.c: 6:     setShuntResistorValue(0.02);
 [e ( _setShuntResistorValue (1 -> .0.02 `f ]
-"7
-[; ;BQ76920.c: 7:     setShortCircuitProtection(2500, 200);
-[e ( _setShortCircuitProtection (2 , -> -> 2500 `i `l -> 200 `i ]
 "9
-[; ;BQ76920.c: 9:     setOverCurrentDischargeProtection(20000, 320);
-[e ( _setOverCurrentDischargeProtection (2 , -> -> 20000 `i `l -> 320 `i ]
-"10
-[; ;BQ76920.c: 10:     setCellUndervoltageProtection(2900, 2);
+[; ;BQ76920.c: 9:     setShortCircuitProtection(500, 200);
+[e ( _setShortCircuitProtection (2 , -> -> 500 `i `l -> 200 `i ]
+"14
+[; ;BQ76920.c: 14:     setOverCurrentDischargeProtection(10, 320);
+[e ( _setOverCurrentDischargeProtection (2 , -> -> 10 `i `l -> 320 `i ]
+"15
+[; ;BQ76920.c: 15:     setCellUndervoltageProtection(2900, 2);
 [e ( _setCellUndervoltageProtection (2 , -> 2900 `i -> 2 `i ]
-"11
-[; ;BQ76920.c: 11:     setCellOvervoltageProtection(4100,2);
+"16
+[; ;BQ76920.c: 16:     setCellOvervoltageProtection(4100,2);
 [e ( _setCellOvervoltageProtection (2 , -> 4100 `i -> 2 `i ]
-"18
-[; ;BQ76920.c: 18: }
+"23
+[; ;BQ76920.c: 23: }
 [e :UE 800 ]
 }
-"23
-[; ;BQ76920.c: 23: int beginAFEcommunication(void) {
+"28
+[; ;BQ76920.c: 28: int beginAFEcommunication(void) {
 [v _beginAFEcommunication `(i ~T0 @X0 1 ef ]
 {
 [e :U _beginAFEcommunication ]
 [f ]
-"25
-[; ;BQ76920.c: 25:     int commSuccess = 0;
+"30
+[; ;BQ76920.c: 30:     int commSuccess = 0;
 [v _commSuccess `i ~T0 @X0 1 a ]
 [e = _commSuccess -> 0 `i ]
-"28
-[; ;BQ76920.c: 28:     for (int i = 0; i < 4; i++) {
+"33
+[; ;BQ76920.c: 33:     for (int i = 0; i < 4; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1342,52 +1342,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 803  ]
 [e :U 802 ]
 {
-"29
-[; ;BQ76920.c: 29:         cellVoltages[i] = 0;
+"34
+[; ;BQ76920.c: 34:         cellVoltages[i] = 0;
 [e = *U + &U _cellVoltages * -> -> _i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> 0 `i ]
-"30
-[; ;BQ76920.c: 30:     }
+"35
+[; ;BQ76920.c: 35:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 4 `i 802  ]
 [e :U 803 ]
 }
-"33
-[; ;BQ76920.c: 33:     I2C_writeRegister(0x18, 0x0B, 0x19);
+"38
+[; ;BQ76920.c: 38:     I2C_writeRegister(0x18, 0x0B, 0x19);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 11 `i -> 25 `i ]
-"35
-[; ;BQ76920.c: 35:     if (readRegister(0x18, 0x0B) == 0x19) {
+"40
+[; ;BQ76920.c: 40:     if (readRegister(0x18, 0x0B) == 0x19) {
 [e $ ! == ( _readRegister (2 , -> 24 `i -> 11 `i -> 25 `i 805  ]
 {
-"36
-[; ;BQ76920.c: 36:         commSuccess = 1;
-[e = _commSuccess -> 1 `i ]
-"40
-[; ;BQ76920.c: 40:         I2C_writeRegister(0x18, 0x04, 0x18);
-[e ( _I2C_writeRegister (3 , , -> 24 `i -> 4 `i -> 24 `i ]
 "41
-[; ;BQ76920.c: 41:         I2C_writeRegister(0x18, 0x05, 0x40);
-[e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i -> 64 `i ]
-"44
-[; ;BQ76920.c: 44:         adcOffset = (signed int) readRegister(0x18, 0x51);
-[e = _adcOffset ( _readRegister (2 , -> 24 `i -> 81 `i ]
+[; ;BQ76920.c: 41:         commSuccess = 1;
+[e = _commSuccess -> 1 `i ]
 "45
-[; ;BQ76920.c: 45:         adcGain = 365 + (((readRegister(0x18, 0x50) & 0x0C) << 1) |
+[; ;BQ76920.c: 45:         I2C_writeRegister(0x18, 0x04, 0x18);
+[e ( _I2C_writeRegister (3 , , -> 24 `i -> 4 `i -> 24 `i ]
+"46
+[; ;BQ76920.c: 46:         I2C_writeRegister(0x18, 0x05, 0x40);
+[e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i -> 64 `i ]
+"49
+[; ;BQ76920.c: 49:         adcOffset = (signed int) readRegister(0x18, 0x51);
+[e = _adcOffset ( _readRegister (2 , -> 24 `i -> 81 `i ]
+"50
+[; ;BQ76920.c: 50:         adcGain = 365 + (((readRegister(0x18, 0x50) & 0x0C) << 1) |
 [e = _adcGain + -> 365 `i | << & ( _readRegister (2 , -> 24 `i -> 80 `i -> 12 `i -> 1 `i >> & ( _readRegister (2 , -> 24 `i -> 89 `i -> 224 `i -> 5 `i ]
-"48
-[; ;BQ76920.c: 48:     }
+"53
+[; ;BQ76920.c: 53:     }
 }
 [e :U 805 ]
-"49
-[; ;BQ76920.c: 49:     return commSuccess;
+"54
+[; ;BQ76920.c: 54:     return commSuccess;
 [e ) _commSuccess ]
 [e $UE 801  ]
-"51
-[; ;BQ76920.c: 51: }
+"56
+[; ;BQ76920.c: 56: }
 [e :UE 801 ]
 }
-"56
-[; ;BQ76920.c: 56: void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC) {
+"61
+[; ;BQ76920.c: 61: void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC) {
 [v _setTemperatureLimitsint `(v ~T0 @X0 1 ef4`i`i`i`i ]
 {
 [e :U _setTemperatureLimitsint ]
@@ -1396,53 +1396,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _minCharge_degC `i ~T0 @X0 1 r3 ]
 [v _maxCharge_degC `i ~T0 @X0 1 r4 ]
 [f ]
-"58
-[; ;BQ76920.c: 58:     minCellTempDischarge = minDischarge_degC * 10;
+"63
+[; ;BQ76920.c: 63:     minCellTempDischarge = minDischarge_degC * 10;
 [e = _minCellTempDischarge * _minDischarge_degC -> 10 `i ]
-"59
-[; ;BQ76920.c: 59:     maxCellTempDischarge = maxDischarge_degC * 10;
+"64
+[; ;BQ76920.c: 64:     maxCellTempDischarge = maxDischarge_degC * 10;
 [e = _maxCellTempDischarge * _maxDischarge_degC -> 10 `i ]
-"60
-[; ;BQ76920.c: 60:     minCellTempCharge = minCharge_degC * 10;
+"65
+[; ;BQ76920.c: 65:     minCellTempCharge = minCharge_degC * 10;
 [e = _minCellTempCharge * _minCharge_degC -> 10 `i ]
-"61
-[; ;BQ76920.c: 61:     maxCellTempCharge = maxCharge_degC * 10;
+"66
+[; ;BQ76920.c: 66:     maxCellTempCharge = maxCharge_degC * 10;
 [e = _maxCellTempCharge * _maxCharge_degC -> 10 `i ]
-"62
-[; ;BQ76920.c: 62: }
+"67
+[; ;BQ76920.c: 67: }
 [e :UE 806 ]
 }
-"68
-[; ;BQ76920.c: 68: void setShuntResistorValue(float res_mOhm) {
+"73
+[; ;BQ76920.c: 73: void setShuntResistorValue(float res_mOhm) {
 [v _setShuntResistorValue `(v ~T0 @X0 1 ef1`f ]
 {
 [e :U _setShuntResistorValue ]
 [v _res_mOhm `f ~T0 @X0 1 r1 ]
 [f ]
-"69
-[; ;BQ76920.c: 69:     shuntResistorValue_mOhm = res_mOhm;
+"74
+[; ;BQ76920.c: 74:     shuntResistorValue_mOhm = res_mOhm;
 [e = _shuntResistorValue_mOhm _res_mOhm ]
-"70
-[; ;BQ76920.c: 70: }
+"75
+[; ;BQ76920.c: 75: }
 [e :UE 807 ]
 }
-"76
-[; ;BQ76920.c: 76: void setShortCircuitProtection(long current_mA, int delay_us) {
+"81
+[; ;BQ76920.c: 81: void setShortCircuitProtection(long current_mA, int delay_us) {
 [v _setShortCircuitProtection `(v ~T0 @X0 1 ef2`l`i ]
 {
 [e :U _setShortCircuitProtection ]
 [v _current_mA `l ~T0 @X0 1 r1 ]
 [v _delay_us `i ~T0 @X0 1 r2 ]
 [f ]
-"81
-[; ;BQ76920.c: 81:     float scaler = 1000.0;
+"86
+[; ;BQ76920.c: 86:     float scaler = 1000.0;
 [v _scaler `f ~T0 @X0 1 a ]
 [e = _scaler -> .1000.0 `f ]
-"82
-[; ;BQ76920.c: 82:     protect1.bits.SCD_THRESH = 0;
+"87
+[; ;BQ76920.c: 87:     protect1.bits.SCD_THRESH = 0;
 [e = . . _protect1 0 0 -> -> 0 `i `uc ]
-"83
-[; ;BQ76920.c: 83:     for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0])) - 1; i++) {
+"88
+[; ;BQ76920.c: 88:     for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0])) - 1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1450,29 +1450,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 810  ]
 [e :U 809 ]
 {
-"84
-[; ;BQ76920.c: 84:         if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
+"89
+[; ;BQ76920.c: 89:         if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= SCD_threshold_setting[i]) {
 [e $ ! >= / -> * * -> _current_mA `f _shuntResistorValue_mOhm _scaler `d .1000.0 -> *U + &U _SCD_threshold_setting * -> -> _i `ui `ux -> -> # *U &U _SCD_threshold_setting `ui `ux `d 812  ]
 {
-"85
-[; ;BQ76920.c: 85:             protect1.bits.SCD_THRESH = i;
+"90
+[; ;BQ76920.c: 90:             protect1.bits.SCD_THRESH = i;
 [e = . . _protect1 0 0 -> _i `uc ]
-"86
-[; ;BQ76920.c: 86:         }
+"91
+[; ;BQ76920.c: 91:         }
 }
 [e :U 812 ]
-"87
-[; ;BQ76920.c: 87:     }
+"92
+[; ;BQ76920.c: 92:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < -> _i `ui - / -> # _SCD_threshold_setting `ui -> # *U + &U _SCD_threshold_setting * -> -> -> 0 `i `ui `ux -> -> # *U &U _SCD_threshold_setting `ui `ux `ui -> -> 1 `i `ui 809  ]
 [e :U 810 ]
 }
-"89
-[; ;BQ76920.c: 89:     protect1.bits.SCD_DELAY = 0;
+"94
+[; ;BQ76920.c: 94:     protect1.bits.SCD_DELAY = 0;
 [e = . . _protect1 0 1 -> -> 0 `i `uc ]
-"90
-[; ;BQ76920.c: 90:     for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0])) - 1; i++) {
+"95
+[; ;BQ76920.c: 95:     for (int i = 0; i < (sizeof(SCD_threshold_setting) / sizeof((SCD_threshold_setting)[0])) - 1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1480,48 +1480,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 814  ]
 [e :U 813 ]
 {
-"91
-[; ;BQ76920.c: 91:         if (delay_us >= SCD_delay_setting[i]) {
+"96
+[; ;BQ76920.c: 96:         if (delay_us >= SCD_delay_setting[i]) {
 [e $ ! >= _delay_us *U + &U _SCD_delay_setting * -> -> _i `ui `ux -> -> # *U &U _SCD_delay_setting `ui `ux 816  ]
 {
-"92
-[; ;BQ76920.c: 92:             protect1.bits.SCD_DELAY = i;
+"97
+[; ;BQ76920.c: 97:             protect1.bits.SCD_DELAY = i;
 [e = . . _protect1 0 1 -> _i `uc ]
-"93
-[; ;BQ76920.c: 93:         }
+"98
+[; ;BQ76920.c: 98:         }
 }
 [e :U 816 ]
-"94
-[; ;BQ76920.c: 94:     }
+"99
+[; ;BQ76920.c: 99:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < -> _i `ui - / -> # _SCD_threshold_setting `ui -> # *U + &U _SCD_threshold_setting * -> -> -> 0 `i `ui `ux -> -> # *U &U _SCD_threshold_setting `ui `ux `ui -> -> 1 `i `ui 813  ]
 [e :U 814 ]
 }
-"96
-[; ;BQ76920.c: 96:     I2C_writeRegister(0x18, 0x06, protect1.regByte);
+"100
+[; ;BQ76920.c: 100:     protect1.bits.RSNS = 1;
+[e = . . _protect1 0 3 -> -> 1 `i `uc ]
+"102
+[; ;BQ76920.c: 102:     I2C_writeRegister(0x18, 0x06, protect1.regByte);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 6 `i -> . _protect1 1 `i ]
-"98
-[; ;BQ76920.c: 98: }
+"104
+[; ;BQ76920.c: 104: }
 [e :UE 808 ]
 }
-"103
-[; ;BQ76920.c: 103: void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
+"109
+[; ;BQ76920.c: 109: void setOverCurrentDischargeProtection(long current_mA, int delay_ms) {
 [v _setOverCurrentDischargeProtection `(v ~T0 @X0 1 ef2`l`i ]
 {
 [e :U _setOverCurrentDischargeProtection ]
 [v _current_mA `l ~T0 @X0 1 r1 ]
 [v _delay_ms `i ~T0 @X0 1 r2 ]
 [f ]
-"106
-[; ;BQ76920.c: 106:     float scaler = 1000.0;
+"112
+[; ;BQ76920.c: 112:     float scaler = 1000.0;
 [v _scaler `f ~T0 @X0 1 a ]
 [e = _scaler -> .1000.0 `f ]
-"107
-[; ;BQ76920.c: 107:     protect2.bits.OCD_THRESH = 0;
+"113
+[; ;BQ76920.c: 113:     protect2.bits.OCD_THRESH = 0;
 [e = . . _protect2 0 0 -> -> 0 `i `uc ]
-"108
-[; ;BQ76920.c: 108:     for (int i = 0; i < (sizeof(OCD_threshold_setting) / sizeof((OCD_threshold_setting)[0])) - 1; i++) {
+"114
+[; ;BQ76920.c: 114:     for (int i = 0; i < (sizeof(OCD_threshold_setting) / sizeof((OCD_threshold_setting)[0])) - 1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1529,29 +1532,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 819  ]
 [e :U 818 ]
 {
-"109
-[; ;BQ76920.c: 109:         if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= OCD_threshold_setting[i]) {
+"115
+[; ;BQ76920.c: 115:         if (((current_mA * shuntResistorValue_mOhm * scaler) / 1000.0) >= OCD_threshold_setting[i]) {
 [e $ ! >= / -> * * -> _current_mA `f _shuntResistorValue_mOhm _scaler `d .1000.0 -> *U + &U _OCD_threshold_setting * -> -> _i `ui `ux -> -> # *U &U _OCD_threshold_setting `ui `ux `d 821  ]
 {
-"110
-[; ;BQ76920.c: 110:             protect2.bits.OCD_THRESH = i;
+"116
+[; ;BQ76920.c: 116:             protect2.bits.OCD_THRESH = i;
 [e = . . _protect2 0 0 -> _i `uc ]
-"111
-[; ;BQ76920.c: 111:         }
+"117
+[; ;BQ76920.c: 117:         }
 }
 [e :U 821 ]
-"112
-[; ;BQ76920.c: 112:     }
+"118
+[; ;BQ76920.c: 118:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < -> _i `ui - / -> # _OCD_threshold_setting `ui -> # *U + &U _OCD_threshold_setting * -> -> -> 0 `i `ui `ux -> -> # *U &U _OCD_threshold_setting `ui `ux `ui -> -> 1 `i `ui 818  ]
 [e :U 819 ]
 }
-"114
-[; ;BQ76920.c: 114:     protect2.bits.OCD_DELAY = 0;
+"120
+[; ;BQ76920.c: 120:     protect2.bits.OCD_DELAY = 0;
 [e = . . _protect2 0 1 -> -> 0 `i `uc ]
-"115
-[; ;BQ76920.c: 115:     for (int i = 0; i < (sizeof(OCD_delay_setting) / sizeof((OCD_delay_setting)[0])) - 1; i++) {
+"121
+[; ;BQ76920.c: 121:     for (int i = 0; i < (sizeof(OCD_delay_setting) / sizeof((OCD_delay_setting)[0])) - 1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1559,63 +1562,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 823  ]
 [e :U 822 ]
 {
-"116
-[; ;BQ76920.c: 116:         if (delay_ms >= OCD_delay_setting[i]) {
+"122
+[; ;BQ76920.c: 122:         if (delay_ms >= OCD_delay_setting[i]) {
 [e $ ! >= _delay_ms *U + &U _OCD_delay_setting * -> -> _i `ui `ux -> -> # *U &U _OCD_delay_setting `ui `ux 825  ]
 {
-"117
-[; ;BQ76920.c: 117:             protect2.bits.OCD_DELAY = i;
+"123
+[; ;BQ76920.c: 123:             protect2.bits.OCD_DELAY = i;
 [e = . . _protect2 0 1 -> _i `uc ]
-"118
-[; ;BQ76920.c: 118:         }
+"124
+[; ;BQ76920.c: 124:         }
 }
 [e :U 825 ]
-"119
-[; ;BQ76920.c: 119:     }
+"125
+[; ;BQ76920.c: 125:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < -> _i `ui - / -> # _OCD_delay_setting `ui -> # *U + &U _OCD_delay_setting * -> -> -> 0 `i `ui `ux -> -> # *U &U _OCD_delay_setting `ui `ux `ui -> -> 1 `i `ui 822  ]
 [e :U 823 ]
 }
-"121
-[; ;BQ76920.c: 121:     I2C_writeRegister(0x18, 0x07, protect2.regByte);
+"127
+[; ;BQ76920.c: 127:     I2C_writeRegister(0x18, 0x07, protect2.regByte);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 7 `i -> . _protect2 1 `i ]
-"122
-[; ;BQ76920.c: 122: }
+"128
+[; ;BQ76920.c: 128: }
 [e :UE 817 ]
 }
-"127
-[; ;BQ76920.c: 127: void setCellUndervoltageProtection(int voltage_mV, int delay_s) {
+"133
+[; ;BQ76920.c: 133: void setCellUndervoltageProtection(int voltage_mV, int delay_s) {
 [v _setCellUndervoltageProtection `(v ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _setCellUndervoltageProtection ]
 [v _voltage_mV `i ~T0 @X0 1 r1 ]
 [v _delay_s `i ~T0 @X0 1 r2 ]
 [f ]
-"128
-[; ;BQ76920.c: 128:     uint8_t uv_trip = 0;
+"134
+[; ;BQ76920.c: 134:     uint8_t uv_trip = 0;
 [v _uv_trip `uc ~T0 @X0 1 a ]
 [e = _uv_trip -> -> 0 `i `uc ]
-"129
-[; ;BQ76920.c: 129:     minCellVoltage = voltage_mV;
+"135
+[; ;BQ76920.c: 135:     minCellVoltage = voltage_mV;
 [e = _minCellVoltage _voltage_mV ]
-"131
-[; ;BQ76920.c: 131:     protect3.regByte = readRegister(0x18, 0x08);
-[e = . _protect3 1 -> ( _readRegister (2 , -> 24 `i -> 8 `i `uc ]
-"132
-[; ;BQ76920.c: 132:     uv_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
-[e = _uv_trip -> & >> / * - -> _voltage_mV `l -> _adcOffset `l -> -> 1000 `i `l -> _adcGain `l -> 4 `i -> -> 255 `i `l `uc ]
-"133
-[; ;BQ76920.c: 133:     uv_trip += 1;
-[e =+ _uv_trip -> -> 1 `i `uc ]
-"134
-[; ;BQ76920.c: 134:     I2C_writeRegister(0x18, 0x0A, uv_trip);
-[e ( _I2C_writeRegister (3 , , -> 24 `i -> 10 `i -> _uv_trip `i ]
-"136
-[; ;BQ76920.c: 136:     protect3.bits.UV_DELAY = 0;
-[e = . . _protect3 0 2 -> -> 0 `i `uc ]
 "137
-[; ;BQ76920.c: 137:     for (int i = 0; i < (sizeof(UV_delay_setting) / sizeof((UV_delay_setting)[0])) - 1; i++) {
+[; ;BQ76920.c: 137:     protect3.regByte = readRegister(0x18, 0x08);
+[e = . _protect3 1 -> ( _readRegister (2 , -> 24 `i -> 8 `i `uc ]
+"138
+[; ;BQ76920.c: 138:     uv_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
+[e = _uv_trip -> & >> / * - -> _voltage_mV `l -> _adcOffset `l -> -> 1000 `i `l -> _adcGain `l -> 4 `i -> -> 255 `i `l `uc ]
+"139
+[; ;BQ76920.c: 139:     uv_trip += 1;
+[e =+ _uv_trip -> -> 1 `i `uc ]
+"140
+[; ;BQ76920.c: 140:     I2C_writeRegister(0x18, 0x0A, uv_trip);
+[e ( _I2C_writeRegister (3 , , -> 24 `i -> 10 `i -> _uv_trip `i ]
+"142
+[; ;BQ76920.c: 142:     protect3.bits.UV_DELAY = 0;
+[e = . . _protect3 0 2 -> -> 0 `i `uc ]
+"143
+[; ;BQ76920.c: 143:     for (int i = 0; i < (sizeof(UV_delay_setting) / sizeof((UV_delay_setting)[0])) - 1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1623,57 +1626,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 828  ]
 [e :U 827 ]
 {
-"138
-[; ;BQ76920.c: 138:         if (delay_s >= UV_delay_setting[i]) {
+"144
+[; ;BQ76920.c: 144:         if (delay_s >= UV_delay_setting[i]) {
 [e $ ! >= _delay_s *U + &U _UV_delay_setting * -> -> _i `ui `ux -> -> # *U &U _UV_delay_setting `ui `ux 830  ]
 {
-"139
-[; ;BQ76920.c: 139:             protect3.bits.UV_DELAY = i;
+"145
+[; ;BQ76920.c: 145:             protect3.bits.UV_DELAY = i;
 [e = . . _protect3 0 2 -> _i `uc ]
-"140
-[; ;BQ76920.c: 140:         }
+"146
+[; ;BQ76920.c: 146:         }
 }
 [e :U 830 ]
-"141
-[; ;BQ76920.c: 141:     }
+"147
+[; ;BQ76920.c: 147:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < -> _i `ui - / -> # _UV_delay_setting `ui -> # *U + &U _UV_delay_setting * -> -> -> 0 `i `ui `ux -> -> # *U &U _UV_delay_setting `ui `ux `ui -> -> 1 `i `ui 827  ]
 [e :U 828 ]
 }
-"142
-[; ;BQ76920.c: 142:     I2C_writeRegister(0x18, 0x08, protect3.regByte);
+"148
+[; ;BQ76920.c: 148:     I2C_writeRegister(0x18, 0x08, protect3.regByte);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 8 `i -> . _protect3 1 `i ]
-"143
-[; ;BQ76920.c: 143: }
+"149
+[; ;BQ76920.c: 149: }
 [e :UE 826 ]
 }
-"148
-[; ;BQ76920.c: 148: void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
+"154
+[; ;BQ76920.c: 154: void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
 [v _setCellOvervoltageProtection `(v ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _setCellOvervoltageProtection ]
 [v _voltage_mV `i ~T0 @X0 1 r1 ]
 [v _delay_s `i ~T0 @X0 1 r2 ]
 [f ]
-"149
-[; ;BQ76920.c: 149:     uint8_t ov_trip = 0;
+"155
+[; ;BQ76920.c: 155:     uint8_t ov_trip = 0;
 [v _ov_trip `uc ~T0 @X0 1 a ]
 [e = _ov_trip -> -> 0 `i `uc ]
-"150
-[; ;BQ76920.c: 150:     maxCellVoltage = voltage_mV;
+"156
+[; ;BQ76920.c: 156:     maxCellVoltage = voltage_mV;
 [e = _maxCellVoltage _voltage_mV ]
-"151
-[; ;BQ76920.c: 151:     protect3.regByte = readRegister(0x18, 0x08);
+"157
+[; ;BQ76920.c: 157:     protect3.regByte = readRegister(0x18, 0x08);
 [e = . _protect3 1 -> ( _readRegister (2 , -> 24 `i -> 8 `i `uc ]
-"152
-[; ;BQ76920.c: 152:     ov_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
+"158
+[; ;BQ76920.c: 158:     ov_trip = ((((long) voltage_mV - adcOffset) * 1000 / adcGain) >> 4) & 0x00FF;
 [e = _ov_trip -> & >> / * - -> _voltage_mV `l -> _adcOffset `l -> -> 1000 `i `l -> _adcGain `l -> 4 `i -> -> 255 `i `l `uc ]
-"153
-[; ;BQ76920.c: 153:     I2C_writeRegister(0x18, 0x09, ov_trip);
+"159
+[; ;BQ76920.c: 159:     I2C_writeRegister(0x18, 0x09, ov_trip);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 9 `i -> _ov_trip `i ]
-"155
-[; ;BQ76920.c: 155:     for (int i = 0; i < (sizeof(OV_delay_setting) / sizeof((OV_delay_setting)[0])) - 1; i++) {
+"161
+[; ;BQ76920.c: 161:     for (int i = 0; i < (sizeof(OV_delay_setting) / sizeof((OV_delay_setting)[0])) - 1; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1681,457 +1684,464 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 833  ]
 [e :U 832 ]
 {
-"156
-[; ;BQ76920.c: 156:         if (delay_s >= OV_delay_setting[i]) {
+"162
+[; ;BQ76920.c: 162:         if (delay_s >= OV_delay_setting[i]) {
 [e $ ! >= _delay_s *U + &U _OV_delay_setting * -> -> _i `ui `ux -> -> # *U &U _OV_delay_setting `ui `ux 835  ]
 {
-"157
-[; ;BQ76920.c: 157:             protect3.bits.UV_DELAY = i;
+"163
+[; ;BQ76920.c: 163:             protect3.bits.UV_DELAY = i;
 [e = . . _protect3 0 2 -> _i `uc ]
-"158
-[; ;BQ76920.c: 158:         }
+"164
+[; ;BQ76920.c: 164:         }
 }
 [e :U 835 ]
-"159
-[; ;BQ76920.c: 159:     }
+"165
+[; ;BQ76920.c: 165:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < -> _i `ui - / -> # _OV_delay_setting `ui -> # *U + &U _OV_delay_setting * -> -> -> 0 `i `ui `ux -> -> # *U &U _OV_delay_setting `ui `ux `ui -> -> 1 `i `ui 832  ]
 [e :U 833 ]
 }
-"160
-[; ;BQ76920.c: 160:     I2C_writeRegister(0x18,0x08, protect3.regByte);
+"166
+[; ;BQ76920.c: 166:     I2C_writeRegister(0x18,0x08, protect3.regByte);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 8 `i -> . _protect3 1 `i ]
-"161
-[; ;BQ76920.c: 161: }
+"167
+[; ;BQ76920.c: 167: }
 [e :UE 831 ]
 }
-"166
-[; ;BQ76920.c: 166: void AFE_UPDATE(){
+"172
+[; ;BQ76920.c: 172: void AFE_UPDATE(){
 [v _AFE_UPDATE `(v ~T0 @X0 1 ef ]
 {
 [e :U _AFE_UPDATE ]
 [f ]
-"167
-[; ;BQ76920.c: 167:     updateCurrent();
-[e ( _updateCurrent ..  ]
-"168
-[; ;BQ76920.c: 168:     updateVoltages();
-[e ( _updateVoltages ..  ]
-"169
-[; ;BQ76920.c: 169:     updateTemperatures();
-[e ( _updateTemperatures ..  ]
-"172
-[; ;BQ76920.c: 172:     enableDischarging(1);
-[e ( _enableDischarging (1 -> -> 1 `i `ui ]
 "173
-[; ;BQ76920.c: 173:     enableCharging(1);
-[e ( _enableCharging (1 -> -> 1 `i `ui ]
+[; ;BQ76920.c: 173:     updateCurrent();
+[e ( _updateCurrent ..  ]
+"174
+[; ;BQ76920.c: 174:     updateVoltages();
+[e ( _updateVoltages ..  ]
 "175
-[; ;BQ76920.c: 175: }
+[; ;BQ76920.c: 175:     updateTemperatures();
+[e ( _updateTemperatures ..  ]
+"178
+[; ;BQ76920.c: 178:     enableDischarging(1);
+[e ( _enableDischarging (1 -> -> 1 `i `ui ]
+"179
+[; ;BQ76920.c: 179:     enableCharging(1);
+[e ( _enableCharging (1 -> -> 1 `i `ui ]
+"181
+[; ;BQ76920.c: 181: }
 [e :UE 836 ]
 }
-"180
-[; ;BQ76920.c: 180: void updateCurrent(){
+"186
+[; ;BQ76920.c: 186: void updateCurrent(){
 [v _updateCurrent `(v ~T0 @X0 1 ef ]
 {
 [e :U _updateCurrent ]
 [f ]
-"181
-[; ;BQ76920.c: 181:    int adcVal = 0;
+"187
+[; ;BQ76920.c: 187:    int adcVal = 0;
 [v _adcVal `i ~T0 @X0 1 a ]
 [e = _adcVal -> 0 `i ]
-"182
-[; ;BQ76920.c: 182:     regSYS_STAT_t sys_stat;
-[v _sys_stat `S782 ~T0 @X0 1 a ]
-"183
-[; ;BQ76920.c: 183:     sys_stat.regByte = readRegister(0x18,0x00);
-[e = . _sys_stat 1 -> ( _readRegister (2 , -> 24 `i -> 0 `i `uc ]
-"187
-[; ;BQ76920.c: 187:     adcVal = (readRegister(0x18, 0x32) << 8)| readRegister(0x18, 0x33);
-[e = _adcVal | << ( _readRegister (2 , -> 24 `i -> 50 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 51 `i ]
 "188
-[; ;BQ76920.c: 188:     batCurrent = -(adcVal * 8.44 / 5.0);
-[e = _batCurrent -> -U / * -> _adcVal `d .8.44 .5.0 `l ]
-"190
-[; ;BQ76920.c: 190:     if (batCurrent > -10 && batCurrent < 10)
-[e $ ! && > _batCurrent -> -U -> 10 `i `l < _batCurrent -> -> 10 `i `l 838  ]
-"191
-[; ;BQ76920.c: 191:     {
-{
-"192
-[; ;BQ76920.c: 192:       batCurrent = 0;
-[e = _batCurrent -> -> 0 `i `l ]
+[; ;BQ76920.c: 188:     regSYS_STAT_t sys_stat;
+[v _sys_stat `S782 ~T0 @X0 1 a ]
+"189
+[; ;BQ76920.c: 189:     sys_stat.regByte = readRegister(0x18,0x00);
+[e = . _sys_stat 1 -> ( _readRegister (2 , -> 24 `i -> 0 `i `uc ]
 "193
-[; ;BQ76920.c: 193:     }
+[; ;BQ76920.c: 193:     adcVal = (readRegister(0x18, 0x32) << 8)| readRegister(0x18, 0x33);
+[e = _adcVal | << ( _readRegister (2 , -> 24 `i -> 50 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 51 `i ]
+"194
+[; ;BQ76920.c: 194:     batCurrent = -(adcVal * 8.44 / 5.0);
+[e = _batCurrent -> -U / * -> _adcVal `d .8.44 .5.0 `l ]
+"196
+[; ;BQ76920.c: 196:     if (batCurrent > -10 && batCurrent < 10)
+[e $ ! && > _batCurrent -> -U -> 10 `i `l < _batCurrent -> -> 10 `i `l 838  ]
+"197
+[; ;BQ76920.c: 197:     {
+{
+"198
+[; ;BQ76920.c: 198:       batCurrent = 0;
+[e = _batCurrent -> -> 0 `i `l ]
+"199
+[; ;BQ76920.c: 199:     }
 }
 [e :U 838 ]
-"195
-[; ;BQ76920.c: 195:     I2C_writeRegister(0x18, 0x00, 0x80);
+"201
+[; ;BQ76920.c: 201:     I2C_writeRegister(0x18, 0x00, 0x80);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 0 `i -> 128 `i ]
-"198
-[; ;BQ76920.c: 198: }
+"204
+[; ;BQ76920.c: 204: }
 [e :UE 837 ]
 }
-"203
-[; ;BQ76920.c: 203: void updateVoltages(){
+"209
+[; ;BQ76920.c: 209: void updateVoltages(){
 [v _updateVoltages `(v ~T0 @X0 1 ef ]
 {
 [e :U _updateVoltages ]
 [f ]
-"205
-[; ;BQ76920.c: 205:   long adcVal = 0;
+"211
+[; ;BQ76920.c: 211:   long adcVal = 0;
 [v _adcVal `l ~T0 @X0 1 a ]
 [e = _adcVal -> -> 0 `i `l ]
-"207
-[; ;BQ76920.c: 207:   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
+"213
+[; ;BQ76920.c: 213:   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
 [e = _adcVal -> | << ( _readRegister (2 , -> 24 `i -> 42 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 43 `i `l ]
-"208
-[; ;BQ76920.c: 208:   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
+"214
+[; ;BQ76920.c: 214:   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
 [e = _batVoltage -> + / * * .4.0 -> _adcGain `d -> _adcVal `d .1000.0 -> * -> 4 `i _adcOffset `d `l ]
-"231
-[; ;BQ76920.c: 231:     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
-[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 12 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 13 `i `l ]
-"232
-[; ;BQ76920.c: 232:     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
-[e = *U + &U _cellVoltages * -> -> -> 0 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
-"233
-[; ;BQ76920.c: 233:     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
-[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 14 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 15 `i `l ]
-"234
-[; ;BQ76920.c: 234:     cellVoltages[1] = (adcVal * adcGain / 1000) + adcOffset;
-[e = *U + &U _cellVoltages * -> -> -> 1 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
-"235
-[; ;BQ76920.c: 235:     adcVal = ((readRegister(0x18, 0x10) & 0x3F) << 8) | readRegister(0x18, 0x11);
-[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 16 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 17 `i `l ]
-"236
-[; ;BQ76920.c: 236:     cellVoltages[2] = (adcVal * adcGain / 1000) + adcOffset;
-[e = *U + &U _cellVoltages * -> -> -> 2 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
 "237
-[; ;BQ76920.c: 237:     adcVal = ((readRegister(0x18, 0x12) & 0x3F) << 8) | readRegister(0x18, 0x13);
-[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 18 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 19 `i `l ]
+[; ;BQ76920.c: 237:     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
+[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 12 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 13 `i `l ]
 "238
-[; ;BQ76920.c: 238:     cellVoltages[3] = (adcVal * adcGain / 1000) + adcOffset;
-[e = *U + &U _cellVoltages * -> -> -> 3 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
+[; ;BQ76920.c: 238:     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
+[e = *U + &U _cellVoltages * -> -> -> 0 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
 "239
-[; ;BQ76920.c: 239:     adcVal = ((readRegister(0x18, 0x14) & 0x3F) << 8) | readRegister(0x18, 0x15);
-[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 20 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 21 `i `l ]
+[; ;BQ76920.c: 239:     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
+[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 14 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 15 `i `l ]
 "240
-[; ;BQ76920.c: 240:     cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
-[e = *U + &U _cellVoltages * -> -> -> 4 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
+[; ;BQ76920.c: 240:     cellVoltages[1] = (adcVal * adcGain / 1000) + adcOffset;
+[e = *U + &U _cellVoltages * -> -> -> 1 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
+"241
+[; ;BQ76920.c: 241:     adcVal = ((readRegister(0x18, 0x10) & 0x3F) << 8) | readRegister(0x18, 0x11);
+[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 16 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 17 `i `l ]
 "242
-[; ;BQ76920.c: 242: }
+[; ;BQ76920.c: 242:     cellVoltages[2] = (adcVal * adcGain / 1000) + adcOffset;
+[e = *U + &U _cellVoltages * -> -> -> 2 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
+"243
+[; ;BQ76920.c: 243:     adcVal = ((readRegister(0x18, 0x12) & 0x3F) << 8) | readRegister(0x18, 0x13);
+[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 18 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 19 `i `l ]
+"244
+[; ;BQ76920.c: 244:     cellVoltages[3] = (adcVal * adcGain / 1000) + adcOffset;
+[e = *U + &U _cellVoltages * -> -> -> 3 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
+"245
+[; ;BQ76920.c: 245:     adcVal = ((readRegister(0x18, 0x14) & 0x3F) << 8) | readRegister(0x18, 0x15);
+[e = _adcVal -> | << & ( _readRegister (2 , -> 24 `i -> 20 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 21 `i `l ]
+"246
+[; ;BQ76920.c: 246:     cellVoltages[4] = (adcVal * adcGain / 1000) + adcOffset;
+[e = *U + &U _cellVoltages * -> -> -> 4 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux -> + / * _adcVal -> _adcGain `l -> -> 1000 `i `l -> _adcOffset `l `i ]
+"248
+[; ;BQ76920.c: 248: }
 [e :UE 839 ]
 }
-"247
-[; ;BQ76920.c: 247: void updateTemperatures(){
+"253
+[; ;BQ76920.c: 253: void updateTemperatures(){
 [v _updateTemperatures `(v ~T0 @X0 1 ef ]
 {
 [e :U _updateTemperatures ]
 [f ]
-"248
-[; ;BQ76920.c: 248:      float tmp = 0;
+"254
+[; ;BQ76920.c: 254:      float tmp = 0;
 [v _tmp `f ~T0 @X0 1 a ]
 [e = _tmp -> -> 0 `i `f ]
-"249
-[; ;BQ76920.c: 249:      int adcVal = 0;
+"255
+[; ;BQ76920.c: 255:      int adcVal = 0;
 [v _adcVal `i ~T0 @X0 1 a ]
 [e = _adcVal -> 0 `i ]
-"250
-[; ;BQ76920.c: 250:      int vtsx = 0;
+"256
+[; ;BQ76920.c: 256:      int vtsx = 0;
 [v _vtsx `i ~T0 @X0 1 a ]
 [e = _vtsx -> 0 `i ]
-"251
-[; ;BQ76920.c: 251:      unsigned long rts = 0;
+"257
+[; ;BQ76920.c: 257:      unsigned long rts = 0;
 [v _rts `ul ~T0 @X0 1 a ]
 [e = _rts -> -> -> 0 `i `l `ul ]
-"253
-[; ;BQ76920.c: 253:      adcVal = ((readRegister(0x18, 0x2C) & 0x3F) << 8) | readRegister(0x18, 0x2D);
+"259
+[; ;BQ76920.c: 259:      adcVal = ((readRegister(0x18, 0x2C) & 0x3F) << 8) | readRegister(0x18, 0x2D);
 [e = _adcVal | << & ( _readRegister (2 , -> 24 `i -> 44 `i -> 63 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 45 `i ]
-"254
-[; ;BQ76920.c: 254:      vtsx = adcVal * 0.382;
+"260
+[; ;BQ76920.c: 260:      vtsx = adcVal * 0.382;
 [e = _vtsx -> * -> _adcVal `d .0.382 `i ]
-"255
-[; ;BQ76920.c: 255:      rts = 10000.0 * vtsx / (3300.0 - vtsx);
+"261
+[; ;BQ76920.c: 261:      rts = 10000.0 * vtsx / (3300.0 - vtsx);
 [e = _rts -> / * .10000.0 -> _vtsx `d - .3300.0 -> _vtsx `d `ul ]
-"262
-[; ;BQ76920.c: 262:      tmp = 1/ (-0.017428133935807 + 0.003137120345556*logf(rts) + -0.000010382213834 *(logf(rts)*logf(rts)*logf(rts)));
+"268
+[; ;BQ76920.c: 268:      tmp = 1/ (-0.017428133935807 + 0.003137120345556*logf(rts) + -0.000010382213834 *(logf(rts)*logf(rts)*logf(rts)));
 [e = _tmp -> / -> -> 1 `i `d + + -U .0.017428133935807 * .0.003137120345556 -> ( _logf (1 -> _rts `f `d * -U .0.000010382213834 -> * * ( _logf (1 -> _rts `f ( _logf (1 -> _rts `f ( _logf (1 -> _rts `f `d `f ]
-"264
-[; ;BQ76920.c: 264:      temperatureThermistor = (tmp - 273.15)*100;
+"270
+[; ;BQ76920.c: 270:      temperatureThermistor = (tmp - 273.15)*100;
 [e = _temperatureThermistor -> * - -> _tmp `d .273.15 -> -> 100 `i `d `l ]
-"266
-[; ;BQ76920.c: 266: }
+"272
+[; ;BQ76920.c: 272: }
 [e :UE 840 ]
 }
-"271
-[; ;BQ76920.c: 271: void enableDischarging(unsigned int enable){
+"277
+[; ;BQ76920.c: 277: void enableDischarging(unsigned int enable){
 [v _enableDischarging `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _enableDischarging ]
 [v _enable `ui ~T0 @X0 1 r1 ]
 [f ]
-"272
-[; ;BQ76920.c: 272:     uint8_t sys_ctrl2;
+"278
+[; ;BQ76920.c: 278:     uint8_t sys_ctrl2;
 [v _sys_ctrl2 `uc ~T0 @X0 1 a ]
-"273
-[; ;BQ76920.c: 273:     sys_ctrl2 = readRegister(0x18, 0x05);
+"279
+[; ;BQ76920.c: 279:     sys_ctrl2 = readRegister(0x18, 0x05);
 [e = _sys_ctrl2 -> ( _readRegister (2 , -> 24 `i -> 5 `i `uc ]
-"274
-[; ;BQ76920.c: 274:     if(enable){
+"280
+[; ;BQ76920.c: 280:     if(enable){
 [e $ ! != _enable -> -> 0 `i `ui 842  ]
 {
-"275
-[; ;BQ76920.c: 275:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 | 0x02);
+"281
+[; ;BQ76920.c: 281:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 | 0x02);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i | -> _sys_ctrl2 `i -> 2 `i ]
-"276
-[; ;BQ76920.c: 276:     }else{
+"282
+[; ;BQ76920.c: 282:     }else{
 }
 [e $U 843  ]
 [e :U 842 ]
 {
-"277
-[; ;BQ76920.c: 277:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 & ~(0x02));
+"283
+[; ;BQ76920.c: 283:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 & ~(0x02));
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i & -> _sys_ctrl2 `i ~ -> 2 `i ]
-"278
-[; ;BQ76920.c: 278:     }
+"284
+[; ;BQ76920.c: 284:     }
 }
 [e :U 843 ]
-"279
-[; ;BQ76920.c: 279: }
+"285
+[; ;BQ76920.c: 285: }
 [e :UE 841 ]
 }
-"281
-[; ;BQ76920.c: 281: void enableCharging(unsigned int enable){
+"287
+[; ;BQ76920.c: 287: void enableCharging(unsigned int enable){
 [v _enableCharging `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _enableCharging ]
 [v _enable `ui ~T0 @X0 1 r1 ]
 [f ]
-"282
-[; ;BQ76920.c: 282:     uint8_t sys_ctrl2;
+"288
+[; ;BQ76920.c: 288:     uint8_t sys_ctrl2;
 [v _sys_ctrl2 `uc ~T0 @X0 1 a ]
-"283
-[; ;BQ76920.c: 283:     sys_ctrl2 = readRegister(0x18, 0x05);
+"289
+[; ;BQ76920.c: 289:     sys_ctrl2 = readRegister(0x18, 0x05);
 [e = _sys_ctrl2 -> ( _readRegister (2 , -> 24 `i -> 5 `i `uc ]
-"284
-[; ;BQ76920.c: 284:     if(enable){
+"290
+[; ;BQ76920.c: 290:     if(enable){
 [e $ ! != _enable -> -> 0 `i `ui 845  ]
 {
-"285
-[; ;BQ76920.c: 285:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 | 0x01);
+"291
+[; ;BQ76920.c: 291:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 | 0x01);
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i | -> _sys_ctrl2 `i -> 1 `i ]
-"286
-[; ;BQ76920.c: 286:     }else{
+"292
+[; ;BQ76920.c: 292:     }else{
 }
 [e $U 846  ]
 [e :U 845 ]
 {
-"287
-[; ;BQ76920.c: 287:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 & ~(0x01));
+"293
+[; ;BQ76920.c: 293:     I2C_writeRegister(0x18, 0x05, sys_ctrl2 & ~(0x01));
 [e ( _I2C_writeRegister (3 , , -> 24 `i -> 5 `i & -> _sys_ctrl2 `i ~ -> 1 `i ]
-"288
-[; ;BQ76920.c: 288:     }
+"294
+[; ;BQ76920.c: 294:     }
 }
 [e :U 846 ]
-"289
-[; ;BQ76920.c: 289: }
+"295
+[; ;BQ76920.c: 295: }
 [e :UE 844 ]
 }
-"296
-[; ;BQ76920.c: 296: float AFE_getSetCurrentSenseRes() {
+"302
+[; ;BQ76920.c: 302: float AFE_getSetCurrentSenseRes() {
 [v _AFE_getSetCurrentSenseRes `(f ~T0 @X0 1 ef ]
 {
 [e :U _AFE_getSetCurrentSenseRes ]
 [f ]
-"297
-[; ;BQ76920.c: 297:     return (float) shuntResistorValue_mOhm;
+"303
+[; ;BQ76920.c: 303:     return (float) shuntResistorValue_mOhm;
 [e ) _shuntResistorValue_mOhm ]
 [e $UE 847  ]
-"298
-[; ;BQ76920.c: 298: }
+"304
+[; ;BQ76920.c: 304: }
 [e :UE 847 ]
 }
-"300
-[; ;BQ76920.c: 300: long AFE_getSetShortCircuitCurrent() {
+"306
+[; ;BQ76920.c: 306: long AFE_getSetShortCircuitCurrent() {
 [v _AFE_getSetShortCircuitCurrent `(l ~T0 @X0 1 ef ]
 {
 [e :U _AFE_getSetShortCircuitCurrent ]
 [f ]
-"301
-[; ;BQ76920.c: 301:     return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
+"307
+[; ;BQ76920.c: 307:     return (long) (SCD_threshold_setting[protect1.bits.SCD_THRESH]) / shuntResistorValue_mOhm;
 [e ) -> / -> -> *U + &U _SCD_threshold_setting * -> . . _protect1 0 0 `ux -> -> # *U &U _SCD_threshold_setting `ui `ux `l `f _shuntResistorValue_mOhm `l ]
 [e $UE 848  ]
-"302
-[; ;BQ76920.c: 302: }
+"308
+[; ;BQ76920.c: 308: }
 [e :UE 848 ]
 }
-"304
-[; ;BQ76920.c: 304: long AFE_getOverCurrentDischargeCurrent() {
+"310
+[; ;BQ76920.c: 310: long AFE_getOverCurrentDischargeCurrent() {
 [v _AFE_getOverCurrentDischargeCurrent `(l ~T0 @X0 1 ef ]
 {
 [e :U _AFE_getOverCurrentDischargeCurrent ]
 [f ]
-"305
-[; ;BQ76920.c: 305:     return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
+"311
+[; ;BQ76920.c: 311:     return (long) (OCD_threshold_setting[protect2.bits.OCD_THRESH]) / shuntResistorValue_mOhm;
 [e ) -> / -> -> *U + &U _OCD_threshold_setting * -> . . _protect2 0 0 `ux -> -> # *U &U _OCD_threshold_setting `ui `ux `l `f _shuntResistorValue_mOhm `l ]
 [e $UE 849  ]
-"306
-[; ;BQ76920.c: 306: }
+"312
+[; ;BQ76920.c: 312: }
 [e :UE 849 ]
 }
-"308
-[; ;BQ76920.c: 308: void printcellParameters() {
+"314
+[; ;BQ76920.c: 314: void printcellParameters() {
 [v _printcellParameters `(v ~T0 @X0 1 ef ]
 {
 [e :U _printcellParameters ]
 [f ]
-"309
-[; ;BQ76920.c: 309:     snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(0x18, 0x05));
-[e ( _snprintf (2 , , , , , , , , , (. , , &U _messageBuffer -> -> 127 `i `ui :s 1C _batVoltage *U + &U _cellVoltages * -> -> -> 0 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 1 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 2 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 3 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 4 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux _batCurrent _temperatureThermistor ( _readRegister (2 , -> 24 `i -> 5 `i ]
-"310
-[; ;BQ76920.c: 310:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
-"311
-[; ;BQ76920.c: 311:     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 2C ( _readRegister (2 , -> 24 `i -> 5 `i ]
-"312
-[; ;BQ76920.c: 312:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
-"313
-[; ;BQ76920.c: 313:     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 3C ( _readRegister (2 , -> 24 `i -> 0 `i ]
-"314
-[; ;BQ76920.c: 314:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "315
-[; ;BQ76920.c: 315:     snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 4C _batCurrent ]
+[; ;BQ76920.c: 315:     snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(0x18, 0x05));
+[e ( _snprintf (2 , , , , , , , , , (. , , &U _messageBuffer -> -> 127 `i `ui :s 1C _batVoltage *U + &U _cellVoltages * -> -> -> 0 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 1 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 2 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 3 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _cellVoltages * -> -> -> 4 `i `ui `ux -> -> # *U &U _cellVoltages `ui `ux _batCurrent _temperatureThermistor ( _readRegister (2 , -> 24 `i -> 5 `i ]
 "316
 [; ;BQ76920.c: 316:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "317
-[; ;BQ76920.c: 317:     snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 5C _temperatureThermistor ]
+[; ;BQ76920.c: 317:     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 2C ( _readRegister (2 , -> 24 `i -> 5 `i ]
 "318
 [; ;BQ76920.c: 318:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "319
-[; ;BQ76920.c: 319:  }
+[; ;BQ76920.c: 319:     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 3C ( _readRegister (2 , -> 24 `i -> 0 `i ]
+"320
+[; ;BQ76920.c: 320:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"321
+[; ;BQ76920.c: 321:     snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 4C ( _readRegister (2 , -> 24 `i -> 6 `i ]
+"322
+[; ;BQ76920.c: 322:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"323
+[; ;BQ76920.c: 323:     snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 5C _batCurrent ]
+"324
+[; ;BQ76920.c: 324:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"325
+[; ;BQ76920.c: 325:     snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 6C _temperatureThermistor ]
+"326
+[; ;BQ76920.c: 326:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"327
+[; ;BQ76920.c: 327:  }
 [e :UE 850 ]
 }
-"321
-[; ;BQ76920.c: 321: void printotAFERegisters() {
+"329
+[; ;BQ76920.c: 329: void printotAFERegisters() {
 [v _printotAFERegisters `(v ~T0 @X0 1 ef ]
 {
 [e :U _printotAFERegisters ]
 [f ]
-"323
-[; ;BQ76920.c: 323:     _delay((unsigned long)((5)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"325
-[; ;BQ76920.c: 325:     EUSART_Write_Text("Printing out AFE register values...\n\r");
-[e ( _EUSART_Write_Text (1 :s 6C ]
-"326
-[; ;BQ76920.c: 326:     EUSART_Write_Text("\n\r");
-[e ( _EUSART_Write_Text (1 :s 7C ]
-"327
-[; ;BQ76920.c: 327:     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 8C ( _readRegister (2 , -> 24 `i -> 0 `i ]
-"328
-[; ;BQ76920.c: 328:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
-"329
-[; ;BQ76920.c: 329:     snprintf(messageBuffer, 127, "0x01 CELLBAL1: %i \n\r", readRegister(0x18, 0x01));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 9C ( _readRegister (2 , -> 24 `i -> 1 `i ]
-"330
-[; ;BQ76920.c: 330:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "331
-[; ;BQ76920.c: 331:     snprintf(messageBuffer, 127, "0x04 SYS_CTRL1: %i \n\r", readRegister(0x18, 0x04));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 10C ( _readRegister (2 , -> 24 `i -> 4 `i ]
-"332
-[; ;BQ76920.c: 332:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+[; ;BQ76920.c: 331:     _delay((unsigned long)((5)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "333
-[; ;BQ76920.c: 333:     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 11C ( _readRegister (2 , -> 24 `i -> 5 `i ]
+[; ;BQ76920.c: 333:     EUSART_Write_Text("Printing out AFE register values...\n\r");
+[e ( _EUSART_Write_Text (1 :s 7C ]
 "334
-[; ;BQ76920.c: 334:     EUSART_Write_Text(messageBuffer);
-[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+[; ;BQ76920.c: 334:     EUSART_Write_Text("\n\r");
+[e ( _EUSART_Write_Text (1 :s 8C ]
 "335
-[; ;BQ76920.c: 335:     snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 12C ( _readRegister (2 , -> 24 `i -> 6 `i ]
+[; ;BQ76920.c: 335:     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 9C ( _readRegister (2 , -> 24 `i -> 0 `i ]
 "336
 [; ;BQ76920.c: 336:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "337
-[; ;BQ76920.c: 337:     snprintf(messageBuffer, 127, "0x07 PROTECT2: %i \n\r", readRegister(0x18, 0x07));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 13C ( _readRegister (2 , -> 24 `i -> 7 `i ]
+[; ;BQ76920.c: 337:     snprintf(messageBuffer, 127, "0x01 CELLBAL1: %i \n\r", readRegister(0x18, 0x01));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 10C ( _readRegister (2 , -> 24 `i -> 1 `i ]
 "338
 [; ;BQ76920.c: 338:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "339
-[; ;BQ76920.c: 339:     snprintf(messageBuffer, 127, "0x08 PROTECT3: %i \n\r", readRegister(0x18, 0x08));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 14C ( _readRegister (2 , -> 24 `i -> 8 `i ]
+[; ;BQ76920.c: 339:     snprintf(messageBuffer, 127, "0x04 SYS_CTRL1: %i \n\r", readRegister(0x18, 0x04));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 11C ( _readRegister (2 , -> 24 `i -> 4 `i ]
 "340
 [; ;BQ76920.c: 340:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "341
-[; ;BQ76920.c: 341:     snprintf(messageBuffer, 127, "0x09 OV_TRIP: %i \n\r", readRegister(0x18, 0x09));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 15C ( _readRegister (2 , -> 24 `i -> 9 `i ]
+[; ;BQ76920.c: 341:     snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 12C ( _readRegister (2 , -> 24 `i -> 5 `i ]
 "342
 [; ;BQ76920.c: 342:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "343
-[; ;BQ76920.c: 343:     snprintf(messageBuffer, 127, "0x0A UV_TRIP: %i \n\r", readRegister(0x18, 0x0A));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 16C ( _readRegister (2 , -> 24 `i -> 10 `i ]
+[; ;BQ76920.c: 343:     snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 13C ( _readRegister (2 , -> 24 `i -> 6 `i ]
 "344
 [; ;BQ76920.c: 344:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "345
-[; ;BQ76920.c: 345:     snprintf(messageBuffer, 127, "0x0B CC_CFG: %i \n\r", readRegister(0x18, 0x0B));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 17C ( _readRegister (2 , -> 24 `i -> 11 `i ]
+[; ;BQ76920.c: 345:     snprintf(messageBuffer, 127, "0x07 PROTECT2: %i \n\r", readRegister(0x18, 0x07));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 14C ( _readRegister (2 , -> 24 `i -> 7 `i ]
 "346
 [; ;BQ76920.c: 346:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "347
-[; ;BQ76920.c: 347:     snprintf(messageBuffer, 127, "0x32 CC_HI: %i \n\r", readRegister(0x18, 0x32));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 18C ( _readRegister (2 , -> 24 `i -> 50 `i ]
+[; ;BQ76920.c: 347:     snprintf(messageBuffer, 127, "0x08 PROTECT3: %i \n\r", readRegister(0x18, 0x08));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 15C ( _readRegister (2 , -> 24 `i -> 8 `i ]
 "348
 [; ;BQ76920.c: 348:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "349
-[; ;BQ76920.c: 349:     snprintf(messageBuffer, 127, "0x33 CC_LO: %i \n\r", readRegister(0x18, 0x33));
-[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 19C ( _readRegister (2 , -> 24 `i -> 51 `i ]
+[; ;BQ76920.c: 349:     snprintf(messageBuffer, 127, "0x09 OV_TRIP: %i \n\r", readRegister(0x18, 0x09));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 16C ( _readRegister (2 , -> 24 `i -> 9 `i ]
 "350
 [; ;BQ76920.c: 350:     EUSART_Write_Text(messageBuffer);
 [e ( _EUSART_Write_Text (1 &U _messageBuffer ]
 "351
-[; ;BQ76920.c: 351:     EUSART_Write_Text("\n\r");
-[e ( _EUSART_Write_Text (1 :s 20C ]
+[; ;BQ76920.c: 351:     snprintf(messageBuffer, 127, "0x0A UV_TRIP: %i \n\r", readRegister(0x18, 0x0A));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 17C ( _readRegister (2 , -> 24 `i -> 10 `i ]
 "352
-[; ;BQ76920.c: 352: }
+[; ;BQ76920.c: 352:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"353
+[; ;BQ76920.c: 353:     snprintf(messageBuffer, 127, "0x0B CC_CFG: %i \n\r", readRegister(0x18, 0x0B));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 18C ( _readRegister (2 , -> 24 `i -> 11 `i ]
+"354
+[; ;BQ76920.c: 354:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"355
+[; ;BQ76920.c: 355:     snprintf(messageBuffer, 127, "0x32 CC_HI: %i \n\r", readRegister(0x18, 0x32));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 19C ( _readRegister (2 , -> 24 `i -> 50 `i ]
+"356
+[; ;BQ76920.c: 356:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"357
+[; ;BQ76920.c: 357:     snprintf(messageBuffer, 127, "0x33 CC_LO: %i \n\r", readRegister(0x18, 0x33));
+[e ( _snprintf (2 , (. , , &U _messageBuffer -> -> 127 `i `ui :s 20C ( _readRegister (2 , -> 24 `i -> 51 `i ]
+"358
+[; ;BQ76920.c: 358:     EUSART_Write_Text(messageBuffer);
+[e ( _EUSART_Write_Text (1 &U _messageBuffer ]
+"359
+[; ;BQ76920.c: 359:     EUSART_Write_Text("\n\r");
+[e ( _EUSART_Write_Text (1 :s 21C ]
+"360
+[; ;BQ76920.c: 360: }
 [e :UE 851 ]
 }
 [p f _snprintf 8388736 ]
-[a 5C 84 101 109 112 58 32 37 100 32 101 45 50 10 13 0 ]
-[a 6C 80 114 105 110 116 105 110 103 32 111 117 116 32 65 70 69 32 114 101 103 105 115 116 101 114 32 118 97 108 117 101 115 46 46 46 10 13 0 ]
+[a 6C 84 101 109 112 58 32 37 100 32 101 45 50 10 13 0 ]
+[a 7C 80 114 105 110 116 105 110 103 32 111 117 116 32 65 70 69 32 114 101 103 105 115 116 101 114 32 118 97 108 117 101 115 46 46 46 10 13 0 ]
 [a 3C 48 120 48 48 32 83 89 83 95 83 84 65 84 58 32 37 105 32 10 13 0 ]
-[a 8C 48 120 48 48 32 83 89 83 95 83 84 65 84 58 32 37 105 32 10 13 0 ]
-[a 16C 48 120 48 65 32 85 86 95 84 82 73 80 58 32 37 105 32 10 13 0 ]
-[a 15C 48 120 48 57 32 79 86 95 84 82 73 80 58 32 37 105 32 10 13 0 ]
-[a 19C 48 120 51 51 32 67 67 95 76 79 58 32 37 105 32 10 13 0 ]
-[a 18C 48 120 51 50 32 67 67 95 72 73 58 32 37 105 32 10 13 0 ]
-[a 17C 48 120 48 66 32 67 67 95 67 70 71 58 32 37 105 32 10 13 0 ]
-[a 14C 48 120 48 56 32 80 82 79 84 69 67 84 51 58 32 37 105 32 10 13 0 ]
-[a 13C 48 120 48 55 32 80 82 79 84 69 67 84 50 58 32 37 105 32 10 13 0 ]
+[a 9C 48 120 48 48 32 83 89 83 95 83 84 65 84 58 32 37 105 32 10 13 0 ]
+[a 17C 48 120 48 65 32 85 86 95 84 82 73 80 58 32 37 105 32 10 13 0 ]
+[a 16C 48 120 48 57 32 79 86 95 84 82 73 80 58 32 37 105 32 10 13 0 ]
+[a 20C 48 120 51 51 32 67 67 95 76 79 58 32 37 105 32 10 13 0 ]
+[a 19C 48 120 51 50 32 67 67 95 72 73 58 32 37 105 32 10 13 0 ]
+[a 18C 48 120 48 66 32 67 67 95 67 70 71 58 32 37 105 32 10 13 0 ]
+[a 15C 48 120 48 56 32 80 82 79 84 69 67 84 51 58 32 37 105 32 10 13 0 ]
+[a 14C 48 120 48 55 32 80 82 79 84 69 67 84 50 58 32 37 105 32 10 13 0 ]
 [a 2C 48 120 48 53 32 83 89 83 95 67 84 82 76 50 58 32 37 105 32 10 13 0 ]
-[a 11C 48 120 48 53 32 83 89 83 95 67 84 82 76 50 58 32 37 105 32 10 13 0 ]
+[a 12C 48 120 48 53 32 83 89 83 95 67 84 82 76 50 58 32 37 105 32 10 13 0 ]
 [a 1C 67 101 108 108 32 98 97 116 116 58 32 37 105 32 44 37 100 44 32 37 100 32 44 32 37 100 44 32 37 100 44 32 37 100 32 66 97 116 116 32 67 117 114 114 58 32 37 105 32 84 101 109 112 58 32 37 105 32 67 84 82 76 50 58 32 37 105 32 10 13 0 ]
-[a 12C 48 120 48 54 32 80 82 79 84 69 67 84 49 58 32 37 105 32 10 13 0 ]
-[a 10C 48 120 48 52 32 83 89 83 95 67 84 82 76 49 58 32 37 105 32 10 13 0 ]
-[a 9C 48 120 48 49 32 67 69 76 76 66 65 76 49 58 32 37 105 32 10 13 0 ]
-[a 4C 67 117 114 114 101 110 116 58 32 37 100 32 10 13 0 ]
-[a 7C 10 13 0 ]
-[a 20C 10 13 0 ]
+[a 4C 48 120 48 54 32 80 82 79 84 69 67 84 49 58 32 37 105 32 10 13 0 ]
+[a 13C 48 120 48 54 32 80 82 79 84 69 67 84 49 58 32 37 105 32 10 13 0 ]
+[a 11C 48 120 48 52 32 83 89 83 95 67 84 82 76 49 58 32 37 105 32 10 13 0 ]
+[a 10C 48 120 48 49 32 67 69 76 76 66 65 76 49 58 32 37 105 32 10 13 0 ]
+[a 5C 67 117 114 114 101 110 116 58 32 37 100 32 10 13 0 ]
+[a 8C 10 13 0 ]
+[a 21C 10 13 0 ]
