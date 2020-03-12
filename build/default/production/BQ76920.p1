@@ -1860,8 +1860,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;BQ76920.c: 193:     adcVal = (readRegister(0x18, 0x32) << 8)| readRegister(0x18, 0x33);
 [e = _adcVal | << ( _readRegister (2 , -> 24 `i -> 50 `i -> 8 `i ( _readRegister (2 , -> 24 `i -> 51 `i ]
 "194
-[; ;BQ76920.c: 194:     batCurrent = -(adcVal * 8.44 / 5.0);
-[e = _batCurrent -> -U / * -> _adcVal `d .8.44 .5.0 `l ]
+[; ;BQ76920.c: 194:     batCurrent = -(adcVal * 8.44 / 19.6);
+[e = _batCurrent -> -U / * -> _adcVal `d .8.44 .19.6 `l ]
 "196
 [; ;BQ76920.c: 196:     if (batCurrent > -10 && batCurrent < 10)
 [e $ ! && > _batCurrent -> -U -> 10 `i `l < _batCurrent -> -> 10 `i `l 838  ]

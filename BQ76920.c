@@ -191,7 +191,7 @@ void updateCurrent(){
     //if (sys_stat.bits.CC_READY == 1){
        
     adcVal = (readRegister(AFE_BQ76920_I2C_ADDRESS, CC_HI_BYTE) << 8)| readRegister(AFE_BQ76920_I2C_ADDRESS, CC_LO_BYTE);
-    batCurrent = -(adcVal * 8.44 / 5.0);  // mA, invert polarity due to correct hardware orientation
+    batCurrent = -(adcVal * 8.44 / 19.6);  // mA, invert polarity due to correct hardware orientation
     
     if (batCurrent > -10 && batCurrent < 10)
     {

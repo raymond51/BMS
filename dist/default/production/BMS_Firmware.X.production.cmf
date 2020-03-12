@@ -154,7 +154,7 @@ stringtext43 STRCODE 0 3A55 3A55 3 2
 stringtext44 STRCODE 0 3A58 3A58 3 2
 stringtext45 STRCODE 0 3A5B 3A5B 3 2
 stringtext46 STRCODE 0 3A5E 3A5E 3 2
-$C:\Users\raymo\AppData\Local\Temp\simk.o
+$C:\Users\raymo\AppData\Local\Temp\s4hk.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 20 20 2 2
 config CONFIG 0 8007 8007 2 2
@@ -283,74 +283,74 @@ STRING 3A61-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\BMS_Firmware.X.production.o
-22 cinit CODE >6081:C:\Users\raymo\AppData\Local\Temp\simk.
-22 cinit CODE >6084:C:\Users\raymo\AppData\Local\Temp\simk.
-22 cinit CODE >6213:C:\Users\raymo\AppData\Local\Temp\simk.
-23 cinit CODE >6214:C:\Users\raymo\AppData\Local\Temp\simk.
-24 cinit CODE >6215:C:\Users\raymo\AppData\Local\Temp\simk.
-25 cinit CODE >6216:C:\Users\raymo\AppData\Local\Temp\simk.
-26 cinit CODE >6217:C:\Users\raymo\AppData\Local\Temp\simk.
-27 cinit CODE >6218:C:\Users\raymo\AppData\Local\Temp\simk.
-28 cinit CODE >6219:C:\Users\raymo\AppData\Local\Temp\simk.
-29 cinit CODE >6220:C:\Users\raymo\AppData\Local\Temp\simk.
-2A cinit CODE >6221:C:\Users\raymo\AppData\Local\Temp\simk.
-2B cinit CODE >6222:C:\Users\raymo\AppData\Local\Temp\simk.
-2C cinit CODE >6223:C:\Users\raymo\AppData\Local\Temp\simk.
-2D cinit CODE >6224:C:\Users\raymo\AppData\Local\Temp\simk.
-2E cinit CODE >6225:C:\Users\raymo\AppData\Local\Temp\simk.
-2F cinit CODE >6226:C:\Users\raymo\AppData\Local\Temp\simk.
-30 cinit CODE >6227:C:\Users\raymo\AppData\Local\Temp\simk.
-31 cinit CODE >6228:C:\Users\raymo\AppData\Local\Temp\simk.
-32 cinit CODE >6229:C:\Users\raymo\AppData\Local\Temp\simk.
-33 cinit CODE >6230:C:\Users\raymo\AppData\Local\Temp\simk.
-34 cinit CODE >6231:C:\Users\raymo\AppData\Local\Temp\simk.
-35 cinit CODE >6232:C:\Users\raymo\AppData\Local\Temp\simk.
-36 cinit CODE >6233:C:\Users\raymo\AppData\Local\Temp\simk.
-37 cinit CODE >6234:C:\Users\raymo\AppData\Local\Temp\simk.
-38 cinit CODE >6235:C:\Users\raymo\AppData\Local\Temp\simk.
-39 cinit CODE >6258:C:\Users\raymo\AppData\Local\Temp\simk.
-3A cinit CODE >6259:C:\Users\raymo\AppData\Local\Temp\simk.
-3B cinit CODE >6260:C:\Users\raymo\AppData\Local\Temp\simk.
-3C cinit CODE >6261:C:\Users\raymo\AppData\Local\Temp\simk.
-3D cinit CODE >6262:C:\Users\raymo\AppData\Local\Temp\simk.
-3E cinit CODE >6263:C:\Users\raymo\AppData\Local\Temp\simk.
-3F cinit CODE >6264:C:\Users\raymo\AppData\Local\Temp\simk.
-40 cinit CODE >6265:C:\Users\raymo\AppData\Local\Temp\simk.
-41 cinit CODE >6266:C:\Users\raymo\AppData\Local\Temp\simk.
-44 cinit CODE >6270:C:\Users\raymo\AppData\Local\Temp\simk.
-45 cinit CODE >6274:C:\Users\raymo\AppData\Local\Temp\simk.
-46 cinit CODE >6275:C:\Users\raymo\AppData\Local\Temp\simk.
-47 cinit CODE >6279:C:\Users\raymo\AppData\Local\Temp\simk.
-48 cinit CODE >6280:C:\Users\raymo\AppData\Local\Temp\simk.
-49 cinit CODE >6281:C:\Users\raymo\AppData\Local\Temp\simk.
-4A cinit CODE >6282:C:\Users\raymo\AppData\Local\Temp\simk.
-4B cinit CODE >6283:C:\Users\raymo\AppData\Local\Temp\simk.
-4C cinit CODE >6284:C:\Users\raymo\AppData\Local\Temp\simk.
-4D cinit CODE >6285:C:\Users\raymo\AppData\Local\Temp\simk.
-4E cinit CODE >6286:C:\Users\raymo\AppData\Local\Temp\simk.
-4F cinit CODE >6287:C:\Users\raymo\AppData\Local\Temp\simk.
-52 cinit CODE >6291:C:\Users\raymo\AppData\Local\Temp\simk.
-53 cinit CODE >6292:C:\Users\raymo\AppData\Local\Temp\simk.
-54 cinit CODE >6293:C:\Users\raymo\AppData\Local\Temp\simk.
-55 cinit CODE >6294:C:\Users\raymo\AppData\Local\Temp\simk.
-56 cinit CODE >6295:C:\Users\raymo\AppData\Local\Temp\simk.
-57 cinit CODE >6296:C:\Users\raymo\AppData\Local\Temp\simk.
-58 cinit CODE >6297:C:\Users\raymo\AppData\Local\Temp\simk.
-59 cinit CODE >6298:C:\Users\raymo\AppData\Local\Temp\simk.
-5A cinit CODE >6299:C:\Users\raymo\AppData\Local\Temp\simk.
-5D cinit CODE >6303:C:\Users\raymo\AppData\Local\Temp\simk.
-5E cinit CODE >6304:C:\Users\raymo\AppData\Local\Temp\simk.
-5F cinit CODE >6305:C:\Users\raymo\AppData\Local\Temp\simk.
-60 cinit CODE >6306:C:\Users\raymo\AppData\Local\Temp\simk.
-61 cinit CODE >6307:C:\Users\raymo\AppData\Local\Temp\simk.
-62 cinit CODE >6308:C:\Users\raymo\AppData\Local\Temp\simk.
-63 cinit CODE >6309:C:\Users\raymo\AppData\Local\Temp\simk.
-64 cinit CODE >6310:C:\Users\raymo\AppData\Local\Temp\simk.
-65 cinit CODE >6311:C:\Users\raymo\AppData\Local\Temp\simk.
-67 cinit CODE >6317:C:\Users\raymo\AppData\Local\Temp\simk.
-67 cinit CODE >6319:C:\Users\raymo\AppData\Local\Temp\simk.
-68 cinit CODE >6320:C:\Users\raymo\AppData\Local\Temp\simk.
-69 cinit CODE >6321:C:\Users\raymo\AppData\Local\Temp\simk.
+22 cinit CODE >6081:C:\Users\raymo\AppData\Local\Temp\s4hk.
+22 cinit CODE >6084:C:\Users\raymo\AppData\Local\Temp\s4hk.
+22 cinit CODE >6213:C:\Users\raymo\AppData\Local\Temp\s4hk.
+23 cinit CODE >6214:C:\Users\raymo\AppData\Local\Temp\s4hk.
+24 cinit CODE >6215:C:\Users\raymo\AppData\Local\Temp\s4hk.
+25 cinit CODE >6216:C:\Users\raymo\AppData\Local\Temp\s4hk.
+26 cinit CODE >6217:C:\Users\raymo\AppData\Local\Temp\s4hk.
+27 cinit CODE >6218:C:\Users\raymo\AppData\Local\Temp\s4hk.
+28 cinit CODE >6219:C:\Users\raymo\AppData\Local\Temp\s4hk.
+29 cinit CODE >6220:C:\Users\raymo\AppData\Local\Temp\s4hk.
+2A cinit CODE >6221:C:\Users\raymo\AppData\Local\Temp\s4hk.
+2B cinit CODE >6222:C:\Users\raymo\AppData\Local\Temp\s4hk.
+2C cinit CODE >6223:C:\Users\raymo\AppData\Local\Temp\s4hk.
+2D cinit CODE >6224:C:\Users\raymo\AppData\Local\Temp\s4hk.
+2E cinit CODE >6225:C:\Users\raymo\AppData\Local\Temp\s4hk.
+2F cinit CODE >6226:C:\Users\raymo\AppData\Local\Temp\s4hk.
+30 cinit CODE >6227:C:\Users\raymo\AppData\Local\Temp\s4hk.
+31 cinit CODE >6228:C:\Users\raymo\AppData\Local\Temp\s4hk.
+32 cinit CODE >6229:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33 cinit CODE >6230:C:\Users\raymo\AppData\Local\Temp\s4hk.
+34 cinit CODE >6231:C:\Users\raymo\AppData\Local\Temp\s4hk.
+35 cinit CODE >6232:C:\Users\raymo\AppData\Local\Temp\s4hk.
+36 cinit CODE >6233:C:\Users\raymo\AppData\Local\Temp\s4hk.
+37 cinit CODE >6234:C:\Users\raymo\AppData\Local\Temp\s4hk.
+38 cinit CODE >6235:C:\Users\raymo\AppData\Local\Temp\s4hk.
+39 cinit CODE >6258:C:\Users\raymo\AppData\Local\Temp\s4hk.
+3A cinit CODE >6259:C:\Users\raymo\AppData\Local\Temp\s4hk.
+3B cinit CODE >6260:C:\Users\raymo\AppData\Local\Temp\s4hk.
+3C cinit CODE >6261:C:\Users\raymo\AppData\Local\Temp\s4hk.
+3D cinit CODE >6262:C:\Users\raymo\AppData\Local\Temp\s4hk.
+3E cinit CODE >6263:C:\Users\raymo\AppData\Local\Temp\s4hk.
+3F cinit CODE >6264:C:\Users\raymo\AppData\Local\Temp\s4hk.
+40 cinit CODE >6265:C:\Users\raymo\AppData\Local\Temp\s4hk.
+41 cinit CODE >6266:C:\Users\raymo\AppData\Local\Temp\s4hk.
+44 cinit CODE >6270:C:\Users\raymo\AppData\Local\Temp\s4hk.
+45 cinit CODE >6274:C:\Users\raymo\AppData\Local\Temp\s4hk.
+46 cinit CODE >6275:C:\Users\raymo\AppData\Local\Temp\s4hk.
+47 cinit CODE >6279:C:\Users\raymo\AppData\Local\Temp\s4hk.
+48 cinit CODE >6280:C:\Users\raymo\AppData\Local\Temp\s4hk.
+49 cinit CODE >6281:C:\Users\raymo\AppData\Local\Temp\s4hk.
+4A cinit CODE >6282:C:\Users\raymo\AppData\Local\Temp\s4hk.
+4B cinit CODE >6283:C:\Users\raymo\AppData\Local\Temp\s4hk.
+4C cinit CODE >6284:C:\Users\raymo\AppData\Local\Temp\s4hk.
+4D cinit CODE >6285:C:\Users\raymo\AppData\Local\Temp\s4hk.
+4E cinit CODE >6286:C:\Users\raymo\AppData\Local\Temp\s4hk.
+4F cinit CODE >6287:C:\Users\raymo\AppData\Local\Temp\s4hk.
+52 cinit CODE >6291:C:\Users\raymo\AppData\Local\Temp\s4hk.
+53 cinit CODE >6292:C:\Users\raymo\AppData\Local\Temp\s4hk.
+54 cinit CODE >6293:C:\Users\raymo\AppData\Local\Temp\s4hk.
+55 cinit CODE >6294:C:\Users\raymo\AppData\Local\Temp\s4hk.
+56 cinit CODE >6295:C:\Users\raymo\AppData\Local\Temp\s4hk.
+57 cinit CODE >6296:C:\Users\raymo\AppData\Local\Temp\s4hk.
+58 cinit CODE >6297:C:\Users\raymo\AppData\Local\Temp\s4hk.
+59 cinit CODE >6298:C:\Users\raymo\AppData\Local\Temp\s4hk.
+5A cinit CODE >6299:C:\Users\raymo\AppData\Local\Temp\s4hk.
+5D cinit CODE >6303:C:\Users\raymo\AppData\Local\Temp\s4hk.
+5E cinit CODE >6304:C:\Users\raymo\AppData\Local\Temp\s4hk.
+5F cinit CODE >6305:C:\Users\raymo\AppData\Local\Temp\s4hk.
+60 cinit CODE >6306:C:\Users\raymo\AppData\Local\Temp\s4hk.
+61 cinit CODE >6307:C:\Users\raymo\AppData\Local\Temp\s4hk.
+62 cinit CODE >6308:C:\Users\raymo\AppData\Local\Temp\s4hk.
+63 cinit CODE >6309:C:\Users\raymo\AppData\Local\Temp\s4hk.
+64 cinit CODE >6310:C:\Users\raymo\AppData\Local\Temp\s4hk.
+65 cinit CODE >6311:C:\Users\raymo\AppData\Local\Temp\s4hk.
+67 cinit CODE >6317:C:\Users\raymo\AppData\Local\Temp\s4hk.
+67 cinit CODE >6319:C:\Users\raymo\AppData\Local\Temp\s4hk.
+68 cinit CODE >6320:C:\Users\raymo\AppData\Local\Temp\s4hk.
+69 cinit CODE >6321:C:\Users\raymo\AppData\Local\Temp\s4hk.
 4 intentry CODE >54:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 6 intentry CODE >58:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 C intentry CODE >59:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
@@ -1616,20 +1616,20 @@ D5 text50 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\co
 362C maintext CODE >84:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 362F maintext CODE >88:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 3632 maintext CODE >90:C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
-33BB clrtext CODE >6241:C:\Users\raymo\AppData\Local\Temp\simk.
-33BB clrtext CODE >6242:C:\Users\raymo\AppData\Local\Temp\simk.
-33BC clrtext CODE >6243:C:\Users\raymo\AppData\Local\Temp\simk.
-33BC clrtext CODE >6244:C:\Users\raymo\AppData\Local\Temp\simk.
-33BD clrtext CODE >6245:C:\Users\raymo\AppData\Local\Temp\simk.
-33BE clrtext CODE >6246:C:\Users\raymo\AppData\Local\Temp\simk.
-33BF clrtext CODE >6247:C:\Users\raymo\AppData\Local\Temp\simk.
-33C0 clrtext CODE >6248:C:\Users\raymo\AppData\Local\Temp\simk.
-33C1 clrtext CODE >6249:C:\Users\raymo\AppData\Local\Temp\simk.
-33C2 clrtext CODE >6250:C:\Users\raymo\AppData\Local\Temp\simk.
-33C3 clrtext CODE >6251:C:\Users\raymo\AppData\Local\Temp\simk.
-33C4 clrtext CODE >6252:C:\Users\raymo\AppData\Local\Temp\simk.
-33C5 clrtext CODE >6254:C:\Users\raymo\AppData\Local\Temp\simk.
-33C6 clrtext CODE >6253:C:\Users\raymo\AppData\Local\Temp\simk.
+33BB clrtext CODE >6241:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33BB clrtext CODE >6242:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33BC clrtext CODE >6243:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33BC clrtext CODE >6244:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33BD clrtext CODE >6245:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33BE clrtext CODE >6246:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33BF clrtext CODE >6247:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C0 clrtext CODE >6248:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C1 clrtext CODE >6249:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C2 clrtext CODE >6250:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C3 clrtext CODE >6251:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C4 clrtext CODE >6252:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C5 clrtext CODE >6254:C:\Users\raymo\AppData\Local\Temp\s4hk.
+33C6 clrtext CODE >6253:C:\Users\raymo\AppData\Local\Temp\s4hk.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1690,7 +1690,7 @@ _SPEN CEF 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _SYNC CF4 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TMR1 16 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _TXEN CF5 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\simk.o
+___sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\s4hk.o
 _atoi 300C 0 CODE 0 text29 dist/default/production\BMS_Firmware.X.production.o
 _ctoa 6AF4 0 CODE 0 text23 dist/default/production\BMS_Firmware.X.production.o
 _dbuf 220 0 BANK4 1 bssBANK4 dist/default/production\BMS_Firmware.X.production.o
@@ -1709,7 +1709,7 @@ enableDischarging@enable 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Fi
 pad@i 2C 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 pad@p 29 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 pad@w 2E 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-start 40 0 CODE 0 init C:\Users\raymo\AppData\Local\Temp\simk.o
+start 40 0 CODE 0 init C:\Users\raymo\AppData\Local\Temp\s4hk.o
 ___aomod@counter 72 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 ___flmul@aexp 34 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 ___flmul@bexp 39 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -1816,12 +1816,12 @@ utoa@i 47 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.productio
 utoa@n 3F 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 utoa@p 3B 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 utoa@w 3D 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\simk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\simk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\simk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\simk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\simk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\simk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s4hk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s4hk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s4hk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s4hk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s4hk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\raymo\AppData\Local\Temp\s4hk.o
 _WDTCONbits 97 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _send_I2C_stopBit 66CC 0 CODE 0 text66 dist/default/production\BMS_Firmware.X.production.o
@@ -1920,8 +1920,8 @@ _SCD_threshold_setting 73A4 0 STRCODE 0 stringtext5 dist/default/production\BMS_
 ?_strlen 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __Umul8_16@multiplicand 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __size_of_read_I2C_data 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
-___stackhi 2770 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\simk.o
-___stacklo 2160 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\simk.o
+___stackhi 2770 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\s4hk.o
+___stacklo 2160 0 ABS 0 - C:\Users\raymo\AppData\Local\Temp\s4hk.o
 __size_of_strncmp 0 0 ABS 0 - dist/default/production\BMS_Firmware.X.production.o
 _RGB_AWAIT_AFE_CONN 6AB0 0 CODE 0 text44 dist/default/production\BMS_Firmware.X.production.o
 ___aomod@dividend 28 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
@@ -2033,7 +2033,7 @@ fputc@fp 73 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.produ
 fputs@fp 7A 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __end_of_initWDT 300C 0 CODE 0 text74 dist/default/production\BMS_Firmware.X.production.o
 setCellOvervoltageProtection@ov_trip 44 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\simk.o
+___int_sp 0 0 STACK 2 stack C:\Users\raymo\AppData\Local\Temp\s4hk.o
 toupper@c 77 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 setShortCircuitProtection@current_mA 66 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 __end_of_UV_delay_setting 7420 0 STRCODE 0 stringtext7 dist/default/production\BMS_Firmware.X.production.o
@@ -2297,7 +2297,7 @@ readRegister@recievedData 79 0 COMMON 1 cstackCOMMON dist/default/production\BMS
 setTemperatureLimitsint@minDischarge_degC 20 0 BANK0 1 cstackBANK0 dist/default/production\BMS_Firmware.X.production.o
 _setOverCurrentDischargeProtection 4BA6 0 CODE 0 text39 dist/default/production\BMS_Firmware.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\raymo\AppData\Local\Temp\simk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\raymo\AppData\Local\Temp\s4hk.o
 strlen@a 73 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 strlen@s 71 0 COMMON 1 cstackCOMMON dist/default/production\BMS_Firmware.X.production.o
 __end_of___xxtofl 588A 0 CODE 0 text54 dist/default/production\BMS_Firmware.X.production.o

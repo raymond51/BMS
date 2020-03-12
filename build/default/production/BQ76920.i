@@ -10794,7 +10794,7 @@ void updateCurrent(){
 
 
     adcVal = (readRegister(0x18, 0x32) << 8)| readRegister(0x18, 0x33);
-    batCurrent = -(adcVal * 8.44 / 5.0);
+    batCurrent = -(adcVal * 8.44 / 19.6);
 
     if (batCurrent > -10 && batCurrent < 10)
     {

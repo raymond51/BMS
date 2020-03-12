@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Thu Mar 12 14:56:48 2020
+                                                                                               Thu Mar 12 15:19:05 2020
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	16F1719
@@ -17774,7 +17774,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
  17233  2DCF  0432               	iorwf	(??_updateCurrent+1)^(0+128),w
  17234  2DD0  00B6               	movwf	(updateCurrent@adcVal+1)^(0+128)
  17235                           
- 17236                           ;BQ76920.c: 194:     batCurrent = -(adcVal * 8.44 / 5.0);
+ 17236                           ;BQ76920.c: 194:     batCurrent = -(adcVal * 8.44 / 19.6);
  17237  2DD1  0835               	movf	updateCurrent@adcVal^(0+128),w
  17238  2DD2  00F1               	movwf	___xxtofl@val
  17239  2DD3  0836               	movf	(updateCurrent@adcVal+1)^(0+128),w
@@ -17813,13 +17813,13 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
  17272  2DF8  00C5               	movwf	___fldiv@b+1
  17273  2DF9  0826               	movf	?___flmul,w
  17274  2DFA  00C4               	movwf	___fldiv@b
- 17275  2DFB  3040               	movlw	64
+ 17275  2DFB  3041               	movlw	65
  17276  2DFC  00C3               	movwf	___fldiv@a+3
- 17277  2DFD  30A0               	movlw	160
+ 17277  2DFD  309C               	movlw	156
  17278  2DFE  00C2               	movwf	___fldiv@a+2
- 17279  2DFF  3000               	movlw	0
+ 17279  2DFF  30CC               	movlw	204
  17280  2E00  00C1               	movwf	___fldiv@a+1
- 17281  2E01  3000               	movlw	0
+ 17281  2E01  30CD               	movlw	205
  17282  2E02  00C0               	movwf	___fldiv@a
  17283  2E03  319B  2353  31AD   	fcall	___fldiv
  17284  2E06  0020               	movlb	0	; select bank0
@@ -25559,7 +25559,7 @@ BANK25               0      0       0      57        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Thu Mar 12 14:56:48 2020
+Symbol Table                                                                                   Thu Mar 12 15:19:05 2020
 
           __end_of_setShortCircuitProtection 2800                               _maxCellVoltage 01C8  
                       __end_of_send_I2C_data 3380                                 ___fldiv@aexp 0059  
