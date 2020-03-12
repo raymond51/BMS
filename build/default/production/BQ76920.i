@@ -10687,7 +10687,7 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
             protect1.bits.SCD_DELAY = i;
         }
     }
-    protect1.bits.RSNS = 1;
+    protect1.bits.RSNS = 0;
 
     I2C_writeRegister(0x18, 0x06, protect1.regByte);
 
@@ -10888,6 +10888,8 @@ void printcellParameters() {
     snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "0x07 PROTECT2: %i \n\r", readRegister(0x18, 0x07));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);

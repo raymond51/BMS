@@ -97,7 +97,7 @@ void setShortCircuitProtection(long current_mA, int delay_us) {
             protect1.bits.SCD_DELAY = i;
         }
     }
-    protect1.bits.RSNS = 1; //enable lower input range for detection of lower current trip
+    protect1.bits.RSNS = 0; //enable lower input range for detection of lower current trip
     
     I2C_writeRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1, protect1.regByte); //transmit compact bit field as byte to AFE
 
@@ -319,6 +319,8 @@ void printcellParameters() {
     snprintf(messageBuffer, messageBuf_size, "0x00 SYS_STAT: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x06 PROTECT1: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT1)); //expected 159
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0x07 PROTECT2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, PROTECT2)); //expected 122
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
