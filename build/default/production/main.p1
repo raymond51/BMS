@@ -1,26 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"172 ./BQ76920_registers.h
-[; ;./BQ76920_registers.h: 172:   {
+"186 ./BQ76920_registers.h
+[; ;./BQ76920_registers.h: 186:   {
 [s S791 :3 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 ]
 [n S791 . SCD_THRESH SCD_DELAY RSVD RSNS ]
-"170
-[; ;./BQ76920_registers.h: 170: typedef union regPROTECT1 {
+"184
+[; ;./BQ76920_registers.h: 184: typedef union regPROTECT1 {
 [u S790 `S791 1 `uc 1 ]
 [n S790 regPROTECT1 bits regByte ]
-"183
-[; ;./BQ76920_registers.h: 183:   {
+"197
+[; ;./BQ76920_registers.h: 197:   {
 [s S793 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
 [n S793 . OCD_THRESH OCD_DELAY RSVD ]
-"181
-[; ;./BQ76920_registers.h: 181: typedef union regPROTECT2 {
+"195
+[; ;./BQ76920_registers.h: 195: typedef union regPROTECT2 {
 [u S792 `S793 1 `uc 1 ]
 [n S792 regPROTECT2 bits regByte ]
-"193
-[; ;./BQ76920_registers.h: 193:   {
+"207
+[; ;./BQ76920_registers.h: 207:   {
 [s S795 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
 [n S795 . RSVD OV_DELAY UV_DELAY ]
-"191
-[; ;./BQ76920_registers.h: 191: typedef union regPROTECT3 {
+"205
+[; ;./BQ76920_registers.h: 205: typedef union regPROTECT3 {
 [u S794 `S795 1 `uc 1 ]
 [n S794 regPROTECT3 bits regByte ]
 [t ~ __interrupt . k ]
@@ -1362,8 +1362,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _toggleColor
 -> -> 0 `i `a
 ]
-"114 ./BQ76920_registers.h
-[; ;./BQ76920_registers.h: 114: const int SCD_delay_setting [4] =
+"115 ./BQ76920_registers.h
+[; ;./BQ76920_registers.h: 115: const int lookupTableSamsung_voltage[46] =
+[v _lookupTableSamsung_voltage `Ci ~T0 @X0 -> 46 `i e ]
+[i _lookupTableSamsung_voltage
+:U ..
+-> 4177 `i
+-> 3931 `i
+-> 3871 `i
+-> 3855 `i
+-> 3850 `i
+-> 3846 `i
+-> 3845 `i
+-> 3843 `i
+-> 3841 `i
+-> 3840 `i
+-> 3838 `i
+-> 3836 `i
+-> 3834 `i
+-> 3832 `i
+-> 3830 `i
+-> 3827 `i
+-> 3825 `i
+-> 3822 `i
+-> 3819 `i
+-> 3816 `i
+-> 3813 `i
+-> 3809 `i
+-> 3805 `i
+-> 3801 `i
+-> 3796 `i
+-> 3791 `i
+-> 3785 `i
+-> 3779 `i
+-> 3771 `i
+-> 3764 `i
+-> 3755 `i
+-> 3744 `i
+-> 3733 `i
+-> 3719 `i
+-> 3703 `i
+-> 3684 `i
+-> 3661 `i
+-> 3633 `i
+-> 3597 `i
+-> 3550 `i
+-> 3487 `i
+-> 3395 `i
+-> 3251 `i
+-> 2993 `i
+-> 2398 `i
+-> 0 `i
+..
+]
+"120
+[; ;./BQ76920_registers.h: 120: const int lookupTableSamsung_SOC[46] =
+[v _lookupTableSamsung_SOC `Ci ~T0 @X0 -> 46 `i e ]
+[i _lookupTableSamsung_SOC
+:U ..
+-> 100 `i
+-> 98 `i
+-> 96 `i
+-> 93 `i
+-> 91 `i
+-> 87 `i
+-> 84 `i
+-> 82 `i
+-> 80 `i
+-> 78 `i
+-> 76 `i
+-> 73 `i
+-> 71 `i
+-> 69 `i
+-> 67 `i
+-> 64 `i
+-> 62 `i
+-> 60 `i
+-> 58 `i
+-> 56 `i
+-> 53 `i
+-> 51 `i
+-> 49 `i
+-> 47 `i
+-> 44 `i
+-> 42 `i
+-> 40 `i
+-> 38 `i
+-> 36 `i
+-> 33 `i
+-> 31 `i
+-> 29 `i
+-> 27 `i
+-> 24 `i
+-> 22 `i
+-> 20 `i
+-> 18 `i
+-> 16 `i
+-> 13 `i
+-> 11 `i
+-> 9 `i
+-> 7 `i
+-> 4 `i
+-> 2 `i
+-> 0 `i
+-> 0 `i
+..
+]
+"128
+[; ;./BQ76920_registers.h: 128: const int SCD_delay_setting [4] =
 [v _SCD_delay_setting `Ci ~T0 @X0 -> 4 `i e ]
 [i _SCD_delay_setting
 :U ..
@@ -1373,8 +1479,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 400 `i
 ..
 ]
-"116
-[; ;./BQ76920_registers.h: 116: const int SCD_threshold_setting [8] =
+"130
+[; ;./BQ76920_registers.h: 130: const int SCD_threshold_setting [8] =
 [v _SCD_threshold_setting `Ci ~T0 @X0 -> 8 `i e ]
 [i _SCD_threshold_setting
 :U ..
@@ -1388,8 +1494,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 200 `i
 ..
 ]
-"119
-[; ;./BQ76920_registers.h: 119: const int OCD_delay_setting [8] =
+"133
+[; ;./BQ76920_registers.h: 133: const int OCD_delay_setting [8] =
 [v _OCD_delay_setting `Ci ~T0 @X0 -> 8 `i e ]
 [i _OCD_delay_setting
 :U ..
@@ -1403,8 +1509,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 1280 `i
 ..
 ]
-"121
-[; ;./BQ76920_registers.h: 121: const int OCD_threshold_setting [16] =
+"135
+[; ;./BQ76920_registers.h: 135: const int OCD_threshold_setting [16] =
 [v _OCD_threshold_setting `Ci ~T0 @X0 -> 16 `i e ]
 [i _OCD_threshold_setting
 :U ..
@@ -1426,8 +1532,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 100 `i
 ..
 ]
-"124
-[; ;./BQ76920_registers.h: 124: const int UV_delay_setting [4] = { 1, 4, 8, 16 };
+"138
+[; ;./BQ76920_registers.h: 138: const int UV_delay_setting [4] = { 1, 4, 8, 16 };
 [v _UV_delay_setting `Ci ~T0 @X0 -> 4 `i e ]
 [i _UV_delay_setting
 :U ..
@@ -1437,8 +1543,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 16 `i
 ..
 ]
-"125
-[; ;./BQ76920_registers.h: 125: const int OV_delay_setting [4] = { 1, 2, 4, 8 };
+"139
+[; ;./BQ76920_registers.h: 139: const int OV_delay_setting [4] = { 1, 2, 4, 8 };
 [v _OV_delay_setting `Ci ~T0 @X0 -> 4 `i e ]
 [i _OV_delay_setting
 :U ..
@@ -1572,8 +1678,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "56
 [; ;main.c: 56:     static uint8_t count = 0;
-[v F6503 `uc ~T0 @X0 1 s count ]
-[i F6503
+[v F6505 `uc ~T0 @X0 1 s count ]
+[i F6505
 -> -> 0 `i `uc
 ]
 "58
@@ -1585,17 +1691,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "60
 [; ;main.c: 60:         count++;
-[e ++ F6503 -> -> 1 `i `uc ]
+[e ++ F6505 -> -> 1 `i `uc ]
 "63
 [; ;main.c: 63:         if (count == 61) {
-[e $ ! == -> F6503 `i -> 61 `i 802  ]
+[e $ ! == -> F6505 `i -> 61 `i 802  ]
 {
 "64
 [; ;main.c: 64:             tmr1_flag = 1;
 [e = _tmr1_flag -> -> 1 `i `uc ]
 "65
 [; ;main.c: 65:             count = 0;
-[e = F6503 -> -> 0 `i `uc ]
+[e = F6505 -> -> 0 `i `uc ]
 "66
 [; ;main.c: 66:         }
 }

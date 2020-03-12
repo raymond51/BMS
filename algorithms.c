@@ -10,6 +10,7 @@ void watchdog_timeout_shutdown() {
     }
 }
 
+
 /*
 void shutdown_BMS(){
  LATAbits.LATA3 = 1; //unlatch the relay to shutdown bms system

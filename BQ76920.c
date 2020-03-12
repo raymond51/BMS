@@ -324,6 +324,8 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "cellval: %d SOC: %d \n\r", lookupTableSamsung_voltage[20],lookupTableSamsung_SOC[20]);
+    EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
  }

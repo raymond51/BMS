@@ -9643,7 +9643,20 @@ typedef uint32_t uint_fast32_t;
 # 13 "./BQ76920.h" 2
 
 # 1 "./BQ76920_registers.h" 1
-# 114 "./BQ76920_registers.h"
+# 115 "./BQ76920_registers.h"
+const int lookupTableSamsung_voltage[46] =
+  { 4177,3931,3871,3855,3850,3846,3845,3843,3841,3840,3838,3836,3834,
+3832,3830,3827,3825,3822,3819,3816,3813,3809,3805,3801,3796,3791,3785,3779,3771,
+3764,3755,3744,3733,3719,3703,3684,3661,3633,3597,3550,3487,3395,3251,2993,2398,0};
+
+const int lookupTableSamsung_SOC[46] =
+  {100,98,96,93,91,87,84,82,80,78,76,73,71,69,67,64,62,60,58,
+56,53,51,49,47,44,42,40,38,36,33,31,29,27,24,22,20,18,16,13,11,9,7,4,2,0,0};
+
+
+
+
+
 const int SCD_delay_setting [4] =
   { 70, 100, 200, 400 };
 const int SCD_threshold_setting [8] =
@@ -10892,6 +10905,8 @@ void printcellParameters() {
     snprintf(messageBuffer, 127, "0x07 PROTECT2: %i \n\r", readRegister(0x18, 0x07));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "cellval: %d SOC: %d \n\r", lookupTableSamsung_voltage[20],lookupTableSamsung_SOC[20]);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
