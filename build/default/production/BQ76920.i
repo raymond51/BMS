@@ -10917,23 +10917,18 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-    snprintf(messageBuffer, 127, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(0x18, 0x05));
+# 348 "BQ76920.c"
+    snprintf(messageBuffer, 127, "%d,",batVoltage);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "0x05 SYS_CTRL2: %i \n\r", readRegister(0x18, 0x05));
+    snprintf(messageBuffer, 127, "%d,",batCurrent);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "0x00 SYS_STAT: %i \n\r", readRegister(0x18, 0x00));
+    snprintf(messageBuffer, 127, "%d,",temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "0x06 PROTECT1: %i \n\r", readRegister(0x18, 0x06));
+    snprintf(messageBuffer, 127, "0,");
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "0x07 PROTECT2: %i \n\r", readRegister(0x18, 0x07));
+    snprintf(messageBuffer, 127, "%%d, %d, %d, %d, %d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
-    EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "cell predicted SOC: %d %d %d %d %d\n\r", cellSOC[0], cellSOC[1], cellSOC[2], cellSOC[3], cellSOC[4]);
-    EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "cell predicted Charge: %d %d %d %d %d\n\r", cellCharge[0], cellCharge[1], cellCharge[2], cellCharge[3], cellCharge[4]);
-    EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
+    snprintf(messageBuffer, 127, "%d, %d, %d, %d, %d \n\r",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
     EUSART_Write_Text(messageBuffer);
  }
 

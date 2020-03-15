@@ -321,6 +321,7 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
+    /*
     snprintf(messageBuffer, messageBuf_size, "Cell batt: %i ,%d, %d , %d, %d, %d Batt Curr: %i Temp: %i CTRL2: %i \n\r", batVoltage,cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4], batCurrent, temperatureThermistor,readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0x05 SYS_CTRL2: %i \n\r", readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2));
@@ -338,6 +339,23 @@ void printcellParameters() {
     snprintf(messageBuffer, messageBuf_size, "cell predicted Charge: %d %d %d %d %d\n\r", cellCharge[0], cellCharge[1], cellCharge[2], cellCharge[3], cellCharge[4]);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Temp: %d e-2\n\r", temperatureThermistor);
+    EUSART_Write_Text(messageBuffer);
+    */
+    
+    
+    //print data to processing
+    //battery pack voltage, pack current, temperature, 0,cellv1,cellv2,cellv3,cellv4,cellv5, SOC_1, SOC_2, SOC_3, SOC_4, SOC_5,
+    snprintf(messageBuffer, messageBuf_size, "%d,",batVoltage);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "%d,",batCurrent);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "%d,",temperatureThermistor);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "0,");
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "%%d, %d, %d, %d, %d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "%d, %d, %d, %d, %d \n\r",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
     EUSART_Write_Text(messageBuffer);
  }
 
