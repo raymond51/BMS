@@ -10542,7 +10542,7 @@ void RGB_AWAIT_AFE_CONN();
 
 # 1 "./BQ76920.h" 1
 # 17 "./algorithms.h" 2
-# 29 "./algorithms.h"
+# 31 "./algorithms.h"
 uint8_t currState = 0;
 
 
@@ -10551,6 +10551,7 @@ uint8_t currState = 0;
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
+void coulomb_counter(void);
 # 18 "./BQ76920.h" 2
 # 36 "./BQ76920.h"
 int adcGain=0;
@@ -10581,6 +10582,10 @@ float shuntResistorValue_mOhm;
 regPROTECT1_t protect1;
 regPROTECT2_t protect2;
 regPROTECT3_t protect3;
+
+
+int samsung_cell_max_charge = 2500;
+int cellCharge[5];
 
 
 void init_AFE(void);
@@ -10788,6 +10793,8 @@ void AFE_UPDATE(){
     if(batCurrent<10){
 
         calibrate_BATTSOC();
+    }else{
+         coulomb_counter();
     }
 
     updateCurrent();
@@ -10831,7 +10838,7 @@ void updateVoltages(){
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
-# 244 "BQ76920.c"
+# 246 "BQ76920.c"
     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
@@ -10922,7 +10929,9 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "cell predicted SOC: %d %d %d \n\r", cellSOC[0], cellSOC[1], cellSOC[2] );
+    snprintf(messageBuffer, 127, "cell predicted SOC: %d %d %d %d %d\n\r", cellSOC[0], cellSOC[1], cellSOC[2], cellSOC[3], cellSOC[4]);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "cell predicted Charge: %d %d %d %d %d\n\r", cellCharge[0], cellCharge[1], cellCharge[2], cellCharge[3], cellCharge[4]);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);

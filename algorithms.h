@@ -25,6 +25,8 @@
 #define READ_AFE_DATA 2 //state to constantly read and update the BQ AFE chip, also kick watchdog 
 #define AFE_COMM_ERROR 3
 
+#define MEASUREMENT_DELAY 5000 // the duration between each measurement
+
 
 uint8_t currState = AWAIT_AFE_CONN;
 
@@ -34,6 +36,7 @@ uint8_t currState = AWAIT_AFE_CONN;
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
+void coulomb_counter(void);
 
 #endif
 

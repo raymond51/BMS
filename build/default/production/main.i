@@ -10560,7 +10560,7 @@ typedef union regVCELL
 
 # 1 "./BQ76920.h" 1
 # 17 "./algorithms.h" 2
-# 29 "./algorithms.h"
+# 31 "./algorithms.h"
 uint8_t currState = 0;
 
 
@@ -10569,6 +10569,7 @@ uint8_t currState = 0;
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
+void coulomb_counter(void);
 # 18 "./BQ76920.h" 2
 # 36 "./BQ76920.h"
 int adcGain=0;
@@ -10599,6 +10600,10 @@ float shuntResistorValue_mOhm;
 regPROTECT1_t protect1;
 regPROTECT2_t protect2;
 regPROTECT3_t protect3;
+
+
+int samsung_cell_max_charge = 2500;
+int cellCharge[5];
 
 
 void init_AFE(void);

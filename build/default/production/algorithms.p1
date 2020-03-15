@@ -1361,8 +1361,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63
 [; ;./BQ76920.h: 63: regPROTECT3_t protect3;
 [v _protect3 `S794 ~T0 @X0 1 e ]
-"29 ./algorithms.h
-[; ;./algorithms.h: 29: uint8_t currState = 0;
+"66
+[; ;./BQ76920.h: 66: int samsung_cell_max_charge = 2500;
+[v _samsung_cell_max_charge `i ~T0 @X0 1 e ]
+[i _samsung_cell_max_charge
+-> 2500 `i
+]
+"67
+[; ;./BQ76920.h: 67: int cellCharge[5];
+[v _cellCharge `i ~T0 @X0 -> 5 `i e ]
+"31 ./algorithms.h
+[; ;./algorithms.h: 31: uint8_t currState = 0;
 [v _currState `uc ~T0 @X0 1 e ]
 [i _currState
 -> -> 0 `i `uc
@@ -1426,27 +1435,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;algorithms.c: 29:                 cellSOC[i] = lookupTableSamsung_SOC[j];
 [e = *U + &U _cellSOC * -> -> _i `ui `ux -> -> # *U &U _cellSOC `ui `ux *U + &U _lookupTableSamsung_SOC * -> -> _j `ui `ux -> -> # *U &U _lookupTableSamsung_SOC `ui `ux ]
 "30
-[; ;algorithms.c: 30:                 break;
-[e $U 807  ]
+[; ;algorithms.c: 30:                 cellCharge[i] = (lookupTableSamsung_SOC[j]/100.0) * samsung_cell_max_charge;
+[e = *U + &U _cellCharge * -> -> _i `ui `ux -> -> # *U &U _cellCharge `ui `ux -> * / -> *U + &U _lookupTableSamsung_SOC * -> -> _j `ui `ux -> -> # *U &U _lookupTableSamsung_SOC `ui `ux `d .100.0 -> _samsung_cell_max_charge `d `i ]
 "31
-[; ;algorithms.c: 31:             }
+[; ;algorithms.c: 31:                 break;
+[e $U 807  ]
+"32
+[; ;algorithms.c: 32:             }
 }
 [e :U 809 ]
-"32
-[; ;algorithms.c: 32:         }
+"33
+[; ;algorithms.c: 33:         }
 }
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 46 `i 806  ]
 [e :U 807 ]
 }
-"33
-[; ;algorithms.c: 33:     }
+"34
+[; ;algorithms.c: 34:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 5 `i 803  ]
 [e :U 804 ]
 }
-"35
-[; ;algorithms.c: 35: }
+"36
+[; ;algorithms.c: 36: }
 [e :UE 802 ]
+}
+"38
+[; ;algorithms.c: 38: void coulomb_counter(void){
+[v _coulomb_counter `(v ~T0 @X0 1 ef ]
+{
+[e :U _coulomb_counter ]
+[f ]
+"39
+[; ;algorithms.c: 39:     for(int i = 0; i<5;i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 811  ]
+[e $U 812  ]
+[e :U 811 ]
+{
+"40
+[; ;algorithms.c: 40:        cellCharge[i] = cellCharge[i] - (batCurrent * (5000/ 3600000.0));
+[e = *U + &U _cellCharge * -> -> _i `ui `ux -> -> # *U &U _cellCharge `ui `ux -> - -> *U + &U _cellCharge * -> -> _i `ui `ux -> -> # *U &U _cellCharge `ui `ux `d * -> _batCurrent `d / -> -> 5000 `i `d .3600000.0 `i ]
+"41
+[; ;algorithms.c: 41:        cellSOC[i] = ((cellCharge[i] * 100.0 )/samsung_cell_max_charge);
+[e = *U + &U _cellSOC * -> -> _i `ui `ux -> -> # *U &U _cellSOC `ui `ux -> / * -> *U + &U _cellCharge * -> -> _i `ui `ux -> -> # *U &U _cellCharge `ui `ux `d .100.0 -> _samsung_cell_max_charge `d `i ]
+"42
+[; ;algorithms.c: 42:      }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 811  ]
+[e :U 812 ]
+}
+"43
+[; ;algorithms.c: 43: }
+[e :UE 810 ]
 }

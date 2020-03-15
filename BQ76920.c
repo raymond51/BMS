@@ -176,6 +176,8 @@ void AFE_UPDATE(){
     if(batCurrent<10){
         //update/re-calibrate batt soc
         calibrate_BATTSOC();
+    }else{
+         coulomb_counter();      
     }
     
     updateCurrent();//update the current reading
@@ -331,7 +333,9 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "cell predicted SOC: %d %d %d \n\r", cellSOC[0], cellSOC[1], cellSOC[2], cellSOC[3], cellSOC[4]);
+    snprintf(messageBuffer, messageBuf_size, "cell predicted SOC: %d %d %d %d %d\n\r", cellSOC[0], cellSOC[1], cellSOC[2], cellSOC[3], cellSOC[4]);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "cell predicted Charge: %d %d %d %d %d\n\r", cellCharge[0], cellCharge[1], cellCharge[2], cellCharge[3], cellCharge[4]);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);

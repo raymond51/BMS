@@ -163,7 +163,7 @@ void statemachine(void) {
             
             printcellParameters();
            //printotAFERegisters();//prints the data to the serial 
-            __delay_ms(5000); //allow time for i2c communication to end [delete once we use proper timer module] [update module must be called quite frequently i.e every 250ms]
+            __delay_ms(MEASUREMENT_DELAY); //allow time for i2c communication to end [delete once we use proper timer module] [update module must be called quite frequently i.e every 250ms]
             
             break;
         case AFE_COMM_ERROR:

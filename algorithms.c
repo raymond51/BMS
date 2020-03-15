@@ -27,9 +27,17 @@ void calibrate_BATTSOC(void){
         for(int j = 0; j < LUT_SIZE; j++ ){
             if(cellVoltages[i]>=lookupTableSamsung_voltage[j]){
                 cellSOC[i] = lookupTableSamsung_SOC[j];
+                cellCharge[i] = (lookupTableSamsung_SOC[j]/100.0) * samsung_cell_max_charge; 
                 break;
             }
         }
     }
+    
+}
 
+void coulomb_counter(void){
+    for(int i = 0; i<MAX_NUMBER_OF_CELLS;i++){
+       cellCharge[i] = cellCharge[i] - (batCurrent * (MEASUREMENT_DELAY/ 3600000.0));
+       cellSOC[i] = ((cellCharge[i] * 100.0 )/samsung_cell_max_charge); 
+     }
 }

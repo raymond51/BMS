@@ -10563,6 +10563,10 @@ regPROTECT2_t protect2;
 regPROTECT3_t protect3;
 
 
+int samsung_cell_max_charge = 2500;
+int cellCharge[5];
+
+
 void init_AFE(void);
 int beginAFEcommunication(void);
 
@@ -10590,7 +10594,7 @@ long AFE_getOverCurrentDischargeCurrent(void);
 void printotAFERegisters(void);
 void printcellParameters(void);
 # 17 "./algorithms.h" 2
-# 29 "./algorithms.h"
+# 31 "./algorithms.h"
 uint8_t currState = 0;
 
 
@@ -10599,6 +10603,7 @@ uint8_t currState = 0;
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
+void coulomb_counter(void);
 # 1 "algorithms.c" 2
 
 
@@ -10619,9 +10624,17 @@ void calibrate_BATTSOC(void){
         for(int j = 0; j < 46; j++ ){
             if(cellVoltages[i]>=lookupTableSamsung_voltage[j]){
                 cellSOC[i] = lookupTableSamsung_SOC[j];
+                cellCharge[i] = (lookupTableSamsung_SOC[j]/100.0) * samsung_cell_max_charge;
                 break;
             }
         }
     }
 
+}
+
+void coulomb_counter(void){
+    for(int i = 0; i<5;i++){
+       cellCharge[i] = cellCharge[i] - (batCurrent * (5000/ 3600000.0));
+       cellSOC[i] = ((cellCharge[i] * 100.0 )/samsung_cell_max_charge);
+     }
 }

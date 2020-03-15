@@ -62,6 +62,10 @@ regPROTECT1_t protect1;
 regPROTECT2_t protect2;
 regPROTECT3_t protect3;
 
+//temporary cell parameters
+int samsung_cell_max_charge = 2500;
+int cellCharge[MAX_NUMBER_OF_CELLS];  
+
 //main function prototypes -----------------------------------------------------
 void init_AFE(void);
 int beginAFEcommunication(void);
