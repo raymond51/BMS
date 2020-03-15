@@ -10403,7 +10403,7 @@ void RGB_AWAIT_AFE_CONN();
 # 1 "./BQ76920.h" 1
 # 14 "./BQ76920.h"
 # 1 "./BQ76920_registers.h" 1
-# 115 "./BQ76920_registers.h"
+# 116 "./BQ76920_registers.h"
 const int lookupTableSamsung_voltage[46] =
   { 4177,3931,3871,3855,3850,3846,3845,3843,3841,3840,3838,3836,3834,
 3832,3830,3827,3825,3822,3819,3816,3813,3809,3805,3801,3796,3791,3785,3779,3771,
@@ -10556,7 +10556,11 @@ typedef union regVCELL
 #pragma config LPBOR = OFF
 #pragma config LVP = OFF
 # 15 "./algorithms.h" 2
-# 28 "./algorithms.h"
+
+
+# 1 "./BQ76920.h" 1
+# 17 "./algorithms.h" 2
+# 29 "./algorithms.h"
 uint8_t currState = 0;
 
 
@@ -10564,6 +10568,7 @@ uint8_t currState = 0;
 
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
+void calibrate_BATTSOC(void);
 # 18 "./BQ76920.h" 2
 # 36 "./BQ76920.h"
 int adcGain=0;
@@ -10577,6 +10582,7 @@ int maxCellTempDischarge;
 
 
 int cellVoltages[5];
+int cellSOC[5];
 int maxCellVoltage;
 int minCellVoltage;
 long batVoltage=0;
@@ -10585,10 +10591,14 @@ long temperatureThermistor=0;
 int thermistorBetaValue = 3435;
 
 
-static float shuntResistorValue_mOhm;
-static regPROTECT1_t protect1;
-static regPROTECT2_t protect2;
-static regPROTECT3_t protect3;
+float shuntResistorValue_mOhm;
+
+
+
+
+regPROTECT1_t protect1;
+regPROTECT2_t protect2;
+regPROTECT3_t protect3;
 
 
 void init_AFE(void);

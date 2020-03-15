@@ -111,13 +111,14 @@
 
 //lithium ion samsung cell lookup table
 
+#define LUT_SIZE 46
 
-const int lookupTableSamsung_voltage[46] = 
+const int lookupTableSamsung_voltage[LUT_SIZE] = 
   { 4177,3931,3871,3855,3850,3846,3845,3843,3841,3840,3838,3836,3834,
 3832,3830,3827,3825,3822,3819,3816,3813,3809,3805,3801,3796,3791,3785,3779,3771,
 3764,3755,3744,3733,3719,3703,3684,3661,3633,3597,3550,3487,3395,3251,2993,2398,0}; 
 
-const int lookupTableSamsung_SOC[46] = 
+const int lookupTableSamsung_SOC[LUT_SIZE] = 
   {100,98,96,93,91,87,84,82,80,78,76,73,71,69,67,64,62,60,58,
 56,53,51,49,47,44,42,40,38,36,33,31,29,27,24,22,20,18,16,13,11,9,7,4,2,0,0}; 
 

@@ -10311,7 +10311,286 @@ void RGB_color(int color);
 
 void RGB_AWAIT_AFE_CONN();
 # 16 "./algorithms.h" 2
-# 28 "./algorithms.h"
+
+# 1 "./BQ76920.h" 1
+# 14 "./BQ76920.h"
+# 1 "./BQ76920_registers.h" 1
+# 116 "./BQ76920_registers.h"
+const int lookupTableSamsung_voltage[46] =
+  { 4177,3931,3871,3855,3850,3846,3845,3843,3841,3840,3838,3836,3834,
+3832,3830,3827,3825,3822,3819,3816,3813,3809,3805,3801,3796,3791,3785,3779,3771,
+3764,3755,3744,3733,3719,3703,3684,3661,3633,3597,3550,3487,3395,3251,2993,2398,0};
+
+const int lookupTableSamsung_SOC[46] =
+  {100,98,96,93,91,87,84,82,80,78,76,73,71,69,67,64,62,60,58,
+56,53,51,49,47,44,42,40,38,36,33,31,29,27,24,22,20,18,16,13,11,9,7,4,2,0,0};
+
+
+
+
+
+const int SCD_delay_setting [4] =
+  { 70, 100, 200, 400 };
+const int SCD_threshold_setting [8] =
+  { 44, 67, 89, 111, 133, 155, 178, 200 };
+
+const int OCD_delay_setting [8] =
+  { 8, 20, 40, 80, 160, 320, 640, 1280 };
+const int OCD_threshold_setting [16] =
+  { 17, 22, 28, 33, 39, 44, 50, 56, 61, 67, 72, 78, 83, 89, 94, 100 };
+
+const int UV_delay_setting [4] = { 1, 4, 8, 16 };
+const int OV_delay_setting [4] = { 1, 2, 4, 8 };
+
+typedef union regSYS_STAT {
+  struct
+  {
+    uint8_t OCD :1;
+    uint8_t SCD :1;
+    uint8_t OV :1;
+    uint8_t UV :1;
+    uint8_t OVRD_ALERT :1;
+    uint8_t DEVICE_XREADY :1;
+    uint8_t WAKE :1;
+    uint8_t CC_READY :1;
+  } bits;
+  uint8_t regByte;
+} regSYS_STAT_t;
+
+typedef union regSYS_CTRL1 {
+  struct
+  {
+    uint8_t SHUT_B :1;
+    uint8_t SHUT_A :1;
+    uint8_t RSVD1 :1;
+    uint8_t TEMP_SEL :1;
+    uint8_t ADC_EN :1;
+    uint8_t RSVD2 :2;
+    uint8_t LOAD_PRESENT :1;
+  } bits;
+  uint8_t regByte;
+} regSYS_CTRL1_t;
+
+typedef union regSYS_CTRL2 {
+  struct
+  {
+    uint8_t CHG_ON :1;
+    uint8_t DSG_ON :1;
+    uint8_t WAKE_T :2;
+    uint8_t WAKE_EN :1;
+    uint8_t CC_ONESHOT :1;
+    uint8_t CC_EN :1;
+    uint8_t DELAY_DIS :1;
+  } bits;
+  uint8_t regByte;
+} regSYS_CTRL2_t;
+
+typedef union regPROTECT1 {
+  struct
+  {
+      uint8_t SCD_THRESH :3;
+      uint8_t SCD_DELAY :2;
+      uint8_t RSVD :2;
+      uint8_t RSNS :1;
+  } bits;
+  uint8_t regByte;
+} regPROTECT1_t;
+
+typedef union regPROTECT2 {
+  struct
+  {
+    uint8_t OCD_THRESH :4;
+    uint8_t OCD_DELAY :3;
+    uint8_t RSVD :1;
+  } bits;
+  uint8_t regByte;
+} regPROTECT2_t;
+
+typedef union regPROTECT3 {
+  struct
+  {
+    uint8_t RSVD :4;
+    uint8_t OV_DELAY :2;
+    uint8_t UV_DELAY :2;
+  } bits;
+  uint8_t regByte;
+} regPROTECT3_t;
+
+typedef union regCELLBAL
+{
+  struct
+  {
+      uint8_t RSVD :3;
+      uint8_t CB5 :1;
+      uint8_t CB4 :1;
+      uint8_t CB3 :1;
+      uint8_t CB2 :1;
+      uint8_t CB1 :1;
+  } bits;
+  uint8_t regByte;
+} regCELLBAL_t;
+
+typedef union regVCELL
+{
+    struct
+    {
+        uint8_t VC_HI;
+        uint8_t VC_LO;
+    } bytes;
+    uint16_t regWord;
+} regVCELL_t;
+# 14 "./BQ76920.h" 2
+
+# 1 "./I2C.h" 1
+# 22 "./I2C.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = ON
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 22 "./I2C.h" 2
+
+
+
+
+
+
+const int ATmega328_address = 0x02;
+
+
+void init_I2C(void);
+void send_I2C_data(unsigned int databyte);
+unsigned int read_I2C_data(void);
+void send_I2C_controlByte(unsigned int BlockAddress,unsigned int RW_bit);
+void send_I2C_startBit(void);
+void send_I2C_repeatedStartCondition(void);
+void send_I2C_stopBit(void);
+void send_I2C_ACK(void);
+void send_I2C_NACK(void);
+
+void retrieve_data_ATmega328(void);
+
+void I2C_writeRegister(int slaveAddress,int regAddress, int data);
+int readRegister(int slaveAddress, int regAddress);
+# 15 "./BQ76920.h" 2
+
+# 1 "./EUSART.h" 1
+# 13 "./EUSART.h"
+# 1 "./pic16f1719_internals.h" 1
+# 13 "./pic16f1719_internals.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = ON
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = ON
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PPS1WAY = ON
+#pragma config ZCDDIS = ON
+#pragma config PLLEN = OFF
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config LPBOR = OFF
+#pragma config LVP = OFF
+# 13 "./EUSART.h" 2
+
+
+
+
+
+char messageBuffer[127] = {0};
+
+
+char EUSART_Initialize(const long int baudrate);
+uint8_t EUSART_Read(void);
+void EUSART_Write(uint8_t txData);
+void EUSART_Write_Text(char *text);
+void EUSART_Read_Text(char *Output, unsigned int length);
+# 16 "./BQ76920.h" 2
+
+
+# 1 "./algorithms.h" 1
+# 18 "./BQ76920.h" 2
+# 36 "./BQ76920.h"
+int adcGain=0;
+int adcOffset=0;
+
+
+int minCellTempCharge;
+int minCellTempDischarge;
+int maxCellTempCharge;
+int maxCellTempDischarge;
+
+
+int cellVoltages[5];
+int cellSOC[5];
+int maxCellVoltage;
+int minCellVoltage;
+long batVoltage=0;
+long batCurrent=0;
+long temperatureThermistor=0;
+int thermistorBetaValue = 3435;
+
+
+float shuntResistorValue_mOhm;
+
+
+
+
+regPROTECT1_t protect1;
+regPROTECT2_t protect2;
+regPROTECT3_t protect3;
+
+
+void init_AFE(void);
+int beginAFEcommunication(void);
+
+void setTemperatureLimitsint(int minDischarge_degC, int maxDischarge_degC, int minCharge_degC, int maxCharge_degC);
+void setShuntResistorValue(float res_mOhm);
+void setShortCircuitProtection(long current_mA, int delay_us);
+void setOverCurrentDischargeProtection(long current_mA, int delay_ms);
+void setCellUndervoltageProtection(int voltage_mv, int delay_s);
+void setCellOvervoltageProtection(int voltage_mV, int delay_s);
+
+void AFE_UPDATE(void);
+
+void updateCurrent(void);
+void updateVoltages(void);
+void updateTemperatures(void);
+
+void enableDischarging(unsigned int enable);
+void enableCharging(unsigned int enable);
+
+
+long AFE_getSetShortCircuitCurrent(void);
+float AFE_getSetCurrentSenseRes(void);
+long AFE_getOverCurrentDischargeCurrent(void);
+
+void printotAFERegisters(void);
+void printcellParameters(void);
+# 17 "./algorithms.h" 2
+# 29 "./algorithms.h"
 uint8_t currState = 0;
 
 
@@ -10319,6 +10598,7 @@ uint8_t currState = 0;
 
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
+void calibrate_BATTSOC(void);
 # 1 "algorithms.c" 2
 
 
@@ -10330,4 +10610,18 @@ void watchdog_timeout_shutdown() {
          currState = 3;
 
     }
+}
+# 23 "algorithms.c"
+void calibrate_BATTSOC(void){
+
+
+    for(int i = 0; i<5;i++){
+        for(int j = 0; j < 46; j++ ){
+            if(cellVoltages[i]>=lookupTableSamsung_voltage[j]){
+                cellSOC[i] = lookupTableSamsung_SOC[j];
+                break;
+            }
+        }
+    }
+
 }

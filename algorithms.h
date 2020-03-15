@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "pic16f1719_internals.h"
 #include "RGB.h"
+#include "BQ76920.h"
 
 /**************************************************************
  * Defines 
@@ -32,6 +33,7 @@ uint8_t currState = AWAIT_AFE_CONN;
 //function prototypes ----------------------------------------------------------
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
+void calibrate_BATTSOC(void);
 
 #endif
 

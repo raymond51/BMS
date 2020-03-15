@@ -170,14 +170,21 @@ void setCellOvervoltageProtection(int voltage_mV, int delay_s) {
  @brief: Function to read values from AFE via i2c communication for cell info
  */
 void AFE_UPDATE(){
-    updateCurrent();//update the current reading
+    
     updateVoltages();//update the voltages reading from 5 cells
+    
+    if(batCurrent<10){
+        //update/re-calibrate batt soc
+        calibrate_BATTSOC();
+    }
+    
+    updateCurrent();//update the current reading
     updateTemperatures();//update the temperature value reading from the battery pack
     
     //ypdate the balancing switch [for charging]
     enableDischarging(1);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
     enableCharging(1);//enable charging [held in SYS_CTRL2 on 1st bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
-
+    
 }
 
 /*
@@ -324,7 +331,7 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Current: %d \n\r", batCurrent);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "cellval: %d SOC: %d \n\r", lookupTableSamsung_voltage[20],lookupTableSamsung_SOC[20]);
+    snprintf(messageBuffer, messageBuf_size, "cell predicted SOC: %d %d %d \n\r", cellSOC[0], cellSOC[1], cellSOC[2], cellSOC[3], cellSOC[4]);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "Temp: %d e-2\n\r", temperatureThermistor);
     EUSART_Write_Text(messageBuffer);

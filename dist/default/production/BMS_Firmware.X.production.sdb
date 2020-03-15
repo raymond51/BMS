@@ -5,6 +5,8 @@
 [d frameptr 6 ]
 "3 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\algorithms.c
 [v _watchdog_timeout_shutdown watchdog_timeout_shutdown `(v  1 e 1 0 ]
+"23
+[v _calibrate_BATTSOC calibrate_BATTSOC `(v  1 e 1 0 ]
 "3 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 [v _init_AFE init_AFE `(v  1 e 1 0 ]
 "28
@@ -23,17 +25,17 @@
 [v _setCellOvervoltageProtection setCellOvervoltageProtection `(v  1 e 1 0 ]
 "172
 [v _AFE_UPDATE AFE_UPDATE `(v  1 e 1 0 ]
-"186
+"193
 [v _updateCurrent updateCurrent `(v  1 e 1 0 ]
-"209
+"216
 [v _updateVoltages updateVoltages `(v  1 e 1 0 ]
-"253
+"260
 [v _updateTemperatures updateTemperatures `(v  1 e 1 0 ]
-"277
+"284
 [v _enableDischarging enableDischarging `(v  1 e 1 0 ]
-"287
+"294
 [v _enableCharging enableCharging `(v  1 e 1 0 ]
-"314
+"321
 [v _printcellParameters printcellParameters `(v  1 e 1 0 ]
 "1 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -165,7 +167,7 @@
 [v _RGB_color RGB_color `(v  1 e 1 0 ]
 "43
 [v _RGB_AWAIT_AFE_CONN RGB_AWAIT_AFE_CONN `(v  1 e 1 0 ]
-"28 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/algorithms.h
+"29 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/algorithms.h
 [v _currState currState `uc  1 e 1 0 ]
 "36 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/BQ76920.h
 [v _adcGain adcGain `i  1 e 2 0 ]
@@ -182,72 +184,74 @@
 "46
 [v _cellVoltages cellVoltages `[5]i  1 e 10 0 ]
 "47
-[v _maxCellVoltage maxCellVoltage `i  1 e 2 0 ]
+[v _cellSOC cellSOC `[5]i  1 e 10 0 ]
 "48
-[v _minCellVoltage minCellVoltage `i  1 e 2 0 ]
+[v _maxCellVoltage maxCellVoltage `i  1 e 2 0 ]
 "49
-[v _batVoltage batVoltage `l  1 e 4 0 ]
+[v _minCellVoltage minCellVoltage `i  1 e 2 0 ]
 "50
-[v _batCurrent batCurrent `l  1 e 4 0 ]
+[v _batVoltage batVoltage `l  1 e 4 0 ]
 "51
+[v _batCurrent batCurrent `l  1 e 4 0 ]
+"52
 [v _temperatureThermistor temperatureThermistor `l  1 e 4 0 ]
-"55
-[v BQ76920@shuntResistorValue_mOhm shuntResistorValue_mOhm `f  1 s 4 shuntResistorValue_mOhm ]
+"56
+[v _shuntResistorValue_mOhm shuntResistorValue_mOhm `f  1 e 4 0 ]
 [s S22 . 1 `uc 1 SCD_THRESH 1 0 :3:0 
 `uc 1 SCD_DELAY 1 0 :2:3 
 `uc 1 RSVD 1 0 :2:5 
 `uc 1 RSNS 1 0 :1:7 
 ]
-"56
+"61
 [u S27 regPROTECT1 1 `S22 1 bits 1 0 `uc 1 regByte 1 0 ]
-[v BQ76920@protect1 protect1 `S27  1 s 1 protect1 ]
+[v _protect1 protect1 `S27  1 e 1 0 ]
 [s S30 . 1 `uc 1 OCD_THRESH 1 0 :4:0 
 `uc 1 OCD_DELAY 1 0 :3:4 
 `uc 1 RSVD 1 0 :1:7 
 ]
-"57
+"62
 [u S34 regPROTECT2 1 `S30 1 bits 1 0 `uc 1 regByte 1 0 ]
-[v BQ76920@protect2 protect2 `S34  1 s 1 protect2 ]
+[v _protect2 protect2 `S34  1 e 1 0 ]
 [s S37 . 1 `uc 1 RSVD 1 0 :4:0 
 `uc 1 OV_DELAY 1 0 :2:4 
 `uc 1 UV_DELAY 1 0 :2:6 
 ]
-"58
+"63
 [u S41 regPROTECT3 1 `S37 1 bits 1 0 `uc 1 regByte 1 0 ]
-[v BQ76920@protect3 protect3 `S41  1 s 1 protect3 ]
-"115 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/BQ76920_registers.h
+[v _protect3 protect3 `S41  1 e 1 0 ]
+"116 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/BQ76920_registers.h
 [v _lookupTableSamsung_voltage lookupTableSamsung_voltage `DC[46]i  1 e 92 0 ]
-"120
+"121
 [v _lookupTableSamsung_SOC lookupTableSamsung_SOC `DC[46]i  1 e 92 0 ]
-"128
+"129
 [v _SCD_delay_setting SCD_delay_setting `DC[4]i  1 e 8 0 ]
-"130
+"131
 [v _SCD_threshold_setting SCD_threshold_setting `DC[8]i  1 e 16 0 ]
-"133
+"134
 [v _OCD_delay_setting OCD_delay_setting `DC[8]i  1 e 16 0 ]
-"135
+"136
 [v _OCD_threshold_setting OCD_threshold_setting `DC[16]i  1 e 32 0 ]
-"138
-[v _UV_delay_setting UV_delay_setting `DC[4]i  1 e 8 0 ]
 "139
+[v _UV_delay_setting UV_delay_setting `DC[4]i  1 e 8 0 ]
+"140
 [v _OV_delay_setting OV_delay_setting `DC[4]i  1 e 8 0 ]
 "18 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/EUSART.h
 [v _messageBuffer messageBuffer `[127]uc  1 e 127 @10097 ]
 "24 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X/RGB.h
 [v _toggleColor toggleColor `a  1 e 1 0 ]
-[s S1054 . 1 `uc 1 C 1 0 :1:0 
+[s S1066 . 1 `uc 1 C 1 0 :1:0 
 `uc 1 DC 1 0 :1:1 
 `uc 1 Z 1 0 :1:2 
 `uc 1 nPD 1 0 :1:3 
 `uc 1 nTO 1 0 :1:4 
 ]
 "131 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
-[s S1060 . 1 `uc 1 CARRY 1 0 :1:0 
+[s S1072 . 1 `uc 1 CARRY 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 ZERO 1 0 :1:2 
 ]
-[u S1064 . 1 `S1054 1 . 1 0 `S1060 1 . 1 0 ]
-[v _STATUSbits STATUSbits `VES1064  1 e 1 @3 ]
+[u S1076 . 1 `S1066 1 . 1 0 `S1072 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES1076  1 e 1 @3 ]
 [s S201 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -376,13 +380,13 @@
 "2307
 [u S354 . 1 `S345 1 . 1 0 ]
 [v _LATAbits LATAbits `VES354  1 e 1 @268 ]
-[s S786 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S787 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "2550
-[u S790 . 1 `S786 1 . 1 0 ]
-[v _LATEbits LATEbits `VES790  1 e 1 @272 ]
+[u S791 . 1 `S787 1 . 1 0 ]
+[v _LATEbits LATEbits `VES791  1 e 1 @272 ]
 [s S254 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
 `uc 1 ANSB2 1 0 :1:2 
@@ -410,7 +414,7 @@
 [v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
 "4360
 [v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
-[s S611 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S612 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -420,27 +424,27 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4505
-[u S620 . 1 `S611 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES620  1 e 1 @413 ]
+[u S621 . 1 `S612 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES621  1 e 1 @413 ]
 "5376
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
 "5630
 [v _SSPADD SSPADD `VEuc  1 e 1 @530 ]
-[s S671 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S672 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "6351
-[s S677 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S678 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S682 . 1 `S671 1 . 1 0 `S677 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES682  1 e 1 @533 ]
-[s S713 . 1 `uc 1 SEN 1 0 :1:0 
+[u S683 . 1 `S672 1 . 1 0 `S678 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES683  1 e 1 @533 ]
+[s S714 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -450,8 +454,8 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6602
-[u S722 . 1 `S713 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES722  1 e 1 @534 ]
+[u S723 . 1 `S714 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES723  1 e 1 @534 ]
 "10778
 [v _PPSLOCK PPSLOCK `VEuc  1 e 1 @3599 ]
 [s S367 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
@@ -546,10 +550,10 @@
 [v statemachine@success success `uc  1 a 1 68 ]
 "177
 } 0
-"314 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+"321 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 [v _printcellParameters printcellParameters `(v  1 e 1 0 ]
 {
-"331
+"338
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\snprintf.c
 [v _snprintf snprintf `(i  1 e 2 0 ]
@@ -565,9 +569,9 @@
 "11 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\nf_vsnprintf.c
 [v _vsnprintf vsnprintf `(i  1 e 2 0 ]
 {
-[s S1725 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S1768 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "14
-[v vsnprintf@f f `S1725  1 a 6 38 ]
+[v vsnprintf@f f `S1768  1 a 6 38 ]
 "13
 [v vsnprintf@cnt cnt `i  1 a 2 36 ]
 "11
@@ -582,9 +586,9 @@
 {
 "1371
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 72 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.39S1121  1 p 2 65 ]
+[v vfprintf@fp fp `*.39S1164  1 p 2 65 ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 67 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 69 ]
 "1382
@@ -603,9 +607,9 @@
 "672
 [v vfpfcnvrt@cp cp `*.39uc  1 a 2 0 ]
 [v vfpfcnvrt@c c `uc  1 a 1 18 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.39S1121  1 p 2 55 ]
+[v vfpfcnvrt@fp fp `*.39S1164  1 p 2 55 ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 57 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 58 ]
 "1365
@@ -620,9 +624,9 @@
 [v xtoa@i i `i  1 a 2 51 ]
 [v xtoa@w w `i  1 a 2 41 ]
 [v xtoa@p p `i  1 a 2 39 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "623
-[v xtoa@fp fp `*.39S1121  1 p 2 16 ]
+[v xtoa@fp fp `*.39S1164  1 p 2 16 ]
 [v xtoa@d d `uo  1 p 8 18 ]
 [v xtoa@x x `uc  1 p 1 26 ]
 "665
@@ -660,9 +664,9 @@
 [v utoa@i i `i  1 a 2 39 ]
 [v utoa@w w `i  1 a 2 29 ]
 [v utoa@p p `i  1 a 2 27 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "593
-[v utoa@fp fp `*.39S1121  1 p 2 16 ]
+[v utoa@fp fp `*.39S1164  1 p 2 16 ]
 [v utoa@d d `uo  1 p 8 18 ]
 "619
 } 0
@@ -713,9 +717,9 @@
 "549
 [v stoa@w w `i  1 a 2 13 ]
 [v stoa@i i `i  1 a 2 11 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "546
-[v stoa@fp fp `*.39S1121  1 p 2 0 ]
+[v stoa@fp fp `*.39S1164  1 p 2 0 ]
 [v stoa@s s `*.39uc  1 p 2 2 ]
 "548
 [v stoa@F1152 F1152 `[7]uc  1 s 7 F1152 ]
@@ -731,9 +735,9 @@
 [v otoa@w w `i  1 a 2 38 ]
 [v otoa@t t `i  1 a 2 36 ]
 [v otoa@p p `i  1 a 2 34 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "507
-[v otoa@fp fp `*.39S1121  1 p 2 16 ]
+[v otoa@fp fp `*.39S1164  1 p 2 16 ]
 [v otoa@d d `uo  1 p 8 18 ]
 "542
 } 0
@@ -747,9 +751,9 @@
 [v dtoa@s s `i  1 a 2 35 ]
 [v dtoa@w w `i  1 a 2 33 ]
 [v dtoa@p p `i  1 a 2 31 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "274
-[v dtoa@fp fp `*.39S1121  1 p 2 16 ]
+[v dtoa@fp fp `*.39S1164  1 p 2 16 ]
 [v dtoa@d d `o  1 p 8 18 ]
 "315
 } 0
@@ -788,9 +792,9 @@
 {
 "261
 [v ctoa@w w `i  1 a 2 20 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "259
-[v ctoa@fp fp `*.39S1121  1 p 2 16 ]
+[v ctoa@fp fp `*.39S1164  1 p 2 16 ]
 [v ctoa@c c `uc  1 p 1 18 ]
 "270
 } 0
@@ -800,9 +804,9 @@
 "74
 [v pad@w w `i  1 a 2 14 ]
 [v pad@i i `i  1 a 2 12 ]
-[s S1121 _IO_FILE 0 ]
+[s S1164 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S1121  1 p 2 6 ]
+[v pad@fp fp `*.39S1164  1 p 2 6 ]
 [v pad@buf buf `*.6uc  1 p 1 8 ]
 [v pad@p p `i  1 p 2 9 ]
 "95
@@ -826,8 +830,8 @@
 [v fputs@c c `uc  1 a 1 2 ]
 "8
 [v fputs@s s `*.6DCuc  1 a 1 wreg ]
-[s S1725 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S1725  1 p 2 10 ]
+[s S1768 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S1768  1 p 2 10 ]
 "13
 [v fputs@s s `*.6DCuc  1 a 1 5 ]
 "19
@@ -836,8 +840,8 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 1 ]
-[s S1725 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S1725  1 p 2 3 ]
+[s S1768 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S1768  1 p 2 3 ]
 "21
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\putch.c
@@ -918,7 +922,7 @@
 [v _setShortCircuitProtection setShortCircuitProtection `(v  1 e 1 0 ]
 {
 "95
-[v setShortCircuitProtection@i_976 i `i  1 a 2 10 ]
+[v setShortCircuitProtection@i_966 i `i  1 a 2 10 ]
 "88
 [v setShortCircuitProtection@i i `i  1 a 2 8 ]
 "86
@@ -932,7 +936,7 @@
 [v _setOverCurrentDischargeProtection setOverCurrentDischargeProtection `(v  1 e 1 0 ]
 {
 "121
-[v setOverCurrentDischargeProtection@i_985 i `i  1 a 2 10 ]
+[v setOverCurrentDischargeProtection@i_975 i `i  1 a 2 10 ]
 "114
 [v setOverCurrentDischargeProtection@i i `i  1 a 2 8 ]
 "112
@@ -996,14 +1000,14 @@
 "172 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 [v _AFE_UPDATE AFE_UPDATE `(v  1 e 1 0 ]
 {
-"181
+"188
 } 0
-"209
+"216
 [v _updateVoltages updateVoltages `(v  1 e 1 0 ]
 {
-"211
+"218
 [v updateVoltages@adcVal adcVal `l  1 a 4 24 ]
-"248
+"255
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -1015,18 +1019,18 @@
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 5 ]
 "129
 } 0
-"253 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+"260 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 [v _updateTemperatures updateTemperatures `(v  1 e 1 0 ]
 {
-"257
+"264
 [v updateTemperatures@rts rts `ul  1 a 4 75 ]
-"254
+"261
 [v updateTemperatures@tmp tmp `f  1 a 4 67 ]
-"256
+"263
 [v updateTemperatures@vtsx vtsx `i  1 a 2 73 ]
-"255
+"262
 [v updateTemperatures@adcVal adcVal `i  1 a 2 71 ]
-"272
+"279
 } 0
 "28 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\logf.c
 [v _logf logf `(f  1 e 4 0 ]
@@ -1035,9 +1039,9 @@
 [v logf@ix ix `ul  1 a 4 62 ]
 "31
 [v logf@f f `f  1 a 4 58 ]
-[u S1697 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S1740 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "30
-[v logf@u u `S1697  1 a 4 54 ]
+[v logf@u u `S1740  1 a 4 54 ]
 "31
 [v logf@w w `f  1 a 4 46 ]
 [v logf@z z `f  1 a 4 42 ]
@@ -1052,7 +1056,7 @@
 "28
 [v logf@x x `f  1 p 4 8 ]
 "29
-[v logf@F469 F469 `S1697  1 s 4 F469 ]
+[v logf@F469 F469 `S1740  1 s 4 F469 ]
 "69
 } 0
 "242 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
@@ -1078,12 +1082,12 @@
 [v ___fladd@a a `d  1 p 4 62 ]
 "237
 } 0
-"186 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+"193 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 [v _updateCurrent updateCurrent `(v  1 e 1 0 ]
 {
-"187
+"194
 [v updateCurrent@adcVal adcVal `i  1 a 2 21 ]
-"204
+"211
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1119,17 +1123,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1503 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1546 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S1508 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S1511 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1503 1 fAsBytes 4 0 `S1508 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1511  1 a 4 26 ]
+[s S1551 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S1554 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1546 1 fAsBytes 4 0 `S1551 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1554  1 a 4 26 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 21 ]
-[s S1580 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1623 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1583 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1580 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1583  1 a 2 30 ]
+[u S1626 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1623 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1626  1 a 2 30 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 25 ]
 "11
@@ -1175,23 +1179,23 @@
 [v ___fldiv@b b `d  1 p 4 36 ]
 "185
 } 0
-"277 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
+"284 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\BQ76920.c
 [v _enableDischarging enableDischarging `(v  1 e 1 0 ]
 {
-"278
-[v enableDischarging@sys_ctrl2 sys_ctrl2 `uc  1 a 1 11 ]
-"277
-[v enableDischarging@enable enable `ui  1 p 2 0 ]
 "285
+[v enableDischarging@sys_ctrl2 sys_ctrl2 `uc  1 a 1 11 ]
+"284
+[v enableDischarging@enable enable `ui  1 p 2 0 ]
+"292
 } 0
-"287
+"294
 [v _enableCharging enableCharging `(v  1 e 1 0 ]
 {
-"288
-[v enableCharging@sys_ctrl2 sys_ctrl2 `uc  1 a 1 11 ]
-"287
-[v enableCharging@enable enable `ui  1 p 2 0 ]
 "295
+[v enableCharging@sys_ctrl2 sys_ctrl2 `uc  1 a 1 11 ]
+"294
+[v enableCharging@enable enable `ui  1 p 2 0 ]
+"302
 } 0
 "115 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\I2C.c
 [v _readRegister readRegister `(i  1 e 2 0 ]
@@ -1243,6 +1247,15 @@
 [v send_I2C_controlByte@BlockAddress BlockAddress `ui  1 p 2 1 ]
 [v send_I2C_controlByte@RW_bit RW_bit `ui  1 p 2 3 ]
 "63
+} 0
+"23 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\algorithms.c
+[v _calibrate_BATTSOC calibrate_BATTSOC `(v  1 e 1 0 ]
+{
+"27
+[v calibrate_BATTSOC@j j `i  1 a 2 8 ]
+"26
+[v calibrate_BATTSOC@i i `i  1 a 2 6 ]
+"35
 } 0
 "189 C:\Users\raymo\MPLABXProjects\BMS_Firmware.X\main.c
 [v _init_TMR1 init_TMR1 `(v  1 e 1 0 ]

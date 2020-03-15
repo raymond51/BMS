@@ -1,4 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"187 ./BQ76920_registers.h
+[; ;./BQ76920_registers.h: 187:   {
+[s S791 :3 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S791 . SCD_THRESH SCD_DELAY RSVD RSNS ]
+"185
+[; ;./BQ76920_registers.h: 185: typedef union regPROTECT1 {
+[u S790 `S791 1 `uc 1 ]
+[n S790 regPROTECT1 bits regByte ]
+"198
+[; ;./BQ76920_registers.h: 198:   {
+[s S793 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S793 . OCD_THRESH OCD_DELAY RSVD ]
+"196
+[; ;./BQ76920_registers.h: 196: typedef union regPROTECT2 {
+[u S792 `S793 1 `uc 1 ]
+[n S792 regPROTECT2 bits regByte ]
+"208
+[; ;./BQ76920_registers.h: 208:   {
+[s S795 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S795 . RSVD OV_DELAY UV_DELAY ]
+"206
+[; ;./BQ76920_registers.h: 206: typedef union regPROTECT3 {
+[u S794 `S795 1 `uc 1 ]
+[n S794 regPROTECT3 bits regByte ]
 "118 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 118:     struct {
 [s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -991,8 +1015,354 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _toggleColor
 -> -> 0 `i `a
 ]
-"28 ./algorithms.h
-[; ;./algorithms.h: 28: uint8_t currState = 0;
+"116 ./BQ76920_registers.h
+[; ;./BQ76920_registers.h: 116: const int lookupTableSamsung_voltage[46] =
+[v _lookupTableSamsung_voltage `Ci ~T0 @X0 -> 46 `i e ]
+[i _lookupTableSamsung_voltage
+:U ..
+-> 4177 `i
+-> 3931 `i
+-> 3871 `i
+-> 3855 `i
+-> 3850 `i
+-> 3846 `i
+-> 3845 `i
+-> 3843 `i
+-> 3841 `i
+-> 3840 `i
+-> 3838 `i
+-> 3836 `i
+-> 3834 `i
+-> 3832 `i
+-> 3830 `i
+-> 3827 `i
+-> 3825 `i
+-> 3822 `i
+-> 3819 `i
+-> 3816 `i
+-> 3813 `i
+-> 3809 `i
+-> 3805 `i
+-> 3801 `i
+-> 3796 `i
+-> 3791 `i
+-> 3785 `i
+-> 3779 `i
+-> 3771 `i
+-> 3764 `i
+-> 3755 `i
+-> 3744 `i
+-> 3733 `i
+-> 3719 `i
+-> 3703 `i
+-> 3684 `i
+-> 3661 `i
+-> 3633 `i
+-> 3597 `i
+-> 3550 `i
+-> 3487 `i
+-> 3395 `i
+-> 3251 `i
+-> 2993 `i
+-> 2398 `i
+-> 0 `i
+..
+]
+"121
+[; ;./BQ76920_registers.h: 121: const int lookupTableSamsung_SOC[46] =
+[v _lookupTableSamsung_SOC `Ci ~T0 @X0 -> 46 `i e ]
+[i _lookupTableSamsung_SOC
+:U ..
+-> 100 `i
+-> 98 `i
+-> 96 `i
+-> 93 `i
+-> 91 `i
+-> 87 `i
+-> 84 `i
+-> 82 `i
+-> 80 `i
+-> 78 `i
+-> 76 `i
+-> 73 `i
+-> 71 `i
+-> 69 `i
+-> 67 `i
+-> 64 `i
+-> 62 `i
+-> 60 `i
+-> 58 `i
+-> 56 `i
+-> 53 `i
+-> 51 `i
+-> 49 `i
+-> 47 `i
+-> 44 `i
+-> 42 `i
+-> 40 `i
+-> 38 `i
+-> 36 `i
+-> 33 `i
+-> 31 `i
+-> 29 `i
+-> 27 `i
+-> 24 `i
+-> 22 `i
+-> 20 `i
+-> 18 `i
+-> 16 `i
+-> 13 `i
+-> 11 `i
+-> 9 `i
+-> 7 `i
+-> 4 `i
+-> 2 `i
+-> 0 `i
+-> 0 `i
+..
+]
+"129
+[; ;./BQ76920_registers.h: 129: const int SCD_delay_setting [4] =
+[v _SCD_delay_setting `Ci ~T0 @X0 -> 4 `i e ]
+[i _SCD_delay_setting
+:U ..
+-> 70 `i
+-> 100 `i
+-> 200 `i
+-> 400 `i
+..
+]
+"131
+[; ;./BQ76920_registers.h: 131: const int SCD_threshold_setting [8] =
+[v _SCD_threshold_setting `Ci ~T0 @X0 -> 8 `i e ]
+[i _SCD_threshold_setting
+:U ..
+-> 44 `i
+-> 67 `i
+-> 89 `i
+-> 111 `i
+-> 133 `i
+-> 155 `i
+-> 178 `i
+-> 200 `i
+..
+]
+"134
+[; ;./BQ76920_registers.h: 134: const int OCD_delay_setting [8] =
+[v _OCD_delay_setting `Ci ~T0 @X0 -> 8 `i e ]
+[i _OCD_delay_setting
+:U ..
+-> 8 `i
+-> 20 `i
+-> 40 `i
+-> 80 `i
+-> 160 `i
+-> 320 `i
+-> 640 `i
+-> 1280 `i
+..
+]
+"136
+[; ;./BQ76920_registers.h: 136: const int OCD_threshold_setting [16] =
+[v _OCD_threshold_setting `Ci ~T0 @X0 -> 16 `i e ]
+[i _OCD_threshold_setting
+:U ..
+-> 17 `i
+-> 22 `i
+-> 28 `i
+-> 33 `i
+-> 39 `i
+-> 44 `i
+-> 50 `i
+-> 56 `i
+-> 61 `i
+-> 67 `i
+-> 72 `i
+-> 78 `i
+-> 83 `i
+-> 89 `i
+-> 94 `i
+-> 100 `i
+..
+]
+"139
+[; ;./BQ76920_registers.h: 139: const int UV_delay_setting [4] = { 1, 4, 8, 16 };
+[v _UV_delay_setting `Ci ~T0 @X0 -> 4 `i e ]
+[i _UV_delay_setting
+:U ..
+-> 1 `i
+-> 4 `i
+-> 8 `i
+-> 16 `i
+..
+]
+"140
+[; ;./BQ76920_registers.h: 140: const int OV_delay_setting [4] = { 1, 2, 4, 8 };
+[v _OV_delay_setting `Ci ~T0 @X0 -> 4 `i e ]
+[i _OV_delay_setting
+:U ..
+-> 1 `i
+-> 2 `i
+-> 4 `i
+-> 8 `i
+..
+]
+"13 ./pic16f1719_internals.h
+[p x FOSC = INTOSC ]
+"14
+[p x WDTE = ON ]
+"15
+[p x PWRTE = OFF ]
+"16
+[p x MCLRE = OFF ]
+"17
+[p x CP = OFF ]
+"18
+[p x BOREN = OFF ]
+"19
+[p x CLKOUTEN = OFF ]
+"20
+[p x IESO = ON ]
+"21
+[p x FCMEN = OFF ]
+"24
+[p x WRT = OFF ]
+"25
+[p x PPS1WAY = ON ]
+"26
+[p x ZCDDIS = ON ]
+"27
+[p x PLLEN = OFF ]
+"28
+[p x STVREN = ON ]
+"29
+[p x BORV = LO ]
+"30
+[p x LPBOR = OFF ]
+"31
+[p x LVP = OFF ]
+"28 ./I2C.h
+[; ;./I2C.h: 28: const int ATmega328_address = 0x02;
+[v _ATmega328_address `Ci ~T0 @X0 1 e ]
+[i _ATmega328_address
+-> 2 `i
+]
+"13 ./pic16f1719_internals.h
+[p x FOSC = INTOSC ]
+"14
+[p x WDTE = ON ]
+"15
+[p x PWRTE = OFF ]
+"16
+[p x MCLRE = OFF ]
+"17
+[p x CP = OFF ]
+"18
+[p x BOREN = OFF ]
+"19
+[p x CLKOUTEN = OFF ]
+"20
+[p x IESO = ON ]
+"21
+[p x FCMEN = OFF ]
+"24
+[p x WRT = OFF ]
+"25
+[p x PPS1WAY = ON ]
+"26
+[p x ZCDDIS = ON ]
+"27
+[p x PLLEN = OFF ]
+"28
+[p x STVREN = ON ]
+"29
+[p x BORV = LO ]
+"30
+[p x LPBOR = OFF ]
+"31
+[p x LVP = OFF ]
+"18 ./EUSART.h
+[; ;./EUSART.h: 18: char messageBuffer[127] = {0};
+[v _messageBuffer `uc ~T0 @X0 -> 127 `i e ]
+[i _messageBuffer
+:U ..
+-> -> 0 `i `uc
+..
+]
+"36 ./BQ76920.h
+[; ;./BQ76920.h: 36: int adcGain=0;
+[v _adcGain `i ~T0 @X0 1 e ]
+[i _adcGain
+-> 0 `i
+]
+"37
+[; ;./BQ76920.h: 37: int adcOffset=0;
+[v _adcOffset `i ~T0 @X0 1 e ]
+[i _adcOffset
+-> 0 `i
+]
+"40
+[; ;./BQ76920.h: 40: int minCellTempCharge;
+[v _minCellTempCharge `i ~T0 @X0 1 e ]
+"41
+[; ;./BQ76920.h: 41: int minCellTempDischarge;
+[v _minCellTempDischarge `i ~T0 @X0 1 e ]
+"42
+[; ;./BQ76920.h: 42: int maxCellTempCharge;
+[v _maxCellTempCharge `i ~T0 @X0 1 e ]
+"43
+[; ;./BQ76920.h: 43: int maxCellTempDischarge;
+[v _maxCellTempDischarge `i ~T0 @X0 1 e ]
+"46
+[; ;./BQ76920.h: 46: int cellVoltages[5];
+[v _cellVoltages `i ~T0 @X0 -> 5 `i e ]
+"47
+[; ;./BQ76920.h: 47: int cellSOC[5];
+[v _cellSOC `i ~T0 @X0 -> 5 `i e ]
+"48
+[; ;./BQ76920.h: 48: int maxCellVoltage;
+[v _maxCellVoltage `i ~T0 @X0 1 e ]
+"49
+[; ;./BQ76920.h: 49: int minCellVoltage;
+[v _minCellVoltage `i ~T0 @X0 1 e ]
+"50
+[; ;./BQ76920.h: 50: long batVoltage=0;
+[v _batVoltage `l ~T0 @X0 1 e ]
+[i _batVoltage
+-> -> 0 `i `l
+]
+"51
+[; ;./BQ76920.h: 51: long batCurrent=0;
+[v _batCurrent `l ~T0 @X0 1 e ]
+[i _batCurrent
+-> -> 0 `i `l
+]
+"52
+[; ;./BQ76920.h: 52: long temperatureThermistor=0;
+[v _temperatureThermistor `l ~T0 @X0 1 e ]
+[i _temperatureThermistor
+-> -> 0 `i `l
+]
+"53
+[; ;./BQ76920.h: 53: int thermistorBetaValue = 3435;
+[v _thermistorBetaValue `i ~T0 @X0 1 e ]
+[i _thermistorBetaValue
+-> 3435 `i
+]
+"56
+[; ;./BQ76920.h: 56: float shuntResistorValue_mOhm;
+[v _shuntResistorValue_mOhm `f ~T0 @X0 1 e ]
+"61
+[; ;./BQ76920.h: 61: regPROTECT1_t protect1;
+[v _protect1 `S790 ~T0 @X0 1 e ]
+"62
+[; ;./BQ76920.h: 62: regPROTECT2_t protect2;
+[v _protect2 `S792 ~T0 @X0 1 e ]
+"63
+[; ;./BQ76920.h: 63: regPROTECT3_t protect3;
+[v _protect3 `S794 ~T0 @X0 1 e ]
+"29 ./algorithms.h
+[; ;./algorithms.h: 29: uint8_t currState = 0;
 [v _currState `uc ~T0 @X0 1 e ]
 [i _currState
 -> -> 0 `i `uc
@@ -1005,7 +1375,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "5
 [; ;algorithms.c: 5:     if (!STATUSbits.nTO) {
-[e $ ! ! != -> . . _STATUSbits 0 4 `i -> 0 `i 785  ]
+[e $ ! ! != -> . . _STATUSbits 0 4 `i -> 0 `i 801  ]
 {
 "6
 [; ;algorithms.c: 6:         RGB_color(0);
@@ -1019,8 +1389,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10
 [; ;algorithms.c: 10:     }
 }
-[e :U 785 ]
+[e :U 801 ]
 "11
 [; ;algorithms.c: 11: }
-[e :UE 784 ]
+[e :UE 800 ]
+}
+"23
+[; ;algorithms.c: 23: void calibrate_BATTSOC(void){
+[v _calibrate_BATTSOC `(v ~T0 @X0 1 ef ]
+{
+[e :U _calibrate_BATTSOC ]
+[f ]
+"26
+[; ;algorithms.c: 26:     for(int i = 0; i<5;i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 803  ]
+[e $U 804  ]
+[e :U 803 ]
+{
+"27
+[; ;algorithms.c: 27:         for(int j = 0; j < 46; j++ ){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 46 `i 806  ]
+[e $U 807  ]
+[e :U 806 ]
+{
+"28
+[; ;algorithms.c: 28:             if(cellVoltages[i]>=lookupTableSamsung_voltage[j]){
+[e $ ! >= *U + &U _cellVoltages * -> -> _i `ui `ux -> -> # *U &U _cellVoltages `ui `ux *U + &U _lookupTableSamsung_voltage * -> -> _j `ui `ux -> -> # *U &U _lookupTableSamsung_voltage `ui `ux 809  ]
+{
+"29
+[; ;algorithms.c: 29:                 cellSOC[i] = lookupTableSamsung_SOC[j];
+[e = *U + &U _cellSOC * -> -> _i `ui `ux -> -> # *U &U _cellSOC `ui `ux *U + &U _lookupTableSamsung_SOC * -> -> _j `ui `ux -> -> # *U &U _lookupTableSamsung_SOC `ui `ux ]
+"30
+[; ;algorithms.c: 30:                 break;
+[e $U 807  ]
+"31
+[; ;algorithms.c: 31:             }
+}
+[e :U 809 ]
+"32
+[; ;algorithms.c: 32:         }
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 46 `i 806  ]
+[e :U 807 ]
+}
+"33
+[; ;algorithms.c: 33:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 803  ]
+[e :U 804 ]
+}
+"35
+[; ;algorithms.c: 35: }
+[e :UE 802 ]
 }

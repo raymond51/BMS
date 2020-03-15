@@ -44,6 +44,7 @@ int maxCellTempDischarge;
 
 //cell parameters
 int cellVoltages[MAX_NUMBER_OF_CELLS];          // mV
+int cellSOC[MAX_NUMBER_OF_CELLS];          // mV
 int maxCellVoltage; //read from eeprom and compared with varying batvoltage
 int minCellVoltage;
 long batVoltage=0;                                // mV
@@ -52,10 +53,14 @@ long temperatureThermistor=0;    //in centi Temp
 int thermistorBetaValue = 3435;  // typical value for Semitec 103AT-5 thermistor
 //Static variables - //When a global variable is made static, its scope is restricted to the current file.
 
-static float shuntResistorValue_mOhm; //Shunt resistor value
-static regPROTECT1_t protect1;
-static regPROTECT2_t protect2;
-static regPROTECT3_t protect3;
+float shuntResistorValue_mOhm; //Shunt resistor value
+//static regPROTECT1_t protect1;
+//static regPROTECT2_t protect2;
+//static regPROTECT3_t protect3;
+
+regPROTECT1_t protect1;
+regPROTECT2_t protect2;
+regPROTECT3_t protect3;
 
 //main function prototypes -----------------------------------------------------
 void init_AFE(void);
