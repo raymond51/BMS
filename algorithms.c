@@ -44,6 +44,7 @@ void coulomb_counter(void){
 
 int AFE_Status(void){
     
+    regSYS_STAT_t sys_stat;
     int error_flag = 0;
     sys_stat.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT);
   
@@ -80,4 +81,19 @@ int AFE_Status(void){
     }
     
     return error_flag;
+}
+
+void AFE_FET_Status(void){
+    uint8_t sys_ctrl2;
+    sys_ctrl2 = readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_CTRL2);
+    chg_fet_enable = 0;
+    dschg_fet_enable = 0;
+ 
+   if(sys_ctrl2 & 0x01){
+       chg_fet_enable = 1;
+    }
+ 
+   if(sys_ctrl2 & 0x02){
+       dschg_fet_enable = 1;
+    }
 }

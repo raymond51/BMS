@@ -50,6 +50,9 @@ int ov_error = 0;
 int scd_error = 0;
 int ocd_error = 0;
 
+int chg_fet_enable = 0;
+int dschg_fet_enable = 0;
+
 //cell parameters
 int cellVoltages[MAX_NUMBER_OF_CELLS];          // mV
 int cellSOC[MAX_NUMBER_OF_CELLS];          // mV

@@ -10546,12 +10546,13 @@ void RGB_AWAIT_AFE_CONN();
 uint8_t currState = 0;
 
 
-    regSYS_STAT_t sys_stat;
+
 
 
 
 
 int AFE_Status(void);
+void AFE_FET_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
@@ -10574,6 +10575,9 @@ int uv_error = 0;
 int ov_error = 0;
 int scd_error = 0;
 int ocd_error = 0;
+
+int chg_fet_enable = 0;
+int dschg_fet_enable = 0;
 
 
 int cellVoltages[5];
@@ -10815,6 +10819,8 @@ void AFE_UPDATE(){
 
 
 
+    AFE_FET_Status();
+
     if(AFE_Status()==0){
     enableDischarging(1);
     enableCharging(1);
@@ -10853,7 +10859,7 @@ void updateVoltages(){
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
-# 249 "BQ76920.c"
+# 251 "BQ76920.c"
     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
@@ -10932,7 +10938,7 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-# 351 "BQ76920.c"
+# 353 "BQ76920.c"
     snprintf(messageBuffer, 127, "%d,",batVoltage);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "%d,",batCurrent);
@@ -10945,7 +10951,7 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error);
+    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error,chg_fet_enable,dschg_fet_enable);
     EUSART_Write_Text(messageBuffer);
  }
 

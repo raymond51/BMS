@@ -185,6 +185,8 @@ void AFE_UPDATE(){
     
     //ypdate the balancing switch [for charging]
 
+    //check if fets are active
+    AFE_FET_Status();
     //if no initial error enable the charge and discharge fets
     if(AFE_Status()==0){
     enableDischarging(1);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
@@ -360,7 +362,7 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error);
+    snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error,chg_fet_enable,dschg_fet_enable);
     EUSART_Write_Text(messageBuffer);
  }
 

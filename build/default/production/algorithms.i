@@ -10550,6 +10550,9 @@ int ov_error = 0;
 int scd_error = 0;
 int ocd_error = 0;
 
+int chg_fet_enable = 0;
+int dschg_fet_enable = 0;
+
 
 int cellVoltages[5];
 int cellSOC[5];
@@ -10606,12 +10609,13 @@ void printcellParameters(void);
 uint8_t currState = 0;
 
 
-    regSYS_STAT_t sys_stat;
+
 
 
 
 
 int AFE_Status(void);
+void AFE_FET_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
@@ -10646,13 +10650,14 @@ void calibrate_BATTSOC(void){
 
 void coulomb_counter(void){
     for(int i = 0; i<5;i++){
-       cellCharge[i] = cellCharge[i] - (batCurrent * (5000/ 3600000.0));
+       cellCharge[i] = cellCharge[i] - (batCurrent * (500/ 3600000.0));
        cellSOC[i] = ((cellCharge[i] * 100.0 )/samsung_cell_max_charge);
      }
 }
 
 int AFE_Status(void){
 
+    regSYS_STAT_t sys_stat;
     int error_flag = 0;
     sys_stat.regByte = readRegister(0x18, 0x00);
 
@@ -10689,4 +10694,19 @@ int AFE_Status(void){
     }
 
     return error_flag;
+}
+
+void AFE_FET_Status(void){
+    uint8_t sys_ctrl2;
+    sys_ctrl2 = readRegister(0x18, 0x05);
+    chg_fet_enable = 0;
+    dschg_fet_enable = 0;
+
+   if(sys_ctrl2 & 0x01){
+       chg_fet_enable = 1;
+    }
+
+   if(sys_ctrl2 & 0x02){
+       dschg_fet_enable = 1;
+    }
 }

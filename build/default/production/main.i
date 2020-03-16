@@ -10564,12 +10564,13 @@ typedef union regVCELL
 uint8_t currState = 0;
 
 
-    regSYS_STAT_t sys_stat;
+
 
 
 
 
 int AFE_Status(void);
+void AFE_FET_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
@@ -10592,6 +10593,9 @@ int uv_error = 0;
 int ov_error = 0;
 int scd_error = 0;
 int ocd_error = 0;
+
+int chg_fet_enable = 0;
+int dschg_fet_enable = 0;
 
 
 int cellVoltages[5];
@@ -10746,7 +10750,7 @@ void statemachine(void) {
 
             printcellParameters();
 
-            _delay((unsigned long)((5000)*(16000000/4000.0)));
+            _delay((unsigned long)((500)*(16000000/4000.0)));
 
             break;
         case 3:
