@@ -10560,12 +10560,16 @@ typedef union regVCELL
 
 # 1 "./BQ76920.h" 1
 # 17 "./algorithms.h" 2
-# 31 "./algorithms.h"
+# 32 "./algorithms.h"
 uint8_t currState = 0;
 
 
+    regSYS_STAT_t sys_stat;
 
 
+
+
+int AFE_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
@@ -10580,6 +10584,14 @@ int minCellTempCharge;
 int minCellTempDischarge;
 int maxCellTempCharge;
 int maxCellTempDischarge;
+
+
+int XR_error = 0;
+int alert_error = 0;
+int uv_error = 0;
+int ov_error = 0;
+int scd_error = 0;
+int ocd_error = 0;
 
 
 int cellVoltages[5];

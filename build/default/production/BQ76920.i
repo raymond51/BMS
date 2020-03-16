@@ -10542,12 +10542,16 @@ void RGB_AWAIT_AFE_CONN();
 
 # 1 "./BQ76920.h" 1
 # 17 "./algorithms.h" 2
-# 31 "./algorithms.h"
+# 32 "./algorithms.h"
 uint8_t currState = 0;
 
 
+    regSYS_STAT_t sys_stat;
 
 
+
+
+int AFE_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
@@ -10562,6 +10566,14 @@ int minCellTempCharge;
 int minCellTempDischarge;
 int maxCellTempCharge;
 int maxCellTempDischarge;
+
+
+int XR_error = 0;
+int alert_error = 0;
+int uv_error = 0;
+int ov_error = 0;
+int scd_error = 0;
+int ocd_error = 0;
 
 
 int cellVoltages[5];
@@ -10801,9 +10813,12 @@ void AFE_UPDATE(){
     updateTemperatures();
 
 
+
+
+    if(AFE_Status()==0){
     enableDischarging(1);
     enableCharging(1);
-
+    }
 }
 
 
@@ -10838,7 +10853,7 @@ void updateVoltages(){
 
   adcVal = (readRegister(0x18, 0x2A) << 8) | readRegister(0x18, 0x2B);
   batVoltage = 4.0 * adcGain * adcVal / 1000.0 + 4 * adcOffset;
-# 246 "BQ76920.c"
+# 249 "BQ76920.c"
     adcVal = ((readRegister(0x18, 0x0C) & 0x3F) << 8) | readRegister(0x18, 0x0D);
     cellVoltages[0] = (adcVal * adcGain / 1000) + adcOffset;
     adcVal = ((readRegister(0x18, 0x0E) & 0x3F) << 8) | readRegister(0x18, 0x0F);
@@ -10917,7 +10932,7 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-# 348 "BQ76920.c"
+# 351 "BQ76920.c"
     snprintf(messageBuffer, 127, "%d,",batVoltage);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "%d,",batCurrent);
@@ -10926,9 +10941,11 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, 127, "0,");
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%%d, %d, %d, %d, %d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
+    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%d, %d, %d, %d, %d \n\r",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
+    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error);
     EUSART_Write_Text(messageBuffer);
  }
 

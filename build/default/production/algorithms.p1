@@ -23,6 +23,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./BQ76920_registers.h: 206: typedef union regPROTECT3 {
 [u S794 `S795 1 `uc 1 ]
 [n S794 regPROTECT3 bits regByte ]
+"144
+[; ;./BQ76920_registers.h: 144:   {
+[s S785 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S785 . OCD SCD OV UV OVRD_ALERT DEVICE_XREADY WAKE CC_READY ]
+"142
+[; ;./BQ76920_registers.h: 142: typedef union regSYS_STAT {
+[u S784 `S785 1 `uc 1 ]
+[n S784 regSYS_STAT bits regByte ]
 "118 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 118:     struct {
 [s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -45,6 +53,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h
 [v __delay `JF5530 ~T0 @X0 0 e ]
 [p i __delay ]
+"44 ./I2C.h
+[; ;./I2C.h: 44: int readRegister(int slaveAddress, int regAddress);
+[v _readRegister `(i ~T0 @X0 0 ef2`i`i ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f1719.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1314,68 +1325,107 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./BQ76920.h: 43: int maxCellTempDischarge;
 [v _maxCellTempDischarge `i ~T0 @X0 1 e ]
 "46
-[; ;./BQ76920.h: 46: int cellVoltages[5];
-[v _cellVoltages `i ~T0 @X0 -> 5 `i e ]
+[; ;./BQ76920.h: 46: int XR_error = 0;
+[v _XR_error `i ~T0 @X0 1 e ]
+[i _XR_error
+-> 0 `i
+]
 "47
-[; ;./BQ76920.h: 47: int cellSOC[5];
-[v _cellSOC `i ~T0 @X0 -> 5 `i e ]
+[; ;./BQ76920.h: 47: int alert_error = 0;
+[v _alert_error `i ~T0 @X0 1 e ]
+[i _alert_error
+-> 0 `i
+]
 "48
-[; ;./BQ76920.h: 48: int maxCellVoltage;
-[v _maxCellVoltage `i ~T0 @X0 1 e ]
+[; ;./BQ76920.h: 48: int uv_error = 0;
+[v _uv_error `i ~T0 @X0 1 e ]
+[i _uv_error
+-> 0 `i
+]
 "49
-[; ;./BQ76920.h: 49: int minCellVoltage;
-[v _minCellVoltage `i ~T0 @X0 1 e ]
+[; ;./BQ76920.h: 49: int ov_error = 0;
+[v _ov_error `i ~T0 @X0 1 e ]
+[i _ov_error
+-> 0 `i
+]
 "50
-[; ;./BQ76920.h: 50: long batVoltage=0;
+[; ;./BQ76920.h: 50: int scd_error = 0;
+[v _scd_error `i ~T0 @X0 1 e ]
+[i _scd_error
+-> 0 `i
+]
+"51
+[; ;./BQ76920.h: 51: int ocd_error = 0;
+[v _ocd_error `i ~T0 @X0 1 e ]
+[i _ocd_error
+-> 0 `i
+]
+"54
+[; ;./BQ76920.h: 54: int cellVoltages[5];
+[v _cellVoltages `i ~T0 @X0 -> 5 `i e ]
+"55
+[; ;./BQ76920.h: 55: int cellSOC[5];
+[v _cellSOC `i ~T0 @X0 -> 5 `i e ]
+"56
+[; ;./BQ76920.h: 56: int maxCellVoltage;
+[v _maxCellVoltage `i ~T0 @X0 1 e ]
+"57
+[; ;./BQ76920.h: 57: int minCellVoltage;
+[v _minCellVoltage `i ~T0 @X0 1 e ]
+"58
+[; ;./BQ76920.h: 58: long batVoltage=0;
 [v _batVoltage `l ~T0 @X0 1 e ]
 [i _batVoltage
 -> -> 0 `i `l
 ]
-"51
-[; ;./BQ76920.h: 51: long batCurrent=0;
+"59
+[; ;./BQ76920.h: 59: long batCurrent=0;
 [v _batCurrent `l ~T0 @X0 1 e ]
 [i _batCurrent
 -> -> 0 `i `l
 ]
-"52
-[; ;./BQ76920.h: 52: long temperatureThermistor=0;
+"60
+[; ;./BQ76920.h: 60: long temperatureThermistor=0;
 [v _temperatureThermistor `l ~T0 @X0 1 e ]
 [i _temperatureThermistor
 -> -> 0 `i `l
 ]
-"53
-[; ;./BQ76920.h: 53: int thermistorBetaValue = 3435;
+"61
+[; ;./BQ76920.h: 61: int thermistorBetaValue = 3435;
 [v _thermistorBetaValue `i ~T0 @X0 1 e ]
 [i _thermistorBetaValue
 -> 3435 `i
 ]
-"56
-[; ;./BQ76920.h: 56: float shuntResistorValue_mOhm;
+"64
+[; ;./BQ76920.h: 64: float shuntResistorValue_mOhm;
 [v _shuntResistorValue_mOhm `f ~T0 @X0 1 e ]
-"61
-[; ;./BQ76920.h: 61: regPROTECT1_t protect1;
+"69
+[; ;./BQ76920.h: 69: regPROTECT1_t protect1;
 [v _protect1 `S790 ~T0 @X0 1 e ]
-"62
-[; ;./BQ76920.h: 62: regPROTECT2_t protect2;
+"70
+[; ;./BQ76920.h: 70: regPROTECT2_t protect2;
 [v _protect2 `S792 ~T0 @X0 1 e ]
-"63
-[; ;./BQ76920.h: 63: regPROTECT3_t protect3;
+"71
+[; ;./BQ76920.h: 71: regPROTECT3_t protect3;
 [v _protect3 `S794 ~T0 @X0 1 e ]
-"66
-[; ;./BQ76920.h: 66: int samsung_cell_max_charge = 2500;
+"74
+[; ;./BQ76920.h: 74: int samsung_cell_max_charge = 2500;
 [v _samsung_cell_max_charge `i ~T0 @X0 1 e ]
 [i _samsung_cell_max_charge
 -> 2500 `i
 ]
-"67
-[; ;./BQ76920.h: 67: int cellCharge[5];
+"75
+[; ;./BQ76920.h: 75: int cellCharge[5];
 [v _cellCharge `i ~T0 @X0 -> 5 `i e ]
-"31 ./algorithms.h
-[; ;./algorithms.h: 31: uint8_t currState = 0;
+"32 ./algorithms.h
+[; ;./algorithms.h: 32: uint8_t currState = 0;
 [v _currState `uc ~T0 @X0 1 e ]
 [i _currState
 -> -> 0 `i `uc
 ]
+"35
+[; ;./algorithms.h: 35:     regSYS_STAT_t sys_stat;
+[v _sys_stat `S784 ~T0 @X0 1 e ]
 "3 algorithms.c
 [; ;algorithms.c: 3: void watchdog_timeout_shutdown() {
 [v _watchdog_timeout_shutdown `(v ~T0 @X0 1 ef ]
@@ -1493,4 +1543,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 "43
 [; ;algorithms.c: 43: }
 [e :UE 810 ]
+}
+"45
+[; ;algorithms.c: 45: int AFE_Status(void){
+[v _AFE_Status `(i ~T0 @X0 1 ef ]
+{
+[e :U _AFE_Status ]
+[f ]
+"47
+[; ;algorithms.c: 47:     int error_flag = 0;
+[v _error_flag `i ~T0 @X0 1 a ]
+[e = _error_flag -> 0 `i ]
+"48
+[; ;algorithms.c: 48:     sys_stat.regByte = readRegister(0x18, 0x00);
+[e = . _sys_stat 1 -> ( _readRegister (2 , -> 24 `i -> 0 `i `uc ]
+"52
+[; ;algorithms.c: 52:     if (sys_stat.regByte & 0x20){
+[e $ ! != & -> . _sys_stat 1 `i -> 32 `i -> 0 `i 815  ]
+{
+"53
+[; ;algorithms.c: 53:         XR_error = 1;
+[e = _XR_error -> 1 `i ]
+"54
+[; ;algorithms.c: 54:         error_flag=1;
+[e = _error_flag -> 1 `i ]
+"55
+[; ;algorithms.c: 55:     }
+}
+[e :U 815 ]
+"57
+[; ;algorithms.c: 57:     if(sys_stat.regByte & 0x10){
+[e $ ! != & -> . _sys_stat 1 `i -> 16 `i -> 0 `i 816  ]
+{
+"58
+[; ;algorithms.c: 58:         alert_error = 1;
+[e = _alert_error -> 1 `i ]
+"59
+[; ;algorithms.c: 59:         error_flag=1;
+[e = _error_flag -> 1 `i ]
+"60
+[; ;algorithms.c: 60:     }
+}
+[e :U 816 ]
+"62
+[; ;algorithms.c: 62:     if(sys_stat.regByte & 0x08 ){
+[e $ ! != & -> . _sys_stat 1 `i -> 8 `i -> 0 `i 817  ]
+{
+"63
+[; ;algorithms.c: 63:         uv_error = 1;
+[e = _uv_error -> 1 `i ]
+"64
+[; ;algorithms.c: 64:         error_flag=1;
+[e = _error_flag -> 1 `i ]
+"65
+[; ;algorithms.c: 65:     }
+}
+[e :U 817 ]
+"67
+[; ;algorithms.c: 67:     if(sys_stat.regByte & 0x04 ){
+[e $ ! != & -> . _sys_stat 1 `i -> 4 `i -> 0 `i 818  ]
+{
+"68
+[; ;algorithms.c: 68:         ov_error = 1;
+[e = _ov_error -> 1 `i ]
+"69
+[; ;algorithms.c: 69:         error_flag=1;
+[e = _error_flag -> 1 `i ]
+"70
+[; ;algorithms.c: 70:     }
+}
+[e :U 818 ]
+"72
+[; ;algorithms.c: 72:    if(sys_stat.regByte & 0x02 ){
+[e $ ! != & -> . _sys_stat 1 `i -> 2 `i -> 0 `i 819  ]
+{
+"73
+[; ;algorithms.c: 73:         scd_error = 1;
+[e = _scd_error -> 1 `i ]
+"74
+[; ;algorithms.c: 74:         error_flag=1;
+[e = _error_flag -> 1 `i ]
+"75
+[; ;algorithms.c: 75:     }
+}
+[e :U 819 ]
+"77
+[; ;algorithms.c: 77:    if(sys_stat.regByte & 0x01){
+[e $ ! != & -> . _sys_stat 1 `i -> 1 `i -> 0 `i 820  ]
+{
+"78
+[; ;algorithms.c: 78:         ocd_error = 1;
+[e = _ocd_error -> 1 `i ]
+"79
+[; ;algorithms.c: 79:         error_flag=1;
+[e = _error_flag -> 1 `i ]
+"80
+[; ;algorithms.c: 80:     }
+}
+[e :U 820 ]
+"82
+[; ;algorithms.c: 82:     return error_flag;
+[e ) _error_flag ]
+[e $UE 814  ]
+"83
+[; ;algorithms.c: 83: }
+[e :UE 814 ]
 }

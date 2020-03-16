@@ -15,7 +15,8 @@
 #include "pic16f1719_internals.h"
 #include "RGB.h"
 #include "BQ76920.h"
-
+#include "I2C.h"
+#include "BQ76920_registers.h"
 /**************************************************************
  * Defines 
  **************************************************************/
@@ -30,9 +31,13 @@
 
 uint8_t currState = AWAIT_AFE_CONN;
 
+
+    regSYS_STAT_t sys_stat;
+    
 //const and variables ----------------------------------------------------------
 
 //function prototypes ----------------------------------------------------------
+int AFE_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);

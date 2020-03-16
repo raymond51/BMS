@@ -42,6 +42,14 @@ int minCellTempDischarge;
 int maxCellTempCharge;
 int maxCellTempDischarge;
 
+//status flags
+int XR_error = 0;
+int alert_error = 0;
+int uv_error = 0;
+int ov_error = 0;
+int scd_error = 0;
+int ocd_error = 0;
+
 //cell parameters
 int cellVoltages[MAX_NUMBER_OF_CELLS];          // mV
 int cellSOC[MAX_NUMBER_OF_CELLS];          // mV

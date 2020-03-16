@@ -10543,6 +10543,14 @@ int maxCellTempCharge;
 int maxCellTempDischarge;
 
 
+int XR_error = 0;
+int alert_error = 0;
+int uv_error = 0;
+int ov_error = 0;
+int scd_error = 0;
+int ocd_error = 0;
+
+
 int cellVoltages[5];
 int cellSOC[5];
 int maxCellVoltage;
@@ -10594,12 +10602,16 @@ long AFE_getOverCurrentDischargeCurrent(void);
 void printotAFERegisters(void);
 void printcellParameters(void);
 # 17 "./algorithms.h" 2
-# 31 "./algorithms.h"
+# 32 "./algorithms.h"
 uint8_t currState = 0;
 
 
+    regSYS_STAT_t sys_stat;
 
 
+
+
+int AFE_Status(void);
 void watchdog_timeout_shutdown(void);
 void shutdown_BMS(void);
 void calibrate_BATTSOC(void);
@@ -10637,4 +10649,44 @@ void coulomb_counter(void){
        cellCharge[i] = cellCharge[i] - (batCurrent * (5000/ 3600000.0));
        cellSOC[i] = ((cellCharge[i] * 100.0 )/samsung_cell_max_charge);
      }
+}
+
+int AFE_Status(void){
+
+    int error_flag = 0;
+    sys_stat.regByte = readRegister(0x18, 0x00);
+
+
+
+    if (sys_stat.regByte & 0x20){
+        XR_error = 1;
+        error_flag=1;
+    }
+
+    if(sys_stat.regByte & 0x10){
+        alert_error = 1;
+        error_flag=1;
+    }
+
+    if(sys_stat.regByte & 0x08 ){
+        uv_error = 1;
+        error_flag=1;
+    }
+
+    if(sys_stat.regByte & 0x04 ){
+        ov_error = 1;
+        error_flag=1;
+    }
+
+   if(sys_stat.regByte & 0x02 ){
+        scd_error = 1;
+        error_flag=1;
+    }
+
+   if(sys_stat.regByte & 0x01){
+        ocd_error = 1;
+        error_flag=1;
+    }
+
+    return error_flag;
 }

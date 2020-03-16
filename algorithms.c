@@ -41,3 +41,43 @@ void coulomb_counter(void){
        cellSOC[i] = ((cellCharge[i] * 100.0 )/samsung_cell_max_charge); 
      }
 }
+
+int AFE_Status(void){
+    
+    int error_flag = 0;
+    sys_stat.regByte = readRegister(AFE_BQ76920_I2C_ADDRESS, SYS_STAT);
+  
+    //check if error bits triggered, check the bits at position
+    // XR error - B00100000
+    if (sys_stat.regByte & 0x20){
+        XR_error = 1;
+        error_flag=1;
+    }
+    // Alert error - B00010000
+    if(sys_stat.regByte & 0x10){
+        alert_error = 1;
+        error_flag=1;
+    }
+    // UV error - B00001000
+    if(sys_stat.regByte & 0x08 ){
+        uv_error = 1;
+        error_flag=1;
+    }
+    // OV error - B00000100
+    if(sys_stat.regByte & 0x04 ){
+        ov_error = 1;
+        error_flag=1;
+    }
+    // SCD error - B00000010
+   if(sys_stat.regByte & 0x02 ){
+        scd_error = 1;
+        error_flag=1;
+    }
+   // OCD error - B00000001
+   if(sys_stat.regByte & 0x01){
+        ocd_error = 1;
+        error_flag=1;
+    }
+    
+    return error_flag;
+}

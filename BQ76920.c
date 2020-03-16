@@ -184,9 +184,12 @@ void AFE_UPDATE(){
     updateTemperatures();//update the temperature value reading from the battery pack
     
     //ypdate the balancing switch [for charging]
+
+    //if no initial error enable the charge and discharge fets
+    if(AFE_Status()==0){
     enableDischarging(1);//enable dicharging [held in SYS_CTRL2 on 2nd bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
     enableCharging(1);//enable charging [held in SYS_CTRL2 on 1st bit], MUST BE ENALED ONLY WHEN NO SYSTEM ERROR
-    
+    }
 }
 
 /*
@@ -344,7 +347,7 @@ void printcellParameters() {
     
     
     //print data to processing
-    //battery pack voltage, pack current, temperature, 0,cellv1,cellv2,cellv3,cellv4,cellv5, SOC_1, SOC_2, SOC_3, SOC_4, SOC_5,
+    //battery pack voltage, pack current, temperature, 0,cellv1,cellv2,cellv3,cellv4,cellv5, SOC_1, SOC_2, SOC_3, SOC_4, SOC_5,XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error
     snprintf(messageBuffer, messageBuf_size, "%d,",batVoltage);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "%d,",batCurrent);
@@ -353,9 +356,11 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "0,");
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "%%d, %d, %d, %d, %d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
+    snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, messageBuf_size, "%d, %d, %d, %d, %d \n\r",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
+    snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error);
     EUSART_Write_Text(messageBuffer);
  }
 
