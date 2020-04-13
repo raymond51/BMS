@@ -61,6 +61,7 @@ int minCellVoltage;
 long batVoltage=0;                                // mV
 long batCurrent=0;                                // mA
 long temperatureThermistor=0;    //in centi Temp 
+unsigned long rts = 0;
 int thermistorBetaValue = 3435;  // typical value for Semitec 103AT-5 thermistor
 //Static variables - //When a global variable is made static, its scope is restricted to the current file.
 

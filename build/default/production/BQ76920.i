@@ -10587,6 +10587,7 @@ int minCellVoltage;
 long batVoltage=0;
 long batCurrent=0;
 long temperatureThermistor=0;
+unsigned long rts = 0;
 int thermistorBetaValue = 3435;
 
 
@@ -10880,7 +10881,7 @@ void updateTemperatures(){
      float tmp = 0;
      int adcVal = 0;
      int vtsx = 0;
-     unsigned long rts = 0;
+
 
      adcVal = ((readRegister(0x18, 0x2C) & 0x3F) << 8) | readRegister(0x18, 0x2D);
      vtsx = adcVal * 0.382;
@@ -10938,21 +10939,12 @@ long AFE_getOverCurrentDischargeCurrent() {
 }
 
 void printcellParameters() {
-# 353 "BQ76920.c"
-    snprintf(messageBuffer, 127, "%d,",batVoltage);
-    EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%d,",batCurrent);
-    EUSART_Write_Text(messageBuffer);
+# 371 "BQ76920.c"
     snprintf(messageBuffer, 127, "%d,",temperatureThermistor);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "0,");
+    snprintf(messageBuffer, 127, "%d\n\r,",rts);
     EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,",cellVoltages[0],cellVoltages[1],cellVoltages[2],cellVoltages[3],cellVoltages[4]);
-    EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,",cellSOC[0],cellSOC[1],cellSOC[2],cellSOC[3],cellSOC[4]);
-    EUSART_Write_Text(messageBuffer);
-    snprintf(messageBuffer, 127, "%d,%d,%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error,chg_fet_enable,dschg_fet_enable);
-    EUSART_Write_Text(messageBuffer);
+
  }
 
 void printotAFERegisters() {

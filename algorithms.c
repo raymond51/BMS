@@ -6,7 +6,7 @@ void watchdog_timeout_shutdown() {
         RGB_color(RGB_RED);
          __delay_ms(2000); 
          currState = AFE_COMM_ERROR;
-        //hutdown_BMS();
+      //  Shutdown_BMS();
     }
 }
 

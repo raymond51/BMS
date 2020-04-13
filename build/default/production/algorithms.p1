@@ -1403,31 +1403,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `l
 ]
 "64
-[; ;./BQ76920.h: 64: int thermistorBetaValue = 3435;
+[; ;./BQ76920.h: 64: unsigned long rts = 0;
+[v _rts `ul ~T0 @X0 1 e ]
+[i _rts
+-> -> -> 0 `i `l `ul
+]
+"65
+[; ;./BQ76920.h: 65: int thermistorBetaValue = 3435;
 [v _thermistorBetaValue `i ~T0 @X0 1 e ]
 [i _thermistorBetaValue
 -> 3435 `i
 ]
-"67
-[; ;./BQ76920.h: 67: float shuntResistorValue_mOhm;
+"68
+[; ;./BQ76920.h: 68: float shuntResistorValue_mOhm;
 [v _shuntResistorValue_mOhm `f ~T0 @X0 1 e ]
-"72
-[; ;./BQ76920.h: 72: regPROTECT1_t protect1;
-[v _protect1 `S790 ~T0 @X0 1 e ]
 "73
-[; ;./BQ76920.h: 73: regPROTECT2_t protect2;
-[v _protect2 `S792 ~T0 @X0 1 e ]
+[; ;./BQ76920.h: 73: regPROTECT1_t protect1;
+[v _protect1 `S790 ~T0 @X0 1 e ]
 "74
-[; ;./BQ76920.h: 74: regPROTECT3_t protect3;
+[; ;./BQ76920.h: 74: regPROTECT2_t protect2;
+[v _protect2 `S792 ~T0 @X0 1 e ]
+"75
+[; ;./BQ76920.h: 75: regPROTECT3_t protect3;
 [v _protect3 `S794 ~T0 @X0 1 e ]
-"77
-[; ;./BQ76920.h: 77: int samsung_cell_max_charge = 2500;
+"78
+[; ;./BQ76920.h: 78: int samsung_cell_max_charge = 2500;
 [v _samsung_cell_max_charge `i ~T0 @X0 1 e ]
 [i _samsung_cell_max_charge
 -> 2500 `i
 ]
-"78
-[; ;./BQ76920.h: 78: int cellCharge[5];
+"79
+[; ;./BQ76920.h: 79: int cellCharge[5];
 [v _cellCharge `i ~T0 @X0 -> 5 `i e ]
 "32 ./algorithms.h
 [; ;./algorithms.h: 32: uint8_t currState = 0;

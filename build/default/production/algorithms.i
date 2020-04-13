@@ -10561,6 +10561,7 @@ int minCellVoltage;
 long batVoltage=0;
 long batCurrent=0;
 long temperatureThermistor=0;
+unsigned long rts = 0;
 int thermistorBetaValue = 3435;
 
 

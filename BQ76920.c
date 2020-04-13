@@ -268,7 +268,7 @@ void updateTemperatures(){
      float tmp = 0;
      int adcVal = 0;
      int vtsx = 0;
-     unsigned long rts = 0;
+     
      
      adcVal = ((readRegister(AFE_BQ76920_I2C_ADDRESS, TS1_HI_BYTE) & 0x3F) << 8) | readRegister(AFE_BQ76920_I2C_ADDRESS, TS1_LO_BYTE);
      vtsx = adcVal * 0.382; // mV
@@ -350,6 +350,7 @@ void printcellParameters() {
     
     //print data to processing
     //battery pack voltage, pack current, temperature, 0,cellv1,cellv2,cellv3,cellv4,cellv5, SOC_1, SOC_2, SOC_3, SOC_4, SOC_5,XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error
+    /*
     snprintf(messageBuffer, messageBuf_size, "%d,",batVoltage);
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "%d,",batCurrent);
@@ -364,6 +365,14 @@ void printcellParameters() {
     EUSART_Write_Text(messageBuffer);
     snprintf(messageBuffer, messageBuf_size, "%d,%d,%d,%d,%d,%d,%d,%d\n\r",XR_error,alert_error,uv_error,ov_error,scd_error,ocd_error,chg_fet_enable,dschg_fet_enable);
     EUSART_Write_Text(messageBuffer);
+     */
+    
+     //print data for testing steinhart approx
+    snprintf(messageBuffer, messageBuf_size, "%d,",temperatureThermistor);
+    EUSART_Write_Text(messageBuffer);
+    snprintf(messageBuffer, messageBuf_size, "%d\n\r,",rts);
+    EUSART_Write_Text(messageBuffer);
+    
  }
 
 void printotAFERegisters() {
