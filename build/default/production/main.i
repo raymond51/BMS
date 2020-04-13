@@ -10655,6 +10655,7 @@ void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_TMR1(void);
+void init_TMR6(void);
 void initWDT();
 void statemachine(void);
 
@@ -10694,6 +10695,7 @@ void main(void) {
     init_I2C();
     EUSART_Initialize(9600);
     init_TMR1();
+    init_TMR6();
     init_RGB();
 
 
@@ -10711,6 +10713,9 @@ void main(void) {
 
 void statemachine(void) {
 
+
+       CCPR1L = 20;
+
     switch (currState) {
         case 0:
 
@@ -10727,7 +10732,7 @@ void statemachine(void) {
                     PIE1bits.TMR1IE = 0;
                     RGB_color(0);
                     tmr1_flag = 0;
-# 126 "main.c"
+# 131 "main.c"
                     currState = 1;
                 }
 
@@ -10738,7 +10743,7 @@ void statemachine(void) {
         case 1:
 
             init_AFE();
-# 154 "main.c"
+# 159 "main.c"
             RGB_color(1);
             currState = 2;
             break;
@@ -10791,6 +10796,35 @@ void init_TMR1(void) {
 
 }
 
+void init_TMR6(void) {
+
+
+
+
+
+
+    CCPTMRSbits.C1TSEL = 0b10;
+# 232 "main.c"
+    T6CONbits.T6CKPS = 0b00;
+
+
+    T6CONbits.TMR6ON = 1;
+
+
+    PR6 = 255;
+
+
+
+
+    CCP1CONbits.DC1B = 00;
+
+
+    CCP1CONbits.CCP1M = 0b1100;
+
+
+CCPTMRSbits.P3TSEL = 0b10;
+}
+
 void init_GPIO() {
 
 
@@ -10809,7 +10843,7 @@ void init_GPIO() {
     ANSELCbits.ANSC5 = 0;
     TRISCbits.TRISC4 = 1;
     TRISCbits.TRISC5 = 1;
-# 232 "main.c"
+# 278 "main.c"
     TRISAbits.TRISA4 = 0;
     TRISAbits.TRISA5 = 0;
     TRISEbits.TRISE0 = 0;
@@ -10819,6 +10853,9 @@ void init_GPIO() {
 
     TRISAbits.TRISA3 = 0;
     LATAbits.LATA3 = 0;
+
+
+    TRISBbits.TRISB1 = 0;
 
 
 
@@ -10838,6 +10875,9 @@ void init_GPIO() {
 
     RB2PPSbits.RB2PPS = 0x14;
     RXPPSbits.RXPPS = 0x0B;
+
+
+    RB1PPSbits.RB1PPS = 0b01100;
 
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;

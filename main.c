@@ -39,6 +39,7 @@ void initClock(void);
 void init_EUSART(void);
 void init_GPIO(void);
 void init_TMR1(void);
+void init_TMR6(void);
 void initWDT();
 void statemachine(void);
 
@@ -78,6 +79,7 @@ void main(void) {
     init_I2C(); //configure i2c to 100kHz
     EUSART_Initialize(9600); //begin UART communication at 9600baud
     init_TMR1(); //Enable timer 1 to repeatedly communicate with the AFE until boot
+    init_TMR6();
     init_RGB(); //set initially RGB all off
 
     //initial check
@@ -94,7 +96,10 @@ void main(void) {
 }
 
 void statemachine(void) {
-
+    
+ // Run at 50% duty cycle @ 15.625 kHz
+       CCPR1L = 20;
+       
     switch (currState) {
         case AWAIT_AFE_CONN:
 
@@ -203,6 +208,47 @@ void init_TMR1(void) {
 
 }
 
+void init_TMR6(void) {
+
+    /////////////////////
+    // Configure Timer6
+    /////////////////////
+    
+    // Select PWM timer as Timer6
+    CCPTMRSbits.C1TSEL = 0b10;
+    
+ 
+    // Enable timer Increments every 250 ns (16MHz clock) 1000/(16/4)
+    // Period = 256 x 0.25 us = 64 us
+    
+    //                          Crystal Frequency 
+    //    PWM Freq  = ----------------------------------------- 
+    //                  (PRX + 1) * (TimerX Prescaler) * 4
+    
+    //    PWM Frequency = 16 000 000 / 256 * 1 * 4
+    //    PWM Frequency = 15.625 kHz
+    
+    // Prescale = 1
+    T6CONbits.T6CKPS = 0b00;
+    
+    // Enable Timer6
+    T6CONbits.TMR6ON = 1;
+    
+    // Set timer period
+    PR6 = 255;
+    
+    // Configure CCP1
+    
+    // LSB's of PWM duty cycle = 00
+    CCP1CONbits.DC1B = 00;
+    
+    // Select PWM mode
+    CCP1CONbits.CCP1M = 0b1100;
+    
+// Select timer6
+CCPTMRSbits.P3TSEL = 0b10;
+}
+
 void init_GPIO() {
 
 
@@ -239,6 +285,9 @@ void init_GPIO() {
     TRISAbits.TRISA3 = 0; //set as output
     LATAbits.LATA3 = 0; //set output initially 0
     
+     // Setup PINB0 as output
+    TRISBbits.TRISB1 = 0;
+    
     /////////////////////
     // Define peripheral pin select
     ////////////////////
@@ -258,6 +307,9 @@ void init_GPIO() {
     RB2PPSbits.RB2PPS = 0x14; //RB2->EUSART:TX;
     RXPPSbits.RXPPS = 0x0B; //RB3->EUSART:RX;
 
+    // Set RB0 to PWM1
+    RB1PPSbits.RB1PPS = 0b01100;
+    
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
